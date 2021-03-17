@@ -2,98 +2,85 @@ CREATE DATABASE IF NOT EXISTS writeyread;
 
 USE writeyread;
 
-DROP TABLE IF EXISTS red_social;
-DROP TABLE IF EXISTS opciones_cobro;
-DROP TABLE IF EXISTS opciones_pago;
-DROP TABLE IF EXISTS escritor;
+DROP TABLE IF EXISTS usuari;
+DROP TABLE IF EXISTS interactllibre;
+DROP TABLE IF EXISTS llibre;
+DROP TABLE IF EXISTS escriptor;
+DROP TABLE IF EXISTS tipusuari;
 DROP TABLE IF EXISTS lector;
-DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS categoria;
-DROP TABLE IF EXISTS sub_categoria;
-DROP TABLE IF EXISTS libro;
 
-CREATE TYPE usuario AS (
-	id int,
-	dni varchar(9),
-	email varchar(20),
-	red_social_id int,
-	fecha_alta date
-);
-
-CREATE TABLE red_social(
+CREATE TABLE tipusuari(
 id int,
-nombre varchar(20),
-url varchar(20),
-password varchar(20),
+tipus_usuari varchar(15),
 PRIMARY KEY (id)
 );
 
-CREATE TABLE opciones_cobro(
-id int,
-nombre varchar(20),
-password varchar(20),
-PRIMARY KEY (id)
+CREATE TABLE usuari (
+	id int AUTO_INCREMENT,
+	nickname varchar(20) NOT NULL,
+	nom_i_cognoms varchar(50) NOT NULL,
+	dni varchar(10) NOT NULL UNIQUE,
+	email varchar(20) NOT NULL UNIQUE,
+	data_alta date,
+	avatar_url varchar(250),
+	password varchar(100),
+	subscrit boolean,
+	data_naixement date,
+	id_tipusuari int,
+	PRIMARY KEY (id),
+CONSTRAINT FK_Tipus_Usuari
+  FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id)
 );
 
-CREATE TABLE opciones_pago(
-id int,
-nombre varchar(20),
-password varchar(20),
-PRIMARY KEY (id)
+CREATE TABLE escriptor(
+id int PRIMARY KEY REFERENCES usuari(id),
+autobiografia varchar(250)
 );
-
-CREATE TABLE escritor(
-puntuacion int,
-opciones_cobro_id int,
-PRIMARY KEY (id),
-CONSTRAINT FK_Red_Social
-  FOREIGN KEY (red_social_id) REFERENCES red_social(id),
-CONSTRAINT FK_Cobro
-  FOREIGN KEY (opciones_cobro_id) REFERENCES opciones_cobro(id)
-)INHERITS (usuario);
 
 CREATE TABLE lector(
-opciones_pago_id int,
-PRIMARY KEY (id),
-CONSTRAINT FK_Red_Social
-  FOREIGN KEY (red_social_id) REFERENCES red_social(id),
-CONSTRAINT FK_Pago
-  FOREIGN KEY (red_pago_id) REFERENCES opciones_pago(id)
-)INHERITS (usuario);
+id int PRIMARY KEY REFERENCES usuari(id)
+);
 
 CREATE TABLE categoria(
-id int,
-nombre varchar(20),
+id tinyint,
+nom_cat varchar(20),
+descripcio_cat varchar(250),
 PRIMARY KEY (id)
 );
 
-CREATE TABLE sub_categoria(
-id int,
-nombre varchar(20),
-PRIMARY KEY (id)
-);
-
-CREATE TABLE libro(
-id int,
-titulo varchar(20),
-escritor int,
-idioma varchar(20),
-precio decimal(4,2),
-etiquetas varchar(20),
-ventas int, 
-comparticiones int,
-lecturas int, 
-sinopsis varchar(50),
-paginas int,
-categoria int, 
-sub_categoria int,
-votos int,
-urimagen varchar(50),
+CREATE TABLE llibre(
+id int AUTO_INCREMENT,
+id_escriptor int NOT NULL,
+titol varchar(50) NOT NULL,
+descripcio_curta varchar(250) NOT NULL,
+sinopsis text NOT NULL,
+contingut_url varchar(100) NOT NULL,
+data_alta date,
+cops_llegit int,
+portada_url varchar(250) NOT NULL,
+id_categoria tinyint NOT NULL,
+mitja_vots tinyint,
+cops_votat int,
 PRIMARY KEY (id),
-CONSTRAINT FK_Escritor
-  FOREIGN KEY (escritor) REFERENCES escritor(id),
+CONSTRAINT FK_Escriptor
+  FOREIGN KEY (id_escriptor) REFERENCES escriptor(id),
 CONSTRAINT FK_Categoria
-  FOREIGN KEY (categoria) REFERENCES categoria(id),
-CONSTRAINT FK_Sub_categoria
-  FOREIGN KEY (sub_categoria) REFERENCES sub_categoria(id)
+  FOREIGN KEY (id_categoria) REFERENCES categoria(id)
 );
+
+CREATE TABLE interactllibre(
+id_lector int,
+id_llibre int,
+id int AUTO_INCREMENT,
+llegit boolean,
+puntuacio tinyint, 
+critica varchar(250),
+preferit boolean, 
+PRIMARY KEY (id),
+CONSTRAINT FK_lector
+  FOREIGN KEY (id_lector) REFERENCES lector(id),
+CONSTRAINT FK_llibre
+  FOREIGN KEY (id_llibre) REFERENCES llibre(id)
+);
+
