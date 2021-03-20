@@ -1,0 +1,157 @@
+/*FONTS*/
+@font-face {
+    font-family: "Poiret One";
+    src: url("../fonts/PoiretOne-Regular.ttf");
+}
+
+.container{
+    overflow: hidden;
+}
+
+/*HEADER*/
+#user{
+    background-color: #925279;
+    text-align: right;
+    height: 50px;
+}
+
+#user button {
+	margin-right: 1.5%;
+    border: 1px solid whitesmoke;
+    border-radius: 60%;
+}
+
+#user button:hover{
+    -webkit-box-shadow: 1px 1px 2px 2px rgba(220,230,255,0.41); 
+    box-shadow: 1px 1px 2px 2px rgba(220,230,255,0.41);   
+}
+
+
+#user button i{
+    font-weight: bold;
+    font-size: 95%;
+    color: whitesmoke;
+}
+
+#btn_search, #btn_subcr{
+    color: whitesmoke;
+    background-color: #925279;
+    border-color: #925279;
+}
+
+/*CAROUSEL BANNER */
+.carousel-caption {
+    bottom: 30%;
+    left: 42%;
+    
+}
+
+.carousel-caption h5{
+    font-family: 'Poiret One';
+    font-size: 230%;
+    color: #925279;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 1078px) {
+    .carousel-caption h5{
+        font-size: 180%;
+    }
+}
+
+@media (max-width: 870px) {
+    .carousel-caption h5{
+        font-size: 150%;
+    }
+
+    .carousel-caption{
+        bottom: 20%;
+    }
+}
+
+@media (max-width: 750px) {
+    .carousel-caption h5{
+        font-size: 100%;
+    }
+
+
+    #btn_subcr{
+        margin-top: 0px !important;
+        font-size: 65%;
+    }
+}
+
+@media (max-width: 544px) {
+    .carousel-caption h5{
+        font-size: 70%;
+    }
+
+    .carousel-caption{
+        bottom: 5%;
+    }
+
+    #btn_subcr{
+        margin-top: 0px !important;
+        font-size: 60%;
+    }
+}
+
+@media (max-width: 428px) {
+    .carousel-caption h5{
+        font-size: 50%;
+    }
+
+    .carousel-caption{
+        bottom: -5%;
+    }
+
+    #btn_subcr{
+        font-size: 42%;
+    }
+}
+  
+
+
+.carousel-indicators{
+    position: absolute;
+    bottom: -36px;
+}
+
+#banner, #llib_cat, #llib_votos, #llib_nous {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+  
+.carousel-control-prev {
+    margin-left: -10%;
+}
+  
+.carousel-control-next {
+    margin-right: -10%;
+}
+
+/*TITOLS*/
+h3{
+    margin-top: 5%;
+}
+
+/*CARDS*/
+.card{
+    width: 200px;
+    margin: auto;
+    margin-top: 10%;
+}
+
+/*FOOTER*/
+#footer{
+    background-color: #925279;
+    color: whitesmoke;
+    margin-top: 3%;
+}
+
+#footer p{
+    font-size: 120%;
+    margin-bottom: 0px;
+    padding-top:3%;
+}
