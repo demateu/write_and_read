@@ -1,12 +1,15 @@
+/*
+*   COLOR FONS: #925279
+*/
+
+
+
 /*FONTS*/
 @font-face {
     font-family: "Poiret One";
     src: url("../fonts/PoiretOne-Regular.ttf");
 }
 
-.container{
-    overflow: hidden;
-}
 
 /*HEADER*/
 #user{
@@ -51,6 +54,7 @@
     font-size: 230%;
     color: #925279;
     font-weight: bolder;
+    margin-bottom: 0px;
 }
 
 
@@ -100,6 +104,7 @@
 @media (max-width: 428px) {
     .carousel-caption h5{
         font-size: 50%;
+        
     }
 
     .carousel-caption{
@@ -143,6 +148,14 @@ h3{
     margin-top: 10%;
 }
 
+.checked{
+    color: orange;
+}
+
+.lookIcon{
+    width: 17%;
+}
+
 /*FOOTER*/
 #footer{
     background-color: #925279;
@@ -151,7 +164,15 @@ h3{
 }
 
 #footer p{
-    font-size: 120%;
     margin-bottom: 0px;
     padding-top:3%;
+}
+
+#footer a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#copyright{
+    background-color: rgba(0, 0, 0, 0.2);
 }
