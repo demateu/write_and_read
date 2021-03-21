@@ -19,19 +19,25 @@
 </head>
 <body>
 
-    <div class="container-fluid p-0">
+    <div class="container-fluid px-auto">
 
         <!-- Capçalera de la web -->
         <header id="capçalera">
-            <!-- User icona -->
-            <div id="user">
-                <button type="button" class="btn mt-1">
-                    <i class="far fa-user"></i> 
-                </button>       
+            <div class="row">
+                <div class="col-12 p-0">
+                    <!-- User icona -->
+                    <div id="user">
+                        <button type="button" class="btn mt-1">
+                            <i class="far fa-user"></i> 
+                        </button>       
+                    </div>
+                </div>
             </div>
 
+            
+
             <!--Logo i buscador de la web -->
-            <div id="logo_search" class="row p-3 float-left">
+            <div class="row pt-3" id="logo_search">
                 <div class="col-2">
                     <a href="index.php">
                         <img src="#" alt="logo" />
@@ -58,7 +64,7 @@
             
 
             <!-- Banner carousel publicitari -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mx-auto">
                 <div class="col-11">
                     <div id="banner" class="carousel carousel-dark slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
@@ -104,11 +110,12 @@
 
         <!-- Menu nav -->
         <!-- canviar class active a cada li s'ha de fer amb jquery -->
-        <div class="row ">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light mt-5">
+            <div class="row mx-auto">
 
-            <div class="col-12">
+                <div class="col-12">
 
-            <nav class="navbar navbar-expand-sm navbar-light bg-light mt-5">
+            
                 <div class="container-fluid">
                     
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,13 +150,16 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            
+            </div>
+        </nav>
         
         <!--Contingut principal -->
-        <main>
-            <!--Grid 4x2 Carousel llibres per categoria -->
-            <div class="row justify-content-center">
+        <main>   
+            <div class="row justify-content-center mx-auto">
                 <div class="col-11">
+                        
+                    <!--Grid 4x2 Carousel llibres per categoria -->
                     <div id="llib_cat" class="carousel carousel-dark slide" data-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#llib_cat" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -159,99 +169,236 @@
                             <div class="carousel-item active">
                                 <!-- fila 1 -->
                                 <div class="row">
-                                    <!-- Les targetes de fitxes de llibre -->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
 
+                                    <!-- Les cards de fitxes de llibre -->
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
                                             <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                </div>
+                                    <!-- fi card -->
+                                        
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+                                        
+                                </div>  
+
                                 <!-- fila2 -->
                                 <div class="row">
-                                    <!-- Les targetes de fitxes de llibre -->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
                                     
+                                    <!-- Les cards de fitxes de llibre -->
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
                                             <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
                                             </div>
                                         </div>
                                     </div>
-                                    
+                                    <!-- fi card -->
+                                        
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                   <!-- Les cards de fitxes de llibre -->
+                                   <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+                                        
                                 </div>
                             </div>
                         </div>
@@ -261,17 +408,17 @@
                         <a href="#llib_cat" class="carousel-control-next" data-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </a>
-
                     </div>
                 </div>
-
             </div>
+        
+
 
             <!-- linia de separacio de llibres per categoria -->
             <hr/>
 
             <!--Grid 4x1 Carousel llibres per votos -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mx-auto">
                 <h3 class="text-center mt-5">Top valorats: </h3>
                 <div class="col-11">
                     <div id="llib_votos" class="carousel carousel-dark slide" data-ride="carousel">
@@ -283,50 +430,117 @@
                             <div class="carousel-item active">
                                 
                                 <div class="row">
-                                    <!-- Les targetes de fitxes de llibre -->
+                                    <!-- Les cards de fitxes de llibre -->
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
                                             <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- fi card -->
                                     
+                                    <!-- Les cards de fitxes de llibre -->
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
                                             <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- fi card -->
+
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                    <!-- Les cards de fitxes de llibre -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
                                     
                                 </div>
                                 
@@ -340,12 +554,13 @@
                         </a>
 
                     </div>
-                </div>
+                    </div>
 
+                </div>
             </div>
 
             <!--Grid 4x1 Carousel llibres per novetat -->
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mx-auto">
                 <h3 class="text-center mt-5">Novetats: </h3>
                 <div class="col-11">
                     <div id="llib_nous" class="carousel carousel-dark slide" data-ride="carousel">
@@ -353,85 +568,212 @@
                             <button type="button" data-bs-target="#llib_nous" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#llib_nous" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                
-                                <div class="row">
-                                    <!-- Les targetes de fitxes de llibre -->
-                                    <div class="col-sm-6 col-lg-3">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">   
+                            <div class="row">
+                                <!-- Les cards de fitxes de llibre -->
+                                <div class="col-sm-6 col-lg-3">
                                         <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
                                             <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
 
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card">
-                                            <img src="images.png" alt="Imatge del llibre" class="card-img-top" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Titol</h4>
-                                                <p class="card-text">Autor</p>
-                                                <!-- icones i valoracions -->
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- fi card -->
                                     
-                                </div>
-                                
+                                <!-- Les cards de fitxes de llibre -->
+                                <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                <!-- Les cards de fitxes de llibre -->
+                                <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+
+                                <!-- Les cards de fitxes de llibre -->
+                                <div class="col-sm-6 col-lg-3">
+                                        <div class="card">
+                                            <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                                            <div class="card-body">
+                                                <!-- valoracions -->
+                                                <div class="valoracions">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
+                                                <h4 class="card-title">Don Quijote de la Mancha</h4>
+                                                <p class="card-text">Miguel Cervantes</p>
+
+                                                <!-- icones-->
+                                                <img class="lookIcon" src="assets/img/look_icon.png" alt="Icona de veure mes"> 
+                                                <button type="button" class="btn">
+                                                    <i class="far fa-heart"></i>
+                                                </button>      
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fi card -->
+                                    
                             </div>
+                                
                         </div>
-                        <a href="#llib_nous" class="carousel-control-prev" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a href="#llib_nous" class="carousel-control-next" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
-
                     </div>
+                    <a href="#llib_nous" class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a href="#llib_nous" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
                 </div>
-
             </div>
-
         </main>
 
+
         <!--Peu de la pagina -->
-        <footer id="footer">
-            <p class="text-center mt-2">Tots els drets reservats  &COPY; <?= date('Y') ?></p>
-            <div id="social" class="text-center">
-                <i class="fab fa-facebook-square"></i>
-                <i class="fab fa-twitter-square"></i>
-                <i class="fab fa-instagram-square"></i>
-                <i class="fab fa-google-plus-square"></i>
+        <footer id="footer" class="text-center text-lg-start mt-5">
+            <div class="row mx-auto p-5"> 
+                <!-- Grid colummn -->
+                <div class="col-lg-3 col-md-12 mb-4 mb-md-0">         
+                    <!-- Logo -->
+                    <a href="index.php">
+                        <img src="#" alt="logo" />
+                    </a>
+                    <p>
+                        El teu lloc ideal per publicar els teus llibres per a escriptors i gaudir d'una àmplia gamma d'històries per a lectors.
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Informació</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!">Avis legal</a>
+                        </li>
+                        <li>
+                            <a href="#!">Politica de cookies</a>
+                        </li>
+                        <li>
+                            <a href="#!" >Politica de privacitat</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Compte</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">El meu compte</a>
+                        </li>
+                        <li>
+                            <a href="#!">Els meus preferits</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Segueix-nos</h5>
+                    <div id="social">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-twitter-square"></i>
+                        <i class="fab fa-instagram-square"></i>
+                        <i class="fab fa-google-plus-square"></i>
+                    </div>
+                        
+                </div>
+                <!--Grid column-->    
+            </div> 
+
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <!-- Copyright -->
+                    <div id="copyright" class="text-center p-3">
+                        &COPY <?= date('Y') ?> | 
+                        <a href="index.php">write&read.com</a>
+                    </div>
+                    <!-- Copyright -->
+                </div>
             </div>
-            
+                
         </footer>
-    
+        <!-- Fi peu de pagina -->
     </div>
 </body>
 </html>
