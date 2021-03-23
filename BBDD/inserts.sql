@@ -1,12 +1,12 @@
 /*TAULA CATEGORIA*/
 
-INSERT INTO categoria VALUES (1, 'Acció');
-INSERT INTO categoria VALUES (2, 'Romanç');
-INSERT INTO categoria VALUES (3, 'Fantasia');
-INSERT INTO categoria VALUES (4, 'Sci-fi');
-INSERT INTO categoria VALUES (5, 'Drama');
-INSERT INTO categoria VALUES (6, 'Horror');
-INSERT INTO categoria VALUES (7, 'Suspens');
+INSERT INTO categoria VALUES (1, 'Acció', "Són aquells en què l'argument ressalta pel risc, la sorpresa i el misteri.");
+INSERT INTO categoria VALUES (2, 'Romanç', "És el gènere que tracta d'històries d'amor i relacions amoroses.");
+INSERT INTO categoria VALUES (3, 'Fantasia', "Són relats en què participen fenòmens sobrenaturals i extraordinaris, com la màgia o la intervenció de criatures inexistents a la vida real.");
+INSERT INTO categoria VALUES (4, 'Sci-fi', "Presenten els efectes dels avenços científics i tecnològics, presents o futurs, en la societat o en els individus, i tot això acompanyat d'aventures i de situacions commovedores i sorprenents.");
+INSERT INTO categoria VALUES (5, 'Drama', "Ès una ficció o una situació de la vida real que resulta complexa i difícil però amb un final favorable o feliç.");
+INSERT INTO categoria VALUES (6, 'Horror', "Té la capacitat d'espantar, causar por o atemorir els seus lectors o espectadors en induir sentiments d'horror i terror.");
+INSERT INTO categoria VALUES (7, 'Suspens', "El seu objectiu principal és mantenir al lector a l'expectativa, generalment en un estat de tensió, del que pugui passar als personatges i, per tant, atent a el desenvolupament del conflicte.");
 
 /*TAULA TIPUS USUARIS NOMES 2 TIPUS */
 INSERT INTO tipusuari VALUES (1,"lector");
@@ -32,7 +32,7 @@ INSERT INTO usuari VALUES (4, 'Katty', 'Katty Perry', '43543620K', 'katty@gmail.
   /*TAULA ESCRIPTOR*/
   /*COMO SE HARA PARA COINCIDIR EL ID DE ESTA TABLA CON LA DE USUARI?*/
 INSERT INTO escriptor VALUES (1, "Va ser una escriptora i dramaturga britànica especialitzada en el gènere policial, per el treball va tenir reconeixement a nivell internacional");
-INSERT INTO escriptor VALUES (2, "Està considerat la màxima figura de la literatura espanyola i és universalment conegut per haver escrit L'enginyós gentilhome el Quixot de la Manxa, que molts crítics han descrit com la primera novel·la moderna i una de les millors obres de la literatura universal, a més de ser el segon llibre de la història en nombre d'edicions i traduccions, només superat per la Bíblia");
+INSERT INTO escriptor VALUES (2, "Està considerat la màxima figura de la literatura espanyola i és universalment conegut per haver escrit L'enginyós gentilhome el Quixot de la Manxa");
 
 /*TAULA LECTOR*/
 INSERT INTO lector VALUES (3);
