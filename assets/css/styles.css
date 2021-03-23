@@ -1,5 +1,6 @@
 /*
 *   COLOR FONS: #925279
+*   COLOR FOOTER MES FOSC: #754261
 */
 
 
@@ -129,11 +130,11 @@
 }
   
 .carousel-control-prev {
-    margin-left: -10%;
+    margin-left: -13%;
 }
   
 .carousel-control-next {
-    margin-right: -10%;
+    margin-right: -13%;
 }
 
 /*TITOLS*/
@@ -154,6 +155,7 @@ h3{
 
 .lookIcon{
     width: 17%;
+    cursor: pointer;
 }
 
 /*FOOTER*/
@@ -174,5 +176,16 @@ h3{
 }
 
 #copyright{
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color:#754261;
+}
+
+#social i{
+    font-size: 120%;
+    cursor: pointer;
+    width: 11%;
+}
+
+#social i:hover{
+    transition: all 400ms;
+    transform: scale(120%);
 }
