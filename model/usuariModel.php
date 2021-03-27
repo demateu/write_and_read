@@ -1,5 +1,10 @@
 <?php
 
+require_once 'config/DataBase.php';
+
+/**
+ * Classe superclasse de la qual heretaran: EscriptorModel i LectorModel
+ */
 class UsuariModel{
     
     //PK -> id autoincrement que se crea en la BBDD
@@ -13,6 +18,14 @@ class UsuariModel{
     private $subscrito;
     private $data_naixement;
     private $id_tipo_user;//FK
+
+    /**
+     * Constructor que crea ja la conexió a la BBDD
+     */
+    public $db;
+    public function __construct(){
+        $this->db = DataBase::conectar();
+    }
 
 }
 
