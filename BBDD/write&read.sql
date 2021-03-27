@@ -7,12 +7,19 @@ DROP TABLE IF EXISTS interactllibre;
 DROP TABLE IF EXISTS llibre;
 DROP TABLE IF EXISTS escriptor;
 DROP TABLE IF EXISTS tipusuari;
+DROP TABLE IF EXISTS avatar;
 DROP TABLE IF EXISTS lector;
 DROP TABLE IF EXISTS categoria;
 
 CREATE TABLE tipusuari(
 id int,
 tipus_usuari varchar(15),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE avatar(
+id int,
+avatar_url_imagen varchar(250),
 PRIMARY KEY (id)
 );
 
@@ -23,14 +30,16 @@ CREATE TABLE usuari (
 	dni varchar(10) NOT NULL UNIQUE,
 	email varchar(20) NOT NULL UNIQUE,
 	data_alta date,
-	avatar_url varchar(250),
+	avatar_id int,
 	password varchar(100),
 	subscrit boolean,
 	data_naixement date,
 	id_tipusuari int,
 	PRIMARY KEY (id),
 CONSTRAINT FK_Tipus_Usuari
-  FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id)
+  FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id),
+CONSTRAINT FK_Avatar
+  FOREIGN KEY (avatar_id) REFERENCES avatar(id)
 );
 
 CREATE TABLE escriptor(
