@@ -35,20 +35,12 @@ CREATE TABLE usuari (
 	subscrit boolean,
 	data_naixement date,
 	id_tipusuari int,
+	biografia varchar(250),
 	PRIMARY KEY (id),
 CONSTRAINT FK_Tipus_Usuari
   FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id),
 CONSTRAINT FK_Avatar
   FOREIGN KEY (avatar_id) REFERENCES avatar(id)
-);
-
-CREATE TABLE escriptor(
-id int PRIMARY KEY REFERENCES usuari(id),
-autobiografia varchar(250)
-);
-
-CREATE TABLE lector(
-id int PRIMARY KEY REFERENCES usuari(id)
 );
 
 CREATE TABLE categoria(
@@ -73,7 +65,7 @@ mitja_vots tinyint,
 cops_votat int,
 PRIMARY KEY (id),
 CONSTRAINT FK_Escriptor
-  FOREIGN KEY (id_escriptor) REFERENCES escriptor(id),
+  FOREIGN KEY (id_escriptor) REFERENCES usuari(id),
 CONSTRAINT FK_Categoria
   FOREIGN KEY (id_categoria) REFERENCES categoria(id)
 );
@@ -88,7 +80,7 @@ critica varchar(250),
 preferit boolean, 
 PRIMARY KEY (id),
 CONSTRAINT FK_lector
-  FOREIGN KEY (id_lector) REFERENCES lector(id),
+  FOREIGN KEY (id_lector) REFERENCES usuari(id),
 CONSTRAINT FK_llibre
   FOREIGN KEY (id_llibre) REFERENCES llibre(id)
 );
