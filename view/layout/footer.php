@@ -73,3 +73,7 @@
         
 </footer>
 <!-- Fi peu de pagina -->
+
+</div>
+
+</body>

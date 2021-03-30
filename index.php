@@ -1,5 +1,6 @@
 <?php
 require_once 'autoload.php';
+
 require_once 'view/layout/header.php';
 require_once 'view/layout/main.php';
 
@@ -29,7 +30,7 @@ if(class_exists($nombre_controlador)){
     $controlador = new $nombre_controlador();
 
     //si el metodo existe, llamo al metodo
-    if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){//recoje variables por get
+    if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){
         //recoje la accion desde la url por GET
         $action = $_GET["action"];
         //llama al metodo que pide la url
