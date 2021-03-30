@@ -3,7 +3,7 @@
         
         <!--Contingut principal -->
         <main>   
-            <h1 align="center">Miguel de Cervantes</h1>
+            <h1 class="text-center">Miguel de Cervantes</h1>
     
 	<div class="container border border-secondary">
 		<div class="row">
@@ -20,7 +20,7 @@
 			</div>
 		</div><br>
 		<div class="row">
-		<h4 class="card-title" align="center">Llibres Publicats</h4>
+		<h4 class="card-title text-center">Llibres Publicats</h4>
 			<div class="col-sm-6 col-lg-3">
                <div class="card">
 						<img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
