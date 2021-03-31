@@ -1,9 +1,11 @@
 <?php
 
-class CategoriaController{
+class CategoriaController
+{
 
     //test funcion
-    public function index(){
+    public function index()
+    {
         echo "Controlador CategoriaController, Accion index";
-    }    
+    }
 }
