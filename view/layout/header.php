@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="<?=base_url?>assets/css/styles.css" />
 
 </head>
 
@@ -41,8 +41,8 @@
             <!--Logo i buscador de la web -->
             <div class="row pt-3" id="logo_search">
                 <div class="col-2">
-                    <a href="index.php">
-                        <img src="#" alt="logo" />
+                    <a href="<?=base_url?>index.php">
+                        <img src="<?=base_url?>#" alt="logo" />
                     </a>
                 </div>
 
