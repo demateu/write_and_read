@@ -14,5 +14,3 @@ class EscriptorModel extends UsuariModel{
     }    
 
 }
-
-?>
