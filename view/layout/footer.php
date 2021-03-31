@@ -64,8 +64,8 @@
         <div class="col-lg-12 p-0">
             <!-- Copyright -->
             <div id="copyright" class="text-center p-3">
-                &COPY <?= date('Y') ?> |
-                <a href="index.php">write&read.com</a>
+                Write&Read&COPY; <?= date('Y') ?> |
+                <a href="<?=base_url?>index.php">write&read.com</a>
             </div>
             <!-- Copyright -->
         </div>
