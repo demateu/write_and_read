@@ -35,7 +35,7 @@ if(isset($_GET['controller'])){
 
 }else{
     show_error();
-    exit();//para la ejecucion y lo de abajo ya no lo ejecuta
+    //exit();//para la ejecucion y lo de abajo ya no lo ejecuta
 }
 
 //compruebo si existe el controlador, la clase
@@ -46,7 +46,7 @@ if(class_exists($nombre_controlador)){
     //si el metodo existe, llamo al metodo
     if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){//recoje variables por get
         //recoje la accion desde la url por GET
-        $action = $_GET["action"];
+        $action = $_GET['action'];
         //llama al metodo que pide la url
         $controlador->$action();
     }elseif(!isset($_GET['controller']) && !isset($_GET['action']) ){
@@ -61,6 +61,11 @@ if(class_exists($nombre_controlador)){
     show_error();
 }
 
-require_once 'view/llibres/tots.php';
-require_once 'view/layout/main.php';
+//require_once 'view/llibres/tots.php';
 require_once 'view/layout/footer.php';
+
+
+/**
+ * NOTA:
+ * tal qual está ahora, cuando carga el ErrorController, desconfigura los estilos
+ */

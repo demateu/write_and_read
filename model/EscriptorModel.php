@@ -5,7 +5,6 @@ class EscriptorModel extends UsuariModel{
 
     private $autobiografia;
 
-    
     /**
      * Constructor que hereda de la SuperClase UsuariModel
      */

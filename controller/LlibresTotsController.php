@@ -10,7 +10,7 @@
 class LlibresTotsController{
 
     public function index(){
-        echo "Controlador LlibresTotsController, Accion index";
+        echo "Text per seguiment: Controlador LlibresTotsController, Accion index";
 
         //renderizar vista
         require_once 'view/llibres/tots.php';
