@@ -3,12 +3,20 @@
 *   COLOR FOOTER MES FOSC: #754261
 */
 
-
+*{
+    padding: 0;
+    margin: 0;
+}
 
 /*FONTS*/
 @font-face {
     font-family: "Poiret One";
     src: url("../fonts/PoiretOne-Regular.ttf");
+}
+
+/*TITOLS*/
+h3{
+    margin-top: 5%;
 }
 
 
@@ -30,7 +38,6 @@
     box-shadow: 1px 1px 2px 2px rgba(220,230,255,0.41);   
 }
 
-
 #user button i{
     font-weight: bold;
     font-size: 95%;
@@ -42,6 +49,7 @@
     background-color: #925279;
     border-color: #925279;
 }
+
 
 /*CAROUSEL BANNER */
 .carousel-caption {
@@ -80,7 +88,6 @@
         font-size: 100%;
     }
 
-
     #btn_subcr{
         margin-top: 0px !important;
         font-size: 65%;
@@ -118,7 +125,6 @@
 }
   
 
-
 .carousel-indicators{
     position: absolute;
     bottom: -36px;
@@ -137,10 +143,7 @@
     margin-right: -13%;
 }
 
-/*TITOLS*/
-h3{
-    margin-top: 5%;
-}
+
 
 /*CARDS*/
 .card{
@@ -157,6 +160,7 @@ h3{
     width: 17%;
     cursor: pointer;
 }
+
 
 /*FOOTER*/
 #footer{
@@ -189,3 +193,6 @@ h3{
     transition: all 400ms;
     transform: scale(120%);
 }
+
+
+/*-- Mediaqueries --*/
