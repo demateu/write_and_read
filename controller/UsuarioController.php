@@ -1,6 +1,6 @@
 <?php
 
-class EscriptorController{
+class UsuarioController{
 
     //test funcion
     public function index(){
