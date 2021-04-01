@@ -16,8 +16,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?=base_url?>assets/css/styles.css" />
+    <!-- CSS 
+    script para que vaya cargando version nueva y solucione el almacenado en cache-->
+    <link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time(); ?>" />
+    <script src="/js/functions.js?v=<?php echo time(); ?>"></script>
 
 </head>
 
@@ -27,6 +29,7 @@
 
         <!-- Capçalera de la web -->
         <header id="capçalera">
+
             <div class="row">
                 <div class="col-12 p-0">
                     <!-- User icona -->
@@ -38,17 +41,47 @@
                 </div>
             </div>
 
-            <!--Logo i buscador de la web -->
-            <div class="row pt-3" id="logo_search">
-                <div class="col-2">
+            <!--  MENU NAV  -->
+            <div class="row pt-3" id="menu-nav">
+                <!--Logo i buscador de la web -->
+                <div class="col-2" id="logo_search">
                     <a href="<?=base_url?>index.php">
                         <img src="<?=base_url?>#" alt="logo" />
                     </a>
                 </div>
-
-
+                <!--  MENU  -->
+                <nav id="menu" class="col">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">INICI</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Acció</a></li>
+                            <li><a class="dropdown-item" href="#">Romanç</a></li>
+                            <li><a class="dropdown-item" href="#">Fantasia</a></li>
+                            <li><a class="dropdown-item" href="#">Sci-fi</a></li>
+                            <li><a class="dropdown-item" href="#">Drama</a></li>
+                            <li><a class="dropdown-item" href="#">Horror</a></li>
+                            <li><a class="dropdown-item" href="#">Suspens</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">test</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Com funciona</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Registra't</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacta'ns</a>
+                        </li>
+                    </ul>
+                </nav>
                 <!--Buscador-->
-                <div class="col-10">
+                <div class="col-3">
                     <div class="input-group justify-content-end">
                         <div class="form-outline">
                             <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
@@ -59,3 +92,4 @@
                     </div>
                 </div>
             </div>
+            <!--  FI MENU NAV  -->

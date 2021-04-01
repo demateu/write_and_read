@@ -3,6 +3,8 @@ require_once 'autoload.php';
 require_once 'config/parameters.php';
 
 require_once 'view/layout/header.php';
+require_once 'view/layout/slider.php';
+require_once 'view/llibres/tots.php';
 require_once 'view/layout/main.php';
 
 /**
