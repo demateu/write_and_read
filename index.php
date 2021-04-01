@@ -5,6 +5,15 @@ require_once 'config/parameters.php';
 require_once 'view/layout/header.php';
 require_once 'view/layout/main.php';
 
+/**
+ * cuando detecte que la pagina no existe
+ * se cargara el controlador
+ */
+function show_error(){
+    $error = new ErrorController();
+    //cargamos el metodo index del controlador
+    $error->index();
+}
 
 /**
  * Controlador Frontal:
@@ -32,14 +41,13 @@ if (isset($_GET['controller'])) {
             //llama al metodo que pide la url
             $controlador->$action();
         } else {
-            echo "La pagina que buscas no existe1";
+            show_error();
         }
     } else {
-        echo "La pagina que buscas no existe2";
+        show_error();
     }
 } else {
-    //si no llega lanza mensaje de error y corta la ejecucion
-    echo "La pagina que buscas no existe";
+    show_error();
 }
 
 require_once 'view/layout/footer.php';
