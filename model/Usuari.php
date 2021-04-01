@@ -3,11 +3,14 @@
 /**
  * veure després si creem una superclasse
  * per tenir en classes separades: escritor i lector
- * de moment ho poso tot juntç
+ * de moment ho poso tot junt
  * 
  * seran propiedades privadas porque solo podremos acceder a ellos mediante metodos
  * 
  * se usará para crear objetos
+ * 
+ * * tiene los getters y setters de cada propiedad
+ * tiene metodos para interactuar con la BBDD en relacion a cada una de sus proiedades
  */
 class Usuari{
 
@@ -264,6 +267,22 @@ class Usuari{
 
         return $this;
     }
+
+
+    /**
+     ******************************************* METODOS
+     */
+
+    /**
+     * guardamos el objeto en la BBDD
+     */
+    public function save(){
+
+    }    
+
+
+
+
 }
 
 /*
