@@ -14,7 +14,7 @@ class DataBase{
         $conexion = new mysqli( $db_location, $user, $pass, $db_name);
 
         //setear la BBDD a utf8
-        $conexion->query("SET NAMES 'utf8'");
+        $conexion->set_charset("utf8");
 
         //devolver la conexion para usarla desde donde la pidamos
         return $conexion;
