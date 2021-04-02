@@ -308,8 +308,8 @@ class Usuari{
     public function save(){
         //preparo la query -> un insert
         //ojo q subscrit hauria de ser boolean a la BBDD (s'haura de canviar)
-        $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipusuari, biografia) 
-        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), NULL, '{$this->getPassword()}', NULL, NULL, NULL, '{$this->getBiografia()}' )";
+        $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
+        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), NULL, '{$this->getPassword()}', NULL, NULL, 1, '{$this->getBiografia()}' )";
         $save = $this->db->query($sql);
 
         $result = false;

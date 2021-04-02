@@ -17,6 +17,9 @@ class DataBase{
         $conexion->query("SET NAMES utf8");
         //$conexion->query("SET NAMES utf8");
 
+         //linias de Ronny, ver si se quitan las de arriba o se deja todo
+        $conexion->set_charset("utf8");
+
         //devolver la conexion para usarla desde donde la pidamos
         return $conexion;
 
