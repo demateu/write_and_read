@@ -12,6 +12,8 @@ SELECT l.id, l.titol,l.portada_url, l.mitja_vots, l.cops_votat, c.nom_cat AS 'ca
 
 $db=Database::conectar();
 
+
+//Nomes rebrem peticions get
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     if(isset($_GET['categoria'])){
@@ -36,11 +38,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         
         header("Content-Type: application/json; charset=utf-8" );
         echo json_encode( $query );
-        exit();
-        
-        
-
-        
-        
+        exit(); 
     }
 }
