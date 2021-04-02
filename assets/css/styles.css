@@ -8,6 +8,11 @@
     margin: 0;
 }
 
+.row{
+    margin: 0;
+    padding: 0;
+}
+
 /*FONTS*/
 @font-face {
     font-family: "Poiret One";
@@ -130,17 +135,17 @@ h3{
     bottom: -36px;
 }
 
-#banner, #llib_cat, #llib_votos, #llib_nous {
+#llib_cat, #llib_votos, #llib_nous {
     margin-left: 50px;
     margin-right: 50px;
 }
   
 .carousel-control-prev {
-    margin-left: -13%;
+    margin-left: 0%;
 }
   
 .carousel-control-next {
-    margin-right: -13%;
+    margin-right: 0%;
 }
 
 
@@ -163,18 +168,18 @@ h3{
 
 
 /*FOOTER*/
-#footer{
+footer{
     background-color: #925279;
     color: whitesmoke;
     margin-top: 3%;
 }
 
-#footer p{
+footer p{
     margin-bottom: 0px;
     padding-top:3%;
 }
 
-#footer a{
+footer a{
     text-decoration: none;
     color: whitesmoke;
 }
@@ -196,3 +201,11 @@ h3{
 
 
 /*-- Mediaqueries --*/
+
+.container-fluid{
+    padding: 0px;
+}
+
+.carousel-control-next, .carousel-control-prev{
+    width: 5%;
+}

@@ -1,7 +1,7 @@
 <!-- Banner carousel publicitari -->
 <div class="row justify-content-center mx-auto">
-    <div class="col-11">
-        <div id="banner" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <!--<div class="col">-->
+        <div  class="carousel carousel-dark slide p-0" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -21,9 +21,7 @@
                         <h5>Vols ser escriptor? Ara pots amb nosaltres.</h5>
                         <button type="button" class="btn mt-3" id="btn_subcr">Subscriu-te</button>
                     </div>
-
                 </div>
-
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#banner" data-bs-slide="prev">
@@ -35,5 +33,5 @@
                 <span class="visually-hidden">Següent</span>
             </button>
         </div>
-    </div>
+    <!--</div>-->
 </div>

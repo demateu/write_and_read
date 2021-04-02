@@ -36,8 +36,6 @@
                 </div>
             </div>
 
-
-
             <!--Logo i buscador de la web -->
             <div class="row pt-3" id="logo_search">
                 <div class="col-2">

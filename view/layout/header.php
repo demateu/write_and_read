@@ -9,6 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write&Read</title>
 
+    <!-- Favicon
+    <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
+    
+    Para incluir un favicon en formato .ico , debemos utilizar la siguiente línea:
+    <link rel="icon" type="image/x-icon" href="/RUTA/FICHERO_FAVICON.ico">
+    Para incluir un favicon en formato .gif , debemos utilizar la siguiente línea:
+    <link rel="icon" type="image/gif" href="/RUTA/FICHERO_FAVICON.gif">
+    Para incluir un favicon en formato .png , debemos utilizar la siguiente línea:
+    <link rel="icon" type="image/png" href="/RUTA/FICHERO_FAVICON.png">
+    -->
+
     <!-- Font awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
@@ -20,12 +31,11 @@
     script para que vaya cargando version nueva y solucione el almacenado en cache-->
     <link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time(); ?>" />
     <script src="/js/functions.js?v=<?php echo time(); ?>"></script>
-
 </head>
 
 <body>
 
-    <div class="container-fluid px-auto">
+    <div class="container-fluid">
 
         <!-- Capçalera de la web -->
         <header id="capçalera">
@@ -93,3 +103,5 @@
                 </div>
             </div>
             <!--  FI MENU NAV  -->
+        
+    </header>
