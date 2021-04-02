@@ -19,21 +19,35 @@ class Usuari{
     private $nom_i_cognoms;
     private $dni;
     private $email;
-    private $data_alta;//definir un current date en el constructor o en el insert?
+    private $data_alta;//definir un current date aqui, en el constructor o en el insert?
     private $avatar_id;//FK
     private $password;//aplicar encriptacion!
     private $subscrit;//boolean
     private $data_naixement;
     private $id_tipususuari; //FK
     private $biografia;//nomes per escriptors
+    private $db;
 
+
+    public function __construct()
+    {
+        $this->db = DataBase::conectar();
+        $this->id = null;//probar
+    }
+
+    /**
+     * Cambiaremos los getters
+     * Añadiremos un escape para todos los datos que nos lleguen del formulario:
+     * $this->db->real_escape_string(...)
+     */
 
     /**
      * Get the value of id
      */ 
     public function getId()
     {
-        return $this->id;
+        //return $this->id;
+        return $this->db->real_escape_string($this->id);
     }
 
     /**
@@ -53,7 +67,8 @@ class Usuari{
      */ 
     public function getNickname()
     {
-        return $this->nickname;
+        //return $this->nickname;
+        return $this->db->real_escape_string($this->nickname);
     }
 
     /**
@@ -73,7 +88,8 @@ class Usuari{
      */ 
     public function getNom_i_cognoms()
     {
-        return $this->nom_i_cognoms;
+        //return $this->nom_i_cognoms;
+        return $this->db->real_escape_string($this->nom_i_cognoms);
     }
 
     /**
@@ -93,7 +109,8 @@ class Usuari{
      */ 
     public function getDni()
     {
-        return $this->dni;
+        //return $this->dni;
+        return $this->db->real_escape_string($this->dni);
     }
 
     /**
@@ -113,7 +130,8 @@ class Usuari{
      */ 
     public function getEmail()
     {
-        return $this->email;
+        //return $this->email;
+        return $this->db->real_escape_string($this->email);
     }
 
     /**
@@ -133,7 +151,8 @@ class Usuari{
      */ 
     public function getData_alta()
     {
-        return $this->data_alta;
+        //return $this->data_alta;
+        return $this->db->real_escape_string($this->data_alta);
     }
 
     /**
@@ -153,7 +172,8 @@ class Usuari{
      */ 
     public function getAvatar_id()
     {
-        return $this->avatar_id;
+        //return $this->avatar_id;
+        return $this->db->real_escape_string($this->avatar_id);
     }
 
     /**
@@ -170,10 +190,13 @@ class Usuari{
 
     /**
      * Get the value of password
+     * 
+     * Encriptem la contrasenya
      */ 
     public function getPassword()
     {
-        return $this->password;
+        //return $this->password;
+        return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
 
     /**
@@ -193,7 +216,8 @@ class Usuari{
      */ 
     public function getSubscrit()
     {
-        return $this->subscrit;
+        //return $this->subscrit;
+        return $this->db->real_escape_string($this->subscrit);
     }
 
     /**
@@ -213,7 +237,8 @@ class Usuari{
      */ 
     public function getData_naixement()
     {
-        return $this->data_naixement;
+        //return $this->data_naixement;
+        return $this->db->real_escape_string($this->data_naixement);
     }
 
     /**
@@ -233,7 +258,8 @@ class Usuari{
      */ 
     public function getId_tipususuari()
     {
-        return $this->id_tipususuari;
+        //return $this->id_tipususuari;
+        return $this->db->real_escape_string($this->tipususuari);
     }
 
     /**
@@ -253,7 +279,8 @@ class Usuari{
      */ 
     public function getBiografia()
     {
-        return $this->biografia;
+        //return $this->biografia;
+        return $this->db->real_escape_string($this->biografia);
     }
 
     /**
@@ -267,7 +294,7 @@ class Usuari{
 
         return $this;
     }
-
+  
 
     /**
      ******************************************* METODOS
@@ -275,11 +302,22 @@ class Usuari{
 
     /**
      * guardamos el objeto en la BBDD
+     * 
+     * @return
+     * true si la consulta se hace correctamente, sino false
      */
     public function save(){
+        //preparo la query -> un insert
+        //ver si CURDATE necesita estar entre comillas o no
+        $sql = "INSERT INTO usuari VALUES({$this->getId()}, '{$this->getNickname()}',  '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), {$this->getAvatar_id()}, '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getEmail()}', '{$this->getData_naixement()}', {$this->getId_tipususuari()}, '{$this->getBiografia()}' )";
+        $save = $this->db->query($sql);
 
-    }    
-
+        $result = false;
+        if($save){
+            $result = true;
+        }
+        return $result;
+    }
 
 
 
@@ -291,7 +329,7 @@ nickname varchar(20) NOT NULL,
 nom_i_cognoms varchar(50) NOT NULL,
 dni varchar(10) NOT NULL UNIQUE,
 email varchar(20) NOT NULL UNIQUE,
-data_alta date,
+data_alta date,  ->      CURDATE();
 avatar_id int,
 password varchar(100),
 subscrit boolean,

@@ -1,5 +1,5 @@
 <!--Peu de la pagina -->
-<footer id="footer" class="text-center text-lg-start mt-5">
+<footer class="text-center text-lg-start mt-5 p-0">
     <div class="row mx-auto p-5">
         <!-- Grid colummn -->
         <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
@@ -61,7 +61,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-12 p-0">
+        <div class="col p-0">
             <!-- Copyright -->
             <div id="copyright" class="text-center p-3">
                 Write&Read&COPY; <?= date('Y') ?> |
@@ -74,6 +74,6 @@
 </footer>
 <!-- Fi peu de pagina -->
 
-</div>
+    </div><!--FIN CONTAINER FLUID-->
 
 </body>

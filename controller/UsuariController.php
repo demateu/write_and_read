@@ -1,10 +1,10 @@
 <?php
 
-class UsuarioController{
+class UsuariController{
 
     //test funcion
     public function index(){
-        echo "Controlador EscriptorController, Accion index";
+        echo "Controlador UsuariController, Accion index";
     }
     
     /**
@@ -14,7 +14,7 @@ class UsuarioController{
     public function registro(){
 
         //cargamos la vista
-        require_once 'view/usuario/registro.php';//hay que crear la carpeta y el archivo
+        //require_once 'view/usuario/registro.php';//hay que crear la carpeta y el archivo
         //...
 
 
@@ -23,7 +23,7 @@ class UsuarioController{
     /**
      * para guardar el usuario
      */
-    public function saveUsuario(){
+    public function saveUsuari(){
 
     }
 

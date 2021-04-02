@@ -7,9 +7,9 @@ class ErrorController{
 
     public function index(){
         echo "<h1>La página que buscas no existe</h1>";
+        //CAMBIAR EL ECHO POR UNA VISTA QUE LLEVE UNA FOTO CON EL 404
+        //(libro animado)
 
-        //podemos cargar una foto con un 404 chulo
-        
     }
 
 }
