@@ -26,13 +26,13 @@ class Usuari{
     private $data_naixement;
     private $id_tipususuari; //FK
     private $biografia;//nomes per escriptors
+    
     private $db;
 
 
     public function __construct()
     {
         $this->db = DataBase::conectar();
-        $this->id = null;//probar
     }
 
     /**
@@ -47,7 +47,7 @@ class Usuari{
     public function getId()
     {
         //return $this->id;
-        return $this->db->real_escape_string($this->id);
+        return $this->id;
     }
 
     /**
@@ -68,7 +68,7 @@ class Usuari{
     public function getNickname()
     {
         //return $this->nickname;
-        return $this->db->real_escape_string($this->nickname);
+        return $this->nickname;
     }
 
     /**
@@ -78,7 +78,7 @@ class Usuari{
      */ 
     public function setNickname($nickname)
     {
-        $this->nickname = $nickname;
+        $this->nickname = $this->db->real_escape_string($nickname);
 
         return $this;
     }
@@ -89,7 +89,7 @@ class Usuari{
     public function getNom_i_cognoms()
     {
         //return $this->nom_i_cognoms;
-        return $this->db->real_escape_string($this->nom_i_cognoms);
+        return $this->nom_i_cognoms;
     }
 
     /**
@@ -99,7 +99,7 @@ class Usuari{
      */ 
     public function setNom_i_cognoms($nom_i_cognoms)
     {
-        $this->nom_i_cognoms = $nom_i_cognoms;
+        $this->nom_i_cognoms = $this->db->real_escape_string($nom_i_cognoms);
 
         return $this;
     }
@@ -110,7 +110,7 @@ class Usuari{
     public function getDni()
     {
         //return $this->dni;
-        return $this->db->real_escape_string($this->dni);
+        return $this->dni;
     }
 
     /**
@@ -120,7 +120,7 @@ class Usuari{
      */ 
     public function setDni($dni)
     {
-        $this->dni = $dni;
+        $this->dni = $this->db->real_escape_string($dni);
 
         return $this;
     }
@@ -131,7 +131,7 @@ class Usuari{
     public function getEmail()
     {
         //return $this->email;
-        return $this->db->real_escape_string($this->email);
+        return $this->email;
     }
 
     /**
@@ -141,7 +141,7 @@ class Usuari{
      */ 
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->email = $this->db->real_escape_string($email);
 
         return $this;
     }
@@ -152,7 +152,7 @@ class Usuari{
     public function getData_alta()
     {
         //return $this->data_alta;
-        return $this->db->real_escape_string($this->data_alta);
+        return $this->data_alta;
     }
 
     /**
@@ -162,7 +162,7 @@ class Usuari{
      */ 
     public function setData_alta($data_alta)
     {
-        $this->data_alta = $data_alta;
+        $this->data_alta = $this->db->real_escape_string($data_alta);
 
         return $this;
     }
@@ -173,7 +173,7 @@ class Usuari{
     public function getAvatar_id()
     {
         //return $this->avatar_id;
-        return $this->db->real_escape_string($this->avatar_id);
+        return $this->avatar_id;
     }
 
     /**
@@ -183,7 +183,7 @@ class Usuari{
      */ 
     public function setAvatar_id($avatar_id)
     {
-        $this->avatar_id = $avatar_id;
+        $this->avatar_id = $this->db->real_escape_string($avatar_id);
 
         return $this;
     }
@@ -196,7 +196,7 @@ class Usuari{
     public function getPassword()
     {
         //return $this->password;
-        return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
+        return $this->password;
     }
 
     /**
@@ -206,7 +206,7 @@ class Usuari{
      */ 
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($this->db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
 
         return $this;
     }
@@ -217,7 +217,7 @@ class Usuari{
     public function getSubscrit()
     {
         //return $this->subscrit;
-        return $this->db->real_escape_string($this->subscrit);
+        return $this->subscrit;
     }
 
     /**
@@ -227,7 +227,7 @@ class Usuari{
      */ 
     public function setSubscrit($subscrit)
     {
-        $this->subscrit = $subscrit;
+        $this->subscrit = $this->db->real_escape_string($subscrit);
 
         return $this;
     }
@@ -238,7 +238,7 @@ class Usuari{
     public function getData_naixement()
     {
         //return $this->data_naixement;
-        return $this->db->real_escape_string($this->data_naixement);
+        return $this->data_naixement;
     }
 
     /**
@@ -248,7 +248,7 @@ class Usuari{
      */ 
     public function setData_naixement($data_naixement)
     {
-        $this->data_naixement = $data_naixement;
+        $this->data_naixement = $this->db->real_escape_string($data_naixement);
 
         return $this;
     }
@@ -259,7 +259,7 @@ class Usuari{
     public function getId_tipususuari()
     {
         //return $this->id_tipususuari;
-        return $this->db->real_escape_string($this->tipususuari);
+        return $this->tipususuari;
     }
 
     /**
@@ -269,7 +269,7 @@ class Usuari{
      */ 
     public function setId_tipususuari($id_tipususuari)
     {
-        $this->id_tipususuari = $id_tipususuari;
+        $this->id_tipususuari = $this->db->real_escape_string($id_tipususuari);
 
         return $this;
     }
@@ -280,7 +280,7 @@ class Usuari{
     public function getBiografia()
     {
         //return $this->biografia;
-        return $this->db->real_escape_string($this->biografia);
+        return $this->biografia;
     }
 
     /**
@@ -290,7 +290,7 @@ class Usuari{
      */ 
     public function setBiografia($biografia)
     {
-        $this->biografia = $biografia;
+        $this->biografia = $this->db->real_escape_string($biografia);
 
         return $this;
     }
@@ -303,13 +303,13 @@ class Usuari{
     /**
      * guardamos el objeto en la BBDD
      * 
-     * @return
-     * true si la consulta se hace correctamente, sino false
+     * @return true si la consulta se hace correctamente
      */
     public function save(){
         //preparo la query -> un insert
-        //ver si CURDATE necesita estar entre comillas o no
-        $sql = "INSERT INTO usuari VALUES({$this->getId()}, '{$this->getNickname()}',  '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), {$this->getAvatar_id()}, '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getEmail()}', '{$this->getData_naixement()}', {$this->getId_tipususuari()}, '{$this->getBiografia()}' )";
+        //ojo q subscrit hauria de ser boolean a la BBDD (s'haura de canviar)
+        $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipusuari, biografia) 
+        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), NULL, '{$this->getPassword()}', NULL, NULL, NULL, '{$this->getBiografia()}' )";
         $save = $this->db->query($sql);
 
         $result = false;
@@ -329,7 +329,7 @@ nickname varchar(20) NOT NULL,
 nom_i_cognoms varchar(50) NOT NULL,
 dni varchar(10) NOT NULL UNIQUE,
 email varchar(20) NOT NULL UNIQUE,
-data_alta date,  ->      CURDATE();
+data_alta date,
 avatar_id int,
 password varchar(100),
 subscrit boolean,
