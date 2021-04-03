@@ -1,7 +1,10 @@
+DROP DATABASE writeyread;
+
 CREATE DATABASE IF NOT EXISTS writeyread;
 
 USE writeyread;
 
+/*
 DROP TABLE IF EXISTS usuari;
 DROP TABLE IF EXISTS interactllibre;
 DROP TABLE IF EXISTS llibre;
@@ -10,10 +13,11 @@ DROP TABLE IF EXISTS tipusuari;
 DROP TABLE IF EXISTS avatar;
 DROP TABLE IF EXISTS lector;
 DROP TABLE IF EXISTS categoria;
+*/
 
-CREATE TABLE tipusuari(
+CREATE TABLE tipus_usuari(
 id int,
-tipus_usuari varchar(15),
+tipus varchar(15),
 PRIMARY KEY (id)
 );
 
@@ -28,17 +32,17 @@ CREATE TABLE usuari (
 	nickname varchar(20) NOT NULL,
 	nom_i_cognoms varchar(50) NOT NULL,
 	dni varchar(10) NOT NULL UNIQUE,
-	email varchar(20) NOT NULL UNIQUE,
+	email varchar(50) NOT NULL UNIQUE,
 	data_alta date,
 	avatar_id int,
-	password varchar(100),
-	subscrit boolean,
+	password varchar(100) NOT NULL,
+	subscrit boolean NOT NULL,
 	data_naixement date,
-	id_tipusuari int,
+	id_tipus_usuari int,
 	biografia varchar(250),
 	PRIMARY KEY (id),
 CONSTRAINT FK_Tipus_Usuari
-  FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id),
+  FOREIGN KEY (id_tipus_usuari) REFERENCES tipus_usuari(id),
 CONSTRAINT FK_Avatar
   FOREIGN KEY (avatar_id) REFERENCES avatar(id)
 );
