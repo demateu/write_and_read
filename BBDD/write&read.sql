@@ -1,7 +1,13 @@
+
+/*arreglo tipus_usuari*/
+
+DROP DATABASE writeyread;
+
 CREATE DATABASE IF NOT EXISTS writeyread;
 
 USE writeyread;
 
+/*
 DROP TABLE IF EXISTS usuari;
 DROP TABLE IF EXISTS interactllibre;
 DROP TABLE IF EXISTS llibre;
@@ -10,10 +16,11 @@ DROP TABLE IF EXISTS tipusuari;
 DROP TABLE IF EXISTS avatar;
 DROP TABLE IF EXISTS lector;
 DROP TABLE IF EXISTS categoria;
+*/
 
-CREATE TABLE tipusuari(
+CREATE TABLE tipus_usuari(
 id int,
-tipus_usuari varchar(15) CHARACTER SET utf8 COLLATE utf8_spanish_ci,
+tipus varchar(15) CHARACTER SET utf8 COLLATE utf8_spanish_ci,
 PRIMARY KEY (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -28,17 +35,17 @@ CREATE TABLE usuari (
 	nickname varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
 	nom_i_cognoms varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
 	dni varchar(10) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL UNIQUE,
-	email varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL UNIQUE,
+	email varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL UNIQUE,
 	data_alta date,
 	avatar_id int,
-	password varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci,
+	password varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
 	subscrit boolean,
 	data_naixement date,
-	id_tipusuari int,
+	id_tipus_usuari int NOT NULL,
 	biografia varchar(250) CHARACTER SET utf8 COLLATE utf8_spanish_ci,
 	PRIMARY KEY (id),
 CONSTRAINT FK_Tipus_Usuari
-  FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id),
+  FOREIGN KEY (id_tipus_usuari) REFERENCES tipus_usuari(id),
 CONSTRAINT FK_Avatar
   FOREIGN KEY (avatar_id) REFERENCES avatar(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -84,6 +91,3 @@ CONSTRAINT FK_lector
 CONSTRAINT FK_llibre
   FOREIGN KEY (id_llibre) REFERENCES llibre(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-
