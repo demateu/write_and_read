@@ -48,7 +48,7 @@ class UsuariController{
             var_dump($usuari);
 
             if($save){
-                echo 'Enregistrar correctament';
+                echo 'Enregistrat correctament';
             }else{
                 echo 'Alguna cosa no ha anat bé amb el teu registre';
             }

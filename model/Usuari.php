@@ -296,20 +296,20 @@ class Usuari{
     }
   
 
-    /**
-     ******************************************* METODOS
-     */
 
     /**
-     * guardamos el objeto en la BBDD
+     * guardamos el objeto en la BBDD (INSERT)
      * 
      * @return true si la consulta se hace correctamente
      */
     public function save(){
-        //preparo la query -> un insert
-        //ojo q subscrit hauria de ser boolean a la BBDD (s'haura de canviar)
+        /**
+         * DUDAS:
+         * como transformo el campo fecha de nacimiento desde el form?
+         * cambiar cuando el registro este hecho: subscrit i tipus_usuari
+         */
         $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
-        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), NULL, '{$this->getPassword()}', NULL, NULL, 1, '{$this->getBiografia()}' )";
+        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), 1, '{$this->getPassword()}', true, NULL, 2, '{$this->getBiografia()}' )";
         $save = $this->db->query($sql);
 
         $result = false;
@@ -322,23 +322,3 @@ class Usuari{
 
 
 }
-
-/*
-id int AUTO_INCREMENT,
-nickname varchar(20) NOT NULL,
-nom_i_cognoms varchar(50) NOT NULL,
-dni varchar(10) NOT NULL UNIQUE,
-email varchar(20) NOT NULL UNIQUE,
-data_alta date,
-avatar_id int,
-password varchar(100),
-subscrit boolean,
-data_naixement date,
-id_tipusuari int,
-biografia varchar(250),
-PRIMARY KEY (id),
-CONSTRAINT FK_Tipus_Usuari
-FOREIGN KEY (id_tipusuari) REFERENCES tipusuari(id),
-CONSTRAINT FK_Avatar
-FOREIGN KEY (avatar_id) REFERENCES avatar(id)
-*/
