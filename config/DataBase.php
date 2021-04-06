@@ -13,7 +13,7 @@ class DataBase{
         //crear la conexion
         $conexion = new mysqli( $db_location, $user, $pass, $db_name);
 
-        //setear la BBDD a utf8
+        //setear la BBDD a utf8 -> no hara falta esta parte si se pone la de Ronny de mas abajo
         //$conexion->query("SET NAMES utf8");
 
         //linias de Ronny, ver si se quitan las de arriba o se deja todo

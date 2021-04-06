@@ -9,8 +9,8 @@ INSERT INTO categoria VALUES (6, 'Horror', "Té la capacitat d'espantar, causar 
 INSERT INTO categoria VALUES (7, 'Suspens', "El seu objectiu principal és mantenir al lector a l'expectativa, generalment en un estat de tensió, del que pugui passar als personatges i, per tant, atent a el desenvolupament del conflicte.");
 
 /*TAULA TIPUS USUARIS NOMES 2 TIPUS */
-INSERT INTO tipusuari VALUES (1,"lector");
-INSERT INTO tipusuari VALUES (2,"escriptor");
+INSERT INTO tipus_usuari VALUES (1,"lector");
+INSERT INTO tipus_usuari VALUES (2,"escriptor");
 
 /*TAULA AVATAR*/
 INSERT INTO avatar VALUES (01, "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png");

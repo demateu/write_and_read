@@ -1,5 +1,5 @@
 
-/*arreglo tipus_usuari*/
+/*arreglo tipus_usuari (monica)*/
 
 DROP DATABASE writeyread;
 

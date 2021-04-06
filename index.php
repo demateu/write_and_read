@@ -1,7 +1,10 @@
 <?php
+session_start();
+
 require_once 'autoload.php';
 require_once 'config/DataBase.php';
 require_once 'config/parameters.php';
+require_once 'helpers/Utils.php';
 
 require_once 'view/layout/header.php';
 

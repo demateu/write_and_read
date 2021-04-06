@@ -1,23 +1,37 @@
 
-
-
 <!--
     Form de pruba para comprobar que el MVC esta funcionando bien
 -->
 <h3>Registra't a Write&Read</h3>
+
+<?php
+/**
+ * Si el registro va bien saldrá un mensaje diciendolo
+ * sino, saldra otro mensaje diciendo lo contrario
+ */
+if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
+    <strong class="alert_green">Registre completat correctament</strong>
+<?php elseif(isset($_SESSION['register']) && $_SESSION['register'] == 'failed'): ?>
+    <strong class="alert_red">Registre fallit, introdueix bé les dades</strong>
+<?php endif; ?>
+
+<!--para borrar esta sesion-->
+<?php Utils::deleteSession('register'); ?>
+
+
 <form action="<?=base_url?>usuari/save" method="post">
 
     <label for="nickname">Nickname</label>
-    <input type="text" name="nickname" required/>
+    <input type="text" name="nickname" required="required"/>
 
-    <label for="noms">Nom i cognoms</label>
-    <input type="text" name="noms" required/>
+    <label for="nom_i_cognoms">Nom i cognoms</label>
+    <input type="text" name="nom_i_cognoms" required="required" pattern="[A-Za-z]+"/>
 
     <label for="dni">Dni</label>
-    <input type="text" name="dni" required/>
+    <input type="text" name="dni" required="required"/>
 
     <label for="email">Email</label>
-    <input type="email" name="email" required/>
+    <input type="email" name="email" required="required"/>
 
     <!--cambiar despues por un checkbox de fotos de avatares
     <label for="avatar">Avatar</label>
@@ -28,10 +42,10 @@
     -->  
 
     <label for="password">Contrasenya</label>
-    <input type="password" name="password" required/>
+    <input type="password" name="password" required="required"/>
 
     <label for="naixement">Data de naixement</label>
-    <input type="date" name="naixement" required/>
+    <input type="date" name="naixement" />
 
     <!--
     <label for="avatar">Lector o Escriptor</label>
@@ -43,7 +57,7 @@
 
     <!--desplegar solo si ha marcado escriptor//ya se hará en Sprint 2-->
     <label for="biografia">Biografia</label>
-    <input type="text" name="biografia"/>
+    <textarea name="biografia"></textarea>
 
     <input type="submit" value="Enregistra't"/>
 

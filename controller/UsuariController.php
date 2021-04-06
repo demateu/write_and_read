@@ -25,22 +25,41 @@ class UsuariController{
      * @return void
      */
     public function save(){//ojo era saveUsuari
+
+        //comprobar si les dades introduïdes existen, que no estiguin buides
+        $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : false;
+        $nom_i_cognoms = isset($_POST['nom_i_cognoms']) ? $_POST['nom_i_cognoms'] : false;
+        $dni = isset($_POST['dni']) ? $_POST['dni'] : false;
+        $email = isset($_POST['email']) ? $_POST['email'] : false;
+        $data_alta = isset($_POST['data_alta']) ? $_POST['data_alta'] : false;
+        $avatar_id = isset($_POST['avatar_id']) ? $_POST['avatar_id'] : false;
+        $password = isset($_POST['password']) ? $_POST['password'] : false;
+        $subscrit = isset($_POST['subscrit']) ? $_POST['subscrit'] : false;
+        $data_naixement = isset($_POST['naixement']) ? $_POST['naixement'] : false;
+        $id_tipus_usuari = isset($_POST['id_tipus_usuari']) ? $_POST['id_tipus_usuari'] : false;
+        $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false;
+
+
+        //quedará comprobar los tipos de campos
+        //...tarea -> VALIDACION (ver el curso PHP ESTRUCTURADO)
+
+
         if(isset($_POST)){
             //instancio el objeto (el modelo usuario)
             $usuari = new Usuari(); 
 
             //setters para guardar los datos que llegan del form (registro/user)
-            $usuari->setNickname($_POST['nickname']);
-            $usuari->setNom_i_cognoms(($_POST['nom_i_cognoms']));
-            $usuari->setDni($_POST['dni']);
-            $usuari->setEmail($_POST['email']);
-            $usuari->setData_alta($_POST['data_alta']);//private $data_alta;//definir un current date aqui, en el constructor o en el insert?
-            $usuari->setAvatar_id($_POST['avatar_id']);
-            $usuari->setPassword($_POST['password']);
-            $usuari->setSubscrit($_POST['subscrit']);
-            $usuari->setData_naixement($_POST['data_naixement']);
-            $usuari->setId_tipususuari($_POST['id_tipusuari']);
-            $usuari->setBiografia($_POST['biografia']);//nomes per escriptors
+            $usuari->setNickname($nickname);
+            $usuari->setNom_i_cognoms($nom_i_cognoms);
+            $usuari->setDni($dni);
+            $usuari->setEmail($email);
+            $usuari->setData_alta($data_alta);//private $data_alta;//definir un current date aqui, en el constructor o en el insert?
+            $usuari->setAvatar_id($avatar_id);
+            $usuari->setPassword($password);
+            $usuari->setSubscrit($subscrit);
+            $usuari->setData_naixement($data_naixement);
+            $usuari->setId_tipus_usuari($id_tipus_usuari);
+            $usuari->setBiografia($biografia);//nomes per escriptors
 
             //guardo todos estos datos en usuario
             $save = $usuari->save();
@@ -48,7 +67,7 @@ class UsuariController{
             var_dump($usuari);
 
             if($save){
-                echo 'Enregistrar correctament';
+                echo 'Enregistrat correctament';
             }else{
                 echo 'Alguna cosa no ha anat bé amb el teu registre';
             }
