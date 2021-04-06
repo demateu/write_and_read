@@ -24,7 +24,7 @@ class Usuari{
     private $password;//aplicar encriptacion!
     private $subscrit;//boolean
     private $data_naixement;
-    private $id_tipususuari; //FK
+    private $id_tipus_usuari; //FK
     private $biografia;//nomes per escriptors
     
     private $db;
@@ -256,10 +256,10 @@ class Usuari{
     /**
      * Get the value of id_tipususuari
      */ 
-    public function getId_tipususuari()
+    public function getId_tipus_usuari()
     {
         //return $this->id_tipususuari;
-        return $this->tipususuari;
+        return $this->id_tipus_usuari;
     }
 
     /**
@@ -267,9 +267,9 @@ class Usuari{
      *
      * @return  self
      */ 
-    public function setId_tipususuari($id_tipususuari)
+    public function setId_tipus_usuari($id_tipus_usuari)
     {
-        $this->id_tipususuari = $this->db->real_escape_string($id_tipususuari);
+        $this->id_tipus_usuari = $this->db->real_escape_string($id_tipus_usuari);
 
         return $this;
     }
@@ -306,10 +306,10 @@ class Usuari{
         /**
          * DUDAS:
          * como transformo el campo fecha de nacimiento desde el form?
-         * cambiar cuando el registro este hecho: subscrit i tipus_usuari
+         * cambiar cuando el registro este hecho: subscrit (dependra de si paga o ni) i tipus_usuari
          */
         $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
-        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), 1, '{$this->getPassword()}', true, NULL, 2, '{$this->getBiografia()}' )";
+        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), 1, '{$this->getPassword()}', true, '{$this->getData_naixement()}', 2, '{$this->getBiografia()}' )";
         $save = $this->db->query($sql);
 
         $result = false;
