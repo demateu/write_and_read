@@ -28,7 +28,7 @@ class LlibreGateway{
      * @throws Exception $e
      */
     public function getAll(){
-        $qry = "SELECT l.id, l.titol,l.portada_url, l.mitja_vots, l.cops_votat, c.nom_cat AS 'categoria', u.nom_i_cognoms AS 'autor' FROM llibre l, categoria c, usuari u  WHERE l.id_categoria=c.id AND u.id=l.id_escriptor";
+        $qry = "SELECT l.id, l.titol,l.portada_url, l.mitja_vots, l.cops_votat, c.nom_cat AS 'categoria', u.nom_i_cognoms AS 'autor', l.id_escriptor FROM llibre l, categoria c, usuari u  WHERE l.id_categoria=c.id AND u.id=l.id_escriptor";
         
         try{
             $qry=$this->db->query($qry);
@@ -47,7 +47,7 @@ class LlibreGateway{
      * @throws Exception $e
      */
     public function find($id){
-        $qry = "SELECT l.id, l.titol,l.portada_url, l.mitja_vots, l.cops_votat, c.nom_cat AS 'categoria', u.nom_i_cognoms AS 'autor' FROM llibre l, categoria c, usuari u WHERE l.id_categoria=? AND l.id_categoria=c.id AND u.id=l.id_escriptor";
+        $qry = "SELECT l.id, l.titol,l.portada_url, l.mitja_vots, l.cops_votat, c.nom_cat AS 'categoria', u.nom_i_cognoms AS 'autor', l.id_escriptor  FROM llibre l, categoria c, usuari u WHERE l.id_categoria=? AND l.id_categoria=c.id AND u.id=l.id_escriptor";
         
         try{
             $qry = $this->db->prepare($qry);
