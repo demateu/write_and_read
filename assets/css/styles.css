@@ -153,9 +153,14 @@ h3{
 /*CARDS*/
 .card{
     width: 200px;
-    height: 490px;
+    height: 425px;
     margin: auto;
     margin-top: 10%;
+}
+
+.card-title{
+    min-height: 50px;
+    font-size: 120%;
 }
 
 .cover_book{

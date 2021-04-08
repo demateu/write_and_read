@@ -18,7 +18,12 @@
     <link rel="icon" type="image/gif" href="/RUTA/FICHERO_FAVICON.gif">
     Para incluir un favicon en formato .png , debemos utilizar la siguiente línea:
     <link rel="icon" type="image/png" href="../../assets/img/identity/wr_favicon_32px.png">-->
-    
+
+    <!-- Jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+    <!-- JS -->
+    <script src="assets/js/main.js" type="text/javascript"></script>
 
     <!-- Font awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
