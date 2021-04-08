@@ -19,30 +19,30 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <ul id="nav_content" class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?=base_url?>">Totes</a><!--repassar-->
+                            <a class="nav-link active" aria-current="page" href="#navbarSupportedContent" >Totes</a><!--repassar-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>accio">Acció</a>
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="1">Acció</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>roman&ccedil;">Romanç</a><!--no tengo claro si va asi roman&ccedil;-->
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="2">Romanç</a><!--no tengo claro si va asi roman&ccedil;-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>fantasia">Fantasia</a>
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="3">Fantasia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>sci-fi">Sci-fi</a>
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="4">Sci-fi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>drama">Drama</a>
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="5">Drama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>horror">Horror</a>
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="6">Horror</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=base_url?>suspens">Suspens</a>
+                            <a class="nav-link" href="#navbarSupportedContent" data-idCat="7">Suspens</a>
                         </li>
                     </ul>
                 </div>
@@ -59,14 +59,15 @@
             <!--Grid 4x2 Carousel llibres per categoria -->
             <div id="llib_cat" class="carousel carousel-dark slide" data-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#llib_cat" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <!-- <button type="button" data-bs-target="#llib_cat" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
                 </div>
                 <div id="fitxes_main" class="carousel-inner">
-                    <div class="carousel-item active" >
-                        <div class="row" id="provaFitxa" >
+                    <!-- <div class="carousel-item active" >
+                        <div class="row"  >
                         
                         </div>                
-                    </div>
+                    </div>  -->
+                    
                 </div>
                 <a class="carousel-control-prev" href="#llib_cat" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
