@@ -109,7 +109,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
@@ -137,7 +137,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
@@ -165,7 +165,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
@@ -193,7 +193,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
@@ -250,7 +250,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
@@ -278,7 +278,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
@@ -306,11 +306,10 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>
-
 
                                     </div>
                                 </div>
@@ -334,7 +333,7 @@
                                         <p class="card-text">Miguel Cervantes</p>
 
                                         <!-- icones-->
-                                        <img class="lookIcon" src="<?=base_url?>assets/img/look_icon.png" alt="Icona de veure mes">
+                                        <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt="Icona de veure mes">
                                         <button type="button" class="btn">
                                             <i class="far fa-heart"></i>
                                         </button>

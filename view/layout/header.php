@@ -9,16 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write&Read</title>
 
+    <!--favicon-->
     <link rel="icon" href="<?=base_url?>assets/img/identity/favicon_99px.ico">
-    <!-- Favicon    
-    <link rel="icon" href="../../assets/img/identity/wr_favicon_32px.png" type="image/png" sizes="32x32">
-    Para incluir un favicon en formato .ico , debemos utilizar la siguiente línea:
-    <link rel="icon" type="image/x-icon" href="/RUTA/FICHERO_FAVICON.ico">
-    Para incluir un favicon en formato .gif , debemos utilizar la siguiente línea:
-    <link rel="icon" type="image/gif" href="/RUTA/FICHERO_FAVICON.gif">
-    Para incluir un favicon en formato .png , debemos utilizar la siguiente línea:
-    <link rel="icon" type="image/png" href="../../assets/img/identity/wr_favicon_32px.png">-->
-    
 
     <!-- Font awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
@@ -26,9 +18,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    <!-- CSS 
-    script para que vaya cargando version nueva y solucione el almacenado en cache-->
-    <link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time(); ?>" />
+    <!-- CSS propio + script para que vaya cargando version nueva y solucione el almacenado en cache-->
+    <link rel="stylesheet" href="<?=base_url?>assets/css/styles.css?v=<?php echo time(); ?>" />
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/d10f252433.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
