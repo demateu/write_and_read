@@ -5,7 +5,7 @@
         <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
             <!-- Logo -->
             <a href="index.php">
-                <img src="#" alt="logo" />
+                <img src="<?=base_url?>assets/img/identity/wr_logo_250px.png" alt="logo" width="250" height="auto"/>
             </a>
             <p>
                 El teu lloc ideal per publicar els teus llibres per a escriptors i gaudir d'una àmplia gamma d'històries per a lectors.

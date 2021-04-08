@@ -3,10 +3,12 @@
 
 
 <!--Contingut principal -->
+
 <main>
     <h1 class="text-center">
         Miguel
     </h1>
+
 
     <div class="container border border-secondary">
         <div class="row">

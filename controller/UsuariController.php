@@ -1,8 +1,11 @@
 <?php
 
 require_once 'model/Usuari.php';
-require_once 'view/panel_control/EscriptorView.php';
+//require_once 'view/panel_control/EscriptorView.php';//no se si aquest es necessari
 
+/**
+ * @author demateu
+ */
 class UsuariController{
 
     //test -> para borrar
@@ -41,10 +44,7 @@ class UsuariController{
         $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false;
 
 
-
         //quedará la VALIDACION de los campos
-
-
 
         if(isset($_POST)){
             //instancio el objeto (el modelo usuario)
@@ -84,20 +84,18 @@ class UsuariController{
      * pediria los datos al modelo (BBDD)
      */
     public function fitxa(){
-        require_once 'view/panel_control/EscriptorView.php';
-        
+    
         //faltara concretar si se recibe por GET o POST (pongo de mientras GET)
-        if(isset($_POST['id'])){
-
+        //accedir-hi per aqui: http://localhost:8888/write_and_read/usuari/fitxa
+        //if(isset($_GET['id'])){
+            //require_once 'view/panel_control/EscriptorView.php';
             $usuari = new Usuari();
 
-            $id_escriptor = $usuari->buscarPorId($_POST['id']);
+            $escriptor = $usuari->buscarPorId(10);
+            var_dump($escriptor);
 
-            if(!$id_escriptor == false){
+            if(!$escriptor == false){
 
-                //pasar a cada variable su valor?
-                //$nickname = $usuari->$_GET['nickname'];
-                //... ???
 
                 //pasar datos a la vista de Fitxa escriptor; cargo la vista
                 require_once 'view/panel_control/EscriptorView.php';
@@ -106,7 +104,20 @@ class UsuariController{
                 //esto no deberia pasar
                 echo 'Algo no ha ido bien';
             }
-        }
+        //}else{
+            //echo 'ops';
+       // }
+    }
+
+
+    /**
+     * test
+     */
+    public function cargarAll(){
+        $usuari = new Usuari();
+        $usuaris = $usuari->getAll();
+
+        require_once 'view/panel_control/EscriptorView.php';
     }
 
 

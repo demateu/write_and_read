@@ -11,6 +11,8 @@
  * 
  * * tiene los getters y setters de cada propiedad
  * tiene metodos para interactuar con la BBDD en relacion a cada una de sus proiedades
+ * 
+ * @author demateu
  */
 class Usuari{
 
@@ -28,7 +30,6 @@ class Usuari{
     private $biografia;//nomes per escriptors
     
     private $db;
-
 
     public function __construct()
     {
@@ -336,7 +337,16 @@ class Usuari{
             $result = $escriptor;
         }
         
-        return $result;
+        return $result; //esta devolviendo false
+    }
+
+
+    /**
+     * test
+     */
+    public function getAll(){
+        $categorias = $this->db->query("SELECT * FROM usuari");
+        return $categorias;
     }
 
 

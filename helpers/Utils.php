@@ -11,6 +11,8 @@
      * @param name nombre de la sesion
      * 
      * @return name nombre de la sesion eliminada
+     * 
+     * @author demateu
      */
     public static function deleteSession($name){
         //comprovamos si la sesion con este nombre existe
