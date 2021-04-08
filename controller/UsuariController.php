@@ -1,10 +1,11 @@
 <?php
 
-require_once 'model/Usuari.php';//veure si Usuari general serveix, sino separemo Escriptor/Lector
+require_once 'model/Usuari.php';
+require_once 'view/panel_control/EscriptorView.php';
 
 class UsuariController{
 
-    //test
+    //test -> para borrar
     public function index(){
         echo "Controlador Usuarios, Accion index";
     }
@@ -40,8 +41,9 @@ class UsuariController{
         $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false;
 
 
-        //quedará comprobar los tipos de campos
-        //...tarea -> VALIDACION (ver el curso PHP ESTRUCTURADO)
+
+        //quedará la VALIDACION de los campos
+
 
 
         if(isset($_POST)){
@@ -74,6 +76,40 @@ class UsuariController{
 
         }
     }
+
+
+
+    /**
+     * renderitza la fitxa de l'escriptor
+     * pediria los datos al modelo (BBDD)
+     */
+    public function fitxa(){
+        require_once 'view/panel_control/EscriptorView.php';
+        
+        //faltara concretar si se recibe por GET o POST (pongo de mientras GET)
+        if(isset($_POST['id'])){
+
+            $usuari = new Usuari();
+
+            $id_escriptor = $usuari->buscarPorId($_POST['id']);
+
+            if(!$id_escriptor == false){
+
+                //pasar a cada variable su valor?
+                //$nickname = $usuari->$_GET['nickname'];
+                //... ???
+
+                //pasar datos a la vista de Fitxa escriptor; cargo la vista
+                require_once 'view/panel_control/EscriptorView.php';
+
+            }else{
+                //esto no deberia pasar
+                echo 'Algo no ha ido bien';
+            }
+        }
+    }
+
+
 
 
 }

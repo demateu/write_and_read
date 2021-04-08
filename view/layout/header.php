@@ -29,7 +29,6 @@
     <!-- CSS 
     script para que vaya cargando version nueva y solucione el almacenado en cache-->
     <link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time(); ?>" />
-
 </head>
 
 <body>
