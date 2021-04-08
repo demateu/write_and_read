@@ -304,8 +304,7 @@ class Usuari{
      */
     public function save(){
         /**
-         * DUDAS:
-         * como transformo el campo fecha de nacimiento desde el form?
+         * OJO:
          * cambiar cuando el registro este hecho: subscrit (dependra de si paga o ni) i tipus_usuari
          */
         $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
@@ -316,6 +315,27 @@ class Usuari{
         if($save){
             $result = true;
         }
+        return $result;
+    }
+
+
+    /**
+     * buscarà a la BBDD la informacio necessaria per mostrar la fitxa de l'Escriptor
+     * 
+     * @param id de l'escriptor
+     * 
+     * @return objeto escritor si lo encuentra, sino restorna false
+     */
+    public function buscarPorId($id){
+        $result = false;
+
+        $sql = "SELECT * FROM usuari WHERE id = '$id' ";
+        $escriptor = $this->db->query($sql);
+
+        if($escriptor && $escriptor->num_rows === 1){
+            $result = $escriptor;
+        }
+        
         return $result;
     }
 
