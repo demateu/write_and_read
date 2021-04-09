@@ -83,7 +83,7 @@ $(document).ready(function () {
                 <div class="col-sm-6 col-lg-3">
                     <div class="card">
                         <div class="cover_book">
-                            <img src="${imgUrl+portada_url}" alt="${altFitxa}" class="card-img-top" />
+                            <img src="${imgUrl+portada_url+'.jpeg'}" alt="${altFitxa}" class="card-img-top" />
                         </div>
                         <div class="card-body">
                             <!-- valoracions -->
