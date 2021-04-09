@@ -66,7 +66,7 @@ class UsuariController{
             //guardo todos estos datos en usuario
             $save = $usuari->save();
 
-            var_dump($usuari);
+            var_dump($usuari);//borrar despues
 
             if($save){
                 echo 'Enregistrat correctament';
@@ -116,7 +116,7 @@ class UsuariController{
     public function cargarAll(){
         $usuari = new Usuari();
         $usuaris = $usuari->getAll();
-
+        
         require_once 'view/panel_control/EscriptorView.php';
     }
 

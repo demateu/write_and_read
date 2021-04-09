@@ -8,6 +8,7 @@
     <meta name="author" content="demateu, ronny, apossai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write&Read</title>
+    
 
     <!--favicon-->
     <link rel="icon" href="<?=base_url?>assets/img/identity/favicon_99px.ico">

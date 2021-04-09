@@ -4,7 +4,7 @@ $(document).ready(function () {
     const altFitxa = "Imatge del llibre";
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
-    const baseURL= "http://localhost:8888/write_and_read/";
+    const baseURL= "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
 
     //Afegir listeners nav content (contingut principal nav per categorias)
     $('#nav_content li a').on('click', function () {
@@ -32,9 +32,9 @@ $(document).ready(function () {
         if(idCat !== undefined){
             //AJAX per categoria
             $.ajax({
-                url: 'api-rest/',
+                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
                 type: 'GET',
-                data: {'categoria': idCat},
+                data: JSON.stringify({'categoria': idCat}), //ponia esto: {'categoria': idCat} -> demateu
                 dataType: 'json',
                 success: function (resp) {
                     ferFitxes(resp, 8);
@@ -43,7 +43,7 @@ $(document).ready(function () {
         }else{
             //AJAX a totes les categories
             $.ajax({
-                url: 'api-rest/',
+                url: 'http://localhost:8888/write_and_read/api-rest/',
                 type: 'GET',
                 dataType: 'json',
                 success: function (resp) {
