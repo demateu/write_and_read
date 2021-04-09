@@ -30,7 +30,7 @@ function ferPeticio($cat){
 }
 
 //Declarem els headers de la peticio 
-header("Access-Control-Allow-Origin: localhost");
+header("Access-Control-Allow-Origin: *");//en * ponia localhost (demateu)
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: OPTIONS,GET");
 header("Access-Control-Max-Age: 3600");

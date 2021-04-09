@@ -19,7 +19,7 @@
 
             <ul class="list-unstyled mb-0">
                 <li>
-                    <a href="#!">Avis legal</a>
+                    <a href="<?=base_url?>view/static/avis_legal.php">Avis legal</a>
                 </li>
                 <li>
                     <a href="#!">Politica de cookies</a>
