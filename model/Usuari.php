@@ -345,8 +345,31 @@ class Usuari{
      * test
      */
     public function getAll(){
-        $categorias = $this->db->query("SELECT * FROM usuari");
-        return $categorias;
+        $usuaris = $this->db->query("SELECT * FROM usuari");
+        return $usuaris;
+    }
+
+    /**
+     * @author
+     * Retorna tots els escriptors
+     * 
+     * @return escriptors
+     */
+    public function getAllEscriptors(){
+        $escriptors = $this->db->query("SELECT * FROM usuari WHERE id_tipus_usuari = 2");
+        return $escriptors;        
+    }
+    
+
+    /**
+     * @author demateu
+     * Retorna tots els lectors
+     * 
+     * @return lectors
+     */
+    public function getAllLectors(){
+        $lectors = $this->db->query("SELECT * FROM usuari WHERE id_tipus_usuari = 1");
+        return $lectors;        
     }
 
 
