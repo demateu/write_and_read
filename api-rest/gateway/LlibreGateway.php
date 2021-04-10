@@ -33,7 +33,7 @@ class LlibreGateway{
         try{
             $qry=$this->db->query($qry);
             $result=$qry->fetch_all(MYSQLI_ASSOC);
-            return $result;
+            return $result; //resposta
         }catch (Exception $e){
             exit($e->getMessage());
         }
@@ -51,10 +51,10 @@ class LlibreGateway{
         
         try{
             $qry = $this->db->prepare($qry);
-            $qry->bind_param('i', $id);
+            $qry->bind_param('i', $id); //i -> integer
             $qry->execute();
             $result=$qry->get_result()->fetch_all(MYSQLI_ASSOC);
-
+            
             return $result;
         } catch (Exception $e) {
             exit($e->getMessage());
