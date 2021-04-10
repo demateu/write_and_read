@@ -24,6 +24,11 @@ class LlibreControllerApi{
      */
     private $catId;
 
+    /**
+     * @var boolean $novetats: Boolean per aconseguir els llibres mes nous
+     */
+    private $novetats;
+
      /**
      * @var LlibreGateway $llibreGateway: Objecte que interactua amb la BD
      */
@@ -35,12 +40,14 @@ class LlibreControllerApi{
      * @param mysqli $db
      * @param String $peticioMetode
      * @param int $catId
+     * @param boolean $novetats
      */
-    public function __construct($db, $peticioMetode, $catId)
+    public function __construct($db, $peticioMetode, $catId, $novetats)
     {
         $this->db = $db;
         $this->peticioMetode = $peticioMetode;
         $this->catId = $catId;
+        $this->novetats = $novetats;
 
         $this->llibreGateway = new LlibreGateway($db);
     }
@@ -53,7 +60,11 @@ class LlibreControllerApi{
             case 'GET':
                 if ($this->catId){
                     $resposta = $this->getByCat($this->catId);
+                }else if($this->novetats){
+                    
+                    $resposta = $this->getMesNous();
                 }else{
+                   
                     $resposta = $this->getAllLlibres();
                 }
                 break;
@@ -93,6 +104,13 @@ class LlibreControllerApi{
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
         return $response;
+    }
+
+    private function getMesNous(){
+        $result = $this->llibreGateway->getNovetats();
+        $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
+        $resposta['body'] = json_encode($result);
+        return $resposta;
     }
 
 

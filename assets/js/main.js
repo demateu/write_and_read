@@ -23,21 +23,30 @@ $(document).ready(function () {
 
     })
 
+   ferAjax(); //Ajax inicial
+   ferAjax(undefined, true); //Ajax novetats
     
-
-   //Ajax inicial
-   ferAjax();
-    
-    function ferAjax(idCat){
+    function ferAjax(idCat, novetats){
         if(idCat !== undefined){
             //AJAX per categoria
             $.ajax({
                 url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
                 type: 'GET',
-                data: JSON.stringify({'categoria': idCat}), //ponia esto: {'categoria': idCat} -> demateu
+                data: {'categoria': idCat}, //ponia esto: {'categoria': idCat} -> demateu
                 dataType: 'json',
                 success: function (resp) {
-                    ferFitxes(resp, 8);
+                    ferFitxes(resp, 8, '#llib_cat', '#fitxes_main');
+                }
+            });
+        }else if(novetats){
+            //AJAX mes nous
+            $.ajax({
+                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
+                type: 'GET',
+                data: {'novetats': true}, 
+                dataType: 'json',
+                success: function (resp) {
+                    ferFitxes(resp, 4, '#llib_nous', '#fitxes_nous');
                 }
             });
         }else{
@@ -47,7 +56,7 @@ $(document).ready(function () {
                 type: 'GET',
                 dataType: 'json',
                 success: function (resp) {
-                    ferFitxes(resp, 8);
+                    ferFitxes(resp, 8,'#llib_cat', '#fitxes_main');
                 }
             });
         }
@@ -62,14 +71,13 @@ $(document).ready(function () {
     * 
     * @param json fitxeDades Dades rebuts de la peticio AJAX.
     */
-    function ferFitxes(fitxeDades, fitxaperRow) {
+    function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
         var count=0;
         var numSlide=0;
         //Iteracio del array
         fitxeDades.forEach(element => {
             //Agafar les dades 
             var autor = element.autor;
-            var categoria = element.categoria;
             var cops_votat = element.cops_votat;
             var id_llibre = element.id;
             var id_escriptor = element.id_escriptor;
@@ -110,11 +118,11 @@ $(document).ready(function () {
 
             if(count==fitxaperRow){
                 //Crea el carousel-item i el node
-                crearCarouselItem('#fitxes_main');
-                $('#fitxes_main').children().last().children().append(fitxa);
+                crearCarouselItem(idCarouselInner);
+                $(idCarouselInner).children().last().children().append(fitxa);
 
                 //Crea el indicator del nou carousel-item 
-                ferIndicatorsCarousel('#llib_cat', numSlide);
+                ferIndicatorsCarousel(idCarousel, numSlide);
                  
                 //Reinicia el count
                 count=0;
@@ -124,17 +132,17 @@ $(document).ready(function () {
             //Carousel-items i indicators inicials
             }else if(count==0 && numSlide==0){
                 //Crea el carousel-item i el node
-                crearCarouselItem('#fitxes_main', true);
-                $('#fitxes_main').children().last().children().append(fitxa);
+                crearCarouselItem(idCarouselInner, true);
+                $(idCarouselInner).children().last().children().append(fitxa);
 
                 //Crea el indicator del nou carousel-item 
-                ferIndicatorsCarousel('#llib_cat', numSlide);
+                ferIndicatorsCarousel(idCarousel, numSlide);
 
                 //Suma el slide
                 numSlide++;
             }else{
                 //Nomes crea el node
-                $('#fitxes_main').children().last().children().append(fitxa);
+                $(idCarouselInner).children().last().children().append(fitxa);
             }
             count++;
         }); 
