@@ -10,7 +10,14 @@ class UsuariController{
 
     //test -> para borrar
     public function index(){
-        echo "Controlador Usuarios, Accion index";
+        $usuari = new Usuari();
+        $usuaris = $usuari->getAllEscriptors();
+
+        var_dump($usuaris->fetch_object());
+        var_dump($usuari->getAllEscriptors());
+
+        //renderizar vista
+        require_once 'view/panel_control/EscriptorView.php';
     }
 
     /**
@@ -89,17 +96,21 @@ class UsuariController{
         //accedir-hi per aqui: http://localhost:8888/write_and_read/usuari/fitxa
         //if(isset($_GET['id'])){
             //require_once 'view/panel_control/EscriptorView.php';
-            $usuari = new Usuari();
+        if(isset($_GET['id'])){
+            var_dump($_GET['id']);
+            //tenemos que modificar los enlaces de nuestro menu
+            //para poder pasarle un parametro por GET por la URL
+        }
 
-            $escriptor = $usuari->buscarPorId(10);
+        require_once 'view/panel_control/EscriptorView.php';
+
+            $usuari = new Usuari();
+            $escriptor = $usuari->buscarPorId($_GET['id']);
             var_dump($escriptor);
 
             if(!$escriptor == false){
-
-
                 //pasar datos a la vista de Fitxa escriptor; cargo la vista
                 require_once 'view/panel_control/EscriptorView.php';
-
             }else{
                 //esto no deberia pasar
                 echo 'Algo no ha ido bien';
