@@ -13,8 +13,8 @@ ini_set('display_errors', 1);
  */
 
 
-require_once 'controller/LlibreControllerApi.php'; //require_once 'controller/LlibreControllerApi.php';
-require_once '../config/DataBase.php'; //require_once '../config/DataBase.php';
+require_once 'controller/LlibreControllerApi.php';
+require_once '../config/DataBase.php';
 
 /**
  * Respon a una peticio amb codi 404 not found
@@ -38,11 +38,9 @@ function ferPeticio($cat, $novetats, $valorats){
 //Declarem els headers de la peticio 
 header("Access-Control-Allow-Origin: *");//en * ponia localhost (demateu)
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET"); //cambio por la siguietnte linia para test(demateu)
-//header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Methods: OPTIONS,GET");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-header('Access-Control-Allow-Credentials', true);//demateu añado para testear
 
 //Donem format als paràmetres rebuts
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY); // Agafa els parametres despres del ?
@@ -91,4 +89,3 @@ if(isset($_GET['categoria']) && count($uriFormatted) == 1){
     mostrarNotFound();
     exit();
 }
-
