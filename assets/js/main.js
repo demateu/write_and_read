@@ -1,10 +1,18 @@
+/**
+ * Gestio de fitxes dels carousels
+ */
 $(document).ready(function () {
 
+    //Constants
     const imgUrl = "assets/img/cover_books/";
     const altFitxa = "Imatge del llibre";
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
     const baseURL= "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
+
+    ferAjax(); //Ajax inicial
+    ferAjax(undefined, true); //Ajax novetats
+    ferAjax(undefined, false, true ) //Ajax valorats
 
     //Afegir listeners nav content (contingut principal nav per categorias)
     $('#nav_content li a').on('click', function () {
@@ -23,10 +31,14 @@ $(document).ready(function () {
 
     })
 
-   ferAjax(); //Ajax inicial
-   ferAjax(undefined, true); //Ajax novetats
-    
-    function ferAjax(idCat, novetats){
+   
+    /** 
+    * Fa la peticio AJAX d'acord amb els parametres
+    * 
+    * @param int idCat : Nombre de la categoria que s'ha de buscar
+    * @param boolean novetats : Indica si s'ha de buscar els llibres mes nous
+    */
+    function ferAjax(idCat, novetats, valorats){
         if(idCat !== undefined){
             //AJAX per categoria
             $.ajax({
@@ -49,6 +61,17 @@ $(document).ready(function () {
                     ferFitxes(resp, 4, '#llib_nous', '#fitxes_nous');
                 }
             });
+        }else if(valorats){
+            //AJAX mes valorats
+            $.ajax({
+                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
+                type: 'GET',
+                data: {'valorats': true}, 
+                dataType: 'json',
+                success: function (resp) {
+                    ferFitxes(resp, 4, '#llib_votos', '#fitxes_valorats');
+                }
+            });
         }else{
             //AJAX a totes les categories
             $.ajax({
@@ -63,13 +86,13 @@ $(document).ready(function () {
         
     }
 
-    
-
-
-    /*
-    *Crea les fitxes dels llibres
+    /** 
+    * Crea les fitxes dels llibres
     * 
     * @param json fitxeDades Dades rebuts de la peticio AJAX.
+    * @param int fitxaperRow Nombre de fitxes per carousel item
+    * @param String idCarousel Nom del carousel on s'han de posar els buttons
+    * @param String idCarouselInner Nom del carousel inner on s'han de posar les fitxes
     */
     function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
         var count=0;
@@ -148,6 +171,12 @@ $(document).ready(function () {
         }); 
     }
 
+    /**
+     * Crea un carousel Item
+     * 
+     * @param String elementPare : L'element on s'ha de afegir l'item
+     * @param boolean active : Indica si s'ha de crear amb la class active
+     */
     function crearCarouselItem(elementPare, active){
         var carouselItem;
         if(active !== undefined){
@@ -169,10 +198,20 @@ $(document).ready(function () {
         $(elementPare).append(carouselItem);
     }
 
+    /**
+     * Esborra tots els Carousel items creats 
+     * 
+     * @param String elementPare : L'element on s'ha d'esborrar els items
+     */
     function esborrarCarouselItems(elementPare){
         $(elementPare).children().remove();
     }
 
+    /**
+     * 
+     * @param String elementPare : L'element on s'ha de afegir els indicators
+     * @param int numSlide : Indica el nombre de slide per fer el button 
+     */
     function ferIndicatorsCarousel(elementPare, numSlide){
         var indicator;
         if(numSlide !== 0){
@@ -188,6 +227,11 @@ $(document).ready(function () {
         $(elementPare + " .carousel-indicators").append(indicator);
     }
 
+    /**
+     * Esborra tots els indicators del carousel
+     * 
+     * @param String elementPare : Indica l'element carousel 
+     */
     function esborrarIndicatorsCarousel (elementPare){
         $(elementPare + " .carousel-indicators").children().remove();
     }

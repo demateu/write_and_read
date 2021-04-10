@@ -22,10 +22,10 @@ function mostrarNotFound(){
  * 
  * @param $cat: id de la categoria pot ser null per aconseguir tots els llibres
  */
-function ferPeticio($cat, $novetats){
+function ferPeticio($cat, $novetats, $valorats){
     $db=Database::conectar();
     $peticioMetode = $_SERVER["REQUEST_METHOD"];
-    $controller = new LlibreControllerApi($db, $peticioMetode, $cat, $novetats);
+    $controller = new LlibreControllerApi($db, $peticioMetode, $cat, $novetats, $valorats);
     $controller->processRequest();
 }
 
@@ -48,26 +48,35 @@ if(isset($_GET['categoria']) && count($uriFormatted) == 1){
     
     //Qualsevol peticio que no tingui la categoria valida [1-7] com parametre retornara un 404 Not found 
     if($cat > 0 && $cat < 8 ){
-        ferPeticio($cat, null);
+        ferPeticio($cat, null, null);
     }else{
         mostrarNotFound();
         exit();
     }
 
 //Si la peticio te el parametre novetats
-}else if(isset($_GET['novetats'])){
+}else if(isset($_GET['novetats']) && count($uriFormatted) == 1){
     $novetats = filter_var($_GET['novetats'], FILTER_VALIDATE_BOOLEAN);
     if($novetats){
-        ferPeticio(null,$novetats);
+        ferPeticio(null,$novetats, null);
     }else{
         mostrarNotFound();
         exit();
     }
-
+//Si la peticio te el parametre valorats     
+}else if (isset($_GET['valorats']) && count($uriFormatted) == 1){
+    $valorats = filter_var($_GET['valorats'], FILTER_VALIDATE_BOOLEAN);
+    if($valorats){
+        ferPeticio(null, null,$valorats);
+    }else{
+        mostrarNotFound();
+        exit();
+    }
+    
 //Si la peticio no te cap parametre retornarem tots els llibres
 }else if (empty($uri)) {
 
-    ferPeticio(null, null);
+    ferPeticio(null, null,null);
 
 //Si no cumpleix res d'abans sera not found 
 }else{
