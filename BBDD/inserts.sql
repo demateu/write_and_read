@@ -363,3 +363,21 @@ INSERT INTO llibre VALUES
 "Una calamitat de proporcions colossals s'aproxima només els elegits dels elements podran encendre els fars elementals del món i portar la pau al continent. Acompanya a Regi, Aster, Mai i Kan en la seva lluita per un món a punt de col·lapsar.", 
 'llibre_prova', CURDATE(), 
 null, 'temple-4933682_640',3, null, null);
+
+/*UPDATE PROVAR VALORATS I NOVETATS*/
+
+/*VALORATS*/
+UPDATE llibre SET mitja_vots = 4 WHERE id=47;
+UPDATE llibre SET mitja_vots = 5 WHERE id=48;
+UPDATE llibre SET mitja_vots = 4 WHERE id=49;
+UPDATE llibre SET mitja_vots = 5 WHERE id=50;
+
+/*NOVETATS*/
+UPDATE llibre SET data_alta = '2021-04-30' WHERE id=1;
+UPDATE llibre SET data_alta = '2021-04-23' WHERE id=11;
+UPDATE llibre SET data_alta = '2021-04-19' WHERE id=15;
+UPDATE llibre SET data_alta = '2021-04-27' WHERE id=18;
+UPDATE llibre SET data_alta = '2021-04-23' WHERE id=22;
+UPDATE llibre SET data_alta = '2021-04-26' WHERE id=25;
+UPDATE llibre SET data_alta = '2021-04-19' WHERE id=26;
+UPDATE llibre SET data_alta = '2021-04-30' WHERE id=40;
