@@ -7,17 +7,15 @@
     <meta name="keywords" content="escriptors, llibres">
     <meta name="author" content="demateu, ronny, apossai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write&Read</title>
+    <title>Write&amp;Read</title>
     
 
     <!--favicon-->
     <link rel="icon" href="<?=base_url?>assets/img/identity/favicon_99px.ico">
 
-    <!-- Jquery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
-    <!-- JS -->
-    <script src="assets/js/main.js" type="text/javascript"></script>
+
+
 
     <!-- Font awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
@@ -30,6 +28,8 @@
 
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/d10f252433.js" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -62,7 +62,7 @@
                 <nav id="menu" class="col">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">INICI</a>
+                            <a class="nav-link" aria-current="page" href="<?=base_url?>index.php">INICI</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>

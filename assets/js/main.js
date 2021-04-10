@@ -4,10 +4,13 @@ $(document).ready(function () {
     const altFitxa = "Imatge del llibre";
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
-    const baseURL= "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
+    const baseURL= "http://localhost:8888/write_and_read/";
 
     //Afegir listeners nav content (contingut principal nav per categorias)
-    $('#nav_content li a').on('click', function () {
+    $('#nav_content li a').on('click', function (event) {
+        //perquè deshabiliti el funcionament de l'href per defecte
+        event.preventDefault();
+
         //Fa active on s'ha fet el click
         var active = $(this).parent().parent().find('a.active');
         active.removeClass('active');
@@ -20,41 +23,76 @@ $(document).ready(function () {
         //Fa l'ajax de la categoria corresponent
         var idCat=$(this).attr("data-idCat");
         ferAjax(idCat);
-
     })
 
-    
+
+    //demateu: repassar, per fer
+    $('#totes_categories').on('click', function(e){
+        //perquè deshabiliti el funcionament de l'href per defecte
+        e.preventDefault();
+        
+        //Ajax inicial
+        //ferAjax();
+        ferAjaxTots();
+            
+    })
+
 
    //Ajax inicial
-   ferAjax();
+   //ferAjax();
+   ferAjaxTots();
+
     
     function ferAjax(idCat){
         if(idCat !== undefined){
             //AJAX per categoria
             $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
-                type: 'GET',
-                data: JSON.stringify({'categoria': idCat}), //ponia esto: {'categoria': idCat} -> demateu
+                url: '/write_and_read/api-rest/', //https://cors-anywhere.herokuapp.com/ 
+                method: 'GET',
+                //els parametres:
+                data: {'categoria': idCat}, //probar esto: JSON.stringify({'categoria': idCat}) -> demateu
+                //data: { nom: "Maria", cognom: "Campmany"}
+                //data: 'nom=Maria&cognom=Campany' -> 2ona opcio permesa
                 dataType: 'json',
+                encode : true,//demateu ->añado esto
+                contentType: 'json',//demateu ->añado esto
                 success: function (resp) {
                     ferFitxes(resp, 8);
                 }
             });
-        }else{
+       // }else{
             //AJAX a totes les categories
-            $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',
-                type: 'GET',
-                dataType: 'json',
-                success: function (resp) {
-                    ferFitxes(resp, 8);
-                }
-            });
+            //$.ajax({
+                //url: 'https://cors-anywhere.herokuapp.com/http://localhost:8888/write_and_read/api-rest/',
+                //type: 'GET',
+                //dataType: 'json',
+                //success: function (resp) {
+              //      ferFitxes(resp, 8);
+            //    }
+          //  });
         }
-        
+    }
+    //http://localhost:8888/write_and_read/api-rest/?categoria=2
+
+
+    function ferAjaxTots(){
+
+        //AJAX a totes les categories
+        $.ajax({
+            url: '/write_and_read/api-rest/',
+            method: 'GET', //type: 
+            dataType: 'json',
+            encode : true,
+            contentType: 'json',
+            success: function (resp) {
+                ferFitxes(resp, 8);
+            }
+        });
     }
 
-    
+
+
+
 
 
     /*
@@ -95,7 +133,7 @@ $(document).ready(function () {
                                 <span class="fa fa-star"></span>
                             </div>
                             <a href="${baseURL}?id_llibre='${id_llibre}'"> <h4 class="card-title">${titol}</h4></a>
-                            <a href="${baseURL}?id_autor='${id_escriptor}'" ><p class="card-text">${autor}</p></a>
+                            <a href="${baseURL}?id_autor='${id_escriptor}'"><p class="card-text">${autor}</p></a>
         
                             <!-- icones-->
                             <img class="lookIcon" src="${urlLookIcon}" alt=${altVeureMes}>

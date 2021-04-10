@@ -33,7 +33,7 @@ class LlibreGateway{
         try{
             $qry=$this->db->query($qry);
             $result=$qry->fetch_all(MYSQLI_ASSOC);
-            return $result;
+            return $result; //resposta
         }catch (Exception $e){
             exit($e->getMessage());
         }
@@ -46,15 +46,15 @@ class LlibreGateway{
      * @return array $result: Resultat de la query 
      * @throws Exception $e
      */
-    public function find($id){
+    public function find($id){ 
         $qry = "SELECT l.id, l.titol,l.portada_url, l.mitja_vots, l.cops_votat, c.nom_cat AS 'categoria', u.nom_i_cognoms AS 'autor', l.id_escriptor  FROM llibre l, categoria c, usuari u WHERE l.id_categoria=? AND l.id_categoria=c.id AND u.id=l.id_escriptor";
         
         try{
             $qry = $this->db->prepare($qry);
-            $qry->bind_param('i', $id);
+            $qry->bind_param('i', $id); //i -> integer
             $qry->execute();
             $result=$qry->get_result()->fetch_all(MYSQLI_ASSOC);
-
+            
             return $result;
         } catch (Exception $e) {
             exit($e->getMessage());

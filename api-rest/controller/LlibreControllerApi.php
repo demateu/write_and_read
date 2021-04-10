@@ -48,7 +48,8 @@ class LlibreControllerApi{
     /**
      * Prepara la resposta de la peticio si es GET 
      */
-    public function processRequest(){
+    public function processRequest(){ //!!!
+
         switch($this->peticioMetode) {
             case 'GET':
                 if ($this->catId){
