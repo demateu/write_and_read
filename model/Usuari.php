@@ -341,6 +341,9 @@ class Usuari{
     }
 
 
+    /**
+     * @author demateu
+     */
     public function buscarEscriptor(){
         $escriptor = $this->db->query("SELECT * FROM usuari WHERE id={$this->getId()} ");
         //que saque el unico objeto que puede sacar
@@ -349,16 +352,17 @@ class Usuari{
 
 
     /**
-     * test
+     * TEST: retorna tots els usuaris de la BBDD
      */
     public function getAll(){
         $usuaris = $this->db->query("SELECT * FROM usuari");
         return $usuaris;
     }
 
+
     /**
-     * @author
-     * Retorna tots els escriptors
+     * @author demateu
+     * Retorna tots els usuaris de tipus escriptor (2)
      * 
      * @return escriptors
      */
@@ -370,7 +374,7 @@ class Usuari{
 
     /**
      * @author demateu
-     * Retorna tots els lectors
+     * Retorna tots els usuaris de tipus lector (1)
      * 
      * @return lectors
      */
@@ -378,6 +382,8 @@ class Usuari{
         $lectors = $this->db->query("SELECT * FROM usuari WHERE id_tipus_usuari = 1");
         return $lectors;        
     }
+
+
 
 
 
