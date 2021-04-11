@@ -12,6 +12,7 @@ $(document).ready(function () {
     const urlLookIcon = "assets/img/icons/look_icon.png";
     const baseURL= "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
 
+
     ferAjax(); //Ajax inicial
     ferAjax(undefined, true); //Ajax novetats
     ferAjax(undefined, false, true ) //Ajax valorats
