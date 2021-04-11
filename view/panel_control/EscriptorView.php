@@ -11,7 +11,7 @@
     <?php endwhile; ?>
 
     <?php if(isset($id)): ?>
-
+        <h1><?=$id->nickname?></h1>
     <?php else: ?>
 
     <?php endif; ?>

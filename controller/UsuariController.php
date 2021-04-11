@@ -98,8 +98,17 @@ class UsuariController{
             //require_once 'view/panel_control/EscriptorView.php';
         if(isset($_GET['id'])){
             var_dump($_GET['id']);
+
+            //aqui guardo el id que me llega por GET
+            $id = $_GET['id'];
             //tenemos que modificar los enlaces de nuestro menu
             //para poder pasarle un parametro por GET por la URL
+
+            //aqui ya uso el modelo y su modulo
+            $escriptor = new Usuari();//instancio
+            $escriptor->setId($id);
+
+            $escriptor = $escriptor->buscarEscriptor();
         }
 
         require_once 'view/panel_control/EscriptorView.php';
