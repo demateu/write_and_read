@@ -131,7 +131,7 @@ class UsuariController{
 
 
     /**
-     * test
+     * TEST
      */
     public function cargarAll(){
         $usuari = new Usuari();
