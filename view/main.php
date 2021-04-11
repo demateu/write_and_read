@@ -69,11 +69,13 @@
                     </div>  -->
                     
                 </div>
-                <a class="carousel-control-prev" href="#llib_cat" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                <a class="carousel-control-prev" href="#llib_cat" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#llib_cat" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                <a class="carousel-control-next" href="#llib_cat" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
                 </a>
             </div>
         </div>
@@ -91,11 +93,13 @@
                 <div id="fitxes_valorats" class="carousel-inner">
                     
                 </div>
-                <a href="<?=base_url?>llib_votos" class="carousel-control-prev" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                <a class="carousel-control-prev" href="#llib_votos" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
                 </a>
-                <a href="<?=base_url?>llib_votos" class="carousel-control-next" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                <a class="carousel-control-next" href="#llib_votos" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
                 </a>
 
             </div>
@@ -115,11 +119,13 @@
                 <div id="fitxes_nous" class="carousel-inner">
                     
                 </div>
-                <a href="<?=base_url?>llib_nous" class="carousel-control-prev" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                <a class="carousel-control-prev" href="#llib_nous" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
                 </a>
-                <a href="<?=base_url?>llib_nous" class="carousel-control-next" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                <a class="carousel-control-next" href="#llib_nous" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
                 </a>
 
             </div>
