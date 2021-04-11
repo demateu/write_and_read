@@ -5,33 +5,48 @@
 <!--Contingut principal -->
 
 <main>
-    
-    <?php while($escriptor = $usuaris->fetch_object()): ?>
-    <h1 class="text-center"><?=$escriptor->nickname?></h1>
-    <?php endwhile; ?>
-
+    <!--Nom i cognoms de l'escriptor-->
     <?php if(isset($id)): ?>
-        <h1><?=$id->nickname?></h1>
+        <h1 class="text-center"><?=$escriptor->nom_i_cognoms?></h1>
     <?php else: ?>
-
+        <h1 class="text-center">L'escriptor no existeix</h1>
     <?php endif; ?>
-
-
+    <!--FI nom i cognoms-->
     <div class="container border border-secondary">
         <div class="row">
             <div class="col-md-auto">
-                <br>
-                <img src="https://1.bp.blogspot.com/-p3PJYryBJYU/WttM2CVLQDI/AAAAAAAAZvY/kGTP51NUBmMitmGg_QbWzy_6Iuj6e0YVQCLcBGAs/s320/Cervantes.jpg" alt="Imatge del Autor" class="card-img-top" />
+                <!--imatge de l'escriptor-->
+                <img src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png" alt="Imatge de <?=$escriptor->nom_i_cognoms?>" class="card-img-top" />
+                <!--fi imatge-->
             </div>
             <div class="col"><br>
-                <h4 class="card-title" style="color:#925279">Miguelillo1547</h4>
-                <p class="card-title"><strong>Data de Naixement: </strong>29/9/1547</p>
+                <!--Nickname de l'escriptor-->
+                <?php if(isset($id)): ?>
+                    <h4 class="card-title" style="color:#925279"><?=$escriptor->nickname?></h1>
+                <?php else: ?>
+                    <h4 class="card-title" style="color:#925279">L'escriptor no existeix</h1>
+                <?php endif; ?>
+                <!--fi nickname-->
+                <!--Data de naixement de l'escriptor-->
+                <?php if(isset($id)): ?>
+                    <p class="card-title"><strong>Data de Naixement: </strong><?=$escriptor->data_naixement?></p>
+                <?php else: ?>
+                    <p class="card-title"><strong>Data de Naixement: </strong>L'escriptor no existeix</p>
+                <?php endif; ?>
+                <!--fi data de naixement-->
                 <hr>
                 <h4 class="card-title">Biografia</h4>
-                <p class="card-text">Miguel de Cervantes Saavedra (Alcalá de Henares, 29 de setembre de 1547 - Madrid, 22 d'abril de 1616) fou un escriptor castellà, conegut sobretot per la seva novel·la El Quixot. Es considera un dels autors més influents de la literatura universal, i les seves obres han inspirat adaptacions cinematogràfiques i han modificat la manera d'entendre la novel·la, especialment en l'àmbit hispànic i anglès. En homenatge a l'autor, el seu rostre figura a les monedes de fracció d'euro (10, 20 i 50 cts.) encunyades a Espanya.</p>
+                <!--Biografia de l'escriptor-->
+                <?php if(isset($id)): ?>
+                    <p class="card-text"><?=$escriptor->biografia?></p>                    
+                <?php else: ?>
+                    <p class="card-title"><strong>Data de Naixement: </strong>L'escriptor no existeix</p>
+                <?php endif; ?>
+                <!--fi biografia-->
             </div>
-        </div><br>
-        <div class="row">
+        </div>
+
+        <section class="row" id="llibres_publicats">
             <h4 class="card-title text-center">Llibres Publicats</h4>
             <div class="col-sm-6 col-lg-3">
                 <div class="card">
@@ -65,8 +80,10 @@
                     </div>
                 </div><br>
             </div>
-        </div>
+        </section>
+
+
     </div>
 </main>
 
-<?php require_once 'view/layout/footer.php'; ?>
+<?php require_once 'view/layout/footer.php';?>
