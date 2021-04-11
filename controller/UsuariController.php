@@ -1,7 +1,8 @@
 <?php
 
 require_once 'model/Usuari.php';
-//require_once 'view/panel_control/EscriptorView.php';//no se si aquest es necessari
+Require_once 'model/Llibre.php';
+
 
 /**
  * @author demateu
@@ -10,12 +11,6 @@ class UsuariController{
 
     //test -> para borrar
     public function index(){
-        $usuari = new Usuari();
-        $usuaris = $usuari->getAllEscriptors();
-
-        var_dump($usuaris->fetch_object());
-        var_dump($usuari->getAllEscriptors());
-
         //renderizar vista
         require_once 'view/panel_control/EscriptorView.php';
     }
@@ -85,58 +80,49 @@ class UsuariController{
     }
 
 
-
     /**
-     * renderitza la fitxa de l'escriptor
-     * pediria los datos al modelo (BBDD)
+     * @author demateu
+     * 
+     * renderitza la fitxa de l'escriptor a la següent url:
+     * http://localhost:8888/write_and_read/usuari/fitxa
+     * 
+     * li arriba per GET (desde el main.js) l'id de l'escriptor que renderitzarà
      */
     public function fitxa(){
-    
-        //faltara concretar si se recibe por GET o POST (pongo de mientras GET)
-        //accedir-hi per aqui: http://localhost:8888/write_and_read/usuari/fitxa
-        //if(isset($_GET['id'])){
-            //require_once 'view/panel_control/EscriptorView.php';
+
+        //comprobar si me llega el id por GET
         if(isset($_GET['id'])){
-            var_dump($_GET['id']);
 
-            //aqui guardo el id que me llega por GET
+            //CONSEGUIR DADES ESCRIPTOR
+            //var_dump($_GET['id']);
             $id = $_GET['id'];
-            //tenemos que modificar los enlaces de nuestro menu
-            //para poder pasarle un parametro por GET por la URL
 
-            //aqui ya uso el modelo y su modulo
-            $escriptor = new Usuari();//instancio
+            $escriptor = new Usuari();
             $escriptor->setId($id);
+            $escriptor = $escriptor->buscarUsuariPerId();
 
-            $escriptor = $escriptor->buscarEscriptor();
+            //var_dump($escriptor);
+
+            //CONSEGUIR IMATGE ESCRIPTOR
+            
+
+            //CONSEGUIR DADES LLIBRES ESCRITS
+            $llibre = new Llibre();
+            //...
+
         }
 
         require_once 'view/panel_control/EscriptorView.php';
-
-            $usuari = new Usuari();
-            $escriptor = $usuari->buscarPorId($_GET['id']);
-            var_dump($escriptor);
-
-            if(!$escriptor == false){
-                //pasar datos a la vista de Fitxa escriptor; cargo la vista
-                require_once 'view/panel_control/EscriptorView.php';
-            }else{
-                //esto no deberia pasar
-                echo 'Algo no ha ido bien';
-            }
-        //}else{
-            //echo 'ops';
-       // }
     }
 
 
     /**
-     * TEST
+     * TEST es ok, carga TODOS los usuarios
      */
     public function cargarAll(){
         $usuari = new Usuari();
-        $usuaris = $usuari->getAll();
-        
+        $usuaris = $usuari->getAll();//crido al metode getAll d'Usuari
+        //$usuaris serà on accedim desde la vista
         require_once 'view/panel_control/EscriptorView.php';
     }
 

@@ -28,8 +28,12 @@ class Usuari{
     private $data_naixement;
     private $id_tipus_usuari; //FK
     private $biografia;//nomes per escriptors
+
+    //s'ha d'afegir una propietat: llista de llibres publicats
+    private $llibres_publicats; //array?
     
     private $db;
+
 
     public function __construct()
     {
@@ -321,6 +325,7 @@ class Usuari{
 
 
     /**
+     * DE MOMENT NO ES CORRECTE AQUEST METODE
      * buscarà a la BBDD la informacio necessaria per mostrar la fitxa de l'Escriptor
      * 
      * @param id de l'escriptor
@@ -336,15 +341,17 @@ class Usuari{
         if($escriptor && $escriptor->num_rows === 1){
             $result = $escriptor;
         }
-        
+
         return $result; //esta devolviendo false
     }
 
 
     /**
      * @author demateu
+     * 
+     * Busca l'usuari amb un id concret
      */
-    public function buscarEscriptor(){
+    public function buscarUsuariPerId(){
         $escriptor = $this->db->query("SELECT * FROM usuari WHERE id={$this->getId()} ");
         //que saque el unico objeto que puede sacar
         return $escriptor->fetch_object();
@@ -384,6 +391,15 @@ class Usuari{
     }
 
 
+    /**
+     * @author demateu
+     * Retorna els llibres d'un escriptor en concret
+     * 
+     * @return llibres
+     */
+    public function getLlibresPublicats(){
+        //...
+    }
 
 
 
