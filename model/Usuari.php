@@ -341,6 +341,13 @@ class Usuari{
     }
 
 
+    public function buscarEscriptor(){
+        $escriptor = $this->db->query("SELECT * FROM usuari WHERE id={$this->getId()} ");
+        //que saque el unico objeto que puede sacar
+        return $escriptor->fetch_object();
+    }
+
+
     /**
      * test
      */
@@ -359,7 +366,7 @@ class Usuari{
         $escriptors = $this->db->query("SELECT * FROM usuari WHERE id_tipus_usuari = 2");
         return $escriptors;        
     }
-    
+
 
     /**
      * @author demateu

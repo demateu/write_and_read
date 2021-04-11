@@ -108,6 +108,7 @@ $(document).ready(function () {
             var id_escriptor = element.id_escriptor;
             var mitja_vots = element.mitja_vots;
             var portada_url= element.portada_url;
+
             var titol = element.titol;
 
             //Fer la fitxa
@@ -122,8 +123,8 @@ $(document).ready(function () {
             `);
             fitxa += puntuacioLlibre(mitja_vots);
             fitxa += (`
-                            <a href="${baseURL}?id_llibre='${id_llibre}'"> <h4 class="card-title">${titol}</h4></a>
-                            <a href="${baseURL}?id_autor='${id_escriptor}'" ><p class="card-text nom_autor">${autor}</p></a>
+                            <a href="${baseURL}?id_llibre=${id_llibre}"> <h4 class="card-title">${titol}</h4></a>
+                            <a href="${baseURL}usuari/fitxa?id_autor=${id_escriptor}" ><p class="card-text nom_autor">${autor}</p></a>
         
                             <!-- icones-->
                             <img class="lookIcon" src="${urlLookIcon}" alt=${altVeureMes}>
