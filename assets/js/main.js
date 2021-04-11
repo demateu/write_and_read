@@ -117,14 +117,9 @@ $(document).ready(function () {
                             <img src="${imgUrl+portada_url+'.jpeg'}" alt="${altFitxa}" class="card-img-top" />
                         </div>
                         <div class="card-body">
-                            <!-- valoracions -->
-                            <div class="valoracions">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
+            `);
+            fitxa += puntuacioLlibre(mitja_vots);
+            fitxa += (`
                             <a href="${baseURL}?id_llibre='${id_llibre}'"> <h4 class="card-title">${titol}</h4></a>
                             <a href="${baseURL}?id_autor='${id_escriptor}'" ><p class="card-text">${autor}</p></a>
         
@@ -138,7 +133,7 @@ $(document).ready(function () {
                 </div>
                 <!-- fi fitxa -->
             `);
-
+                            
             if(count==fitxaperRow){
                 //Crea el carousel-item i el node
                 crearCarouselItem(idCarouselInner);
@@ -234,6 +229,37 @@ $(document).ready(function () {
      */
     function esborrarIndicatorsCarousel (elementPare){
         $(elementPare + " .carousel-indicators").children().remove();
+    }
+
+    /**
+     * Fa les valoracions del llibre
+     * 
+     * @param int mitja_vots : Puntuacio del llibre 
+     * @return valoracions : Div de les estrelles d'acord amb la mitja_vots 
+     */
+    function puntuacioLlibre(mitja_vots){
+        
+
+        let star = `<span class="fa fa-star"></span>`;
+        let starChecked = `<span class="fa fa-star checked"></span>`;
+
+        let valoracions = (`
+            <div class="valoracions">
+        `);
+
+        for (let i = 1; i <= 5; i++) {
+            if(i <= mitja_vots){
+                valoracions += (`
+                    ${starChecked}
+                `);
+            }else{
+                valoracions += (`
+                    ${star}
+                `);
+            }  
+        }
+        
+        return valoracions+="</div>";
     }
 
    
