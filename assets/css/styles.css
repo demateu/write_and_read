@@ -149,6 +149,11 @@ h3{
 }
 
 
+/*NAV CATEGORIES DESPRÉS L'SLIDE*/
+#nav_content a{
+    padding: 6px 20px;
+}
+
 
 /*CARDS*/
 .card{

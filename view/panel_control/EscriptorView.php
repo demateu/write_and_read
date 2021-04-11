@@ -5,10 +5,16 @@
 <!--Contingut principal -->
 
 <main>
-    <h1 class="text-center">
-        Miguel
-    </h1>
+    
+    <?php while($escriptor = $usuaris->fetch_object()): ?>
+    <h1 class="text-center"><?=$escriptor->nickname?></h1>
+    <?php endwhile; ?>
 
+    <?php if(isset($id)): ?>
+
+    <?php else: ?>
+
+    <?php endif; ?>
 
 
     <div class="container border border-secondary">

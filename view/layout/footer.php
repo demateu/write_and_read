@@ -64,8 +64,8 @@
         <div class="col p-0">
             <!-- Copyright -->
             <div id="copyright" class="text-center p-3">
-                Write&Read&COPY; <?= date('Y') ?> |
-                <a href="<?=base_url?>index.php">write&read.com</a>
+                Write&amp;Read&COPY; <?= date('Y') ?> |
+                <a href="<?=base_url?>index.php">write&amp;read.com</a>
             </div>
             <!-- Copyright -->
         </div>
@@ -74,8 +74,20 @@
 </footer>
 <!-- Fi peu de pagina -->
 
-    </div><!--FIN CONTAINER FLUID-->
+</div><!--FIN CONTAINER FLUID-->
+
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Jquery CDN-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+    <!-- JS ha d'anar després de la decñaracio del CDN del jquery-->
+    <script src="assets/js/main.js" type="text/javascript"></script>
+
 </body>
+
+</html>

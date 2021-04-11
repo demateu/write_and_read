@@ -1,5 +1,11 @@
 <?php 
 /**
+ * per veure els errors
+ */
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+/**
  * Front controller de l'api.
  * 
  * @author Ronny
@@ -83,4 +89,3 @@ if(isset($_GET['categoria']) && count($uriFormatted) == 1){
     mostrarNotFound();
     exit();
 }
-
