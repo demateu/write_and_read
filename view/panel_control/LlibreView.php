@@ -22,11 +22,16 @@
                         <!--FI Portada de Llibre-->
 						<!-- valoracions -->
                         <div class="valoracions" align="center">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                           <?php if(isset($id)):
+							$star = "<span class='fa fa-star'></span>";
+							$starChecked = "<span class='fa fa-star checked'></span>";
+							for ($i = 1; $i <= 5; $i++) {
+								if($i <= ($llibre->mitja_vots)){
+									echo $starChecked;
+								}else{
+									echo $star; 
+								}
+							} endif; ?>
 							<?php if(isset($id)): ?>
 						    <p><strong> Puntuació:</strong> <?=$llibre->mitja_vots?>/5</p>
 						    <?php else: ?>
@@ -43,12 +48,12 @@
                     <div class="col">
 					<!--FITXA del llibre -->
 						<?php if(isset($id)): ?>
-						    <p class="card-title"><strong> Autor:</strong> <?=$llibre->id_escriptor?></p>
+						    <p class="card-title"><strong> Autor:</strong> <?=$llibre->nom_i_cognoms?></p>
 						<?php else: ?>
 						    <p class="card-title"><strong> Autor:</strong> El llibre no existeix</p>
 						<?php endif; ?>
 						<?php if(isset($id)): ?>
-						    <p class="card-title"><strong> Gènere:</strong> <?=$llibre->id_categoria?></p>
+						    <p class="card-title"><strong> Gènere:</strong> <?=$llibre->nom_cat?></p>
 						<?php else: ?>
 						    <p class="card-title"><strong> Gènere:</strong> El llibre no existeix</p>
 						<?php endif; ?>
@@ -58,7 +63,7 @@
 						    <p class="card-title"><strong> Data de Publicació:</strong> El llibre no existeix</p>
 						<?php endif; ?>
                         <hr>
-						<h4 class="card-title">Sinopsis</h4>
+						<h4>Sinopsis</h4>
 						<?php if(isset($id)): ?>
 						    <p class="card-title"><?=$llibre->sinopsis?></p>
 						<?php else: ?>
