@@ -3,14 +3,6 @@
 
 
 <!--Contingut principal -->
-    <!--Nom i cognoms de l'escriptor-->
-    <?php if(isset($id)): ?>
-        <h1 class="text-center">id avatar: <?=$escriptor->avatar_id?></h1>
-    <?php else: ?>
-        <h1 class="text-center">L'escriptor no existeix</h1>
-    <?php endif; ?>
-    <!--FI nom i cognoms-->
-
 <main>
     <!--Nom i cognoms de l'escriptor-->
     <?php if(isset($id)): ?>
@@ -23,7 +15,11 @@
         <div class="row">
             <div class="col-md-auto">
                 <!--imatge de l'escriptor-->
-                <img src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png" alt="Imatge de <?=$escriptor->nom_i_cognoms?>" class="card-img-top" />
+                <?php if(isset($id)): ?>
+                    <img src="<?=$escriptor->avatar_url_imagen?>" alt="Imatge de <?=$escriptor->nom_i_cognoms?>" class="card-img-top" />
+                <?php else: ?>
+                    <h1 class="text-center">L'escriptor no existeix</h1>
+                <?php endif; ?>               
                 <!--fi imatge-->
             </div>
             <div class="col"><br>

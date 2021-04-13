@@ -319,9 +319,6 @@ class Llibre{
      * 
      * Busca llibre amb un id concret
      */
-	 
-	 
-	 
     public function buscarLlibrePerId(){
         $llibre = $this->db->query("SELECT t1.titol, t1.portada_url, t1.mitja_vots, t1.cops_votat, t2.nom_i_cognoms, t1.data_alta, t3.nom_cat, t1.sinopsis, t1.contingut_url
 		FROM llibre t1 INNER JOIN usuari t2 ON t1.id_escriptor=t2.id INNER JOIN categoria t3 ON t1.id_categoria=t3.id WHERE t1.id={$this->getId()} ");
@@ -338,22 +335,6 @@ class Llibre{
         return $llibres;
     }
 
-
-
-    /**     TEST!!!
-     * @author demateu
-     * Retorna els llibres d'un escriptor en concret
-     * 
-     * @return llibres
-     */
-    public function getLlibresPublicatsPerId(){
-        //falta fer la query
-        $sql = "SELECT u.*, l.* FROM usuari u, llibre l 
-                WHERE u.navatar_id=a.id; ";
-        //...???
-        $llibres = $this->db->query($sql);
-        return $llibres;
-    }
     
 
 

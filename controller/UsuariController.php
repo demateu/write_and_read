@@ -89,48 +89,17 @@ class UsuariController{
      * li arriba per GET (desde el main.js) l'id de l'escriptor que renderitzarà
      */
     public function fitxa(){
-
         //comprobar si me llega el id por GET
         if(isset($_GET['id'])){
-
             //guardo l'id de GETen una variable
             $id = $_GET['id'];
 
             //CONSEGUIR DADES ESCRIPTOR
             $escriptor = new Usuari();
             $escriptor->setId($id);
-            $escriptor = $escriptor->buscarUsuariPerId();
-
-            
-            //CONSEGUIR IMATGE DE L'AVATAR DE L'ESCRIPTOR 
-            $avatar_id = $escriptor->avatar_id;
-            var_dump($avatar_id);//ok, retorna l'id de l'avatar escollit per l'escriptor seleccionat
-
-            $avatar = new Avatar();
-            $avatar->setId($avatar_id);
-            $avatar_url = $avatar->getAvatarUrlPerId();
-            var_dump($avatar_url);//ES OK, RETORNA LA URL en format objecte
-            //???
-
-            //CONSEGUIR LA IMATGE DE L'AVATAR DE L'ESCRIPTOR DESDE L'ESCRIPTOR
-                //setejar l'id de l'avatara Usuari
-
-                //probar 1er enviant-ho per parametre
-            $escriptor->getUrlAvatar();
-
-
-
-            //CONSEGUIR DADES LLIBRES ESCRITS ->getLlibresPublicatsPerId
-            $llibre = new Llibre();
-            $llibre->setId($id);
-            $llibre = $llibre->getLlibresPublicatsPerId();
-            //...
-
-            require_once 'view/panel_control/EscriptorView.php';
-
+            $escriptor = $escriptor->buscarUsuari();
         }
-
-        
+        require_once 'view/panel_control/EscriptorView.php';
     }
 
 
