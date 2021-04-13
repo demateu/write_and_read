@@ -45,25 +45,26 @@
         <!-- Capçalera de la web -->
         <header id="capçalera">
 
-            <div class="row">
-                <div class="col-12 p-0">
-                    <!-- User icona -->
-                    <div id="user">
-                        <button type="button" class="btn mt-1">
-                            <i class="far fa-user"></i>
-                        </button>
-                    </div>
+            <div class="row primary" id="first_line">
+                <!--Logo i buscador de la web -->
+                <div class="col-6 p-2" id="logo_search">
+                    <a href="<?=base_url?>index.php">
+                        <img src="<?=base_url?>assets/img/identity/wr_logo_250px.png" alt="logo" width="190" height="auto" class="ms-2"/>
+                    </a>
                 </div>
+                <!--Fi Logo-->
+                <!-- User icona-->
+                <div class="col-6" id="user_area">
+                    <button type="button" class="btn mt-1" id="user_button">
+                        <i class="far fa-user"></i>
+                    </button>
+                </div>
+                <!--Fi sUser icona-->
             </div>
 
             <!--  MENU NAV  -->
             <div class="row pt-3" id="menu-nav">
-                <!--Logo i buscador de la web -->
-                <div class="col-2" id="logo_search">
-                    <a href="<?=base_url?>index.php">
-                        <img src="<?=base_url?>assets/img/identity/wr_logo_250px.png" alt="logo" width="250" height="auto"/>
-                    </a>
-                </div>
+
                 <!--  MENU  -->
                 <nav id="menu" class="col">
                     <ul class="nav nav-pills">
