@@ -1,7 +1,7 @@
 <?= require_once 'view/layout/header.php'; ?>
 
-        <!--Contingut principal -->
-        <main>
+<!--Contingut principal -->
+<main>
             <!--Titol del llibre-->
     <?php if(isset($id)): ?>
         <h1 class="text-center"><?=$llibre->titol?></h1>
@@ -14,7 +14,6 @@
                 <div class="row">
                     <div class="col-md-auto">
 
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
                         <!-- valoracions -->
 
 						<!--Portadada de Llibre-->
@@ -82,7 +81,6 @@
                     </div>
                 </div>
             </div>
-    </div>
 
 </main>
 

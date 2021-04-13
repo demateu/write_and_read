@@ -56,7 +56,7 @@ class Avatar{
     }
 
     /**
-     * TEST
+     * TEST ???
      * metodo que convierte en String el objeto
      */
     public function toString(){

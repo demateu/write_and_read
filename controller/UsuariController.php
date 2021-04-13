@@ -111,10 +111,13 @@ class UsuariController{
             $avatar_url = $avatar->getAvatarUrlPerId();
             var_dump($avatar_url);//ES OK, RETORNA LA URL en format objecte
             //???
-            //$new_avatar = $avatar->toString();
-            //var_dump($new_avatar);
 
-            //$escriptor->getUrlAvatar();
+            //CONSEGUIR LA IMATGE DE L'AVATAR DE L'ESCRIPTOR DESDE L'ESCRIPTOR
+                //setejar l'id de l'avatara Usuari
+
+                //probar 1er enviant-ho per parametre
+            $escriptor->getUrlAvatar();
+
 
 
             //CONSEGUIR DADES LLIBRES ESCRITS ->getLlibresPublicatsPerId
