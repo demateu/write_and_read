@@ -22,7 +22,7 @@
                 <div class="col" id="nom-complert-avatar">
                     <!--Nom i cognoms de l'escriptor-->
                     <?php if(isset($id)): ?>
-                        <h1 class="text-center p-2"><?=$escriptor->nom_i_cognoms?></h1>
+                        <h1 class="text-center pt-2"><?=$escriptor->nom_i_cognoms?></h1>
                     <?php else: ?>
                         <h1 class="text-center">L'escriptor no existeix</h1>
                     <?php endif; ?>
@@ -33,9 +33,9 @@
                 <div class="col" id="nickname-avatar">
                     <!--Nickname de l'escriptor-->
                     <?php if(isset($id)): ?>
-                        <h2 class="card-title text-center">@<?=$escriptor->nickname?> | <?=$escriptor->data_naixement?></h2>
+                        <h2 class="text-center">@<?=$escriptor->nickname?> | <?=$escriptor->data_naixement?></h2>
                     <?php else: ?>
-                        <h2 class="card-title">L'escriptor no existeix</h2>
+                        <h2 class="text-center">L'escriptor no existeix</h2>
                     <?php endif; ?>
                     <!--fi nickname-->                    
                 </div>
