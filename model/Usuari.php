@@ -31,6 +31,8 @@ class Usuari{
 
     //s'ha d'afegir una propietat: llista de llibres publicats
     private $llibres_publicats; //array?
+
+    private $avatar_url_imagen;
     
     private $db;
 
@@ -300,9 +302,31 @@ class Usuari{
         return $this;
     }
   
+    /**
+     * Get the value of avatar_url_imagen
+     */ 
+    public function getAvatar_url_imagen()
+    {
+        return $this->avatar_url_imagen;
+    }
+
+    /**
+     * Set the value of avatar_url_imagen
+     *
+     * @return  self
+     */ 
+    public function setAvatar_url_imagen($avatar_url_imagen)
+    {
+        $this->avatar_url_imagen = $avatar_url_imagen;
+
+        return $this;
+    }
+    
+    
 
 
     /**
+     * @author demateu
      * guardamos el objeto en la BBDD (INSERT)
      * 
      * @return true si la consulta se hace correctamente
@@ -325,37 +349,18 @@ class Usuari{
 
 
     /**
-     * DE MOMENT NO ES CORRECTE AQUEST METODE
-     * buscarà a la BBDD la informacio necessaria per mostrar la fitxa de l'Escriptor
-     * 
-     * @param id de l'escriptor
-     * 
-     * @return objeto escritor si lo encuentra, sino restorna false
-     */
-    public function buscarPorId($id){
-        $result = false;
-
-        $sql = "SELECT * FROM usuari WHERE id = '$id' ";
-        $escriptor = $this->db->query($sql);
-
-        if($escriptor && $escriptor->num_rows === 1){
-            $result = $escriptor;
-        }
-
-        return $result; //esta devolviendo false
-    }
-
-
-    /**
      * @author demateu
-     * 
      * Busca l'usuari amb un id concret
+     * 
+     * @return escriptor amb l'id que busquem
      */
     public function buscarUsuariPerId(){
         $escriptor = $this->db->query("SELECT * FROM usuari WHERE id={$this->getId()} ");
         //que saque el unico objeto que puede sacar
         return $escriptor->fetch_object();
     }
+
+
 
 
     /**
@@ -397,9 +402,22 @@ class Usuari{
      * 
      * @return llibres
      */
-    public function getLlibresPublicats(){
-        //...
+    public function getLlibresPublicatsPerId(){
+        $sql = "SELECT u.*, a.avatar_url_imagen FROM usuari u, avatar a 
+                WHERE u.navatar_id=a.id; ";
+
+        //...???
+
+        $llibres = $this->db->query($sql);
+        return $llibres;
     }
+
+    
+    public function getUrlAvatar(){
+        
+    }
+
+
 
 
 

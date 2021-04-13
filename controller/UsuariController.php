@@ -1,8 +1,8 @@
 <?php
 
 require_once 'model/Usuari.php';
-Require_once 'model/Llibre.php';
-
+require_once 'model/Llibre.php';
+require_once 'controller/AvatarController.php';
 
 /**
  * @author demateu
@@ -93,26 +93,41 @@ class UsuariController{
         //comprobar si me llega el id por GET
         if(isset($_GET['id'])){
 
-            //CONSEGUIR DADES ESCRIPTOR
-            //var_dump($_GET['id']);
+            //guardo l'id de GETen una variable
             $id = $_GET['id'];
 
+            //CONSEGUIR DADES ESCRIPTOR
             $escriptor = new Usuari();
             $escriptor->setId($id);
             $escriptor = $escriptor->buscarUsuariPerId();
 
-            //var_dump($escriptor);
-
-            //CONSEGUIR IMATGE ESCRIPTOR
             
+            //CONSEGUIR IMATGE DE L'AVATAR DE L'ESCRIPTOR 
+            $avatar_id = $escriptor->avatar_id;
+            var_dump($avatar_id);//ok, retorna l'id de l'avatar escollit per l'escriptor seleccionat
 
-            //CONSEGUIR DADES LLIBRES ESCRITS
+            $avatar = new Avatar();
+            $avatar->setId($avatar_id);
+            $avatar_url = $avatar->getAvatarUrlPerId();
+            var_dump($avatar_url);//ES OK, RETORNA LA URL en format objecte
+            //???
+            //$new_avatar = $avatar->toString();
+            //var_dump($new_avatar);
+
+            //$escriptor->getUrlAvatar();
+
+
+            //CONSEGUIR DADES LLIBRES ESCRITS ->getLlibresPublicatsPerId
             $llibre = new Llibre();
+            $llibre->setId($id);
+            $llibre = $llibre->getLlibresPublicatsPerId();
             //...
+
+            require_once 'view/panel_control/EscriptorView.php';
 
         }
 
-        require_once 'view/panel_control/EscriptorView.php';
+        
     }
 
 

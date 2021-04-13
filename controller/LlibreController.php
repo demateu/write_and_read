@@ -4,12 +4,6 @@ require_once 'model/Llibre.php';
 
 class LlibreController{
 
-    //test
-    public function index(){
-        //renderizar vista
-        require_once 'view/panel_control/LlibreView.php';
-    }
-
     /**
      * renederitza la pàgina de registre d'un llibre a la URL:
      * <=?base?>llibre/registre

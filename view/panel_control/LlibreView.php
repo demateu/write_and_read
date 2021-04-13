@@ -13,6 +13,10 @@
             <div class="container border border-secondary">
                 <div class="row">
                     <div class="col-md-auto">
+
+                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                        <!-- valoracions -->
+
 						<!--Portadada de Llibre-->
                         <?php if(isset($id)): ?>
 						<img src="/write_and_read/assets/img/cover_books/<?=$llibre->portada_url?>.jpeg" alt="Imatge del llibre" class="card-img-top" />
@@ -78,7 +82,8 @@
                     </div>
                 </div>
             </div>
-    </main>
+    </div>
 
+</main>
 
-   <?php require_once 'view/layout/footer.php';?>
+<?= require_once 'view/layout/footer.php'; ?>
