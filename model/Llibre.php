@@ -295,6 +295,48 @@ class Llibre{
         return $result;
     }
 
+/**
+     * buscarà a la BBDD la informacio necessaria per mostrar la fitxa de llibre
+     * 
+     * @param id de llibre
+     * 
+     * @return object llibre o false
+     */
+    public function buscarPorId($id){
+        $result = false;
+
+        $sql = "SELECT * FROM llibre WHERE id = '$id' ";
+        $llibre = $this->db->query($sql);
+
+        if($llibre && $llibre->num_rows === 1){
+            $result = $llibre;
+        }
+        
+        return $result;
+    }
+	
+	/**
+     * 
+     * Busca llibre amb un id concret
+     */
+	 
+	 
+	 
+    public function buscarLlibrePerId(){
+        $llibre = $this->db->query("SELECT t1.titol, t1.portada_url, t1.mitja_vots, t1.cops_votat, t2.nom_i_cognoms, t1.data_alta, t3.nom_cat, t1.sinopsis, t1.contingut_url
+		FROM llibre t1 INNER JOIN usuari t2 ON t1.id_escriptor=t2.id INNER JOIN categoria t3 ON t1.id_categoria=t3.id WHERE t1.id={$this->getId()} ");
+        return $llibre->fetch_object();
+    }
+	
+	
+
+    /**
+     * test
+     */
+    public function getAll(){
+        $llibres = $this->db->query("SELECT * FROM llibre");
+        return $llibres;
+    }
 
 
 
