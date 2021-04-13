@@ -14,8 +14,6 @@
                 <div class="row">
                     <div class="col-md-auto">
 
-                        <!-- valoracions -->
-
 						<!--Portadada de Llibre-->
                         <?php if(isset($id)): ?>
 						<img src="/write_and_read/assets/img/cover_books/<?=$llibre->portada_url?>.jpeg" alt="Imatge del llibre" class="card-img-top" />
