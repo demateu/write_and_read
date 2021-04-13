@@ -55,53 +55,6 @@
         </div>
     </section>
 
-    <!--LLIBRES PUBLICATS-->
-    <section class="row" id="llibres_publicats">
-        <div class="col-10 mx-auto">
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center mb-5">Llibres Publicats</h2>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>            
-            </div>
-        </div>
-    </section>
-    <!--FI LLIBRES PUBLICATS-->
-
     <!--LLIBRES PUBLICATS B-->
     <section class="row" id="llibres_publicats">
         <div class="col-10 mx-auto">
@@ -191,6 +144,55 @@
         </div>
     </section>
     <!--FI LLIBRES PUBLICATS B-->    
+
+    <!--LLIBRES PUBLICATS-->
+    <section class="row" id="llibres_publicats">
+        <div class="col-10 mx-auto">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-center mb-5">Llibres Publicats</h2>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                        <div class="card-body">
+                            <h4 class="card-title">Don Quijote de la Mancha</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                        <div class="card-body">
+                            <h4 class="card-title">Don Quijote de la Mancha</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                        <div class="card-body">
+                            <h4 class="card-title">Don Quijote de la Mancha</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
+                        <div class="card-body">
+                            <h4 class="card-title">Don Quijote de la Mancha</h4>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </section>
+    <!--FI LLIBRES PUBLICATS-->
+
+
 
 </div>
 
