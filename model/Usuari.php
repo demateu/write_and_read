@@ -22,7 +22,6 @@ class Usuari{
     private $dni;
     private $email;
     private $data_alta;//definir un current date aqui, en el constructor o en el insert?
-    private $avatar_id;//FK
     private $password;//aplicar encriptacion!
     private $subscrit;//boolean
     private $data_naixement;
@@ -31,11 +30,11 @@ class Usuari{
 
     //s'ha d'afegir una propietat: llista de llibres publicats
     private $llibres_publicats; //array?
-
-    private $avatar_url_imagen;
+    //fotos dels avatars
+    private $avatar_id;//FK
+    private $avatar_url_imagen;//dada de la taula avatar
     
     private $db;
-
 
     public function __construct()
     {
@@ -317,7 +316,7 @@ class Usuari{
      */ 
     public function setAvatar_url_imagen($avatar_url_imagen)
     {
-        $this->avatar_url_imagen = $avatar_url_imagen;
+        $this->avatar_url_imagen = $this->db->real_escape_string($avatar_url_imagen);
 
         return $this;
     }
@@ -361,8 +360,6 @@ class Usuari{
     }
 
 
-
-
     /**
      * TEST: retorna tots els usuaris de la BBDD
      */
@@ -404,7 +401,7 @@ class Usuari{
      */
     public function getLlibresPublicatsPerId(){
         $sql = "SELECT u.*, a.avatar_url_imagen FROM usuari u, avatar a 
-                WHERE u.navatar_id=a.id; ";
+                WHERE u.avatar_id=a.id";
 
         //...???
 
@@ -413,8 +410,22 @@ class Usuari{
     }
 
     
+    /**
+     * @author demateu
+     * busca l'avatar amb id concret
+     * 
+     * @return ...
+     */
     public function getUrlAvatar(){
-        
+        $sql = "SELECT a.avatar_url_imagen
+		        FROM usuari u 
+                INNER JOIN avatar a 
+                ON u.avatar_id=a.id 
+                WHERE u.avatar_id=1 
+                LIMIT 1";
+        $avatar_url_imatge = $this->db->query($sql);
+
+        return $avatar_url_imatge->fetch_object();
     }
 
 

@@ -340,7 +340,20 @@ class Llibre{
 
 
 
-
+    /**     TEST!!!
+     * @author demateu
+     * Retorna els llibres d'un escriptor en concret
+     * 
+     * @return llibres
+     */
+    public function getLlibresPublicatsPerId(){
+        //falta fer la query
+        $sql = "SELECT u.*, l.* FROM usuari u, llibre l 
+                WHERE u.navatar_id=a.id; ";
+        //...???
+        $llibres = $this->db->query($sql);
+        return $llibres;
+    }
     
 
 
