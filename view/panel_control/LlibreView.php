@@ -33,13 +33,25 @@
 									echo $star; 
 								}
 							} endif; ?>
-							<?php if(isset($id)): ?>
-						    <p><strong> Puntuació:</strong> <?=$llibre->mitja_vots?>/5</p>
+							<?php if(isset($id)):
+								if(($llibre->mitja_vots)==NULL){
+									echo "<p><strong> Puntuació:</strong> encara no puntuat</p>";
+								}else{
+									echo "<p><strong> Puntuació:</strong> ";
+									echo $llibre->mitja_vots;
+									echo "/5</p>"; 
+								}	?>
 						    <?php else: ?>
 						    <p><strong> Puntuació:</strong> El llibre no existeix</p>
 						    <?php endif; ?>
-							<?php if(isset($id)): ?>
-						    <p><strong> Cops votat:</strong> <?=$llibre->cops_votat?></p>
+							<?php if(isset($id)): 
+						    if(($llibre->cops_votat)==NULL){
+									echo "<p><strong> Cops votat:</strong> 0</p>";
+								}else{
+									echo "<p><strong> Cops votat:</strong> ";
+									echo $llibre->cops_votat;
+									echo "</p>"; 
+								}	?>
 						    <?php else: ?>
 						    <p><strong> Cops votat:</strong> El llibre no existeix</p>
 						    <?php endif; ?>
