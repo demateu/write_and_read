@@ -3,6 +3,13 @@
 
 
 <!--Contingut principal -->
+    <!--Nom i cognoms de l'escriptor-->
+    <?php if(isset($id)): ?>
+        <h1 class="text-center">id avatar: <?=$escriptor->avatar_id?></h1>
+    <?php else: ?>
+        <h1 class="text-center">L'escriptor no existeix</h1>
+    <?php endif; ?>
+    <!--FI nom i cognoms-->
 
 <main>
     <!--Nom i cognoms de l'escriptor-->

@@ -4,9 +4,13 @@ require_once 'model/Llibre.php';
 
 class LlibreController{
 
-    //test
+
+    /**TEST PARA VER LA VISTA RENDERIZADA Y COMPROBAR Q VA
+     * <=?base?>llibre/index
+     * @author demateu
+     */
     public function index(){
-        echo "Controlador Llibre, Accion index";
+        require_once 'view/panel_control/LlibreView.php';
     }
 
     /**
