@@ -243,7 +243,37 @@ footer a{
 
 #usuari-section{
     min-height: 300px;
+    padding: 80px 20px 30px 20px;
+}
+
+
+/*estilos generales basicos guia de estilos*/
+.primary{
+    min-height: 50px;
+    background-color: #915078;
+    color: white;
+}
+
+.p-light{
+    background-color: #c37ea7;
+    color: black;
+}
+
+.p-dark{
     background-color: #62244c;
     color: white;
-    padding: 80px 20px 30px 20px;
+}
+
+/*Fitxa escriptor
+centra el text e la bio*/
+#biografia_avatar p{
+    margin: 10px;
+}
+
+#nickname-avatar{
+    color: #c37ea7;
+}
+
+#llibres_publicats{
+    margin-top: 50px;
 }
