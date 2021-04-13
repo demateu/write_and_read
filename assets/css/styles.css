@@ -243,7 +243,8 @@ footer a{
 
 #usuari-section{
     min-height: 300px;
-    padding: 80px 20px 30px 20px;
+    padding-top: 80px;
+    padding-bottom: 20px;
 }
 
 
@@ -267,11 +268,13 @@ footer a{
 /*Fitxa escriptor
 centra el text e la bio*/
 #biografia_avatar p{
-    margin: 10px;
+    margin: 15px;
 }
 
-#nickname-avatar{
+#nickname-avatar h2{
     color: #c37ea7;
+    font-size: 20px;
+    font-weight: normal;
 }
 
 #llibres_publicats{
