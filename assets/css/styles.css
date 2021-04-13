@@ -26,16 +26,19 @@ h3{
 
 
 /*HEADER*/
-#user{
-    background-color: #925279;
-    text-align: right;
-    height: 50px;
-}
-
-#user button {
-	margin-right: 1.5%;
+#user_button{
     border: 1px solid whitesmoke;
     border-radius: 60%;
+    color: whitesmoke;
+    float: right;
+    margin-right: 10px;
+}
+
+/*centrar  verticalment el logo i l'accés al registre*/
+#first_line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #user button:hover{
@@ -250,9 +253,8 @@ footer a{
 
 /*estilos generales basicos guia de estilos*/
 .primary{
-    min-height: 50px;
     background-color: #915078;
-    color: white;
+    color: whitesmoke;
 }
 
 .p-light{
@@ -262,7 +264,7 @@ footer a{
 
 .p-dark{
     background-color: #62244c;
-    color: white;
+    color: whitesmoke;
 }
 
 /*Fitxa escriptor
