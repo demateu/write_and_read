@@ -26,7 +26,6 @@ $(document).ready(function () {
 
         //Netejar el carousel
         esborrarCarouselItems('#fitxes_main');
-        esborrarIndicatorsCarousel('#llib_cat');
 
         //Fa l'ajax de la categoria corresponent
         var idCat=$(this).attr("data-idCat");

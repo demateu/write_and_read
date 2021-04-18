@@ -1,4 +1,4 @@
-<?= require_once 'view/layout/header.php'; ?>
+<?php require_once 'view/layout/header.php'; ?>
 
 <!--Contingut principal -->
 <main>
@@ -94,4 +94,4 @@
 
 </main>
 
-<?= require_once 'view/layout/footer.php'; ?>
+<?php require_once 'view/layout/footer.php'; ?>

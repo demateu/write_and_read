@@ -8,7 +8,7 @@
                 <img src="<?=base_url?>assets/img/identity/wr_logo_250px.png" alt="logo" width="250" height="auto"/>
             </a>
             <p>
-                El teu lloc ideal per publicar els teus llibres per a escriptors i gaudir d'una àmplia gamma d'històries per a lectors.
+                El teu lloc ideal per publicar llibres per a escriptors i gaudir d'una àmplia gamma d'històries per a lectors.
             </p>
         </div>
         <!--Grid column-->

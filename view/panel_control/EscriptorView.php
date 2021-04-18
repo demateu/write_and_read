@@ -1,5 +1,5 @@
 
-<?= require_once 'view/layout/header.php'; ?>
+<?php require_once 'view/layout/header.php'; ?>
 
 
 <div class="container-fluid">

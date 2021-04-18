@@ -352,15 +352,15 @@ centra el text e la bio*/
   
   .perfil-usertitol-nom {
     color: #62244c;
-    font-size: 140%;
+    font-family: 'Oswald', sans-serif!important;
+    font-size: 150%;
     font-weight: 600;
-    margin-bottom: 7px;
   }
   
   .perfil-usertitol-rol {
     text-transform: uppercase;
-    color: #925279;
-    font-size: 85%;
+    color: gray;
+    font-size: 95%;
     font-weight: 600;
   }
   
@@ -373,11 +373,12 @@ centra el text e la bio*/
   
   .perfil-usermenu ul li {
     flex-basis: 100%;
+    margin-top: 4px;
   }
   
   .perfil-usermenu ul li a {
     color: #925279;
-    font-size: 85%;
+    font-size: 90%;
     font-weight: 400;
     text-decoration: none;
   }
