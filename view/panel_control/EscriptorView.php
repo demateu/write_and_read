@@ -53,85 +53,70 @@
         </div>
     </section>
 
+
     <!--LLIBRES PUBLICATS B-->
-    <section class="row" id="llibres_publicats">
-        <div class="col-10 mx-auto">
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center mb-5">Llibres Publicats</h2>
-                </div>
-            </div>
-            <div class="row">
-
-                <!-- Fitxa de llibre -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <div class="cover_book">
-                            <!--imatge del llibre-->
-                            <?php if(isset($id)): ?>
-                                <img src="<?=base_url?>assets/img/cover_books/<?=$escriptor->portada_url?>.jpeg" alt="Imatge de <?=$escriptor->titol?>" class="card-img-top" />
-                            <?php else: ?>
-                                <h1 class="text-center">L'escriptor no existeix</h1>
-                            <?php endif; ?>               
-                            <!--fi imatge del llibre-->
-                        </div>
-                        <div class="card-body">
-                            <a href="<?=base_url?>usuari/fitxa&id=<?=$id?>"><p class="card-text nom_autor"><?=$escriptor->nom_i_cognoms?></p></a>
-        
-						<!-- valoracions -->
-                        <div class="valoracions" align="center">
-                           <?php if(isset($id)):
-							$star = "<span class='fa fa-star'></span>";
-							$starChecked = "<span class='fa fa-star checked'></span>";
-							for ($i = 1; $i <= 5; $i++) {
-								if($i <= ($escriptor->mitja_vots)){
-									echo $starChecked;
-								}else{
-									echo $star; 
-								}
-							} endif; ?>
-							<?php if(isset($id)): ?>
-						    <p><strong> Puntuació:</strong> <?=$escriptor->mitja_vots?>/5</p>
-						    <?php else: ?>
-						    <p><strong> Puntuació:</strong> El llibre no existeix</p>
-						    <?php endif; ?>
-							<?php if(isset($id)): ?>
-						    <p><strong> Cops votat:</strong> <?=$escriptor->cops_votat?></p>
-						    <?php else: ?>
-						    <p><strong> Cops votat:</strong> El llibre no existeix</p>
-						    <?php endif; ?>
-                        </div>
-						<!--FI valoracions -->
-
-                            <!-- icones-->
-                            <img class="lookIcon" src="<?=base_url?>assets/img/icons/look_icon.png" alt=${altVeureMes}>
-                            <button type="button" class="btn">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
+    <div class="container">
+        <section class="row" id="llibres_publicats">
+            <div class="col-10 mx-auto">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-center mt-5 font_title">Llibres Publicats</h2>
+                        <p class="text-center mt-5 font_subtitle">Aquests son els llibres que té publicats</p>
                     </div>
                 </div>
-                <!-- fi fitxa -->
 
-                <!--FITXA LLIBRE BUCLE
-                mostra els diferents llibres de cada escriptor si n'hi ha-->
+                <!--card llibre-->
                 <?php while($llibre = $escriptorLlibres->fetch_object()): ?>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card">
-                            <img src="<?=base_url?>assets/img/cover_books/<?=$llibre->portada_url?>.jpeg" alt="Imatge del llibre" class="card-img-top" />
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            <img src="<?=base_url?>assets/img/cover_books/<?=$llibre->portada_url?>.jpeg" alt="Imatge del llibre" width="100%" height="auto">
+                        </div>
+                        <div class="col-9">
+                            <h3 class="card-header"><?=$llibre->titol?></h3>
                             <div class="card-body">
-                                <h4 class="card-title"><?=$llibre->titol?></h4>
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text"><?=$llibre->biografia?></p>
+
+                                <!-- valoracions FALTA PERSONALITZAR-->
+                                <div class="valoracions">
+                                    <?php 
+                                    $star = "<span class='fa fa-star'></span>";
+                                    $starChecked = "<span class='fa fa-star checked'></span>";
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if($i <= ($llibre->mitja_vots)){
+                                            echo $starChecked;
+                                        }else{
+                                            echo $star; 
+                                        }
+                                    }
+                                    ?>
+                                    <?php if($llibre->mitja_vots == null): ?>
+                                        <p><strong> Puntuació:</strong> 0/5</p>
+                                    <?php else: ?>
+                                        <p><strong> Puntuació:</strong> <?=$llibre->mitja_vots?>/5</p>
+                                    <?php endif; ?>
+                                  
+                                </div>
+                                <!--FI valoracions -->
+
+                                <a href="#" class="btn boto_llegeix">Llegeix</a>
+                                <!--cor per guardar a favorits-->
+                                <button type="button" class="btn">
+                                        <i class="far fa-heart"></i>
+                                </button>
+                                <!--Fi cor per guardar a favorits-->
+
                             </div>
                         </div>
-                    </div> 
+                    </div>
+                
                 <?php endwhile; ?>
-                <!--FI TEST FITXA LLIBRE-->
-              
+                <!--Fi card llibre-->
 
-
+                
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <!--FI LLIBRES PUBLICATS B-->    
 
 

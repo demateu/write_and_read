@@ -34,7 +34,11 @@
 
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/d10f252433.js" crossorigin="anonymous"></script>
-
+    <!--Fonts Google-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
 
 </head>
 
