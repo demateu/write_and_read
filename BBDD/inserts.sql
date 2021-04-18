@@ -13,8 +13,18 @@ INSERT INTO tipus_usuari VALUES (1,"lector");
 INSERT INTO tipus_usuari VALUES (2,"escriptor");
 
 /*TAULA AVATAR*/
-INSERT INTO avatar VALUES (01, "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png");
-INSERT INTO avatar VALUES (02, "https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png");
+INSERT INTO avatar VALUES (01, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_1.jpg");
+INSERT INTO avatar VALUES (02, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_2.jpg");
+INSERT INTO avatar VALUES (03, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_3.jpg");
+INSERT INTO avatar VALUES (04, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_4.jpg");
+INSERT INTO avatar VALUES (05, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_5.jpg");
+INSERT INTO avatar VALUES (06, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_6.jpg");
+INSERT INTO avatar VALUES (07, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_7.jpg");
+INSERT INTO avatar VALUES (08, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_8.jpg");
+INSERT INTO avatar VALUES (09, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_9.jpg");
+INSERT INTO avatar VALUES (10, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_10.jpg");
+INSERT INTO avatar VALUES (11, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_11.jpg");
+INSERT INTO avatar VALUES (12, "http://localhost:8888/write_and_read/assets/img/avatar/avatar_12.jpg");
 
 
 /*TAULA USUARI */
