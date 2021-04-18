@@ -393,16 +393,47 @@ class Usuari{
     }
 
 
-    /**
-     * TEST NOU
-     * Busca llibre amb un id concret
+    /** AQUEST ES EL BO PER L'ESCRIPTOR
+     * @author demateu
+     * Busca informacio de l'escriptor amb un id concret
      */
     public function buscarUsuari(){
         $escriptor = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.email, u.dni, u.data_alta, u.password, u.subscrit, u.data_naixement, u.id_tipus_usuari, u.biografia, 
         a.avatar_url_imagen, l.titol, l.portada_url, l.mitja_vots, l.cops_votat
-		FROM usuari u INNER JOIN llibre l ON l.id_escriptor=u.id INNER JOIN avatar a ON u.avatar_id=a.id WHERE u.id={$this->getId()} ");
+		FROM usuari u JOIN llibre l ON l.id_escriptor=u.id JOIN avatar a ON u.avatar_id=a.id WHERE u.id={$this->getId()}");
+        
         return $escriptor->fetch_object();
     }
+
+    /**
+     * TEST NOU B per treure tots els llibres de cada escriptor
+     * Busca informacio de l'escriptor i dels llibres escrits per ell amb l'id de l'escriptor
+     */
+    public function buscarUsuariLlibres(){
+        $escriptor = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.email, u.dni, u.data_alta, u.password, u.subscrit, u.data_naixement, u.id_tipus_usuari, u.biografia, 
+        a.avatar_url_imagen, l.titol, l.portada_url, l.mitja_vots, l.cops_votat
+		FROM usuari u JOIN llibre l ON l.id_escriptor=u.id JOIN avatar a ON u.avatar_id=a.id WHERE u.id={$this->getId()}");
+        //return $escriptor->fetch_object();
+
+        //test
+        return $escriptor;
+    }    
+
+    /**
+     * ? mirar si la faig servir al final o no
+     */
+    public function getLlibresPerEscriptor(){
+        //SELECT l.titol, u.nickname FROM usuari u JOIN llibre l ON l.id_escriptor=u.id WHERE u.id=1;
+        $sql="SELECT l.titol, l.portada_url, u.nickname FROM usuari u JOIN llibre l ON l.id_escriptor=u.id WHERE u.id=1";
+        $llibres_publicats = $this->db->query($sql);
+        
+        return $llibres_publicats;
+    }
+
+
+
+
+
 
 
 

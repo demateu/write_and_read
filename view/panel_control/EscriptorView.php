@@ -2,7 +2,6 @@
 <?= require_once 'view/layout/header.php'; ?>
 
 
-
 <div class="container-fluid">
 
     <section class="row justify-content-center p-dark" id="usuari-section">
@@ -44,14 +43,13 @@
                 <div class="col text-justify" id="biografia_avatar">
                     <!--Biografia de l'escriptor-->
                     <?php if(isset($id)): ?>
-                        <p class="card-text text-center"><?=$escriptor->biografia?></p>                    
+                        <p class="card-text text-center"><?=$escriptor->biografia?></p>               
                     <?php else: ?>
                         <p class="card-title text-justify"><strong>Data de Naixement: </strong>L'escriptor no existeix</p>
                     <?php endif; ?>
                     <!--fi biografia-->                        
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -78,8 +76,7 @@
                             <!--fi imatge del llibre-->
                         </div>
                         <div class="card-body">
-                            <a href="<?=base_url?>llibre/fitxa&id=${id_llibre}"> <h4 class="card-title"><?=$escriptor->titol?></h4></a>
-                            <!--<a href="${baseURL}usuari/fitxa&id=${id_escriptor}"><p class="card-text nom_autor"><//?=$escriptor->nom_i_cognoms?></p></a>-->
+                            <a href="<?=base_url?>usuari/fitxa&id=<?=$id?>"><p class="card-text nom_autor"><?=$escriptor->nom_i_cognoms?></p></a>
         
 						<!-- valoracions -->
                         <div class="valoracions" align="center">
@@ -116,84 +113,26 @@
                 </div>
                 <!-- fi fitxa -->
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
+                <!--FITXA LLIBRE BUCLE
+                mostra els diferents llibres de cada escriptor si n'hi ha-->
+                <?php while($llibre = $escriptorLlibres->fetch_object()): ?>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card">
+                            <img src="<?=base_url?>assets/img/cover_books/<?=$llibre->portada_url?>.jpeg" alt="Imatge del llibre" class="card-img-top" />
+                            <div class="card-body">
+                                <h4 class="card-title"><?=$llibre->titol?></h4>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>            
+                    </div> 
+                <?php endwhile; ?>
+                <!--FI TEST FITXA LLIBRE-->
+              
+
+
             </div>
         </div>
     </section>
     <!--FI LLIBRES PUBLICATS B-->    
-
-
-    
-    <!--LLIBRES PUBLICATS-->
-    <section class="row" id="llibres_publicats">
-        <div class="col-10 mx-auto">
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center mb-5">Llibres Publicats</h2>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img src="https://www.elejandria.com/covers/Don_Quijote_de_la_Mancha-Cervantes_Miguel-md.png" alt="Imatge del llibre" class="card-img-top" />
-                        <div class="card-body">
-                            <h4 class="card-title">Don Quijote de la Mancha</h4>
-                        </div>
-                    </div>
-                </div>            
-            </div>
-        </div>
-    </section>
-    <!--FI LLIBRES PUBLICATS-->
-
 
 
 </div>
