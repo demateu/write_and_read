@@ -98,6 +98,12 @@ class UsuariController{
             $escriptor = new Usuari();
             $escriptor->setId($id);
             $escriptor = $escriptor->buscarUsuari();
+
+            //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
+            $escriptorLlibres = new Usuari();
+            $escriptorLlibres->setId($id);
+            $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+
         }
         require_once 'view/panel_control/EscriptorView.php';
     }
