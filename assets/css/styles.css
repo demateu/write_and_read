@@ -19,9 +19,31 @@
     src: url("../fonts/PoiretOne-Regular.ttf");
 }
 
-/*TITOLS*/
-h3{
-    margin-top: 5%;
+/*Font estil handwriting pels titols*/
+.font_title{
+    line-height: 40px;
+    font-family: 'Oswald', sans-serif!important;
+    font-size: 36px;
+    font-weight: normal!important;
+    margin-top: 50px;
+    color: #62244c;
+}
+
+/*Font pels subtitols*/
+.font_subtitle{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: grey;
+    margin-top: 20px !important;
+}
+
+/*Font per pàrrafs*/
+.font_parraf{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400px;
+    color: darkslategrey;
 }
 
 
@@ -43,7 +65,7 @@ h3{
 
 #user button:hover{
     -webkit-box-shadow: 1px 1px 2px 2px rgba(220,230,255,0.41); 
-    box-shadow: 1px 1px 2px 2px rgba(220,230,255,0.41);   
+    box-shadow: 1px 1px 2px 2px rgba(220,230,255,0.41);  
 }
 
 #user button i{
@@ -153,8 +175,26 @@ h3{
 
 
 /*NAV CATEGORIES DESPRÉS L'SLIDE*/
+#menu_categories{
+    padding: 0;
+}
+
+/*falta centrar*/
 #nav_content a{
-    padding: 6px 20px;
+    padding: 10px 20px;
+    height: inherit;
+}
+
+#nav_content a:hover{
+    color: whitesmoke;
+}
+
+#nav_content li{
+    height: 45px;
+}
+
+#nav_content li:hover{
+    background-color: #915078;
 }
 
 
@@ -281,4 +321,27 @@ centra el text e la bio*/
 
 #llibres_publicats{
     margin-top: 50px;
+}
+
+#llibres_publicats img{
+    float: right;
+}
+
+.boto_llegeix{
+    background-color: #c37ea7;
+    border-color: none!important;
+    color: whitesmoke;
+}
+
+.boto_llegeix:hover{
+    background-color: #62244c;
+    color: whitesmoke;
+}
+
+.card-header{
+    background-color: #915078;
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 22px;
+    padding: 10px 20px;
 }
