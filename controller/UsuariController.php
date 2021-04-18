@@ -68,8 +68,6 @@ class UsuariController{
             //guardo todos estos datos en usuario
             $save = $usuari->save();
 
-            var_dump($usuari);//borrar despues
-
             if($save){
                 echo 'Enregistrat correctament';
             }else{

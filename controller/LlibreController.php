@@ -40,8 +40,6 @@ class LlibreController{
             //guardo todos estos datos en llibre
             $save = $llibre->save();
 
-            var_dump($llibre);
-
             if($save){
                 echo 'Enregistrat correctament';
             }else{

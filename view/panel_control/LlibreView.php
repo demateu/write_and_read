@@ -22,7 +22,7 @@
 						<?php endif; ?>
                         <!--FI Portada de Llibre-->
 						<!-- valoracions -->
-                        <div class="valoracions" align="center">
+                        <div class="valoracions text-center">
                            <?php if(isset($id)):
 							$star = "<span class='fa fa-star'></span>";
 							$starChecked = "<span class='fa fa-star checked'></span>";
@@ -83,9 +83,9 @@
 						    <p class="card-title">El llibre no existeix</p>
 						<?php endif; ?>
 						<?php if(isset($id)): ?>
-						    <a href="<?=$llibre->contingut_url?>"><button type="button" class="btn btn-outline-secondary">Llegir</button></a>
+						    <a href="<?=$llibre->contingut_url?>"><button type="button" class="btn boto_llegeix">Llegir</button></a>
 						<?php else: ?>
-						    <button type="button" class="btn btn-outline-secondary">Llegir</button>
+						    <button type="button" class="btn boto_llegeix">Llegir</button>
 						<?php endif; ?>
 						<!--FI de FITXA -->
                     </div>

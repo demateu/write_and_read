@@ -13,6 +13,11 @@
     padding: 0;
 }
 
+a{
+    color: darkslategrey;
+    text-decoration: none;
+}
+
 /*FONTS*/
 @font-face {
     font-family: "Poiret One";
@@ -232,6 +237,23 @@
     cursor: pointer;
 }
 
+#fitxa_llibres h4{
+    color: #62244c;
+    font-size: 18px;
+}
+
+#fitxa_llibres a{
+    display: inline-block;
+}
+
+
+/*test*/
+.align_text_bottom{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 
 /*FOOTER*/
 footer{
@@ -251,7 +273,7 @@ footer a{
 }
 
 #copyright{
-    background-color:#754261;
+    background-color:#62244c;
 }
 
 #social i{
@@ -421,4 +443,8 @@ centra el text e la bio*/
     font-weight: 500;
     font-size: 22px;
     padding: 10px 20px;
+}
+
+.valoracions .fa-star{
+    color: lightgray;
 }
