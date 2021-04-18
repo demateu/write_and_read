@@ -117,6 +117,13 @@ class UsuariController{
         require_once 'view/panel_control/EscriptorView.php';
     }
 
+    /**
+     * Dashboar usuari test
+     */
+    public function perfilUser(){
+        require_once 'view/panel_control/LectorPerfilView.php';
+    }
+
 
 
 
