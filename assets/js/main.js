@@ -142,9 +142,6 @@ $(document).ready(function () {
                 //Crea el carousel-item i el node
                 crearCarouselItem(idCarouselInner);
                 $(idCarouselInner).children().last().children().append(fitxa);
-
-                //Crea el indicator del nou carousel-item 
-                ferIndicatorsCarousel(idCarousel, numSlide);
                  
                 //Reinicia el count
                 count=0;
@@ -156,9 +153,6 @@ $(document).ready(function () {
                 //Crea el carousel-item i el node
                 crearCarouselItem(idCarouselInner, true);
                 $(idCarouselInner).children().last().children().append(fitxa);
-
-                //Crea el indicator del nou carousel-item 
-                ferIndicatorsCarousel(idCarousel, numSlide);
 
                 //Suma el slide
                 numSlide++;

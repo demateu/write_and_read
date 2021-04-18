@@ -185,7 +185,7 @@
     height: inherit;
 }
 
-#nav_content a:hover{
+#nav_content a:hover, #nav_content .active{
     color: whitesmoke;
 }
 
@@ -193,7 +193,7 @@
     height: 45px;
 }
 
-#nav_content li:hover{
+#nav_content li:hover, #nav_content .active{
     background-color: #915078;
 }
 
