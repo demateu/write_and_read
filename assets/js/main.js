@@ -115,7 +115,7 @@ $(document).ready(function () {
             //Fer la fitxa
             var fitxa= (`
                 <!-- Fitxa de llibre -->
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg-3" id="fitxa_llibres">
                     <div class="card">
                         <div class="cover_book">
                             <img src="${imgUrl+portada_url+'.jpeg'}" alt="${altFitxa}" class="card-img-top" />
@@ -124,7 +124,7 @@ $(document).ready(function () {
             `);
             fitxa += puntuacioLlibre(mitja_vots);
             fitxa += (`
-                            <a href="${baseURL}llibre/fitxa&id=${id_llibre}"> <h4 class="card-title">${titol}</h4></a>
+                            <a href="${baseURL}llibre/fitxa&id=${id_llibre}"> <h4 class="card-title align_text_bottom">${titol}</h4></a>
                             <a href="${baseURL}usuari/fitxa&id=${id_escriptor}"><p class="card-text nom_autor">${autor}</p></a>
         
                             <!-- icones-->

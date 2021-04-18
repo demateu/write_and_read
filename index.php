@@ -51,12 +51,10 @@ if (isset($_GET['controller'])) {
             $controlador->$action();
         }else{//3er if -> si el metodo no existe
             show_error();
-            echo '3ero';
         }    
     } else {//2ndo if -> si hay controlador pero no hay clase ?
         //aqui debería quitar los libros por defecto
         show_error();
-        echo '2ndo';
     }
 } else {//1er if -> si no hay controlador, libros todos los defecto
     //es cuando no se le pasa ningun controlador
