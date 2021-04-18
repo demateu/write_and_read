@@ -348,19 +348,6 @@ class Usuari{
 
 
     /**
-     * @author demateu
-     * Busca l'usuari amb un id concret
-     * 
-     * @return escriptor amb l'id que busquem
-     */
-    public function buscarUsuariPerId(){
-        $escriptor = $this->db->query("SELECT * FROM usuari WHERE id={$this->getId()} ");
-        //que saque el unico objeto que puede sacar
-        return $escriptor->fetch_object();
-    }
-
-
-    /**
      * TEST: retorna tots els usuaris de la BBDD
      */
     public function getAll(){
@@ -393,7 +380,7 @@ class Usuari{
     }
 
 
-    /** AQUEST ES EL BO PER L'ESCRIPTOR
+    /**
      * @author demateu
      * Busca informacio de l'escriptor amb un id concret
      */
@@ -406,7 +393,8 @@ class Usuari{
     }
 
     /**
-     * TEST NOU B per treure tots els llibres de cada escriptor
+     * @author demateu
+     * treure tots els llibres de cada escriptor
      * Busca informacio de l'escriptor i dels llibres escrits per ell amb l'id de l'escriptor
      */
     public function buscarUsuariLlibres(){
@@ -419,16 +407,6 @@ class Usuari{
         return $escriptor;
     }    
 
-    /**
-     * ? mirar si la faig servir al final o no
-     */
-    public function getLlibresPerEscriptor(){
-        //SELECT l.titol, u.nickname FROM usuari u JOIN llibre l ON l.id_escriptor=u.id WHERE u.id=1;
-        $sql="SELECT l.titol, l.portada_url, u.nickname FROM usuari u JOIN llibre l ON l.id_escriptor=u.id WHERE u.id=1";
-        $llibres_publicats = $this->db->query($sql);
-        
-        return $llibres_publicats;
-    }
 
 
 
