@@ -190,7 +190,7 @@ a{
     height: inherit;
 }
 
-#nav_content a:hover{
+#nav_content a:hover, #nav_content .active{
     color: whitesmoke;
 }
 
@@ -198,7 +198,7 @@ a{
     height: 45px;
 }
 
-#nav_content li:hover{
+#nav_content li:hover, #nav_content .active{
     background-color: #915078;
 }
 
@@ -344,6 +344,83 @@ centra el text e la bio*/
 #llibres_publicats{
     margin-top: 50px;
 }
+
+/*DASHBOARD LECTOR*/
+/* Profile container */
+.profile {
+    margin: 20px 0;
+  }
+  
+  /* Profile sidebar */
+  .perfil-sidebar {
+    padding: 20px 0 10px 0;
+    border: 1px solid #dfdcdc;
+    height: 100%;
+  }
+  
+  .perfil-userpic img {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+  }
+  
+  .perfil-usertitol {
+    margin-top: 20px;
+  }
+  
+  .perfil-usertitol-nom {
+    color: #62244c;
+    font-size: 140%;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  
+  .perfil-usertitol-rol {
+    text-transform: uppercase;
+    color: #925279;
+    font-size: 85%;
+    font-weight: 600;
+  }
+  
+      
+  .perfil-usermenu {
+    margin-top: 8%;
+    margin-left: 20%;
+    text-align: left;
+  }
+  
+  .perfil-usermenu ul li {
+    flex-basis: 100%;
+  }
+  
+  .perfil-usermenu ul li a {
+    color: #925279;
+    font-size: 85%;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  
+  .perfil-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 100%;
+  }
+  
+  .perfil-usermenu ul li a:hover{
+    color: #62244c;
+  }
+
+  
+  /* Perfil Content */
+  .perfil-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+  }
+/*FI DASHBOARD LECTOR*/
 
 #llibres_publicats img{
     float: right;
