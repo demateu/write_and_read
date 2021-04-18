@@ -39,6 +39,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 
 </head>
 
@@ -70,7 +72,7 @@
             <div class="row pt-3" id="menu-nav">
 
                 <!--  MENU  -->
-                <nav id="menu" class="col">
+                <nav id="menu" class="col-7">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="<?=base_url?>index.php">INICI</a>
@@ -101,8 +103,8 @@
                     </ul>
                 </nav>
                 <!--Buscador-->
-                <div class="col-3">
-                    <div class="input-group justify-content-end">
+                <div class="col-3" id="creca_titol">
+                    <div class="input-group">
                         <div class="form-outline">
                             <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
                         </div>

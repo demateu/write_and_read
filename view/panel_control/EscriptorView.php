@@ -21,7 +21,7 @@
                 <div class="col" id="nom-complert-avatar">
                     <!--Nom i cognoms de l'escriptor-->
                     <?php if(isset($id)): ?>
-                        <h1 class="text-center pt-2"><?=$escriptor->nom_i_cognoms?></h1>
+                        <h1 class="text-center pt-2 font_handwriting"><?=$escriptor->nom_i_cognoms?></h1>
                     <?php else: ?>
                         <h1 class="text-center">L'escriptor no existeix</h1>
                     <?php endif; ?>
