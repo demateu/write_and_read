@@ -18,6 +18,10 @@ a{
     text-decoration: none;
 }
 
+a:hover{
+    color: #62244c;
+}
+
 /*FONTS*/
 @font-face {
     font-family: "Poiret One";
@@ -49,6 +53,10 @@ a{
     font-size: 14px;
     font-weight: 400px;
     color: darkslategrey;
+}
+
+.font_handwriting{
+    font-family: 'Nothing You Could Do', cursive!important;
 }
 
 
@@ -202,6 +210,29 @@ a{
     background-color: #915078;
 }
 
+.nav-pills{
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu-nav{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0px!important;
+    background-color:#c37ea7;
+}
+
+#menu-nav li a{
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+}
+
+#menu-nav li a:hover{
+    color: #62244c;
+}
+
 
 /*CARDS*/
 .card{
@@ -304,6 +335,9 @@ footer a{
 .imatge-avatar img{
     width: 150px;
     height: auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
 }
 
 #usuari-section{

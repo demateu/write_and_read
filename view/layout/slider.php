@@ -14,7 +14,7 @@
                 <div class="carousel-item active" data-bs-interval="10000">
                     <img src="<?=base_url?>assets/img/banner/banner1.jpg" class="d-block w-100" alt="El millor lloc per a disfrutar histories emocionants">
                     <div class="carousel-caption trickcenter">
-                        <h5 class="font_title">Gaudeix les teves històries favorites allà on vagis</h5>
+                        <h5 class="font_title font_handwriting fs-1">Gaudeix les teves històries favorites allà on vagis</h5>
                     </div>
                 </div>
 
@@ -22,7 +22,7 @@
                 <div class="carousel-item" data-bs-interval="2000">
                     <img src="<?=base_url?>assets/img/banner/banner2.jpg" class="d-block w-100" alt="Vols ser un scriptor? Ara pots amb nosaltres">
                     <div class="carousel-caption trickcenter">
-                        <h5 class="font_title">Vols ser escriptor? Ara pots amb nosaltres.</h5>
+                        <h5 class="font_title font_handwriting fs-1">Vols ser escriptor? Ara pots amb nosaltres.</h5>
                         <button type="button" class="btn mt-3" id="btn_subcr">Subscriu-te</button>
                     </div>
                 </div>
