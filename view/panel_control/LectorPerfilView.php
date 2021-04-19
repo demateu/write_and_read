@@ -32,7 +32,7 @@
                             Els meus preferits </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank">
+                        <a href="#">
                             <i class="fas fa-question-circle"></i>
                             Ajuda </a>
                     </li>
