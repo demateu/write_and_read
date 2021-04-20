@@ -1,6 +1,7 @@
 /*
 *   COLOR FONS: #925279
 *   COLOR FOOTER MES FOSC: #754261
+*   light gray: rgb(235, 233, 233)
 */
 
 *{
@@ -475,11 +476,75 @@ centra el text e la bio*/
 .card-header{
     background-color: #915078;
     color: whitesmoke;
+    font-family: 'Oswald', sans-serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     padding: 10px 20px;
+    text-transform: uppercase;
 }
 
-.valoracions .fa-star{
+
+
+/*Valoracions Estrelles*/
+.fa.fa-star{
     color: lightgray;
+}
+
+.fa.fa-star.checked{
+    color: rgb(238, 169, 41);
+}
+
+
+/*Panel de control de escritor*/
+#hero_perfil{
+    background-color: #62244c;
+    height: 110px;
+    color: white;
+}
+
+.text_title_hero{
+    font-family: 'Oswald', sans-serif!important;
+    font-size: 36px;
+}
+
+/*centrar el text del nom+nickname*/
+#hero_perfil div{
+    display: flex;
+    align-items: center;
+}
+
+#side_menu,
+#content_profile{
+    border: 1px solid rgb(235, 233, 233);
+    margin: 0 10px;
+}
+
+.container.perfil_escriptor{
+    max-width: 1190px;
+    padding: 60px 0;
+}
+
+.perfil_escriptor .col,
+#side_menu{
+    padding: 0!important;
+}
+
+#noms_escriptor h2{
+    color: #62244c;
+    font-size: 28px;
+}
+
+#noms_escriptor p{
+    color: #c37ea7;
+    font-size: 20px;
+}
+
+#menu_options_escriptor .row:hover{
+    background-color: rgb(235, 233, 233);
+}
+
+/*centrar tots els textos del menu*/
+#menu_options_escriptor .text_cent_vert{
+    display: flex;
+    align-items: center;
 }
