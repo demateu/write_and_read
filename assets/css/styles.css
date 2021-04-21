@@ -426,27 +426,29 @@ centra el text e la bio*/
     margin-left: 20%;
     text-align: left;
   }
-  
-  .perfil-usermenu ul li {
-    flex-basis: 100%;
-    margin-top: 4px;
+
+  .perfil-sidebar hr{
+      width: 85%;
+      margin-left: 7%;
+      border: 1px solid gray;
   }
   
-  .perfil-usermenu ul li a {
-    color: #925279;
-    font-size: 90%;
-    font-weight: 400;
-    text-decoration: none;
+  
+  .perfil-usermenu button{
+        width: 75%;
+        color: rgb(68, 68, 68);
+    }
+
+  .perfil-usermenu button.active{
+    background-color: #925279 !important;
+  }
+
+  .perfil-usermenu p{
+      margin-bottom: 0px;
+      
   }
   
-  .perfil-usermenu ul li a i {
-    margin-right: 8px;
-    font-size: 100%;
-  }
   
-  .perfil-usermenu ul li a:hover{
-    color: #62244c;
-  }
 
   
   /* Perfil Content */
