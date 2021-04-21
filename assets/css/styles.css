@@ -502,6 +502,7 @@ centra el text e la bio*/
     color: white;
 }
 
+
 .text_title_hero{
     font-family: 'Oswald', sans-serif!important;
     font-size: 36px;
@@ -534,17 +535,34 @@ centra el text e la bio*/
     font-size: 28px;
 }
 
-#noms_escriptor p{
+.text_nickname{
     color: #c37ea7;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-#menu_options_escriptor .row:hover{
-    background-color: rgb(235, 233, 233);
+.links_menu_escriptor:hover{
+    background-color: #62244c!important;
+    color: whitesmoke;
 }
 
 /*centrar tots els textos del menu*/
 #menu_options_escriptor .text_cent_vert{
     display: flex;
     align-items: center;
+}
+
+/* Tabs ajustes */
+.nav-pills .nav-link.active,
+ .nav-pills .show>.nav-link{
+    background-color: #62244c;
+}
+
+/*Treure el radius per defecte dels tabs de bootstrap*/
+.nav-pills .nav-link{
+    border-radius: 0;
+}
+
+#avatar_escriptor_area .form-check{
+    display: inline-block;
 }
