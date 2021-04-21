@@ -1,8 +1,7 @@
 <?php
 
 require_once 'model/Usuari.php';
-require_once 'model/Llibre.php';
-require_once 'controller/AvatarController.php';
+
 
 /**
  * @author demateu
@@ -89,7 +88,7 @@ class UsuariController{
     public function fitxa(){
         //comprobar si me llega el id por GET
         if(isset($_GET['id'])){
-            //guardo l'id de GETen una variable
+            //guardo l'id de GET en una variable
             $id = $_GET['id'];
 
             //CONSEGUIR DADES ESCRIPTOR
@@ -125,7 +124,20 @@ class UsuariController{
     }
 
 
+    /**
+     * @author demateu
+     * Renderitza el panell de control de l'escriptor
+     * 
+     * @return void
+     */
+    public function escriptorControl(){
+        require_once 'view/panel_control/EscriptorPerfilView.php';
+    }
 
+
+
+
+    
 
 }
 

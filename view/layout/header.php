@@ -72,23 +72,23 @@
             <div class="row pt-3" id="menu-nav">
 
                 <!--  MENU  -->
-                <nav id="menu" class="col-7">
+                <nav id="menu_nav_all" class="col-7">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="<?=base_url?>index.php">INICI</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
-                            <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Acció</a></li>
-                            <li><a class="dropdown-item" href="#">Romanç</a></li>
-                            <li><a class="dropdown-item" href="#">Fantasia</a></li>
-                            <li><a class="dropdown-item" href="#">Sci-fi</a></li>
-                            <li><a class="dropdown-item" href="#">Drama</a></li>
-                            <li><a class="dropdown-item" href="#">Horror</a></li>
-                            <li><a class="dropdown-item" href="#">Suspens</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">test</a></li>
+                            <ul class="dropdown-menu" id="menu_drop_categories_home">
+                                <li><a class="dropdown-item" href="#">Acció</a></li>
+                                <li><a class="dropdown-item" href="#">Romanç</a></li>
+                                <li><a class="dropdown-item" href="#">Fantasia</a></li>
+                                <li><a class="dropdown-item" href="#">Sci-fi</a></li>
+                                <li><a class="dropdown-item" href="#">Drama</a></li>
+                                <li><a class="dropdown-item" href="#">Horror</a></li>
+                                <li><a class="dropdown-item" href="#">Suspens</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">test</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

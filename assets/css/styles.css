@@ -1,6 +1,7 @@
 /*
 *   COLOR FONS: #925279
 *   COLOR FOOTER MES FOSC: #754261
+*   light gray: rgb(235, 233, 233)
 */
 
 *{
@@ -190,6 +191,15 @@ a:hover{
 /*NAV CATEGORIES DESPRÉS L'SLIDE*/
 #menu_categories{
     padding: 0;
+}
+
+#menu_drop_categories_home{
+    background-color: #c37ea7;
+}
+
+#menu_drop_categories_home a:hover {
+    background-color: #c37ea7;
+    color: whitesmoke;
 }
 
 /*falta centrar*/
@@ -475,11 +485,93 @@ centra el text e la bio*/
 .card-header{
     background-color: #915078;
     color: whitesmoke;
+    font-family: 'Oswald', sans-serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     padding: 10px 20px;
+    text-transform: uppercase;
 }
 
-.valoracions .fa-star{
+
+
+/*Valoracions Estrelles*/
+.fa.fa-star{
     color: lightgray;
+}
+
+.fa.fa-star.checked{
+    color: rgb(238, 169, 41);
+}
+
+
+/*Panel de control de escritor*/
+#hero_perfil{
+    background-color: #62244c;
+    height: 110px;
+    color: white;
+}
+
+
+.text_title_hero{
+    font-family: 'Oswald', sans-serif!important;
+    font-size: 36px;
+}
+
+/*centrar el text del nom+nickname*/
+#hero_perfil div{
+    display: flex;
+    align-items: center;
+}
+
+#side_menu,
+#content_profile{
+    border: 1px solid rgb(235, 233, 233);
+    margin: 0 10px;
+}
+
+.container.perfil_escriptor{
+    max-width: 1190px;
+    padding: 60px 0;
+}
+
+.perfil_escriptor .col,
+#side_menu{
+    padding: 0!important;
+}
+
+#noms_escriptor h2{
+    color: #62244c;
+    font-size: 28px;
+}
+
+.text_nickname{
+    color: #c37ea7;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.links_menu_escriptor:hover{
+    background-color: #62244c!important;
+    color: whitesmoke;
+}
+
+/*centrar tots els textos del menu*/
+#menu_options_escriptor .text_cent_vert{
+    display: flex;
+    align-items: center;
+}
+
+/* Tabs ajustes */
+.nav-pills .nav-link.active,
+ .nav-pills .show>.nav-link{
+    background-color: #62244c;
+}
+
+/*Treure el radius per defecte dels tabs de bootstrap*/
+.nav-pills .nav-link{
+    border-radius: 0;
+}
+
+#avatar_escriptor_area .form-check{
+    display: inline-block;
 }

@@ -1,7 +1,6 @@
 
 <?php require_once 'view/layout/header.php'; ?>
 
-
 <div class="container-fluid">
 
     <section class="row justify-content-center p-dark" id="usuari-section">
