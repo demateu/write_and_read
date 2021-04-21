@@ -193,6 +193,15 @@ a:hover{
     padding: 0;
 }
 
+#menu_drop_categories_home{
+    background-color: #c37ea7;
+}
+
+#menu_drop_categories_home a:hover {
+    background-color: #c37ea7;
+    color: whitesmoke;
+}
+
 /*falta centrar*/
 #nav_content a{
     padding: 10px 20px;
