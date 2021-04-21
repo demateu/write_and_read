@@ -407,7 +407,18 @@ class Usuari{
         return $escriptor;
     }    
 
-
+    /**
+     * @author Ronny
+     * Buscar el usuari per email 
+     * 
+     * @return Object $usuari : Objecte amb les dades del usuari trobat
+     */
+    public function buscarUsuariperEmail(){
+        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement,a.avatar_url_imagen
+        FROM usuari u, avatar a WHERE u.email = '{$this->getEmail()}' AND u.avatar_id = a.id");
+        
+        return $usuari->fetch_object();
+    }
 
 
 

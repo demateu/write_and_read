@@ -120,6 +120,11 @@ class UsuariController{
      * Dashboar usuari test
      */
     public function perfilUser(){
+        //CONSEGUIR DADES USUARI
+        $usuari = new Usuari();
+        $usuari->setEmail('migui@gmail.com');
+        $usuari = $usuari->buscarUsuariperEmail();
+
         require_once 'view/panel_control/LectorPerfilView.php';
     }
 
