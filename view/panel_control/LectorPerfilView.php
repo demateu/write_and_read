@@ -1,5 +1,4 @@
 <?php require_once 'view/layout/header.php';
-var_dump($usuari);
 ?>
 <div class="row profile">
 
@@ -52,54 +51,143 @@ var_dump($usuari);
     </div>
 
     <div class="col-md-9">
-
+        <div class="row" id="title_area_dades_personals">
+            <div class="col">
+                <h3 class="card-header">Edita aquí les teves dades personals</h3>
+            </div>
+        </div>
 
         <!-- Tabs contingut -->
         <div class="tab-content">
             <div class="tab-pane active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">
-                <form action="<?= base_url ?>usuari/save" method="post">
+                
+                <form class="row g-3">
 
-                    <label for="nickname">Nickname</label>
-                    <input type="text" name="nickname" required="required" value="<?= $usuari->nickname ?>  "/>
+                    <div class="col-md-6">
+                        <label class="form-label" for="autoSizingInputGroup">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input type="text" class="form-control" id="autoSizingInputGroup" value="<?= $usuari->nickname ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" value="<?= $usuari->email ?> ">
+                    </div>
 
-                    <label for="nom_i_cognoms">Nom i cognoms</label>
-                    <input type="text" name="nom_i_cognoms" required="required" pattern="[A-Za-z]+" value="<?= $usuari->nom_i_cognoms ?> "/>
+                    <div class="col-md-6">
+                        <label class="form-label" for="specificSizeInputName">Nom i cognoms</label>
+                        <input type="text" class="form-control" id="specificSizeInputName" value="<?= $usuari->nom_i_cognoms ?> ">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" value="<?= $usuari->password ?>">
+                    </div>
 
-                    <label for="dni">Dni</label>
-                    <input type="text" name="dni" required="required" value="<?= $usuari->dni ?> " />
+                    <div class="col-md-6">
+                        <label class="form-label" for="specificSizeInputName">DNI</label>
+                        <input type="text-area" class="form-control" id="specificSizeInputName" value="<?= $usuari->dni ?> ">
+                    </div>
 
-                    <label for="email">Email</label>
-                    <input type="email" name="email" required="required" value="<?= $usuari->email ?> " />
+                    <div class="col-md-6">
+                        <label class="form-label" for="specificSizeInputName">Data de Naixement</label>
+                        <input type="date" class="form-control" id="specificSizeInputName" value="<?= $usuari->data_naixement ?> ">
+                    </div>
 
-                    <!--cambiar despues por un checkbox de fotos de avatares
-                    <label for="avatar">Avatar</label>
-                    <input type="radio" id="avatar1" name="avatar" value="1" required>
-                    <label for="avatar1">Avatar 1</label><br>
-                    <input type="radio" id="avatar2" name="avatar" value="2" required>
-                    <label for="femavatar2ale">Avatar 2</label><br>  
-                    -->
+                    <!--  Para lecctor no 
+                    <div class="col-12 mb-3">
+                        <label for="inputAddress" class="form-label">Biografia</label>
+                        <textarea maxlength="50" type="text" class="form-control" id="inputAddress" ></textarea>
+                    </div>
+                     -->
 
-                    <label for="password">Contrasenya</label>
-                    <input type="password" name="password" required="required" value="<?= $usuari->password ?>" />
 
-                    <label for="naixement">Data de naixement</label>
-                    <input type="date" name="naixement" value="<?= $usuari->data_naixement ?> " />
+                    <fieldset class="row mb-3" id="avatar_escriptor_area">
+                        <legend class="col-form-label col-sm-2 pt-0">Escull el teu avatar</legend>
+                        <!-- Imatges d'avatar dinamiques -->
+                        <div class="col-sm-10">
+                            <?php foreach($imatgesAvatar as $urlAvatar): ?>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" checked>
+                                    <img src="<?= base_url ?>assets/img/avatar/<?= $urlAvatar ?>" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                                </div>
 
-                    <!--
-                    <label for="avatar">Lector o Escriptor</label>
-                    <input type="radio" id="lector" name="tipus" value="1" required>
-                    <label for="lector">Lector</label><br>
-                    <input type="radio" id="escriptor" name="tipus" value="2" required>
-                    <label for="escriptor">Escriptor</label><br>   
-                    -->
+                            <?php endforeach; ?>
+                            <!-- 
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
+                            </div>
+                             -->
+                        </div>
+                    </fieldset>
 
-                    <!--desplegar solo si ha marcado escriptor//ya se hará en Sprint 2
-                    <label for="biografia">Biografia</label>
-                    <textarea name="biografia" disabled></textarea>
-                    -->
-                    <input type="submit" value="Actualitzar" />
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Guardar Canvis</button>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Subscriu-me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Dono el meu consentiment perquè guardeu les meves dades
+                            </label>
+                        </div>
+                    </div>
+
 
                 </form>
+
             </div>
             <div class="tab-pane" id="favorits" role="tabpanel" aria-labelledby="favorits-tab">
                 2
