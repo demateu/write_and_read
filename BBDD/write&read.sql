@@ -1,13 +1,10 @@
-
-/*arreglo tipus_usuari (monica)*/
-
 DROP DATABASE writeyread;
 
 CREATE DATABASE IF NOT EXISTS writeyread CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE writeyread;
 
-/*
+
 DROP TABLE IF EXISTS usuari;
 DROP TABLE IF EXISTS interactllibre;
 DROP TABLE IF EXISTS llibre;
@@ -16,7 +13,7 @@ DROP TABLE IF EXISTS tipusuari;
 DROP TABLE IF EXISTS avatar;
 DROP TABLE IF EXISTS lector;
 DROP TABLE IF EXISTS categoria;
-*/
+
 
 CREATE TABLE tipus_usuari(
 id int,

@@ -336,7 +336,7 @@ class Usuari{
          * cambiar cuando el registro este hecho: subscrit (dependra de si paga o ni) i tipus_usuari
          */
         $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
-        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), 1, '{$this->getPassword()}', true, '{$this->getData_naixement()}', 2, '{$this->getBiografia()}' )";
+        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
         $save = $this->db->query($sql);
 
         $result = false;
@@ -407,7 +407,18 @@ class Usuari{
         return $escriptor;
     }    
 
-
+    /**
+     * @author Ronny
+     * Buscar el usuari per email 
+     * 
+     * @return Object $usuari : Objecte amb les dades del usuari trobat
+     */
+    public function buscarUsuariperEmail(){
+        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement,a.avatar_url_imagen
+        FROM usuari u, avatar a WHERE u.email = '{$this->getEmail()}' AND u.avatar_id = a.id");
+        
+        return $usuari->fetch_object();
+    }
 
 
 
