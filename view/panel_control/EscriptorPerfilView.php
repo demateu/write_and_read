@@ -74,9 +74,26 @@
                     
                     </aside>
                     <!--Fi aside menu-->
-                    
                 </div>
             </div>
+            <!--logout-->
+            <div class="row mt-3" id="logout_panell">
+                <div class="col mx-auto">
+                    <aside id="menu_options_escriptor v-pills-tab" class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                        <!--cada row llevará un background hover-->
+                        <div class="row px-3 py-2 nav-link links_menu_escriptor" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false">
+                            <span class="col-3 text_cent_vert">
+                                <i class="fas fa-user-edit"></i>
+                            </span>
+                            <span class="col-9 text_cent_vert text-center">
+                                <span>Logout</span>
+                            </span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <!--Fi logout-->
+
         </section>
         <!--Fi columna izquierda-->
         <!--Columna dreta-->
