@@ -14,7 +14,7 @@
                 <div class="carousel-item active" data-bs-interval="10000">
                     <img src="<?=base_url?>assets/img/banner/banner1.jpg" class="d-block w-100" alt="El millor lloc per a disfrutar histories emocionants">
                     <div class="carousel-caption trickcenter">
-                        <h5 class="font_title font_handwriting fs-1">Gaudeix les teves històries favorites allà on vagis</h5>
+                        <h5 class="font_title font_handwriting fs-1">Gaudeix les teves històries preferides allà on vagis</h5>
                     </div>
                 </div>
 
