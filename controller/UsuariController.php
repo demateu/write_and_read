@@ -208,9 +208,16 @@ class UsuariController{
     public function perfilUser(){
         //CONSEGUIR DADES USUARI
         $usuari = new Usuari();
-        $usuari->setEmail('migui@gmail.com');
+        $usuari->setEmail('vero@gmail.com');
         $usuari = $usuari->buscarUsuariperEmail();
 
+        //Get img url per avatars
+        $dir = "assets/img/avatar";
+
+        $imatgesAvatar = array_values(array_filter(scandir($dir), function($file) use ($dir) { 
+            return !is_dir($dir . '/' . $file);
+        }));
+        
         require_once 'view/panel_control/LectorPerfilView.php';
     }
 
