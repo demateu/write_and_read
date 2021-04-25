@@ -32,6 +32,42 @@ class UsuariController{
         require_once 'view/registre/login.php';
     }
 
+    /**
+     * @author demateu
+     * login dels usuaris
+     * 
+     * esta a mitges
+     */
+    public function loginUser(){
+        //En el form de loguearse tendremos una accion que será 'login.php' que nos llevara a este archivo
+        //En el archivo login.php, debemos iniciar sesion + conexion a la BBDD:
+	    //conexion a la BBDD -> el require_one
+        //Recoger los datos del formulario
+	    if(isset($_POST)){
+			$email = trim($_POST['email']);
+			$password = $_POST['password'];
+
+            //fem una consulta per comprobar les credencials de l'usuari
+            $usuari = new Usuari();
+            $usuari->setEmail($email);
+            $login = $usuari->buscarUsuariperEmail();
+            var_dump($login);
+            die();
+
+
+			//Comprobar la contraseña / cifrar la contraseña de nuevo porque no tenemos el hash
+				//copiariamos el patron de hash desde el registro (modelo en este caso)
+                //$password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
+                //var_dump($password);
+                //die();
+		}
+
+        //Consultar la BBDD para comparar la coincidencia del email recibido (si coincide, loguearnos)
+        //Utilizar una sesion para guardar los datos de la sesion logueado
+        //Si algo falla, enviar una sesion con el fallo
+        //Redirigir al index para que la pagina recarge
+    }
+
 
     /**
      * para guardar el usuario
@@ -40,6 +76,20 @@ class UsuariController{
      * @return void
      */
     public function save(){//ojo era saveUsuari
+        //@author demateu
+        //https://www.udemy.com/course/master-en-php-sql-poo-mvc-laravel-symfony-4-wordpress/learn/lecture/11745158#overview
+        //if(isset($_POST)){
+
+            //iniciar sessió
+            //if(!isset($_SESSION)){
+                //session_start();
+            //}
+
+            //recollir ls valors del formulari de registre
+
+            //validar les dades abans d'introduirles a la BBDD
+        //}
+
 
         //comprobar si les dades introduïdes existen, que no estiguin buides
         $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : false;

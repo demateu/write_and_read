@@ -349,6 +349,20 @@ class Usuari{
 
     /**
      * @author demateu
+     * busca l'usuari amb un email especific
+     * 
+     * @return objecte usuarilougejat
+     */
+    public function getUsuariPerEmail(){
+        $sql = "SELECT * FROM usuari WHERE email = '{$this->getEmail()}'";
+        $usuariLoguejat = $this->db->query($sql);  
+        
+        return $usuariLoguejat->fetch_object();
+    }
+
+
+    /**
+     * @author demateu
      * TEST: retorna tots els usuaris de la BBDD
      */
     public function getAll(){
@@ -415,7 +429,7 @@ class Usuari{
      * @return Object $usuari : Objecte amb les dades del usuari trobat
      */
     public function buscarUsuariperEmail(){
-        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement,a.avatar_url_imagen
+        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, a.avatar_url_imagen
         FROM usuari u, avatar a WHERE u.email = '{$this->getEmail()}' AND u.avatar_id = a.id");
         
         return $usuari->fetch_object();
