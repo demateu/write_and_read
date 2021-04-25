@@ -357,7 +357,9 @@ class Usuari{
         $sql = "SELECT * FROM usuari WHERE email = '{$this->getEmail()}'";
         $usuariLoguejat = $this->db->query($sql);  
         
-        return $usuariLoguejat->fetch_object();
+        return $usuariLoguejat->fetch_assoc();
+        //return $usuariLoguejat->fetch_object();
+        //return $usuariLoguejat->fetch_assoc();
     }
 
 
