@@ -73,8 +73,8 @@
                         <div class="col-9">
                             <h3 class="card-header"><?=$llibre->titol?></h3>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text"><?=$llibre->biografia?></p>
+                                <h5 class="card-title">Subtítol test</h5>
+                                <p class="card-text"><?=$llibre->sinopsis?></p>
 
                                 <!-- valoracions FALTA PERSONALITZAR-->
                                 <div class="valoracions">

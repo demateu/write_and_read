@@ -94,6 +94,19 @@ a:hover{
     border-color: #925279;
 }
 
+#user_area{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#user_area a{
+    color: whitesmoke;
+}
+
+#user_area a:hover{
+    color: #62244c;
+}
 
 /*CAROUSEL BANNER */
 .carousel-caption {
@@ -584,4 +597,30 @@ centra el text e la bio*/
 
 #avatar_escriptor_area .form-check{
     display: inline-block;
+}
+
+/*      Pagina login     */
+
+#login_body{
+    background-image: url("../img/pages/6263.jpg");
+    min-height: 600px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+}
+
+#login_body .row{
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+#login_body button{
+    width: 100%;
+    background-color: #c37ea7;
+    border: none;
+}
+
+#login_body button:hover{
+    background-color: #62244c;
 }

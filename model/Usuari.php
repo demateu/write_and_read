@@ -348,6 +348,7 @@ class Usuari{
 
 
     /**
+     * @author demateu
      * TEST: retorna tots els usuaris de la BBDD
      */
     public function getAll(){
@@ -399,7 +400,7 @@ class Usuari{
      */
     public function buscarUsuariLlibres(){
         $escriptor = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.email, u.dni, u.data_alta, u.password, u.subscrit, u.data_naixement, u.id_tipus_usuari, u.biografia, 
-        a.avatar_url_imagen, l.titol, l.portada_url, l.mitja_vots, l.cops_votat
+        a.avatar_url_imagen, l.titol, l.portada_url, l.mitja_vots, l.cops_votat, l.sinopsis
 		FROM usuari u JOIN llibre l ON l.id_escriptor=u.id JOIN avatar a ON u.avatar_id=a.id WHERE u.id={$this->getId()}");
         //return $escriptor->fetch_object();
 

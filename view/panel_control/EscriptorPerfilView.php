@@ -1,3 +1,12 @@
+<?php session_start(); ?>
+
+<!--
+    $_SESSION['register'] == 'complete'
+    if($_SESSION['register'] == 'complete')
+    get SESSION (cual seria el nombre de la sesion creada?)
+    -->
+
+
 <?php require_once 'view/layout/header.php'; ?>
 
 <div class="container-fluid">
@@ -112,10 +121,10 @@
                     <form class="row g-3">
 
                         <div class="col-md-6">
-                            <label class="form-label" for="autoSizingInputGroup">Username</label>
+                            <label class="form-label" for="autoSizingInputGroup">Nickname</label>
                             <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Nickname">
                         </div>
                         </div>
                         <div class="col-md-6">
@@ -125,7 +134,7 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="specificSizeInputName">Nom i cognoms</label>
-                            <input type="text" class="form-control" id="specificSizeInputName" placeholder="Jane Doe">
+                            <input type="text" class="form-control" id="specificSizeInputName" placeholder="Nom i cognoms">
                         </div>
                         <div class="col-md-6">
                             <label for="inputPassword4" class="form-label">Password</label>
