@@ -14,19 +14,19 @@
     <div class="row">
         <div class="col-5 mx-auto p-5">
             <h1>Inicia Sessió</h1>
-            <form>
+            <form action="<?=base_url?>usuari/loginUser" method="POST">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
                     <div id="emailHelp" class="form-text">Mai compartirem el teu email amb tercers.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contrassenya</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Contrassenya</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label form-text" for="exampleCheck1">Dono el meu consentiment perquè guardeu les meves dades</label>
+                    <label class="form-check-label form-text" for="consentiment">Dono el meu consentiment perquè guardeu les meves dades</label>
+                    <input type="checkbox" class="form-check-input" id="consentiment" name="consentiment" required>
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Entra</button>
             </form>
