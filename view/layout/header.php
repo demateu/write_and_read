@@ -53,15 +53,20 @@
 
             <div class="row primary" id="first_line">
                 <!--Logo i buscador de la web -->
-                <div class="col-6 p-2" id="logo_search">
+                <div class="col-10 p-2" id="logo_search">
                     <a href="<?=base_url?>index.php">
                         <img src="<?=base_url?>assets/img/identity/wr_logo_250px.png" alt="logo" width="190" height="auto" class="ms-2"/>
                     </a>
                 </div>
                 <!--Fi Logo-->
                 <!-- User icona-->
-                <div class="col-6" id="user_area">
-                    <button type="button" class="btn mt-1" id="user_button">
+                <div class="col-2" id="user_area">
+                    
+                    <a href="<?=base_url?>usuari/login">Entra</a>
+                    <span>|</span>
+                    <a href="<?=base_url?>usuari/registre">Registra't</a>
+                
+                    <button type="button" class="btn mt-1 m-0" id="user_button">
                         <i class="far fa-user"></i>
                     </button>
                 </div>

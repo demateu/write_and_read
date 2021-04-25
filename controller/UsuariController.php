@@ -24,12 +24,98 @@ class UsuariController{
     }
 
     /**
+     * @author demateu
+     * renderitza la pàgina de login
+     */
+    public function login(){
+        //renderitza la vista
+        require_once 'view/registre/login.php';
+    }
+
+    /**
+     * @author demateu
+     * login dels usuaris
+     * 
+     * esta a mitges
+     */
+    public function loginUser(){
+        //En el form de loguearse tendremos una accion que será 'login.php' que nos llevara a este archivo
+        //En el archivo login.php, debemos iniciar sesion + conexion a la BBDD:
+	    //conexion a la BBDD -> el require_one
+        //Recoger los datos del formulario
+	    if(isset($_POST)){
+			$emailForm = trim($_POST['email']);
+			$passwordForm = $_POST['password'];//1234 desde el form
+
+            //fem una consulta per comprobar les credencials de l'usuari
+            //Consultar la BBDD para comparar la coincidencia del email recibido (si coincide, loguearnos)
+            $usuari = new Usuari();
+            $usuari->setEmail($emailForm);
+            $login = $usuari->buscarUsuariperEmail(); //es ok
+            var_dump($login);
+
+            if($login){ 
+                //comparamos las 2 contraseñas para verificar que son la misma
+                //(la del usuario logueado y la del de la BBDD con el mismo email)
+                $verify = password_verify($passwordForm, $login->password);
+
+                if($verify){
+                    echo 'coinciden passwords!!!';
+                    //Utilizar una sesion para guardar los datos de la sesion logueado
+                    //creo la sessió i allà guardo l'objecte de l'usuari
+                    $_SESSION['usuari'] = $login;
+
+                    //si el usuario existe hay que borrar si existe la sesion del error
+                    if(isset($_SESSION['error_login'])){
+                        session_unset();
+                    }
+
+                    //si el loguin es ok es redirigeix a l'usuari al seu panell de control
+                    require_once 'view/panel_control/EscriptorPerfilView.php';
+
+                }else{
+                    echo 'no coinciden passowrds';
+                    //Si algo falla, enviar una sesion con el fallo
+                    $_SESSION['error_login'] = "Login incorrecto :-(";
+
+                    //si el loguin es kao es redirigeix a l'usuari a la pagina de registre
+                    require_once 'view/registre/usuari.php';
+                }
+
+            }else{
+                //Si algo falla, enviar una sesion con el fallo
+                $_SESSION['error_login'] = "Login incorrecto :-(";
+            }
+
+		}
+        //Redirigir al index para que la pagina recarge
+        //header('Location: http://localhost:8888/write_and_read/index.php');
+        //require_once 'view/main.php';
+        
+    }
+
+
+    /**
      * para guardar el usuario
      * recojer los datos por POST que nos llegan desde el formulario <usuario>
      * 
      * @return void
      */
     public function save(){//ojo era saveUsuari
+        //@author demateu
+        //https://www.udemy.com/course/master-en-php-sql-poo-mvc-laravel-symfony-4-wordpress/learn/lecture/11745158#overview
+        //if(isset($_POST)){
+
+            //iniciar sessió
+            //if(!isset($_SESSION)){
+                //session_start();
+            //}
+
+            //recollir ls valors del formulari de registre
+
+            //validar les dades abans d'introduirles a la BBDD
+        //}
+
 
         //comprobar si les dades introduïdes existen, que no estiguin buides
         $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : false;
@@ -143,6 +229,11 @@ class UsuariController{
      * @return void
      */
     public function escriptorControl(){
+    
+        //CONSEGUIR DADES ESCRIPTOR
+        //de quina forma li arribaran les dades desde el login? -> SESION
+        //buscarUsuariperEmail()
+
         require_once 'view/panel_control/EscriptorPerfilView.php';
     }
 

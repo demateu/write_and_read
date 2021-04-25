@@ -348,6 +348,23 @@ class Usuari{
 
 
     /**
+     * @author demateu
+     * busca l'usuari amb un email especific
+     * 
+     * @return objecte usuarilougejat
+     */
+    public function getUsuariPerEmail(){
+        $sql = "SELECT * FROM usuari WHERE email = '{$this->getEmail()}'";
+        $usuariLoguejat = $this->db->query($sql);  
+        
+        return $usuariLoguejat->fetch_assoc();
+        //return $usuariLoguejat->fetch_object();
+        //return $usuariLoguejat->fetch_assoc();
+    }
+
+
+    /**
+     * @author demateu
      * TEST: retorna tots els usuaris de la BBDD
      */
     public function getAll(){
@@ -399,7 +416,7 @@ class Usuari{
      */
     public function buscarUsuariLlibres(){
         $escriptor = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.email, u.dni, u.data_alta, u.password, u.subscrit, u.data_naixement, u.id_tipus_usuari, u.biografia, 
-        a.avatar_url_imagen, l.titol, l.portada_url, l.mitja_vots, l.cops_votat
+        a.avatar_url_imagen, l.titol, l.portada_url, l.mitja_vots, l.cops_votat, l.sinopsis
 		FROM usuari u JOIN llibre l ON l.id_escriptor=u.id JOIN avatar a ON u.avatar_id=a.id WHERE u.id={$this->getId()}");
         //return $escriptor->fetch_object();
 
@@ -414,7 +431,7 @@ class Usuari{
      * @return Object $usuari : Objecte amb les dades del usuari trobat
      */
     public function buscarUsuariperEmail(){
-        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement,a.avatar_url_imagen
+        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, a.avatar_url_imagen
         FROM usuari u, avatar a WHERE u.email = '{$this->getEmail()}' AND u.avatar_id = a.id");
         
         return $usuari->fetch_object();
