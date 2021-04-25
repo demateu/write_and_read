@@ -100,7 +100,7 @@
                             <a class="nav-link" href="#">Com funciona</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Registra't</a>
+                            <a class="nav-link" href="<?=base_url?>usuari/registre">Registra't</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contacta'ns</a>

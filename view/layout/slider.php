@@ -23,7 +23,7 @@
                     <img src="<?=base_url?>assets/img/banner/banner2.jpg" class="d-block w-100" alt="Vols ser un scriptor? Ara pots amb nosaltres">
                     <div class="carousel-caption trickcenter">
                         <h5 class="font_title font_handwriting fs-1">Vols ser escriptor? Ara pots amb nosaltres.</h5>
-                        <button type="button" class="btn mt-3" id="btn_subcr">Subscriu-te</button>
+                        <a id="btn_subcr" href="<?=base_url?>usuari/registre" class="btn mt-3" role="button">Subscriu-te</a>
                     </div>
                 </div>
 
