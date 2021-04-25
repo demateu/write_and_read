@@ -24,6 +24,16 @@ class UsuariController{
     }
 
     /**
+     * @author demateu
+     * renderitza la pàgina de login
+     */
+    public function login(){
+        //renderitza la vista
+        require_once 'view/registre/login.php';
+    }
+
+
+    /**
      * para guardar el usuario
      * recojer los datos por POST que nos llegan desde el formulario <usuario>
      * 
@@ -136,6 +146,11 @@ class UsuariController{
      * @return void
      */
     public function escriptorControl(){
+    
+        //CONSEGUIR DADES ESCRIPTOR
+        //de quina forma li arribaran les dades desde el login? -> SESION
+        //buscarUsuariperEmail()
+
         require_once 'view/panel_control/EscriptorPerfilView.php';
     }
 

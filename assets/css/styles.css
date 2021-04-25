@@ -94,6 +94,19 @@ a:hover{
     border-color: #925279;
 }
 
+#user_area{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#user_area a{
+    color: whitesmoke;
+}
+
+#user_area a:hover{
+    color: #62244c;
+}
 
 /*CAROUSEL BANNER */
 .carousel-caption {
@@ -288,10 +301,14 @@ a:hover{
 }
 
 
+#fitxa_llibres .card-body a{
+    display: block;
+}
+
+
 /*test*/
 .align_text_bottom{
     display: flex;
-    justify-content: center;
     align-items: flex-end;
 }
 
@@ -531,6 +548,10 @@ centra el text e la bio*/
     margin: 0 10px;
 }
 
+#logout_panell{
+    border-top: 1px solid rgb(235, 233, 233);
+}
+
 .container.perfil_escriptor{
     max-width: 1190px;
     padding: 60px 0;
@@ -576,4 +597,30 @@ centra el text e la bio*/
 
 #avatar_escriptor_area .form-check{
     display: inline-block;
+}
+
+/*      Pagina login     */
+
+#login_body{
+    background-image: url("../img/pages/6263.jpg");
+    min-height: 600px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+}
+
+#login_body .row{
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+#login_body button{
+    width: 100%;
+    background-color: #c37ea7;
+    border: none;
+}
+
+#login_body button:hover{
+    background-color: #62244c;
 }
