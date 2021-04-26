@@ -2,13 +2,15 @@
 
 require_once 'model/Llibre.php';
 
-class LlibreController{
+class LlibreController
+{
 
     /**
      * renederitza la pàgina de registre d'un llibre a la URL:
      * <=?base?>llibre/registre
      */
-    public function registre(){ 
+    public function registre()
+    {
         //cargamos la vista
         require_once 'view/registre/llibre.php';
     }
@@ -19,10 +21,11 @@ class LlibreController{
      * 
      * @return void
      */
-    public function save(){
-        if(isset($_POST)){
+    public function save()
+    {
+        if (isset($_POST)) {
             //instancio el objeto (el modelo usuario)
-            $llibre = new Llibre(); 
+            $llibre = new Llibre();
 
             //setters para guardar los datos que llegan del form (registro/user)
             $llibre->setId_escriptor($_POST['id_escriptor']);
@@ -40,43 +43,66 @@ class LlibreController{
             //guardo todos estos datos en llibre
             $save = $llibre->save();
 
-            if($save){
+            if ($save) {
                 echo 'Enregistrat correctament';
-            }else{
+            } else {
                 echo 'Alguna cosa no ha anat bé amb el teu registre';
             }
-
         }
     }
-	/**
+    /**
      * renderitza la fitxa de llibre
      * pediria los datos al modelo (BBDD)
      */
-    public function fitxa(){
-    
+    public function fitxa()
+    {
+
         //concretar si se recibe por GET
         //accedir-hi per aqui: http://localhost:8888/write_and_read/llibre/fitxa
-        if(isset($_GET['id'])){
-			$id = $_GET['id'];
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
 
             $llibre = new Llibre();
             $llibre->setId($id);
             $llibre = $llibre->buscarLlibrePerId();
-		}
-		
-	require_once 'view/panel_control/LlibreView.php';
-    }
-	
-	/**
-     * test
-     */
-    public function cargarAll(){
-        $llibre = new Llibre();
-        $llibres = $llibre->getAll();
-        
+        }
+
         require_once 'view/panel_control/LlibreView.php';
     }
 
+    /**
+     * test
+     */
+    public function cargarAll()
+    {
+        $llibre = new Llibre();
+        $llibres = $llibre->getAll();
+
+        require_once 'view/panel_control/LlibreView.php';
+    }
+
+    /**
+     * @author Ronny
+     * 
+     * Carrega al contingut del llibre
+     */
+    public function llegirLlibre()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            $llibre = new Llibre();
+            $llibre->setId($id);
+            $llibre = $llibre->buscarLlibrePerId();
+        }
+
+        //LLegir pdf 
+        require_once 'vendor/autoload.php';
+        $parser = new \Smalot\PdfParser\Parser();
+        $pdf = $parser->parseFile( base_url .'assets/img/llibres/'. $llibre->contingut_url);
+
+        // Retrieve all pages from the pdf file.
+        $pages  = $pdf->getPages();
+        require_once 'view/LlegirLlibre.php';
+    }
 }
-
-

@@ -391,3 +391,6 @@ UPDATE llibre SET data_alta = '2021-04-23' WHERE id=22;
 UPDATE llibre SET data_alta = '2021-04-26' WHERE id=25;
 UPDATE llibre SET data_alta = '2021-04-19' WHERE id=26;
 UPDATE llibre SET data_alta = '2021-04-30' WHERE id=40;
+
+/*UPDATE LLIBRE URL*/
+UPDATE llibre SET contingut_url = 'llibre_prova.pdf'

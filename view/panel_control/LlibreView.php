@@ -83,7 +83,7 @@
 						    <p class="card-title">El llibre no existeix</p>
 						<?php endif; ?>
 						<?php if(isset($id)): ?>
-						    <a href="<?=$llibre->contingut_url?>"><button type="button" class="btn boto_llegeix">Llegir</button></a>
+						    <a href="<?=base_url?>llibre/llegirLlibre&id=<?=$id?>"><button type="button" class="btn boto_llegeix">Llegir</button></a>
 						<?php else: ?>
 						    <button type="button" class="btn boto_llegeix">Llegir</button>
 						<?php endif; ?>
