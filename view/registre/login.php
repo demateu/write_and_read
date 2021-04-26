@@ -30,9 +30,19 @@
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Entra</button>
             </form>
+
+            <!--part que aparareix quan l'usuari no s'ha pogut loguejar-->
+            <?php if( isset ($_SESSION['error_login'])  ): ?>
+            <div id="error_login">
+                <p class="text-center">Introdueix un password correcte o registrat</p>
+            </div>
+            <?php endif; ?>
+            <!--FI part que aparareix quan l'usuari no s'ha pogut loguejar-->
+
             <div>
                 <a href="<?=base_url?>usuari/registre"><p>No tens compte? Registra't</p></a>
             </div>
+
         </div>
         <div class="col-6"></div>
     </div>

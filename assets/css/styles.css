@@ -624,3 +624,9 @@ centra el text e la bio*/
 #login_body button:hover{
     background-color: #62244c;
 }
+
+#error_login{
+    background-color: red;
+    margin: 0;
+    color: whitesmoke;
+}
