@@ -26,7 +26,8 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
 </div>
 
 <div class="container perfil_escriptor">
-    <div class="row">
+
+<div class="row">
         <!--columna izquierda-->
         <section class="col-2" id="side_menu">
             <div class="row">
