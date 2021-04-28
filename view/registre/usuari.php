@@ -80,32 +80,32 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
                 <!--Form Registra Lector-->  
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                    
-					<form class="row g-3" action="<?=base_url?>usuari/save" method="post">
+					<form class="row g-3" action="<?=base_url?>usuari/save" onsubmit="return Validate()" name="vform" method="post">
 
                         <div class="col-md-6">
                             <label class="form-label" for="nick_lector">Username</label>
                             <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" maxlength="20" class="form-control" name="nickname" id="nick_lector" placeholder="El nick que més t'agradi" required>
+                            <input type="text" minlength="3" maxlength="20" class="form-control" name="nickname" id="nick_lector" placeholder="El nick que més t'agradi" title="El nick ha de tenir entre 3 i 20 caràcters" required>
                         </div>
                         </div>
                         <div class="col-md-6">
                             <label for="email_lector" class="form-label">Email</label>
-                            <input type="email" maxlength="50" class="form-control" name="email" id="email_lector" placeholder="La teva adreça de correu electrònic" required>
+                            <input type="email" maxlength="50" class="form-control" name="email" id="email_lector" placeholder="La teva adreça de correu electrònic" title="Ha de ser una adreça de correu vàlida" required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="nom_lector">Nom i cognoms</label>
-                            <input type="text" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_lector" placeholder="El teu nom i cognoms verdaders" required>
+                            <input type="text" minlength="5" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_lector" placeholder="El teu nom i cognoms verdaders" title="El nom i cognom han de tenir entre 5 i 50 caràcters" required>
                         </div>
                         <div class="col-md-6">
                             <label for="password_lector" class="form-label">Password</label>
-                            <input type="password" maxlength="100" class="form-control" name="password" id="password_lector" placeholder="Una contrasenya segura" required>
+                            <input type="password" class="form-control" name="password" id="password_lector" placeholder="Una contrasenya segura" pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{6,20}$" title="Ha de contenir com a mínim 1 número, 1 lletra i un caràcter especial, entre 6 i 20 caràcters" required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="dni_lector">DNI</label>
-                            <input type="text-area" maxlength="10" class="form-control" name="dni" id="dni_lector" placeholder="8 números i una lletra" required>
+                            <input type="text-area" class="form-control" name="dni" id="dni_lector" placeholder="8 números i una lletra" pattern="[0-9]{8}[A-Za-z]{1}" title="Han de ser 8 números i una lletra sense espais" required>
                         </div>
 
                         <div class="col-md-6">
@@ -153,26 +153,26 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
                             <label class="form-label" for="nick_escriptor">Username</label>
                             <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" maxlength="20" class="form-control" name="nickname" id="nick_escriptor" placeholder="El nick que més t'agradi" required>
+                            <input type="text" minlength="3" maxlength="20" class="form-control" name="nickname" id="nick_escriptor" placeholder="El nick que més t'agradi" title="El nick ha de tenir entre 3 i 20 caràcters" required>
                         </div>
                         </div>
                         <div class="col-md-6">
                             <label for="email_escriptor" class="form-label">Email</label>
-                            <input type="email" maxlength="50" class="form-control" name="email" id="email_escriptor" placeholder="La teva adreça de correu electrònic" required>
+                            <input type="email" maxlength="50" class="form-control" name="email" id="email_escriptor" placeholder="La teva adreça de correu electrònic" title="Ha de ser una adreça de correu vàlida" required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="nom_escriptor">Nom i cognoms</label>
-                            <input type="text" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_escriptor" placeholder="El teu nom i cognoms verdaders" required>
+                            <input type="text" minlength="5" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_escriptor" placeholder="El teu nom i cognoms verdaders" title="El nom i cognom han de tenir entre 5 i 50 caràcters" required>
                         </div>
                         <div class="col-md-6">
                             <label for="password_escriptor" class="form-label">Password</label>
-                            <input type="password" maxlength="100" class="form-control" name="password" id="password_escriptor" placeholder="Una contrasenya segura" required>
+                            <input type="password" class="form-control" name="password" id="password_escriptor" placeholder="Una contrasenya segura" pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{6,20}$" title="Ha de contenir com a mínim 1 número, 1 lletra i un caràcter especial, entre 6 i 20 caràcters"  required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="dni_escriptor">DNI</label>
-                            <input type="text-area" maxlength="10" class="form-control" name="dni" id="dni_escriptor" placeholder="8 números i una lletra" required>
+                            <input type="text-area" maxlength="9" class="form-control" name="dni" id="dni_escriptor" placeholder="8 números i una lletra" pattern="[0-9]{8}[A-Za-z]{1}" title="Han de ser 8 números i una lletra sense espais" required>
                         </div>
 
                         <div class="col-md-6">
