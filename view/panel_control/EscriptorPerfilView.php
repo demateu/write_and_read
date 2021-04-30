@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 
 <!--
     $_SESSION['register'] == 'complete'
@@ -8,6 +7,15 @@
 
 
 <?php require_once 'view/layout/header.php'; ?>
+
+
+<?php if( isset($_SESSION['usuari']) ): ?>
+    <div>
+        <h3>test- usuari loguejat:
+            <?= $_SESSION['usuari']->nickname; ?><!--test-->
+        </h3>
+<!--fi de la meitat del condicional de la sessio de l'usuari loguejat-->
+
 
 <div class="container-fluid">
     <div class="row" id="hero_perfil">
@@ -19,23 +27,24 @@
 
 
 <div class="container perfil_escriptor">
+
     <div class="row">
         <!--columna izquierda-->
         <section class="col-2" id="side_menu">
             <div class="row">
                 <div class="col mx-auto">
-                    <!--test src, cambiar despues-->
+                    <!--test src, cambiar despues per l'avatar-->
                     <img src="<?=base_url?>assets/img/avatar/avatar_1.jpg" alt="Imatge de l'escriptor" width="100%" height="auto"/>
                     <!--area noms-->
                     <aside id="noms_escriptor" class="p-2">
                         <div class="row">
                             <div class="col text-center">
-                                <h2 class="m-0 p-2">Lula Wallace</h2>
+                                <h2 class="m-0 p-1"><?= $_SESSION['usuari']->nom_i_cognoms; ?></h2>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col text-center">
-                                <span class="text_nickname p-2">@nickname</span>
+                                <span class="text_nickname p-2">@<?= $_SESSION['usuari']->nickname; ?></span>
                             </div>
                         </div>
                     </aside>
@@ -124,42 +133,46 @@
                             <label class="form-label" for="autoSizingInputGroup">Nickname</label>
                             <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Nickname">
+                            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder=<?= $_SESSION['usuari']->nickname; ?>>
                         </div>
                         </div>
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4">
+                            <input type="email" class="form-control" id="inputEmail4" placeholder=<?= $_SESSION['usuari']->email; ?>>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="specificSizeInputName">Nom i cognoms</label>
-                            <input type="text" class="form-control" id="specificSizeInputName" placeholder="Nom i cognoms">
+                            <input type="text" class="form-control" id="specificSizeInputName" placeholder=<?= $_SESSION['usuari']->nom_i_cognoms; ?>>
                         </div>
+                        <!-- La password no deberia ser mostrada pero si puede ser cambiada-->
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Password</label>
+                            <label for="inputPassword4" class="form-label">Introduce un nuevo Password</label>
                             <input type="password" class="form-control" id="inputPassword4">
                         </div>
+                        
 
                         <div class="col-md-6">
                             <label class="form-label" for="specificSizeInputName">DNI</label>
-                            <input type="text-area" class="form-control" id="specificSizeInputName" placeholder="Jane Doe">
+                            <input type="text-area" class="form-control" id="specificSizeInputName" placeholder="<?= $_SESSION['usuari']->dni; ?>">
                         </div>
 
+                        <!--VEURE COM MOSTRAR LA DATA-->
                         <div class="col-md-6">
                             <label class="form-label" for="specificSizeInputName">Data de Naixement</label>
                             <input type="date" class="form-control" id="specificSizeInputName">
                         </div>
 
+
                         <div class="col-12 mb-3">
                             <label for="inputAddress" class="form-label">Biografia</label>
-                            <textarea maxlength="50" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"></textarea>
+                            <textarea maxlength="50" type="text" class="form-control" id="inputAddress" placeholder="<?= $_SESSION['usuari']->biografia; ?>"></textarea>
                         </div>
                     
 
 
                         <fieldset class="row mb-3" id="avatar_escriptor_area">
-                            <legend class="col-form-label col-sm-2 pt-0">Escull el teu avatar</legend>
+                            <legend class="col-form-label col-sm-2 pt-0">Canvia el teu avatar</legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" checked>
@@ -170,44 +183,44 @@
                                         <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="3">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_3.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="4">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_4.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="5">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_5.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="6">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_6.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="7">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_7.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="8">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_8.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="9">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_9.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="10">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_10.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="11">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_11.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="12">
+                                        <img src="<?=base_url?>assets/img/avatar/avatar_12.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                 </div>
                         </fieldset>
@@ -258,8 +271,7 @@
     </div>
 </div>
 
-
-
-
+</div>
+<?php endif; ?>
 
 <?php require_once 'view/layout/footer.php';?>

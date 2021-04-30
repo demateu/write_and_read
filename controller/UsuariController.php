@@ -79,12 +79,13 @@ class UsuariController{
                     $_SESSION['error_login'] = "Login incorrecto :-(";
 
                     //si el loguin es kao es redirigeix a l'usuari a la pagina de registre
-                    require_once 'view/registre/usuari.php';
+                    require_once 'view/registre/login.php';
                 }
 
             }else{
                 //Si algo falla, enviar una sesion con el fallo
-                $_SESSION['error_login'] = "Login incorrecto :-(";
+                //$_SESSION['error_login'] = "Login incorrecto :-(";
+                require_once 'view/registre/login.php';
             }
 
 		}

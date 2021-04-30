@@ -7,14 +7,6 @@
 
 <div id="main_title" class="container-fluid">
 
-<?php if( isset($_SESSION['usuari']) ): ?>
-	<div>
-		<h3>test d'usuari loguejat:
-			<?= $_SESSION['usuari']->nickname; ?>
-		</h3>
-	</div>
-<?php endif; ?>
-
     <h3 class="text-center mt-5 font_title">Llibres per categoria</h3>
     <h2 class="text-center mt-5 font_subtitle">Fes click a la categoria que busques</h2>
     <!-- Menu categorias -->
