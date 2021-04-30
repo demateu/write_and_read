@@ -1,5 +1,5 @@
 
-  
+
 /**
  * Gestio de fitxes dels carousels
  */
@@ -10,12 +10,12 @@ $(document).ready(function () {
     const altFitxa = "Imatge del llibre";
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
-    const baseURL= "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
+    const baseURL = "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
 
 
     ferAjax(); //Ajax inicial
     ferAjax(undefined, true); //Ajax novetats
-    ferAjax(undefined, false, true ) //Ajax valorats
+    ferAjax(undefined, false, true) //Ajax valorats
 
     //Afegir listeners nav content (contingut principal nav per categorias)
     $('#nav_content li a').on('click', function () {
@@ -28,64 +28,64 @@ $(document).ready(function () {
         esborrarCarouselItems('#fitxes_main');
 
         //Fa l'ajax de la categoria corresponent
-        var idCat=$(this).attr("data-idCat");
+        var idCat = $(this).attr("data-idCat");
         ferAjax(idCat);
 
     })
 
-   
+
     /** 
     * Fa la peticio AJAX d'acord amb els parametres
     * 
     * @param int idCat : Nombre de la categoria que s'ha de buscar
     * @param boolean novetats : Indica si s'ha de buscar els llibres mes nous
     */
-    function ferAjax(idCat, novetats, valorats){
-        if(idCat !== undefined){
+    function ferAjax(idCat, novetats, valorats) {
+        if (idCat !== undefined) {
             //AJAX per categoria
             $.ajax({
                 url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
                 type: 'GET',
-                data: {'categoria': idCat}, //ponia esto: {'categoria': idCat} -> demateu
+                data: { 'categoria': idCat }, //ponia esto: {'categoria': idCat} -> demateu
                 dataType: 'json',
                 success: function (resp) {
                     ferFitxes(resp, 8, '#llib_cat', '#fitxes_main');
                 }
             });
-        }else if(novetats){
+        } else if (novetats) {
             //AJAX mes nous
             $.ajax({
                 url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
                 type: 'GET',
-                data: {'novetats': true}, 
+                data: { 'novetats': true },
                 dataType: 'json',
                 success: function (resp) {
                     ferFitxes(resp, 4, '#llib_nous', '#fitxes_nous');
                 }
             });
-        }else if(valorats){
+        } else if (valorats) {
             //AJAX mes valorats
             $.ajax({
                 url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
                 type: 'GET',
-                data: {'valorats': true}, 
+                data: { 'valorats': true },
                 dataType: 'json',
                 success: function (resp) {
                     ferFitxes(resp, 4, '#llib_votos', '#fitxes_valorats');
                 }
             });
-        }else{
+        } else {
             //AJAX a totes les categories
             $.ajax({
                 url: 'http://localhost:8888/write_and_read/api-rest/',
                 type: 'GET',
                 dataType: 'json',
                 success: function (resp) {
-                    ferFitxes(resp, 8,'#llib_cat', '#fitxes_main');
+                    ferFitxes(resp, 8, '#llib_cat', '#fitxes_main');
                 }
             });
         }
-        
+
     }
 
     /** 
@@ -97,8 +97,8 @@ $(document).ready(function () {
     * @param String idCarouselInner Nom del carousel inner on s'han de posar les fitxes
     */
     function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
-        var count=0;
-        var numSlide=0;
+        var count = 0;
+        var numSlide = 0;
         //Iteracio del array
         fitxeDades.forEach(element => {
             //Agafar les dades 
@@ -107,17 +107,17 @@ $(document).ready(function () {
             var id_llibre = element.id;
             var id_escriptor = element.id_escriptor;
             var mitja_vots = element.mitja_vots;
-            var portada_url= element.portada_url;
+            var portada_url = element.portada_url;
 
             var titol = element.titol;
 
             //Fer la fitxa
-            var fitxa= (`
+            var fitxa = (`
                 <!-- Fitxa de llibre -->
                 <div class="col-sm-6 col-lg-3" id="fitxa_llibres">
                     <div class="card">
                         <div class="cover_book">
-                            <img src="${imgUrl+portada_url+'.jpeg'}" alt="${altFitxa}" class="card-img-top" />
+                            <img src="${imgUrl + portada_url + '.jpeg'}" alt="${altFitxa}" class="card-img-top" />
                         </div>
                         <div class="card-body">
             `);
@@ -136,31 +136,31 @@ $(document).ready(function () {
                 </div>
                 <!-- fi fitxa -->
             `);
-                            
-            if(count==fitxaperRow){
+
+            if (count == fitxaperRow) {
                 //Crea el carousel-item i el node
                 crearCarouselItem(idCarouselInner);
                 $(idCarouselInner).children().last().children().append(fitxa);
-                 
+
                 //Reinicia el count
-                count=0;
-                
+                count = 0;
+
                 //Suma el slide
                 numSlide++;
-            //Carousel-items i indicators inicials
-            }else if(count==0 && numSlide==0){
+                //Carousel-items i indicators inicials
+            } else if (count == 0 && numSlide == 0) {
                 //Crea el carousel-item i el node
                 crearCarouselItem(idCarouselInner, true);
                 $(idCarouselInner).children().last().children().append(fitxa);
 
                 //Suma el slide
                 numSlide++;
-            }else{
+            } else {
                 //Nomes crea el node
                 $(idCarouselInner).children().last().children().append(fitxa);
             }
             count++;
-        }); 
+        });
     }
 
     /**
@@ -169,24 +169,24 @@ $(document).ready(function () {
      * @param String elementPare : L'element on s'ha de afegir l'item
      * @param boolean active : Indica si s'ha de crear amb la class active
      */
-    function crearCarouselItem(elementPare, active){
+    function crearCarouselItem(elementPare, active) {
         var carouselItem;
-        if(active !== undefined){
-            carouselItem= (`
+        if (active !== undefined) {
+            carouselItem = (`
                 <div class="carousel-item active" >
                     <div class="row">
                     </div>                
                 </div>
             `);
-        }else{
-            carouselItem= (`
+        } else {
+            carouselItem = (`
                 <div class="carousel-item" >
                     <div class="row">
                     </div>                
                 </div>
             `);
         }
-        
+
         $(elementPare).append(carouselItem);
     }
 
@@ -195,7 +195,7 @@ $(document).ready(function () {
      * 
      * @param String elementPare : L'element on s'ha d'esborrar els items
      */
-    function esborrarCarouselItems(elementPare){
+    function esborrarCarouselItems(elementPare) {
         $(elementPare).children().remove();
     }
 
@@ -204,18 +204,18 @@ $(document).ready(function () {
      * @param String elementPare : L'element on s'ha de afegir els indicators
      * @param int numSlide : Indica el nombre de slide per fer el button 
      */
-    function ferIndicatorsCarousel(elementPare, numSlide){
+    function ferIndicatorsCarousel(elementPare, numSlide) {
         var indicator;
-        if(numSlide !== 0){
+        if (numSlide !== 0) {
             indicator = (`
-                <button type="button" data-bs-target="${elementPare}" data-bs-slide-to="${numSlide}" aria-label="Slide ${numSlide+1}"></button>
+                <button type="button" data-bs-target="${elementPare}" data-bs-slide-to="${numSlide}" aria-label="Slide ${numSlide + 1}"></button>
             `);
-        }else{
+        } else {
             indicator = (`
-                <button type="button" data-bs-target="${elementPare}" data-bs-slide-to="${numSlide}" class="active" aria-current="true" aria-label="Slide ${numSlide+1}"></button>
+                <button type="button" data-bs-target="${elementPare}" data-bs-slide-to="${numSlide}" class="active" aria-current="true" aria-label="Slide ${numSlide + 1}"></button>
             `);
         }
-        
+
         $(elementPare + " .carousel-indicators").append(indicator);
     }
 
@@ -224,7 +224,7 @@ $(document).ready(function () {
      * 
      * @param String elementPare : Indica l'element carousel 
      */
-    function esborrarIndicatorsCarousel (elementPare){
+    function esborrarIndicatorsCarousel(elementPare) {
         $(elementPare + " .carousel-indicators").children().remove();
     }
 
@@ -234,8 +234,8 @@ $(document).ready(function () {
      * @param int mitja_vots : Puntuacio del llibre 
      * @return valoracions : Div de les estrelles d'acord amb la mitja_vots 
      */
-    function puntuacioLlibre(mitja_vots){
-        
+    function puntuacioLlibre(mitja_vots) {
+
 
         let star = `<span class="fa fa-star"></span>`;
         let starChecked = `<span class="fa fa-star checked"></span>`;
@@ -245,21 +245,18 @@ $(document).ready(function () {
         `);
 
         for (let i = 1; i <= 5; i++) {
-            if(i <= mitja_vots){
+            if (i <= mitja_vots) {
                 valoracions += (`
                     ${starChecked}
                 `);
-            }else{
+            } else {
                 valoracions += (`
                     ${star}
                 `);
-            }  
+            }
         }
-        
-        return valoracions+="</div>";
+
+        return valoracions += "</div>";
     }
-
-
-   
 
 });

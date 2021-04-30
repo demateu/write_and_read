@@ -88,21 +88,16 @@ class LlibreController
      */
     public function llegirLlibre()
     {
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+        if (isset($_POST['titol']) && isset($_POST['contingut_url'])) {
+            //LLegir pdf 
+            require_once 'vendor/autoload.php';
+            $parser = new \Smalot\PdfParser\Parser();
+            $pdf = $parser->parseFile(base_url . 'assets/img/llibres/' . $_POST['contingut_url']);
 
-            $llibre = new Llibre();
-            $llibre->setId($id);
-            $llibre = $llibre->buscarLlibrePerId();
+            // Retrieve all pages from the pdf file.
+            $pages  = $pdf->getPages();
+            require_once 'view/LlegirLlibre.php';
+            
         }
-
-        //LLegir pdf 
-        require_once 'vendor/autoload.php';
-        $parser = new \Smalot\PdfParser\Parser();
-        $pdf = $parser->parseFile( base_url .'assets/img/llibres/'. $llibre->contingut_url);
-
-        // Retrieve all pages from the pdf file.
-        $pages  = $pdf->getPages();
-        require_once 'view/LlegirLlibre.php';
     }
 }
