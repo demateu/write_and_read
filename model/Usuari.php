@@ -347,9 +347,8 @@ class Usuari{
 					if(mysqli_num_rows($resultat) > 0){
 						$result=3;
 					}else{
-						$sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
-						VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
-						$save = $this->db->query($sql);
+						$sql = "INSERT INTO usuari VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
+						$save = $this->db->query($sql); 
 						$result = 9;
 						
 						if($save){
