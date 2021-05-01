@@ -86,18 +86,18 @@
                                         <span>Subscripció</span>
                                     </span>
                                 </div>                        
-                            
-                                <hr>
+                                <!--boton logout-->
                                 <a href="<?=base_url?>usuari/logoutUser">
-                                <div class="row px-3 py-2 nav-link links_menu_escriptor" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false">
-                                    <span class="col-3 text_cent_vert">
-                                        <i class="fas fa-user-edit"></i>
-                                    </span>
-                                    <span class="col-9 text_cent_vert text-center">
-                                        Logout
-                                    </span>
-                                </div>
+                                    <div class="row px-3 py-2 nav-link links_menu_escriptor">
+                                        <span class="col-3 text_cent_vert">
+                                            <i class="fas fa-user-edit"></i>
+                                        </span>
+                                        <span class="col-9 text_cent_vert text-center">
+                                            Logout
+                                        </span>
+                                    </div>
                                 </a>
+                                <!--Fi boton logout-->
 
                             </aside>
                             <!--Fi aside menu-->
@@ -327,93 +327,79 @@
                             </div>
 
                             
-                        <!--Form Edita Perfil-->  
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                            <form class="row g-3" action="<?=base_url?>llibre/save" method="POST" enctype="multipart/form-data">
-                           
-                                <div class="col-md-6">
-                                    <label class="form-label" for="nickname">Nickname</label>
-                                    <div class="input-group">
-                                    <div class="input-group-text">@</div>
-                                    <input type="text" name="nickname" class="form-control" id="nickname" value="<?= $_SESSION['usuari']->nickname; ?>">
-                                </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" value="<?= $_SESSION['usuari']->email; ?>" >
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="form-label" for="nom_i_cognoms">Nom i cognoms</label>
-                                    <input type="text" name="nom_i_cognoms" class="form-control" id="nom_i_cognoms" value="<?= $_SESSION['usuari']->nom_i_cognoms; ?>">
-                                </div>
-
-                                <!-- La password no deberia ser mostrada pero si puede ser cambiada
-                                <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Introduce un nuevo Password</label>
-                                    <input type="password" class="form-control" id="inputPassword4">
-                                </div>
-                                -->
-
-                                <div class="col-md-6">
-                                    <label class="form-label" for="dni">DNI</label>
-                                    <input type="text" name="dni" class="form-control" id="dni" value="<?= $_SESSION['usuari']->dni; ?>">
-                                </div>
-
-                                <!--VEURE COM MOSTRAR LA DATA
-                                canvio tipo data per test per a que es visualitzi
-                                pero a veure si guarda els camps 
-                                
-                                <div class="col-md-6">
-                                    <label class="form-label" for="specificSizeInputName">Data de Naixement</label>
-                                    <input type="text" class="form-control" id="specificSizeInputName" value="">
-                                </div>
-                                -->
-
-                                <div class="col-12 mb-3">
-                                    <label for="biografia" class="form-label">Biografia</label>
-                                    <textarea maxlength="50" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
-                                </div>
-                
-
-
-                                <div class="col-12">
-                                    <button type="submit" id="boto_guarda" class="btn btn-primary">Guardar Canvis</button>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <div class="form-check">
-                                    <input class="form-check-input" name="consentiment_privacitat" type="checkbox" id="consentiment_privacitat" checked required>
-                                    <label class="form-check-label" for="consentiment_privacitat">
-                                        Dono el meu consentiment perquè guardeu les meves dades
-                                    </label>
+                            <!--Form Edita Perfil-->  
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <form class="row g-3" action="<?=base_url?>llibre/save" method="POST" enctype="multipart/form-data">
+                            
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="titol">Títol de l'obra:</label>
+                                        <input type="text" name="titol" class="form-control" id="titol" >
                                     </div>
-                                </div>
 
-                                <!--escull categoria-->                      
-                                <div class="form-group col-md-4">
-                                <label for="inputState">State</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                </div>
-                                
-         
-                        </div>
-                        <!--Fi Form Edita Perfil-->  
+                                    <div class="col-12 mb-3">
+                                        <label for="biografia" class="form-label">Descripció curta:</label>
+                                        <textarea maxlength="50" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
+                                    </div>
+                    
+                                    <div class="col-12 mb-3">
+                                        <label for="biografia" class="form-label">Sinopsis:</label>
+                                        <textarea maxlength="50" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
+                                    </div>
+
+                                    <!--escull categoria-->                      
+                                    <div class="form-group col-md-6">
+                                        <label for="categoria">A quina categoria pertany:</label>
+                                        <select id="categoria" name="categoria" form="carform">
+                                            <option value="volvo">Acció</option>
+                                            <option value="saab">Romanç</option>
+                                            <option value="opel">Fantasia</option>
+                                            <option value="audi">Sci-fi</option>
+                                            <option value="audi">Drama</option>
+                                            <option value="audi">Horror</option>
+                                            <option value="audi">Suspens</option>
+                                        </select>
+                                    </div>
+
+
+                                    <label class="col-12" for="fileToUpload">Puja l'obra en pdf:</label>
+                                    <div class="row">
+                                        <input class="col-12" type="file" name="fileToUpload" id="fileToUpload">
+                                    </div>
+                                    <div class="row">
+                                        <input class="col-12" type="submit" value="CARREGAR" name="submit">
+                                    </div>
+
+
+                                    <label class="col-12" for="fileToUpload">Puja una imatge de portada:</label>
+                                    <div class="row">
+                                        <input class="col-12" type="file" name="fileToUpload" id="fileToUpload">
+                                    </div>
+                                    <div class="row">
+                                        <input class="col-12" type="submit" value="CARREGAR" name="submit">
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                        <input class="form-check-input" name="consentiment_privacitat" type="checkbox" id="consentiment_privacitat" checked required>
+                                        <label class="form-check-label" for="consentiment_privacitat">
+                                            Dono el meu consentiment perquè guardeu les meves dades
+                                        </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button type="submit" id="boto_guarda" class="btn btn-primary">Guardar</button>
+                                    </div>
+
+                                </form>                                   
+                            </div>
+                            <!--Fi Form Edita Perfil-->  
 
 
                             
-                                <label class="col-12" for="fileToUpload">Select a file:</label>
-                                <div class="row">
-                                    <input class="col-12" type="file" name="fileToUpload" id="fileToUpload">
-                                </div>
-                                <div class="row">
-                                 <input class="col-12" type="submit" value="CARREGAR" name="submit">
-                                </div>
-                            </form>
+
+                       
 
 
                         

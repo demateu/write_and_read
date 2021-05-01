@@ -118,7 +118,7 @@
 
                         <div class="col-12">
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="condicions" required>
+                            <input class="form-check-input" type="checkbox" id="condicions" required checked>
                             <label class="form-check-label" for="condicions">
                                 Dono el meu consentiment perquè guardeu les meves dades
                             </label>
@@ -247,7 +247,7 @@
 
                         <div class="col-12">
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="condicions_escriptor" required>
+                            <input class="form-check-input" type="checkbox" id="condicions_escriptor" required checked>
                             <label class="form-check-label" for="condicions_escriptor">
                                 Dono el meu consentiment perquè guardeu les meves dades
                             </label>
