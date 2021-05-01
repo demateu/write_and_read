@@ -6,13 +6,13 @@
         <div class="perfil-sidebar text-center">
             <!-- SIDEBAR FOTO AVATAR -->
             <div class="perfil-userpic">
-                <img src="<?= $usuari->avatar_url_imagen ?>" alt="Imatge de <?= $usuari->nom_i_cognoms ?>" />
+                <img src="<?= $login->avatar_url_imagen ?>" alt="Imatge de <?= $login->nom_i_cognoms ?>" />
             </div>
             <!-- FI FOTO AVATAR -->
             <!-- SIDEBAR USER TITOL -->
             <div class="perfil-usertitol">
                 <div class="perfil-usertitol-nom">
-                    <?= $usuari->nom_i_cognoms ?>
+                    <?= $login->nom_i_cognoms ?>
                 </div>
                 <div class="perfil-usertitol-rol">
                     Lector
@@ -61,37 +61,37 @@
         <div class="tab-content">
             <div class="tab-pane active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">
                 
-                <form class="row g-3">
+                <form class="row g-3" action="<?=base_url?>usuari/saveCanvis" method="POST">
 
                     <div class="col-md-6">
                         <label class="form-label" for="autoSizingInputGroup">Username</label>
                         <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" class="form-control" id="autoSizingInputGroup" value="<?= $usuari->nickname ?>">
+                            <input type="text" class="form-control" id="autoSizingInputGroup" value="<?= $login->nickname ?>">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" value="<?= $usuari->email ?> ">
+                        <input type="email" class="form-control" id="inputEmail4" value="<?= $login->email ?> ">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="specificSizeInputName">Nom i cognoms</label>
-                        <input type="text" class="form-control" id="specificSizeInputName" value="<?= $usuari->nom_i_cognoms ?> ">
+                        <input type="text" class="form-control" id="specificSizeInputName" value="<?= $login->nom_i_cognoms ?> ">
                     </div>
                     <div class="col-md-6">
                         <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" value="<?= $usuari->password ?>">
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Nova contrasenya">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="specificSizeInputName">DNI</label>
-                        <input type="text-area" class="form-control" id="specificSizeInputName" value="<?= $usuari->dni ?> ">
+                        <input type="text-area" class="form-control" id="specificSizeInputName" value="<?= $login->dni ?> ">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="specificSizeInputName">Data de Naixement</label>
-                        <input type="date" class="form-control" id="specificSizeInputName" value="<?= $usuari->data_naixement ?> ">
+                        <input type="date" class="form-control" id="specificSizeInputName" value="<?= $login->data_naixement ?> ">
                     </div>
 
                     <!--  Para lecctor no 
@@ -101,19 +101,8 @@
                     </div>
                      -->
 
-
-                    <fieldset class="row mb-3" id="avatar_escriptor_area">
-                        <legend class="col-form-label col-sm-2 pt-0">Escull el teu avatar</legend>
-                        <!-- Imatges d'avatar dinamiques -->
-                        <div class="col-sm-10">
-                            <?php foreach($imatgesAvatar as $urlAvatar): ?>
-                                
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" checked>
-                                    <img src="<?= base_url ?>assets/img/avatar/<?= $urlAvatar ?>" alt="Imatge de l'escriptor" width="50px" height="auto" />
-                                </div>
-
-                            <?php endforeach; ?>
+                        
+                    
                             <!-- 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
@@ -160,16 +149,15 @@
                                 <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto" />
                             </div>
                              -->
-                        </div>
-                    </fieldset>
+                        
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Guardar Canvis</button>
+                        <button type="submit" class="btn boto_llegeix">Guardar Canvis</button>
                     </div>
 
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" checked>
                             <label class="form-check-label" for="gridCheck">
                                 Subscriu-me
                             </label>
@@ -178,7 +166,7 @@
 
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" checked>
                             <label class="form-check-label" for="gridCheck">
                                 Dono el meu consentiment perquè guardeu les meves dades
                             </label>
