@@ -91,9 +91,9 @@ $(document).ready(function () {
                 <!-- Fitxa de llibre -->
                 <div class="col-sm-6 col-lg-3" id="fitxa_llibres">
                     <div class="card">
-                        <div class="cover_book">
+                        <a href="${baseURL}llibre/fitxa&id=${id_llibre}" class="cover_book">
                             <img src="${imgUrl + portada_url + '.jpeg'}" alt="${altFitxa}" class="card-img-top" />
-                        </div>
+                        </a>
                         <div class="card-body">
             `);
             fitxa += puntuacioLlibre(mitja_vots);
@@ -102,7 +102,9 @@ $(document).ready(function () {
                             <a href="${baseURL}usuari/fitxa&id=${id_escriptor}"><p class="card-text nom_autor">${autor}</p></a>
         
                             <!-- icones-->
-                            <img class="lookIcon" src="${urlLookIcon}" alt=${altVeureMes}>
+                            <a href="${baseURL}llibre/fitxa&id=${id_llibre}">
+                                <img class="lookIcon" src="${urlLookIcon}" alt=${altVeureMes}>
+                            </a>
                             <button type="button" class="btn">
                                 <i class="far fa-heart"></i>
                             </button>
@@ -206,7 +208,7 @@ $(document).ready(function () {
     }
 
     //Si ens trobem al index : 
-    if (URLactual == baseURL+'index.php' || URLactual == baseURL) {
+    if (URLactual == baseURL + 'index.php' || URLactual == baseURL) {
 
 
         ferAjax(); //Ajax inicial
@@ -231,7 +233,7 @@ $(document).ready(function () {
     }
 
     //Vista de llegir llibre
-    if(URLactual == baseURL + 'llibre/llegirLlibre'){
+    if (URLactual == baseURL + 'llibre/llegirLlibre') {
         //Fa scroll quan es premi canvi de pagina del llibre
         document.querySelectorAll('.nav-pills').forEach(linkItem => {
             linkItem.addEventListener('click', _ => {
@@ -239,6 +241,6 @@ $(document).ready(function () {
             });
         });
     }
-    
+
 
 });
