@@ -331,20 +331,35 @@ class Usuari{
      * @return true si la consulta se hace correctamente
      */
     public function save(){
-        /**
-         * OJO:
-         * cambiar cuando el registro este hecho: subscrit (dependra de si paga o ni) i tipus_usuari
-         */
-        $sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
-        VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
-        $save = $this->db->query($sql);
-
-        $result = false;
-        if($save){
-            $result = true;
-        }
+		 
+		 $sql="SELECT * from usuari where nickname='{$this->getNickname()}'";
+			$resultat=$this->db->query($sql);
+			if(mysqli_num_rows($resultat) > 0){
+				$result=1;
+			}else{
+				$sql="SELECT * from usuari where email='{$this->getEmail()}'";
+				$resultat=$this->db->query($sql);
+				if(mysqli_num_rows($resultat) > 0){
+					$result=2;
+				}else{
+					$sql="SELECT * from usuari where dni='{$this->getDni()}'";
+					$resultat=$this->db->query($sql);
+					if(mysqli_num_rows($resultat) > 0){
+						$result=3;
+					}else{
+						$sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
+						VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
+						$save = $this->db->query($sql);
+						$result = 9;
+						
+						if($save){
+							$result = 0;
+						}
+					}
+				}
+			}	
         return $result;
-    }
+	}
 
     /**
      * @author demateu
@@ -441,10 +456,34 @@ class Usuari{
         return $usuari->fetch_object();
     }
 
+
 /**
  * SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, a.avatar_url_imagen
  * FROM usuari u, avatar a WHERE u.email = 'monicamateu80@hotmail.com' AND u.avatar_id = a.id";
  */
+
+	
+	/**
+     * @author Victor
+     * Buscar si algun camp del form es repeteix a la base de dades
+     * 
+     * @return 1 si es afirmatiu
+	 * @return 0 si es negatiu
+     */
+
+	public function buscaRepetit($camp,$row){
+			$sql="SELECT * from usuari 
+				where '$row'='$camp'";
+			$result=$this->db->query($sql);
+
+			if(mysqli_num_rows($result) > 0){
+				return 1;
+			}else{
+				return 0;
+			}
+	}
+
+
 
 
 

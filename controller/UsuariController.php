@@ -231,6 +231,10 @@ class UsuariController{
         //quedará la VALIDACION de los campos
 
         if(isset($_POST)){
+			
+			//if(buscaRepetit($nickname,nickname)==1){
+			//echo "El Username: '$nickname' ja existeix";
+			
             //instancio el objeto (el modelo usuario)
             $usuari = new Usuari(); 
 
@@ -246,19 +250,39 @@ class UsuariController{
             $usuari->setData_naixement($data_naixement);
             $usuari->setId_tipus_usuari($id_tipus_usuari);
             $usuari->setBiografia($biografia);//nomes per escriptors
-
+			
             //guardo todos estos datos en usuario
             $save = $usuari->save();
 
-            //PONER ESTO DE OTRA FORMA, MÁS MEJOR
-            if($save){
+			
+			if ($save==0){
+				echo "<h4 class='text-center'>Enregistrat correctament, ja pots fer login:</h4>";
+				include("./view/registre/login.php");
+			}else if ($save==1){
+				echo file_get_contents("./view/registre/usuari.php");
+                echo "<div id='error_login'><p class='text-center'>El Username '$nickname' ja existeix</p></div>";
+			}else if ($save==2){
+				echo file_get_contents("./view/registre/usuari.php");
+                echo "<div id='error_login'><p class='text-center'>Un usuari ja està registrat amb el correu '$email'</p></div>";
+			}else if ($save==3){
+				echo file_get_contents("./view/registre/usuari.php");
+                echo "<div id='error_login'><p class='text-center'>Ja hi ha un usuari amb el mateix DNI: '$dni'</p></div>";				
+      }else{
+				echo file_get_contents("./view/registre/usuari.php");
+                echo "<div id='error_login'><p class='text-center'>Alguna cosa no ha anat bé amb el teu registre</p></div>";
+			}
+        }
+			
+            /*if($save){
                 echo 'Enregistrat correctament';
             }else{
-                echo 'Alguna cosa no ha anat bé amb el teu registre';
-            }
-
-        }
-    }
+                echo 'Alguna cosa no ha anat bé amb el teu registre';}
+            }*/
+			
+	}
+        
+ 
+	
 
     /**
      * @author demateu

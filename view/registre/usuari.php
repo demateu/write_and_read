@@ -1,21 +1,7 @@
 
 <!--
-    Form de pruba para comprobar que el MVC esta funcionando bien
+    Form per registrar usuaris
 -->
-
-<?php
-/**
- * Si el registro va bien saldrá un mensaje diciendolo
- * sino, saldra otro mensaje diciendo lo contrario
- */
-if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
-    <strong class="alert_green">Registre completat correctament</strong>
-<?php elseif(isset($_SESSION['register']) && $_SESSION['register'] == 'failed'): ?>
-    <strong class="alert_red">Registre fallit, introdueix bé les dades</strong>
-<?php endif; ?>
-
-<!--para borrar esta sesion-->
-<?php Utils::deleteSession('register'); ?>
 
 <div class="container-fluid">
     <div class="row" id="hero_perfil">
@@ -80,32 +66,32 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
                 <!--Form Registra Lector-->  
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                    
-					<form class="row g-3" action="<?=base_url?>usuari/save" method="post">
+					<form class="row g-3" action="http://localhost:8888/write_and_read/usuari/save" onsubmit="return Validate()" name="vform" method="post">
 
                         <div class="col-md-6">
                             <label class="form-label" for="nick_lector">Username</label>
                             <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" maxlength="20" class="form-control" name="nickname" id="nick_lector" placeholder="El nick que més t'agradi" required>
+                            <input type="text" minlength="3" maxlength="20" class="form-control" name="nickname" id="nick_lector" placeholder="El nick que més t'agradi" title="El nick ha de tenir entre 3 i 20 caràcters" required>
                         </div>
                         </div>
                         <div class="col-md-6">
                             <label for="email_lector" class="form-label">Email</label>
-                            <input type="email" maxlength="50" class="form-control" name="email" id="email_lector" placeholder="La teva adreça de correu electrònic" required>
+                            <input type="email" maxlength="50" class="form-control" name="email" id="email_lector" placeholder="La teva adreça de correu electrònic" title="Ha de ser una adreça de correu vàlida" required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="nom_lector">Nom i cognoms</label>
-                            <input type="text" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_lector" placeholder="El teu nom i cognoms verdaders" required>
+                            <input type="text" minlength="5" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_lector" placeholder="El teu nom i cognoms verdaders" title="El nom i cognom han de tenir entre 5 i 50 caràcters" required>
                         </div>
                         <div class="col-md-6">
                             <label for="password_lector" class="form-label">Password</label>
-                            <input type="password" maxlength="100" class="form-control" name="password" id="password_lector" placeholder="Una contrasenya segura" required>
+                            <input type="password" minlength="6" maxlength="20" class="form-control" name="password" id="password_lector" placeholder="Una contrasenya segura" title="Ha de contenir entre 6 i 20 caràcters" required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="dni_lector">DNI</label>
-                            <input type="text-area" maxlength="10" class="form-control" name="dni" id="dni_lector" placeholder="8 números i una lletra" required>
+                            <input type="text-area" maxlength="9" class="form-control" name="dni" id="dni_lector" placeholder="8 números i una lletra" pattern="[0-9]{8}[A-Za-z]{1}" title="Han de ser 8 números i una lletra sense espais" required>
                         </div>
 
                         <div class="col-md-6">
@@ -153,26 +139,26 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
                             <label class="form-label" for="nick_escriptor">Username</label>
                             <div class="input-group">
                             <div class="input-group-text">@</div>
-                            <input type="text" maxlength="20" class="form-control" name="nickname" id="nick_escriptor" placeholder="El nick que més t'agradi" required>
+                            <input type="text" minlength="3" maxlength="20" class="form-control" name="nickname" id="nick_escriptor" placeholder="El nick que més t'agradi" title="El nick ha de tenir entre 3 i 20 caràcters" required>
                         </div>
                         </div>
                         <div class="col-md-6">
                             <label for="email_escriptor" class="form-label">Email</label>
-                            <input type="email" maxlength="50" class="form-control" name="email" id="email_escriptor" placeholder="La teva adreça de correu electrònic" required>
+                            <input type="email" maxlength="50" class="form-control" name="email" id="email_escriptor" placeholder="La teva adreça de correu electrònic" title="Ha de ser una adreça de correu vàlida" required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="nom_escriptor">Nom i cognoms</label>
-                            <input type="text" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_escriptor" placeholder="El teu nom i cognoms verdaders" required>
+                            <input type="text" minlength="5" maxlength="50" class="form-control" name="nom_i_cognoms" id="nom_escriptor" placeholder="El teu nom i cognoms verdaders" title="El nom i cognom han de tenir entre 5 i 50 caràcters" required>
                         </div>
                         <div class="col-md-6">
                             <label for="password_escriptor" class="form-label">Password</label>
-                            <input type="password" maxlength="100" class="form-control" name="password" id="password_escriptor" placeholder="Una contrasenya segura" required>
+                            <input type="password" minlength="6" maxlength="20" class="form-control" name="password" id="password_escriptor" placeholder="Una contrasenya segura" title="Ha de contenir entre 6 i 20 caràcters"  required>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="dni_escriptor">DNI</label>
-                            <input type="text-area" maxlength="10" class="form-control" name="dni" id="dni_escriptor" placeholder="8 números i una lletra" required>
+                            <input type="text-area" maxlength="9" class="form-control" name="dni" id="dni_escriptor" placeholder="8 números i una lletra" pattern="[0-9]{8}[A-Za-z]{1}" title="Han de ser 8 números i una lletra sense espais" required>
                         </div>
 
                         <div class="col-md-6">
@@ -197,51 +183,51 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios1" value="1" checked>
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_1.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_1.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios2" value="2">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios3" value="3">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_3.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_3.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios4" value="4">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_4.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_4.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios5" value="5">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_5.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_5.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios6" value="6">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_6.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_6.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios7" value="7">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_7.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_7.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios8" value="8">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_8.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_8.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios9" value="9">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_9.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_9.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios10" value="10">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_10.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_10.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios11" value="11">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_11.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_11.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="avatar_id" id="gridRadios12" value="12">
-                                        <img src="<?=base_url?>assets/img/avatar/avatar_12.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
+                                        <img src="http://localhost:8888/write_and_read/assets/img/avatar/avatar_12.jpg" alt="Imatge de l'escriptor" width="50px" height="auto"/>
                                     </div>
                                 </div>
                         </fieldset>
@@ -278,3 +264,4 @@ if(isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
         <!--Fi Columna dreta-->
     </div>
 </div>
+
