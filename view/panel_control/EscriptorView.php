@@ -116,7 +116,7 @@
             </div>
         </section>
     </div>
-    <!--FI LLIBRES PUBLICATS B-->    
+    <!--FI LLIBRES PUBLICATS-->    
 
 
 </div>

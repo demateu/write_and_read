@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3 form-check">
                     <label class="form-check-label form-text" for="consentiment">Dono el meu consentiment perquè guardeu les meves dades</label>
-                    <input type="checkbox" class="form-check-input" id="consentiment" name="consentiment" required>
+                    <input type="checkbox" class="form-check-input" id="consentiment" name="consentiment" required checked>
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Entra</button>
             </form>

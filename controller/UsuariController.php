@@ -8,12 +8,6 @@ require_once 'model/Usuari.php';
  */
 class UsuariController{
 
-    //test -> para borrar
-    public function index(){
-        //renderizar vista
-        require_once 'view/panel_control/EscriptorView.php';
-    }
-
     /**
      * renederitza la pàgina de registre d'un usuari a la URL:
      * <=?base?>usuari/registre
@@ -36,12 +30,11 @@ class UsuariController{
      * @author demateu
      * login dels usuaris
      * 
-     * esta a mitges
+     * esta a mitges pero funciona
      */
     public function loginUser(){
-        //En el form de loguearse tendremos una accion que será 'login.php' que nos llevara a este archivo
-        //En el archivo login.php, debemos iniciar sesion + conexion a la BBDD:
-	    //conexion a la BBDD -> el require_one
+        //En el form de loguearse tendremos una accion que nos llevara a este archivo
+
         //Recoger los datos del formulario
 	    if(isset($_POST)){
 			$emailForm = trim($_POST['email']);
@@ -52,7 +45,6 @@ class UsuariController{
             $usuari = new Usuari();
             $usuari->setEmail($emailForm);
             $login = $usuari->buscarUsuariperEmail(); //es ok
-            var_dump($login);
 
             if($login){ 
                 //comparamos las 2 contraseñas para verificar que son la misma
@@ -60,7 +52,6 @@ class UsuariController{
                 $verify = password_verify($passwordForm, $login->password);
 
                 if($verify){
-                    echo 'coinciden passwords!!!';
                     //Utilizar una sesion para guardar los datos de la sesion logueado
                     //creo la sessió i allà guardo l'objecte de l'usuari
                     $_SESSION['usuari'] = $login;
@@ -71,30 +62,137 @@ class UsuariController{
                     }
 
                     //si el loguin es ok es redirigeix a l'usuari al seu panell de control
-                    require_once 'view/panel_control/EscriptorPerfilView.php';
-
+                    require 'view/panel_control/EscriptorPerfilView.php';
+                    
                 }else{
-                    echo 'no coinciden passowrds';
                     //Si algo falla, enviar una sesion con el fallo
                     $_SESSION['error_login'] = "Login incorrecto :-(";
 
-                    //si el loguin es kao es redirigeix a l'usuari a la pagina de registre
+                    //si el loguin es kao es redirigeix
                     require_once 'view/registre/login.php';
                 }
 
             }else{
                 //Si algo falla, enviar una sesion con el fallo
-                //$_SESSION['error_login'] = "Login incorrecto :-(";
+                $_SESSION['error_login'] = "Login incorrecto :-(";
                 require_once 'view/registre/login.php';
             }
-
 		}
-        //Redirigir al index para que la pagina recarge
-        //header('Location: http://localhost:8888/write_and_read/index.php');
-        //require_once 'view/main.php';
-        
     }
 
+    /**
+     * @author demateu
+     * 
+     * rebre les dades del form d'actualizació des d'el panell de control de l'usuari
+     * redirigeix a la mateixa pàgina i surt un missatge:
+     * 'dades actualizades correctament'
+     */
+    public function saveCanvis(){
+
+        //rebre els valors i passar-ho a les variables
+        if(isset($_POST)){
+
+            //recollir les dades per actualitzar
+            $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : false;
+            $nom_i_cognoms = isset($_POST['nom_i_cognoms']) ? $_POST['nom_i_cognoms'] : false;
+            $dni = isset($_POST['dni']) ? $_POST['dni'] : false;
+            $email = isset($_POST['email']) ? $_POST['email'] : false;
+            //$data_alta = isset($_POST['data_alta']) ? $_POST['data_alta'] : false;
+            $avatar_id = isset($_POST['avatarType']) ? $_POST['avatarType'] : false;//esta tornant false
+            //$password = isset($_POST['password']) ? $_POST['password'] : false;
+            $subscrit = isset($_POST['subscrit']) ? $_POST['subscrit'] : false;//estña tornant false
+            //$data_naixement = isset($_POST['naixement']) ? $_POST['naixement'] : false;
+            //$id_tipus_usuari = isset($_POST['id_tipus_usuari']) ? $_POST['id_tipus_usuari'] : false;
+            $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false; 
+
+            //array d'errors, per imprimir cada error per pantalla
+            $errors = array();
+        
+            $usuari = new Usuari();
+            //enviem dades a la BBDD
+            //$nickname,  $nom_i_cognoms, $dni, $email, $avatar_id, $subscrit, $biografia
+            $actualitzat = $usuari->updateUser($nickname, $nom_i_cognoms, $email, $dni, $biografia, $avatar_id);
+
+            //demano la url de l'avatar a la BBDD a traves de l'email
+            $avatarUrl = new Usuari();
+            $avatarUrl->setEmail($email);
+            $avatarUrl = $avatarUrl->buscarUsuariperEmail();
+
+            if($actualitzat){
+                //actualitzo les dades de l'usuari
+                //provo de passar-li els valors nous
+                $_SESSION['usuari']->nickname = $nickname; //li passo el valor nou
+                $_SESSION['usuari']->nom_i_cognoms = $nom_i_cognoms; //li passo el valor nou
+                $_SESSION['usuari']->dni = $dni; //li passo el valor nou
+                $_SESSION['usuari']->biografia = $biografia; //li passo el valor nou
+
+                $_SESSION['usuari']->avatar_id = $avatar_id; //li passo el valor nou
+                $_SESSION['usuari']->avatar_url_imagen = $avatarUrl->avatar_url_imagen; //li passo el valor nou
+
+                $_SESSION['completado'] = 'Canvis fets correctament';
+                echo 'Canvis fets correctament';
+            }else{
+                $_SESSION['errores']['general'] = 'Alguna cosa no ha anat bé amb la teva actualització';
+                echo 'Alguna cosa no ha anat bé amb la teva actualització';
+            } 
+
+            //Validar les dades
+            //nickname
+            /*
+            if(!empty($nickname)){
+                $nickname_validat = true;
+            }else{
+                $nickname_validat  = false;
+                $errores['nickname'] = "El nickname no és valid";
+            }
+            //nom_i_cognoms
+            if(!empty($nom_i_cognoms) && !is_numeric($nom_i_cognoms)){
+                $nom_i_cognoms_validat = true;
+            }else{
+                $nom_i_cognoms_validat = false;
+                $errores['nom_i_cognoms'] = "El nom i cognoms no son correctes";
+            }
+            //etc, ferho amb tots
+
+            $guardar_usuari = false;
+
+            if(count($errores)==0){
+                $guardar_usuari = true;
+
+                //guardo todos estos datos en usuario
+                $usuari = $_SESSION['usuari'];
+                
+                //cridem la query update de la BBDD
+                $actualitzat = $usuari->updateUser();
+
+                //PONER ESTO DE OTRA FORMA, MÁS MEJOR
+                if($actualitzat){
+                    var_dump($actualitzat);
+                    die();
+                    //actualitzo les dades de l'usuari
+                    $_SESSION['usuari']['nickname'] = $actualitzat->getNickname();
+
+                    $_SESSION['completado'] = 'Canvis fets correctament';
+                    echo 'Canvis fets correctament';
+                }else{
+                    $_SESSION['errores']['general'] = 'Alguna cosa no ha anat bé amb la teva actualització';
+                    echo 'Alguna cosa no ha anat bé amb la teva actualització';
+                }            
+            }//fi if
+            */
+
+            //l'id de l'escriptor
+            $id = $avatarUrl->id;
+
+            //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
+            $escriptorLlibres = new Usuari();
+            $escriptorLlibres->setId($id);
+            $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+        }
+
+        require 'view/panel_control/EscriptorPerfilView.php';
+        //afegir a la vista un condicional amb missatge: dades actualizades correctament
+    }
 
     /**
      * para guardar el usuario
@@ -117,7 +215,6 @@ class UsuariController{
             //validar les dades abans d'introduirles a la BBDD
         //}
 
-
         //comprobar si les dades introduïdes existen, que no estiguin buides
         $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : false;
         $nom_i_cognoms = isset($_POST['nom_i_cognoms']) ? $_POST['nom_i_cognoms'] : false;
@@ -130,7 +227,6 @@ class UsuariController{
         $data_naixement = isset($_POST['naixement']) ? $_POST['naixement'] : false;
         $id_tipus_usuari = isset($_POST['id_tipus_usuari']) ? $_POST['id_tipus_usuari'] : false;
         $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false;
-
 
         //quedará la VALIDACION de los campos
 
@@ -154,6 +250,7 @@ class UsuariController{
             //guardo todos estos datos en usuario
             $save = $usuari->save();
 
+            //PONER ESTO DE OTRA FORMA, MÁS MEJOR
             if($save){
                 echo 'Enregistrat correctament';
             }else{
@@ -161,6 +258,30 @@ class UsuariController{
             }
 
         }
+    }
+
+    /**
+     * @author demateu
+     * 
+     * et deslogueja -> NO FUNCIONA
+     */
+    public function logoutUser(){
+        echo 'test';
+
+            if(isset($_SESSION['usuari'])){
+                unset($_SESSION['usuari']);
+                session_destroy();
+                echo 'usuari desloguejat';
+            }
+    
+            if(isset($_SESSION['admin'])){
+                unset($_SESSION['admin']);
+                session_destroy();
+            }
+        //header('location:'.base_url);
+        //header ("Location: ".base_url);
+        //require_once 'index.php';
+        require 'view/panel_control/EscriptorView.php';
     }
 
 
@@ -187,9 +308,8 @@ class UsuariController{
             $escriptorLlibres = new Usuari();
             $escriptorLlibres->setId($id);
             $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
-
         }
-        require_once 'view/panel_control/EscriptorView.php';
+        require 'view/panel_control/EscriptorView.php';
     }
 
 
@@ -204,7 +324,7 @@ class UsuariController{
     }
 
     /**
-     * Dashboar usuari test
+     * Dashboard usuari test
      */
     public function perfilUser(){
         //CONSEGUIR DADES USUARI
@@ -230,10 +350,6 @@ class UsuariController{
      * @return void
      */
     public function escriptorControl(){
-    
-        //CONSEGUIR DADES ESCRIPTOR
-        //de quina forma li arribaran les dades desde el login? -> SESION
-        //buscarUsuariperEmail()
 
         require_once 'view/panel_control/EscriptorPerfilView.php';
     }
