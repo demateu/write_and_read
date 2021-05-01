@@ -61,8 +61,15 @@ class UsuariController{
                         session_unset();
                     }
 
-                    //si el loguin es ok es redirigeix a l'usuari al seu panell de control
-                    require 'view/panel_control/EscriptorPerfilView.php';
+                    //Si el usuari es lector renderitza la vista lector
+                    if($login->id_tipus_usuari == '1'){
+                        require 'view/panel_control/LectorPerfilView.php';
+                    //Sino renderitza la d'escriptor
+                    }else{
+                        require 'view/panel_control/EscriptorPerfilView.php';
+                    }
+                    
+                    
                     
                 }else{
                     //Si algo falla, enviar una sesion con el fallo
@@ -104,7 +111,7 @@ class UsuariController{
             //$data_naixement = isset($_POST['naixement']) ? $_POST['naixement'] : false;
             //$id_tipus_usuari = isset($_POST['id_tipus_usuari']) ? $_POST['id_tipus_usuari'] : false;
             $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false; 
-
+            
             //array d'errors, per imprimir cada error per pantalla
             $errors = array();
         
@@ -351,19 +358,10 @@ class UsuariController{
      * Dashboard usuari test
      */
     public function perfilUser(){
-        //CONSEGUIR DADES USUARI
-        $usuari = new Usuari();
-        $usuari->setEmail('vero@gmail.com');
-        $usuari = $usuari->buscarUsuariperEmail();
-
-        //Get img url per avatars
-        $dir = "assets/img/avatar";
-
-        $imatgesAvatar = array_values(array_filter(scandir($dir), function($file) use ($dir) { 
-            return !is_dir($dir . '/' . $file);
-        }));
-        
-        require_once 'view/panel_control/LectorPerfilView.php';
+        if(isset($_SESSION['usuari'])){
+            $login = $_SESSION['usuari'];
+            require_once 'view/panel_control/LectorPerfilView.php';
+        }       
     }
 
 
