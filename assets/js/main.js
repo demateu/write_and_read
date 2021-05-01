@@ -1,9 +1,5 @@
-
-
-/**
- * Gestio de fitxes dels carousels
- */
 $(document).ready(function () {
+    var URLactual = window.location;
 
     //Constants
     const imgUrl = "assets/img/cover_books/";
@@ -11,27 +7,6 @@ $(document).ready(function () {
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
     const baseURL = "http://localhost:8888/write_and_read/"; //en lugar de 127.0.0.1 ponia localhost (demateu)
-
-
-    ferAjax(); //Ajax inicial
-    ferAjax(undefined, true); //Ajax novetats
-    ferAjax(undefined, false, true) //Ajax valorats
-
-    //Afegir listeners nav content (contingut principal nav per categorias)
-    $('#nav_content li a').on('click', function () {
-        //Fa active on s'ha fet el click
-        var active = $(this).parent().parent().find('a.active');
-        active.removeClass('active');
-        $(this).addClass('active');
-
-        //Netejar el carousel
-        esborrarCarouselItems('#fitxes_main');
-
-        //Fa l'ajax de la categoria corresponent
-        var idCat = $(this).attr("data-idCat");
-        ferAjax(idCat);
-
-    })
 
 
     /** 
@@ -200,35 +175,6 @@ $(document).ready(function () {
     }
 
     /**
-     * 
-     * @param String elementPare : L'element on s'ha de afegir els indicators
-     * @param int numSlide : Indica el nombre de slide per fer el button 
-     */
-    function ferIndicatorsCarousel(elementPare, numSlide) {
-        var indicator;
-        if (numSlide !== 0) {
-            indicator = (`
-                <button type="button" data-bs-target="${elementPare}" data-bs-slide-to="${numSlide}" aria-label="Slide ${numSlide + 1}"></button>
-            `);
-        } else {
-            indicator = (`
-                <button type="button" data-bs-target="${elementPare}" data-bs-slide-to="${numSlide}" class="active" aria-current="true" aria-label="Slide ${numSlide + 1}"></button>
-            `);
-        }
-
-        $(elementPare + " .carousel-indicators").append(indicator);
-    }
-
-    /**
-     * Esborra tots els indicators del carousel
-     * 
-     * @param String elementPare : Indica l'element carousel 
-     */
-    function esborrarIndicatorsCarousel(elementPare) {
-        $(elementPare + " .carousel-indicators").children().remove();
-    }
-
-    /**
      * Fa les valoracions del llibre
      * 
      * @param int mitja_vots : Puntuacio del llibre 
@@ -258,5 +204,41 @@ $(document).ready(function () {
 
         return valoracions += "</div>";
     }
+
+    //Si ens trobem al index : 
+    if (URLactual == baseURL+'index.php' || URLactual == baseURL) {
+
+
+        ferAjax(); //Ajax inicial
+        ferAjax(undefined, true); //Ajax novetats
+        ferAjax(undefined, false, true) //Ajax valorats
+
+        //Afegir listeners nav content (contingut principal nav per categorias)
+        $('#nav_content li a').on('click', function () {
+            //Fa active on s'ha fet el click
+            var active = $(this).parent().parent().find('a.active');
+            active.removeClass('active');
+            $(this).addClass('active');
+
+            //Netejar el carousel
+            esborrarCarouselItems('#fitxes_main');
+
+            //Fa l'ajax de la categoria corresponent
+            var idCat = $(this).attr("data-idCat");
+            ferAjax(idCat);
+
+        })
+    }
+
+    //Vista de llegir llibre
+    if(URLactual == baseURL + 'llibre/llegirLlibre'){
+        //Fa scroll quan es premi canvi de pagina del llibre
+        document.querySelectorAll('.nav-pills').forEach(linkItem => {
+            linkItem.addEventListener('click', _ => {
+                window.scrollTo(0, 160);
+            });
+        });
+    }
+    
 
 });

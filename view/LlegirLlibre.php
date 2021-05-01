@@ -45,18 +45,4 @@ if (isset($pages)) : ?>
 
 <?php endif; ?>
 
-
-
-<!-- ja lo afegire al main.js es per fer proves -->
-<script type="text/javascript">
-    document.querySelectorAll('.nav-pills').forEach(linkItem => {
-        linkItem.addEventListener('click', _ => {
-            window.scrollTo(0, 160);
-        });
-    });
-</script>
-
-
-
-
 <?php include 'view/layout/footer.php'; ?>
