@@ -462,6 +462,7 @@ class Usuari{
  */
 
 	
+ 
 	/**
      * @author Victor
      * Buscar si algun camp del form es repeteix a la base de dades
@@ -485,6 +486,7 @@ class Usuari{
 
 
 
+    
 
 
 

@@ -290,6 +290,7 @@ class UsuariController{
      * et deslogueja -> NO FUNCIONA
      */
     public function logoutUser(){
+
         echo 'test';
 
             if(isset($_SESSION['usuari'])){

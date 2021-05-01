@@ -24,7 +24,7 @@ class LlibreController
      * @return void
      */
     public function save(){
-        echo 'save obra';
+        echo 'save obra';//fins aqui ok
 
         if (isset($_POST)) {
             //instancio l'objecte llibre
