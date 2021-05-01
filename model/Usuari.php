@@ -361,21 +361,26 @@ class Usuari{
         return $result;
 	}
 
-
     /**
      * @author demateu
-     * busca l'usuari amb un email especific
+     * un usuari actualitza les seves dades des d'el panell de control
      * 
-     * @return objecte usuarilougejat
+     * @return true si la consulta es fa correctament
+     * updateUser($nickname,  $nom_i_cognoms, $dni, $email, $avatar_id, $subscrit, $biografia);
      */
-    public function getUsuariPerEmail(){
-        $sql = "SELECT * FROM usuari WHERE email = '{$this->getEmail()}'";
-        $usuariLoguejat = $this->db->query($sql);  
-        
-        return $usuariLoguejat->fetch_assoc();
-        //return $usuariLoguejat->fetch_object();
-        //return $usuariLoguejat->fetch_assoc();
+    public function updateUser($nickname, $nom_i_cognoms, $email, $dni, $biografia, $avatar_id){
+        $sql = "UPDATE usuari SET 
+        nickname = '{$nickname}', 
+        nom_i_cognoms = '{$nom_i_cognoms}',
+        dni = '{$dni}',
+        biografia = '{$biografia}',
+        avatar_id = '{$avatar_id[0]}'/**a veure aixi [0] */
+        WHERE email = '{$email}' ";
+
+        $actualitzat = $this->db->query($sql);
+        return $actualitzat;
     }
+
 
 
     /**
@@ -435,7 +440,6 @@ class Usuari{
 		FROM usuari u JOIN llibre l ON l.id_escriptor=u.id JOIN avatar a ON u.avatar_id=a.id WHERE u.id={$this->getId()}");
         //return $escriptor->fetch_object();
 
-        //test
         return $escriptor;
     }    
 
@@ -446,11 +450,18 @@ class Usuari{
      * @return Object $usuari : Objecte amb les dades del usuari trobat
      */
     public function buscarUsuariperEmail(){
-        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, a.avatar_url_imagen
+        $usuari = $this->db->query("SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, u.id, a.avatar_url_imagen
         FROM usuari u, avatar a WHERE u.email = '{$this->getEmail()}' AND u.avatar_id = a.id");
         
         return $usuari->fetch_object();
     }
+
+
+/**
+ * SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, a.avatar_url_imagen
+ * FROM usuari u, avatar a WHERE u.email = 'monicamateu80@hotmail.com' AND u.avatar_id = a.id";
+ */
+
 	
 	/**
      * @author Victor
@@ -458,7 +469,7 @@ class Usuari{
      * 
      * @return 1 si es afirmatiu
 	 * @return 0 si es negatiu
-     
+     */
 
 	public function buscaRepetit($camp,$row){
 			$sql="SELECT * from usuari 
@@ -471,7 +482,8 @@ class Usuari{
 				return 0;
 			}
 	}
-*/
+
+
 
 
 

@@ -394,3 +394,24 @@ UPDATE llibre SET data_alta = '2021-04-30' WHERE id=40;
 
 /*UPDATE LLIBRE URL*/
 UPDATE llibre SET contingut_url = 'llibre_prova.pdf'
+
+
+/*INSERT LLIBRE A DEMATEU (USER CREAT PER MI), ES UN TEST*/
+INSERT INTO llibre VALUES 
+(null, 6, "La filosofia al tocador2", "Que passa quan un humà i una vampira comparteixen idees sobre la naturalesa dels éssers?",
+"La comtessa Rose ha ordenat conversar amb un jove humà Alph, el qual la omplirà de curioses i sorprenents percepcions de les relacions humà-vampir.", 
+'llibre_prova', CURDATE(), 
+null, 'vampire-4842902_640',2, null, null);
+
+INSERT INTO llibre VALUES 
+(null, 6, "Robinson Crusoe2", "L'home que lluita per la justícia i els més desfavorits.",
+"Els burgesos de la Irlanda medieval afronten un repte que podria llevar-los la seva posició i començar una rebelion, la mes temuda per a qualsevol noble: el propi poble.", 
+'llibre_prova', CURDATE(), 
+null, 'fantasy-4620858_640',1, null, null);
+
+INSERT INTO llibre VALUES 
+(null, 6, "El sol daurat2", "Els quatre elements sostenen i mantenen l'equilibri del món, mai s'ha de trencar aquest ordre.",
+"Una calamitat de proporcions colossals s'aproxima només els elegits dels elements podran encendre els fars elementals del món i portar la pau al continent. Acompanya a Regi, Aster, Mai i Kan en la seva lluita per un món a punt de col·lapsar.", 
+'llibre_prova', CURDATE(), 
+null, 'temple-4933682_640',3, null, null);
+
