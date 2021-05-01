@@ -296,16 +296,6 @@ a:hover{
     font-size: 18px;
 }
 
-#fitxa_llibres a{
-    display: inline-block;
-}
-
-
-#fitxa_llibres .card-body a{
-    display: block;
-}
-
-
 /*test*/
 .align_text_bottom{
     display: flex;

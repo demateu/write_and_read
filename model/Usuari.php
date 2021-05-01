@@ -347,9 +347,8 @@ class Usuari{
 					if(mysqli_num_rows($resultat) > 0){
 						$result=3;
 					}else{
-						$sql = "INSERT INTO usuari (id, nickname, nom_i_cognoms, dni, email, data_alta, avatar_id, password, subscrit, data_naixement, id_tipus_usuari, biografia) 
-						VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
-						$save = $this->db->query($sql);
+						$sql = "INSERT INTO usuari VALUES(NULL, '{$this->getNickname()}', '{$this->getNom_i_cognoms()}', '{$this->getDni()}', '{$this->getEmail()}', CURDATE(), '{$this->getAvatar_id()}', '{$this->getPassword()}', '{$this->getSubscrit()}', '{$this->getData_naixement()}', '{$this->getId_tipus_usuari()}', '{$this->getBiografia()}' )";
+						$save = $this->db->query($sql); 
 						$result = 9;
 						
 						if($save){
@@ -456,10 +455,12 @@ class Usuari{
         return $usuari->fetch_object();
     }
 
+
 /**
  * SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, a.avatar_url_imagen
  * FROM usuari u, avatar a WHERE u.email = 'monicamateu80@hotmail.com' AND u.avatar_id = a.id";
  */
+
 	
  
 	/**
@@ -468,7 +469,8 @@ class Usuari{
      * 
      * @return 1 si es afirmatiu
 	 * @return 0 si es negatiu
-     * */
+     */
+
 	public function buscaRepetit($camp,$row){
 			$sql="SELECT * from usuari 
 				where '$row'='$camp'";
@@ -480,6 +482,9 @@ class Usuari{
 				return 0;
 			}
 	}
+
+
+
 
     
 
