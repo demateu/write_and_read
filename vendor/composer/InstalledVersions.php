@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'd03452db52751aa57be814e7ff07ddd91fe1427c',
+    'reference' => '78055dcc74cd119e8060f69527c64a08227d40b4',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'd03452db52751aa57be814e7ff07ddd91fe1427c',
+      'reference' => '78055dcc74cd119e8060f69527c64a08227d40b4',
     ),
     'smalot/pdfparser' => 
     array (
@@ -285,6 +285,7 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
+
 foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];

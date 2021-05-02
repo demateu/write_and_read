@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!-- Banner carousel publicitari -->
 <div class="row justify-content-center mx-auto">
     <!--<div class="col">-->

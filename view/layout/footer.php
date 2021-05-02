@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!--Peu de la pagina -->
 <footer class="text-center text-lg-start mt-5 p-0">
     <div class="row mx-auto p-5">

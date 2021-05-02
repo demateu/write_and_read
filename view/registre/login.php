@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_SESSION)) {
+    session_start();
+}
+
 /**
  * @author demateu
  * pagina que tindrà el login en el cas que l'usuari

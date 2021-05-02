@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
 
 <?php require_once 'view/layout/header.php'; ?>
 
