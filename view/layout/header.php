@@ -61,7 +61,17 @@
                 <!--Fi Logo-->
                 <!-- User icona-->
                 <div class="col-2" id="user_area">
-                    
+				<?php if( isset($_SESSION['usuari']) ): ?>
+					<!--Si l'usuari està loguejat, veu aquesta part-->
+					<span>Hola 
+						<?= $_SESSION['usuari']->nickname; ?>
+					</span>	
+					<span> | </span>
+					 <a href="<?=base_url?>usuari/logoutUser">Logout</a>
+					 <div class="imatge-header" >
+                        <img src="<?=base_url?>assets/img/avatar/avatar_<?= $_SESSION['usuari']->avatar_id; ?>.jpg" alt="" />
+					 </div>
+                <?php else : ?>    
                     <a href="<?=base_url?>usuari/login">Entra</a>
                     <span>|</span>
                     <a href="<?=base_url?>usuari/registre">Registra't</a>
@@ -69,6 +79,7 @@
                     <button type="button" class="btn mt-1 m-0" id="user_button">
                         <i class="far fa-user"></i>
                     </button>
+				<?php endif; ?>	
                 </div>
                 <!--Fi sUser icona-->
             </div>

@@ -623,3 +623,13 @@ centra el text e la bio*/
     margin: 0;
     color: whitesmoke;
 }
+
+/*Avatar Header*/
+
+.imatge-header img{
+    width: 64px;
+    height: auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
