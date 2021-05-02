@@ -465,7 +465,10 @@ centra el text e la bio*/
       
   }
   
-  
+.form-check-input:checked {
+    background-color: #925279;
+    border-color: #c37ea7;
+}
 
   
   /* Perfil Content */
