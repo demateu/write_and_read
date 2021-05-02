@@ -3,7 +3,11 @@
     Aqui es carreguen tots els llibres per defecte
     També es poden carregar per tipus de categoria
 -->
-
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
 
 <div id="main_title" class="container-fluid">
 

@@ -1,7 +1,9 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 require_once 'model/Usuari.php';
-
 
 /**
  * @author demateu
@@ -267,7 +269,7 @@ class UsuariController{
 			}else if ($save==3){
 				echo file_get_contents("./view/registre/usuari.php");
                 echo "<div id='error_login'><p class='text-center'>Ja hi ha un usuari amb el mateix DNI: '$dni'</p></div>";				
-      }else{
+            }else{
 				echo file_get_contents("./view/registre/usuari.php");
                 echo "<div id='error_login'><p class='text-center'>Alguna cosa no ha anat bé amb el teu registre</p></div>";
 			}
@@ -281,8 +283,6 @@ class UsuariController{
 			
 	}
         
- 
-	
 
     /**
      * @author demateu

@@ -21,6 +21,11 @@ class LlibreController
      * l'escriptor crea un llibre nou des d'el panell d'escriptor
      * recull les dades que li arriben per POST des d'el form
      * 
+     * $_FILES (name, type, size, tmp_name, error)
+     * $_FILES['imagen1']['tmp_name']->imagen1 es el name del input del form
+     * Els arxius que pujarà l'usuari 1er s'emmagatzemaran a una carpeta temporal: tmp_name
+     * El que farem serà passar l'arxiu des d'aqui fins a la carpeta del servidor
+     * 
      * @return void
      */
     public function save(){
@@ -30,76 +35,126 @@ class LlibreController
             //instancio l'objecte llibre
             $llibre = new Llibre();
 
+            $nom_pdf = $_FILES['carrega_pdf']['name'];//Undefined index: carrega_pdf
+            var_dump($nom_pdf);
+            $formato_pdf = $_FILES['carrega_pdf']['type'];//?
+            $mida_pdf = $_FILES['carrega_pdf']['size'];//?
+
+            //si el pdf medeix màxim 20MB serà ok
+            if($mida_pdf <= 20000000){
+                echo 'es ok';
+            }else{
+                var_dump($mida_pdf);
+                echo "L'arxiu excedeix els 20MB";
+            }
+
+            echo 'test';
+            //Ruta de la carpeta destí del servidor on guardarà el pdf
+            $directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
+            //Pasar l'arxiu de la carpeta temporal a la carpeta destí
+            move_uploaded_file($_FILES['carrega_pdf']['tmp_name'], $directori_desti_pdf.$nom_pdf);//?
+
+
+            /*
             //GESTIO DEL PDF + LA IMATGE PUJATS DEL NOU LLIBRE
             //directori pel contingut del llibre
             $pdf_dir = "assets/img/llibres/";
             //el path del llibre (incloent el nom de l'arxiu)
                 //The file input field in our HTML form above is named "fileToUpload".
-            $pdf_nom = $pdf_dir . basename($_FILES["fileToUpload"]["name"]);
-            $uploadOk = 1;
+            $pdf_nom = $pdf_dir . basename($_FILES["carrega_pdf"]["name"]);
+            $uploadOk_pdf = 1;
             //l'extensió de l'arxiu(in lower case)
             $imageFileType = strtolower(pathinfo($pdf_nom,PATHINFO_EXTENSION));
 
 
-            // Controla si la imatge es real i no es fake
-            if(isset($_POST["submit"])) {//CANVIAR "submit" PEL QUE TOQUI !!!
-                    //The file input field in our HTML form above is named "fileToUpload".
-                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                if($check !== false) {
-                  echo "File is an image - " . $check["mime"] . ".";
-                  $uploadOk = 1;
-                } else {
-                  echo "File is not an image.";
-                  $uploadOk = 0;
-                }
-              }
-
             // Comprobar que no està ja pujat el mateix arxiu
             if (file_exists($pdf_nom)) {
-                echo "Sorry, file already exists.";
-                $uploadOk = 0;
+                echo "Ja hi ha un arxiu amb aquest nom";
+                $uploadOk_pdf = 0;
             }
 
             // Limita el pes màxim de l'arxiu
                 //The file input field in our HTML form above is named "fileToUpload".
-            if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
-                $uploadOk = 0;
+            if ($_FILES["carrega_pdf"]["size"] > 500000) {
+                echo "Aquest pdf pesa massa; redueix-lo i torna-ho a provar.";
+                $uploadOk_pdf = 0;
             }
 
             // Limita el tipus d'arxiu
-                //posar aquest per les imatges
-                //per PDF buscar tipus d'arxiu: pdf
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
+            if($imageFileType != "pdf") {
+            echo "Només és permès el format PDF.";
+            $uploadOk_pdf = 0;
             }
 
-            //lo que queda
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-  // if everything is ok, try to upload file
-  } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $pdf_nom)) {
-      echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-    } else {
-      echo "Sorry, there was an error uploading your file.";
-    }
-  }            
+            //guarda el pdf a la carpeta
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk_pdf == 0) {
+                echo "L'arxiu no ha estat carregat.";
+            // if everything is ok, try to upload file
+            } else {
+                if (move_uploaded_file($_FILES["carrega_pdf"]["tmp_name"], $pdf_nom)) {
+                echo "L'arxiu ". htmlspecialchars( basename( $_FILES["carrega_pdf"]["name"])). " ha estat carregat.";
+                } else {
+                echo "L'arxiu no ha estat carregat per algun error.";
+                }
+            }            
 
+            //.................
+            */
+            /*
+            $nom_img = $_FILES['carrega_img']['name'];
+            var_dump($nom_img);
+            $formato_img = $_FILES['carrega_img']['type'];
+            $mida_img = $_FILES['carrega_img']['size'];
+            //Ruta de la carpeta destí del servidor on guardarà el pdf
+            $directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
+            //Pasar l'arxiu de la carpeta temporal a la carpeta destí
+            move_uploaded_file($_FILES['carrega_img']['tmp_name'], $directori_desti_img.$nom_img);
+            */
 
+            //màxim per imatges 1MB -> 1000000
 
-
+            /*
+            //PUJA EL COVER/IMG DEL NOU LLIBRE
             //directori per la imatge de portada del llibre
             $cover_dir = "assets/img/cover_books/";
             //el path del llibre (incloent el nom de l'arxiu)
-            $cover_nom = $cover_dir . basename($_FILES["fileToUpload"]["name"]);
-            $uploadOk = 1;
+            $cover_nom = $cover_dir . basename($_FILES["carrega_img"]["name"]);
+            $uploadOk_cover = 1;
             //l'extensió de l'arxiu(in lower case)
             $imageFileType = strtolower(pathinfo($cover_nom,PATHINFO_EXTENSION));
 
+            // Comprobar que no està ja pujat el mateix arxiu
+            if (file_exists($pdf_nom)) {
+                echo "Ja hi ha un arxiu amb aquest nom";
+                $uploadOk_cover = 0;
+            }
+
+            // Limita el pes màxim de l'arxiu
+                //The file input field in our HTML form above is named "fileToUpload".
+            if ($_FILES["cover_nom"]["size"] > 500000) {
+                echo "Aquesta imatge pesa massa; redueix-la i torna-ho a provar.";
+                $uploadOk_cover = 0;
+            }
+
+            // Limita el tipus d'arxiu
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+            echo "Només és permès pujar arxius en format JPG, JPEG, PNG.";
+            $uploadOk_cover = 0;
+            }
+
+            //guarda la imatge a la carpeta
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk_cover == 0) {
+                echo "L'arxiu no ha estat carregat.";
+            // if everything is ok, try to upload file
+            } else {
+                if (move_uploaded_file($_FILES["cover_nom"]["tmp_name"], $pdf_nom)) {
+                echo "L'arxiu ". htmlspecialchars( basename( $_FILES["cover_nom"]["name"])). " ha estat carregat.";
+                } else {
+                echo "L'arxiu no ha estat carregat per algun error.";
+                }
+            } 
 
 
 
@@ -138,8 +193,8 @@ if ($uploadOk == 0) {
                 echo 'Enregistrat correctament';
             } else {
                 echo 'Alguna cosa no ha anat bé amb el teu registre';
-            }
-        }
+            }*/
+        }//fi isset($_POST)
     }
 
 

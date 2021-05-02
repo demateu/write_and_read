@@ -2,10 +2,15 @@
 /**
  * per veure els errors
  */
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_NOTICE);//que no muestre los errores 'Notice'
 ini_set('display_errors', 1);
 
-session_start();//antes de todas las linias de codigo
+//antes de todas las linias de codigo
+if(!isset($_SESSION)) {
+    session_start();
+}
+
 
 require_once 'autoload.php';
 require_once 'config/DataBase.php';

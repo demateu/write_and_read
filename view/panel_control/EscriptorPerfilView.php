@@ -4,7 +4,11 @@
     if($_SESSION['register'] == 'complete')
     get SESSION (cual seria el nombre de la sesion creada?)
     -->
-
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
 
 <?php require_once 'view/layout/header.php'; ?>
 
@@ -131,7 +135,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" value="<?= $_SESSION['usuari']->email; ?>" >
+                                    <input type="email" name="email" class="form-control" id="email" value="<?= $_SESSION['usuari']->email; ?>">
                                 </div>
 
                                 <div class="col-md-6">
@@ -163,7 +167,7 @@
 
                                 <div class="col-12 mb-3">
                                     <label for="biografia" class="form-label">Biografia</label>
-                                    <textarea maxlength="50" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
+                                    <textarea maxlength="250" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
                                 </div>
                             
                                 <div class="row">
@@ -333,17 +337,17 @@
                             
                                     <div class="col-md-6">
                                         <label class="form-label" for="titol">Títol de l'obra:</label>
-                                        <input type="text" name="titol" class="form-control" id="titol" >
+                                        <input type="text" maxlength="50" name="titol" class="form-control" id="titol" >
                                     </div>
 
                                     <div class="col-12 mb-3">
                                         <label for="biografia" class="form-label">Descripció curta:</label>
-                                        <textarea maxlength="50" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
+                                        <textarea maxlength="250" name="biografia" type="text" class="form-control" id="biografia"></textarea>
                                     </div>
                     
                                     <div class="col-12 mb-3">
-                                        <label for="biografia" class="form-label">Sinopsis:</label>
-                                        <textarea maxlength="50" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
+                                        <label for="sinopsis" class="form-label">Sinopsis:</label>
+                                        <textarea maxlength="500" name="sinopsis" type="text" class="form-control" id="sinopsis"></textarea>
                                     </div>
 
                                     <!--escull categoria-->                      
@@ -361,47 +365,47 @@
                                     </div>
 
 
-                                    <label class="col-12" for="fileToUpload">Puja l'obra en pdf:</label>
+                                    <label class="col-12" for="pdf">Puja l'obra en pdf:</label>
+                                    <p>El pdf no pot pesar més de 20MB</p>
                                     <div class="row">
-                                        <input class="col-12" type="file" name="fileToUpload" id="fileToUpload">
+                                        <input class="col-12" type="file" name="carrega_pdf" id="carrega_pdf" size="20">
                                     </div>
+                                    <!--
                                     <div class="row">
-                                        <input class="col-12" type="submit" value="CARREGAR" name="submit">
+                                        <input class="col-12" type="submit" value="Enviar pdf" name="carrega_pdf">
                                     </div>
+                                    -->
 
 
-                                    <label class="col-12" for="fileToUpload">Puja una imatge de portada:</label>
+                                    <label class="col-12" for="portada">Puja una imatge de portada:</label>
+                                    <p>Tingues en compte que la imatge se't retallarà a 199x250px</p>
                                     <div class="row">
-                                        <input class="col-12" type="file" name="fileToUpload" id="fileToUpload">
+                                        <input class="col-12" type="file" name="carrega_img" id="carrega_img" size="20">
                                     </div>
+                                    
+                                    <!--
                                     <div class="row">
-                                        <input class="col-12" type="submit" value="CARREGAR" name="submit">
+                                        <input class="col-12" type="submit" value="Enviar imatge" name="carrega_file_img">
                                     </div>
+                                    -->
 
 
                                     <div class="col-12">
                                         <div class="form-check">
                                         <input class="form-check-input" name="consentiment_privacitat" type="checkbox" id="consentiment_privacitat" checked required>
                                         <label class="form-check-label" for="consentiment_privacitat">
-                                            Dono el meu consentiment perquè guardeu les meves dades
+                                            Dono el meu consentiment perquè publique aquest llibre en nom meu
                                         </label>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <button type="submit" id="boto_guarda" class="btn btn-primary">Guardar</button>
+                                        <button type="submit" id="guarda_llibre" class="btn btn-primary">Guardar</button>
                                     </div>
 
                                 </form>                                   
                             </div>
                             <!--Fi Form Edita Perfil-->  
-
-
-                            
-
-                       
-
-
                         
                         </div>
                         <!--Fi Form CREAR NOVA OBRA-->
