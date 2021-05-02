@@ -8,13 +8,15 @@ require_once 'model/Usuari.php';
 /**
  * @author demateu
  */
-class UsuariController{
+class UsuariController
+{
 
     /**
      * renederitza la pàgina de registre d'un usuari a la URL:
      * <=?base?>usuari/registre
      */
-    public function registre(){ 
+    public function registre()
+    {
         //cargamos la vista
         require_once 'view/registre/usuari.php';
     }
@@ -23,7 +25,8 @@ class UsuariController{
      * @author demateu
      * renderitza la pàgina de login
      */
-    public function login(){
+    public function login()
+    {
         //renderitza la vista
         require_once 'view/registre/login.php';
     }
@@ -34,13 +37,14 @@ class UsuariController{
      * 
      * esta a mitges pero funciona
      */
-    public function loginUser(){
+    public function loginUser()
+    {
         //En el form de loguearse tendremos una accion que nos llevara a este archivo
 
         //Recoger los datos del formulario
-	    if(isset($_POST)){
-			$emailForm = trim($_POST['email']);
-			$passwordForm = $_POST['password'];//1234 desde el form
+        if (isset($_POST)) {
+            $emailForm = trim($_POST['email']);
+            $passwordForm = $_POST['password']; //1234 desde el form
 
             //fem una consulta per comprobar les credencials de l'usuari
             //Consultar la BBDD para comparar la coincidencia del email recibido (si coincide, loguearnos)
@@ -48,38 +52,41 @@ class UsuariController{
             $usuari->setEmail($emailForm);
             $login = $usuari->buscarUsuariperEmail(); //es ok
 
-            if($login){ 
+            if ($login) {
                 //comparamos las 2 contraseñas para verificar que son la misma
                 //(la del usuario logueado y la del de la BBDD con el mismo email)
                 $verify = password_verify($passwordForm, $login->password);
 
-                if($verify){
+                if ($verify) {
                     //Utilizar una sesion para guardar los datos de la sesion logueado
                     //creo la sessió i allà guardo l'objecte de l'usuari
                     $_SESSION['usuari'] = $login;
 
                     //si el usuario existe hay que borrar si existe la sesion del error
-                    if(isset($_SESSION['error_login'])){
+                    if (isset($_SESSION['error_login'])) {
                         session_unset();
                     }
 
-                    //si el loguin es ok es redirigeix a l'usuari al seu panell de control
-                    require 'view/panel_control/EscriptorPerfilView.php';
-                    
-                }else{
+                    //Si el usuari es lector renderitza la vista lector
+                    if ($login->id_tipus_usuari == '1') {
+                        require_once 'view/panel_control/LectorPerfilView.php';
+                        //Sino renderitza la d'escriptor
+                    } else {
+                        require_once 'view/panel_control/EscriptorPerfilView.php';
+                    }
+                } else {
                     //Si algo falla, enviar una sesion con el fallo
                     $_SESSION['error_login'] = "Login incorrecto :-(";
 
                     //si el loguin es kao es redirigeix
                     require_once 'view/registre/login.php';
                 }
-
-            }else{
+            } else {
                 //Si algo falla, enviar una sesion con el fallo
                 $_SESSION['error_login'] = "Login incorrecto :-(";
                 require_once 'view/registre/login.php';
             }
-		}
+        }
     }
 
     /**
@@ -89,10 +96,11 @@ class UsuariController{
      * redirigeix a la mateixa pàgina i surt un missatge:
      * 'dades actualizades correctament'
      */
-    public function saveCanvis(){
+    public function saveCanvis()
+    {
 
         //rebre els valors i passar-ho a les variables
-        if(isset($_POST)){
+        if (isset($_POST)) {
 
             //recollir les dades per actualitzar
             $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : false;
@@ -100,27 +108,25 @@ class UsuariController{
             $dni = isset($_POST['dni']) ? $_POST['dni'] : false;
             $email = isset($_POST['email']) ? $_POST['email'] : false;
             //$data_alta = isset($_POST['data_alta']) ? $_POST['data_alta'] : false;
-            $avatar_id = isset($_POST['avatarType']) ? $_POST['avatarType'] : false;//esta tornant false
+            $avatar_id = isset($_POST['avatarType']) ? $_POST['avatarType'] : false; //esta tornant false
             //$password = isset($_POST['password']) ? $_POST['password'] : false;
-            $subscrit = isset($_POST['subscrit']) ? $_POST['subscrit'] : false;//estña tornant false
+            $subscrit = isset($_POST['subscrit']) ? $_POST['subscrit'] : false; //estña tornant false
             //$data_naixement = isset($_POST['naixement']) ? $_POST['naixement'] : false;
             //$id_tipus_usuari = isset($_POST['id_tipus_usuari']) ? $_POST['id_tipus_usuari'] : false;
-            $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false; 
+            $biografia = isset($_POST['biografia']) ? $_POST['biografia'] : false;
 
             //array d'errors, per imprimir cada error per pantalla
             $errors = array();
-        
+
             $usuari = new Usuari();
             //enviem dades a la BBDD
             //$nickname,  $nom_i_cognoms, $dni, $email, $avatar_id, $subscrit, $biografia
             $actualitzat = $usuari->updateUser($nickname, $nom_i_cognoms, $email, $dni, $biografia, $avatar_id);
-
             //demano la url de l'avatar a la BBDD a traves de l'email
             $avatarUrl = new Usuari();
             $avatarUrl->setEmail($email);
             $avatarUrl = $avatarUrl->buscarUsuariperEmail();
-
-            if($actualitzat){
+            if ($actualitzat) {
                 //actualitzo les dades de l'usuari
                 //provo de passar-li els valors nous
                 $_SESSION['usuari']->nickname = $nickname; //li passo el valor nou
@@ -133,10 +139,10 @@ class UsuariController{
 
                 $_SESSION['completado'] = 'Canvis fets correctament';
                 echo 'Canvis fets correctament';
-            }else{
+            } else {
                 $_SESSION['errores']['general'] = 'Alguna cosa no ha anat bé amb la teva actualització';
                 echo 'Alguna cosa no ha anat bé amb la teva actualització';
-            } 
+            }
 
             //Validar les dades
             //nickname
@@ -183,16 +189,23 @@ class UsuariController{
             }//fi if
             */
 
-            //l'id de l'escriptor
-            $id = $avatarUrl->id;
+            //Si el usuari es lector renderitza la vista lector
+            if ($avatarUrl->id_tipus_usuari == '1') {
+                require_once 'view/panel_control/LectorPerfilView.php';
+                //Sino renderitza la d'escriptor
+            } else {
+                //l'id de l'escriptor
+                $id = $avatarUrl->id;
 
-            //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
-            $escriptorLlibres = new Usuari();
-            $escriptorLlibres->setId($id);
-            $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+
+                //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
+                $escriptorLlibres = new Usuari();
+                $escriptorLlibres->setId($id);
+                $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+                require_once 'view/panel_control/EscriptorPerfilView.php';
+            }
         }
 
-        require 'view/panel_control/EscriptorPerfilView.php';
         //afegir a la vista un condicional amb missatge: dades actualizades correctament
     }
 
@@ -202,19 +215,20 @@ class UsuariController{
      * 
      * @return void
      */
-    public function save(){//ojo era saveUsuari
+    public function save()
+    { //ojo era saveUsuari
         //@author demateu
         //https://www.udemy.com/course/master-en-php-sql-poo-mvc-laravel-symfony-4-wordpress/learn/lecture/11745158#overview
         //if(isset($_POST)){
 
-            //iniciar sessió
-            //if(!isset($_SESSION)){
-                //session_start();
-            //}
+        //iniciar sessió
+        //if(!isset($_SESSION)){
+        //session_start();
+        //}
 
-            //recollir ls valors del formulari de registre
+        //recollir ls valors del formulari de registre
 
-            //validar les dades abans d'introduirles a la BBDD
+        //validar les dades abans d'introduirles a la BBDD
         //}
 
         //comprobar si les dades introduïdes existen, que no estiguin buides
@@ -232,77 +246,79 @@ class UsuariController{
 
         //quedará la VALIDACION de los campos
 
-        if(isset($_POST)){
-			
-			//if(buscaRepetit($nickname,nickname)==1){
-			//echo "El Username: '$nickname' ja existeix";
-			
+        if (isset($_POST)) {
+
+            //if(buscaRepetit($nickname,nickname)==1){
+            //echo "El Username: '$nickname' ja existeix";
+
             //instancio el objeto (el modelo usuario)
-            $usuari = new Usuari(); 
+            $usuari = new Usuari();
 
             //setters para guardar los datos que llegan del form (registro/user)
             $usuari->setNickname($nickname);
             $usuari->setNom_i_cognoms($nom_i_cognoms);
             $usuari->setDni($dni);
             $usuari->setEmail($email);
-            $usuari->setData_alta($data_alta);//private $data_alta;//definir un current date aqui, en el constructor o en el insert?
+            $usuari->setData_alta($data_alta); //private $data_alta;//definir un current date aqui, en el constructor o en el insert?
             $usuari->setAvatar_id($avatar_id);
             $usuari->setPassword($password);
             $usuari->setSubscrit($subscrit);
             $usuari->setData_naixement($data_naixement);
             $usuari->setId_tipus_usuari($id_tipus_usuari);
-            $usuari->setBiografia($biografia);//nomes per escriptors
-			
+            $usuari->setBiografia($biografia); //nomes per escriptors
+
             //guardo todos estos datos en usuario
             $save = $usuari->save();
 
-			
-			if ($save==0){
-				echo "<h4 class='text-center'>Enregistrat correctament, ja pots fer login:</h4>";
-				include("./view/registre/login.php");
-			}else if ($save==1){
-				echo file_get_contents("./view/registre/usuari.php");
+
+            if ($save == 0) {
+                echo "<h4 class='text-center'>Enregistrat correctament, ja pots fer login:</h4>";
+                include("./view/registre/login.php");
+            } else if ($save == 1) {
+                echo file_get_contents("./view/registre/usuari.php");
                 echo "<div id='error_login'><p class='text-center'>El Username '$nickname' ja existeix</p></div>";
-			}else if ($save==2){
-				echo file_get_contents("./view/registre/usuari.php");
+            } else if ($save == 2) {
+                echo file_get_contents("./view/registre/usuari.php");
                 echo "<div id='error_login'><p class='text-center'>Un usuari ja està registrat amb el correu '$email'</p></div>";
-			}else if ($save==3){
-				echo file_get_contents("./view/registre/usuari.php");
-                echo "<div id='error_login'><p class='text-center'>Ja hi ha un usuari amb el mateix DNI: '$dni'</p></div>";				
-            }else{
-				echo file_get_contents("./view/registre/usuari.php");
+            } else if ($save == 3) {
+                echo file_get_contents("./view/registre/usuari.php");
+                echo "<div id='error_login'><p class='text-center'>Ja hi ha un usuari amb el mateix DNI: '$dni'</p></div>";
+            } else {
+                echo file_get_contents("./view/registre/usuari.php");
                 echo "<div id='error_login'><p class='text-center'>Alguna cosa no ha anat bé amb el teu registre</p></div>";
-			}
+            }
         }
-			
-            /*if($save){
+
+        /*if($save){
                 echo 'Enregistrat correctament';
             }else{
                 echo 'Alguna cosa no ha anat bé amb el teu registre';}
             }*/
-			
-	}
-        
+    }
+
+
+
 
     /**
      * @author demateu
      * 
      * et deslogueja -> NO FUNCIONA
      */
-    public function logoutUser(){
+    public function logoutUser()
+    {
 
         echo 'test';
 
-            if(isset($_SESSION['usuari'])){
-                unset($_SESSION['usuari']);
-                session_destroy();
-                echo 'usuari desloguejat';
-            }
-    
-            if(isset($_SESSION['admin'])){
-                unset($_SESSION['admin']);
-                session_destroy();
-            }
+        if (isset($_SESSION['usuari'])) {
+            unset($_SESSION['usuari']);
+            session_destroy();
+            echo 'usuari desloguejat';
+        }
+
+        if (isset($_SESSION['admin'])) {
+            unset($_SESSION['admin']);
+            session_destroy();
+        }
         //header('location:'.base_url);
         //header ("Location: ".base_url);
         //require_once 'index.php';
@@ -318,9 +334,10 @@ class UsuariController{
      * 
      * li arriba per GET (desde el main.js) l'id de l'escriptor que renderitzarà
      */
-    public function fitxa(){
+    public function fitxa()
+    {
         //comprobar si me llega el id por GET
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             //guardo l'id de GET en una variable
             $id = $_GET['id'];
 
@@ -341,9 +358,10 @@ class UsuariController{
     /**
      * TEST es ok, carga TODOS los usuarios
      */
-    public function cargarAll(){
+    public function cargarAll()
+    {
         $usuari = new Usuari();
-        $usuaris = $usuari->getAll();//crido al metode getAll d'Usuari
+        $usuaris = $usuari->getAll(); //crido al metode getAll d'Usuari
         //$usuaris serà on accedim desde la vista
         require_once 'view/panel_control/EscriptorView.php';
     }
@@ -351,20 +369,12 @@ class UsuariController{
     /**
      * Dashboard usuari test
      */
-    public function perfilUser(){
-        //CONSEGUIR DADES USUARI
-        $usuari = new Usuari();
-        $usuari->setEmail('vero@gmail.com');
-        $usuari = $usuari->buscarUsuariperEmail();
-
-        //Get img url per avatars
-        $dir = "assets/img/avatar";
-
-        $imatgesAvatar = array_values(array_filter(scandir($dir), function($file) use ($dir) { 
-            return !is_dir($dir . '/' . $file);
-        }));
-        
-        require_once 'view/panel_control/LectorPerfilView.php';
+    public function perfilUser()
+    {
+        if (isset($_SESSION['usuari'])) {
+            $login = $_SESSION['usuari'];
+            require_once 'view/panel_control/LectorPerfilView.php';
+        }
     }
 
 
@@ -374,16 +384,9 @@ class UsuariController{
      * 
      * @return void
      */
-    public function escriptorControl(){
+    public function escriptorControl()
+    {
 
         require_once 'view/panel_control/EscriptorPerfilView.php';
     }
-
-
-
-
-    
-
 }
-
-

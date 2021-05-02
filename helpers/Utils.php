@@ -1,9 +1,11 @@
 <?php
+
 /**
  * librerias utiles para pequeñas tareas y funcionalidades
  */
 
-    class Utils{
+class Utils
+{
 
     /**
      * Si la sesion existe que la borre
@@ -14,16 +16,15 @@
      * 
      * @author demateu
      */
-    public static function deleteSession($name){
+    public static function deleteSession($name)
+    {
         //comprovamos si la sesion con este nombre existe
-        if(isset($_SESSION[$name])){
+        if (isset($_SESSION[$name])) {
             $_SESSION[$name] = null;
             unset($_SESSION[$name]);
         }
 
         return $name;
     }
-
-
 
 }

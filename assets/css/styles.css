@@ -465,7 +465,10 @@ centra el text e la bio*/
       
   }
   
-  
+.form-check-input:checked {
+    background-color: #925279;
+    border-color: #c37ea7;
+}
 
   
   /* Perfil Content */
@@ -619,4 +622,14 @@ centra el text e la bio*/
     background-color: red;
     margin: 0;
     color: whitesmoke;
+}
+
+/*Avatar Header*/
+
+.imatge-header img{
+    width: 64px;
+    height: auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
 }
