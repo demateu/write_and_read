@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
 ?>
@@ -43,13 +43,24 @@ if(!isset($_SESSION)) {
                             <p>Favorits</p>
                         </button>
                     </li>
-                    <li class="nav-item" role="presentation">
+                    <!-- <li class="nav-item" role="presentation">
                         <button class="nav-link" id="ajuda-tab" data-bs-toggle="tab" data-bs-target="#ajuda" type="button" role="tab" aria-controls="ajuda" aria-selected="false">
                             <i class="fas fa-question-circle"></i>
                             <p>Ajuda</p>
                         </button>
+                    </li> -->
+                    <li>
+                        <a href="<?= base_url ?>usuari/logoutUser">
+                            <button class="nav-link">
+                                <i class="fas fa-user-edit"></i>
+                                <p>Logout</p>
+                            </button>
+                        </a>
                     </li>
                 </ul>
+                <!--boton logout-->
+
+                <!--Fi boton logout-->
             </div>
 
             <!-- FI MENU -->
@@ -57,15 +68,16 @@ if(!isset($_SESSION)) {
     </div>
 
     <div class="col-md-9">
-        <div class="row" id="title_area_dades_personals">
-            <div class="col">
-                <h3 class="card-header">Edita aquí les teves dades personals</h3>
-            </div>
-        </div>
 
-        <!-- Tabs contingut -->
+        <!-- Tab Dades de perfil -->
         <div class="tab-content">
             <div class="tab-pane active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">
+
+                <div class="row">
+                    <div class="col">
+                        <h3 class="card-header">Edita aquí les teves dades personals</h3>
+                    </div>
+                </div>
 
                 <form class="row g-3" action="<?= base_url ?>usuari/saveCanvis" method="POST">
 
@@ -110,56 +122,15 @@ if(!isset($_SESSION)) {
                         </div>
                     </div>
 
-                    <fieldset class="row mb-3" id="avatar_escriptor_area">
+                    <fieldset class="row mb-3" id="avatar_lector_area">
                         <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar1" value="1" checked>
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_1.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar2" value="2">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar3" value="3">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_3.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar4" value="4">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_4.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar5" value="5">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_5.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar6" value="6">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_6.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar7" value="7">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_7.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar8" value="8">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_8.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar9" value="9">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_9.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar10" value="10">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_10.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar11" value="11">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_11.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar12" value="12">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_12.jpg" alt="Imatge de l'escriptor" width="40px" height="auto" />
-                            </div>
+                            <?php while ($avatar = $avatars->fetch_object()) : ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="avatarType[]" id="avatar<?= $avatar->id ?>" value="<?= $avatar->id ?>" <?= $_SESSION['usuari']->avatar_id == $avatar->id ? 'checked' : null ?>>
+                                    <img src="<?= $avatar->avatar_url_imagen ?>" alt="Imatge de perfil avatar" width="40px" height="auto" />
+                                </div>
+
+                            <?php endwhile; ?>
                         </div>
                     </fieldset>
 
@@ -191,16 +162,80 @@ if(!isset($_SESSION)) {
                 </form>
 
             </div>
+
+            <!-- Tab Favorits -->
             <div class="tab-pane" id="favorits" role="tabpanel" aria-labelledby="favorits-tab">
-                2
+                <div class="row">
+                    <div class="col">
+                        <h3 class="card-header">Els teus preferits</h3>
+                        <p class="text-center mt-5 font_subtitle">Aquests son els llibres que t'agraden</p>
+                    </div>
+                </div>
+
+                <!-- Fitxes llibres -->
+                <div class="container">
+                    <section class="row">
+                        <div class="col-10 mx-auto">
+                            <!--card llibre-->
+                            <?php while ($llibre = $favoritsLlibres->fetch_object()) : ?>
+                                <div class="row mt-5">
+                                    <div class="col-3">
+                                        <img src="<?= base_url ?>assets/img/cover_books/<?= $llibre->portada_url ?>.jpeg" alt="Imatge del llibre" width="100%" height="auto">
+                                    </div>
+                                    <div class="col-9">
+                                        <h3 class="card-header"><?= $llibre->titol ?></h3>
+                                        <div class="card-body">
+                                            <p class="card-text"><?= $llibre->sinopsis ?></p>
+
+                                            <!-- valoracions FALTA PERSONALITZAR-->
+                                            <div class="valoracions">
+                                                <?php
+                                                $star = "<span class='fa fa-star'></span>";
+                                                $starChecked = "<span class='fa fa-star checked'></span>";
+                                                for ($i = 1; $i <= 5; $i++) {
+                                                    if ($i <= ($llibre->mitja_vots)) {
+                                                        echo $starChecked;
+                                                    } else {
+                                                        echo $star;
+                                                    }
+                                                }
+                                                ?>
+                                                <?php if ($llibre->mitja_vots == null) : ?>
+                                                    <p><strong> Puntuació:</strong> 0/5</p>
+                                                <?php else : ?>
+                                                    <p><strong> Puntuació:</strong> <?= $llibre->mitja_vots ?>/5</p>
+                                                <?php endif; ?>
+
+                                            </div>
+                                            <!--FI valoracions -->
+
+                                            <form action="http://localhost:8888/write_and_read/llibre/llegirLlibre" method="POST">
+                                                <input type="hidden" name="titol" value="<?= $llibre->titol ?>" />
+                                                <input type="hidden" name="contingut_url" value="<?= $llibre->contingut_url ?>" />
+                                                <input type="submit" value="Llegir" class="btn boto_llegeix" />
+                                            </form>
+                                            <!-- <a href="#" class="btn boto_llegeix">Llegeix</a> -->
+                                            <!--cor per guardar a favorits-->
+                                            <button type="button" class="btn">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <!--Fi cor per guardar a favorits-->
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php endwhile; ?>
+                            <!--Fi card llibre-->
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div class="tab-pane" id="ajuda" role="tabpanel" aria-labelledby="ajuda-tab">
+
+            <!-- <div class="tab-pane" id="ajuda" role="tabpanel" aria-labelledby="ajuda-tab">
                 3
-            </div>
+            </div> -->
+
         </div>
-
-
-
     </div>
-</div>
-<?php require_once 'view/layout/footer.php'; ?>
+    <?php require_once 'view/layout/footer.php'; ?>

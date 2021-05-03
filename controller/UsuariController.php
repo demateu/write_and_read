@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
 
@@ -69,7 +69,8 @@ class UsuariController
 
                     //Si el usuari es lector renderitza la vista lector
                     if ($login->id_tipus_usuari == '1') {
-                        require_once 'view/panel_control/LectorPerfilView.php';
+                        $this->perfilUser();
+                        
                         //Sino renderitza la d'escriptor
                     } else {
                         require_once 'view/panel_control/EscriptorPerfilView.php';
@@ -191,7 +192,7 @@ class UsuariController
 
             //Si el usuari es lector renderitza la vista lector
             if ($avatarUrl->id_tipus_usuari == '1') {
-                require_once 'view/panel_control/LectorPerfilView.php';
+                $this->perfilUser();
                 //Sino renderitza la d'escriptor
             } else {
                 //l'id de l'escriptor
@@ -372,7 +373,13 @@ class UsuariController
     public function perfilUser()
     {
         if (isset($_SESSION['usuari'])) {
-            $login = $_SESSION['usuari'];
+
+            //Tab favorits 
+            $lector = new Usuari();
+            $lector->setId($_SESSION['usuari']->id);
+            $favoritsLlibres = $lector->buscarFavoritsUsuari();
+            $avatars = $lector->getAllAvatars();
+
             require_once 'view/panel_control/LectorPerfilView.php';
         }
     }

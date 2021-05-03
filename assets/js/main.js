@@ -207,30 +207,26 @@ $(document).ready(function () {
         return valoracions += "</div>";
     }
 
-    //Si ens trobem al index : 
-    if (URLactual == baseURL + 'index.php' || URLactual == baseURL) {
+    //Pagina index: 
+    ferAjax(); //Ajax inicial
+    ferAjax(undefined, true); //Ajax novetats
+    ferAjax(undefined, false, true) //Ajax valorats
 
+    //Afegir listeners nav content (contingut principal nav per categorias)
+    $('#nav_content li a').on('click', function () {
+        //Fa active on s'ha fet el click
+        var active = $(this).parent().parent().find('a.active');
+        active.removeClass('active');
+        $(this).addClass('active');
 
-        ferAjax(); //Ajax inicial
-        ferAjax(undefined, true); //Ajax novetats
-        ferAjax(undefined, false, true) //Ajax valorats
+        //Netejar el carousel
+        esborrarCarouselItems('#fitxes_main');
 
-        //Afegir listeners nav content (contingut principal nav per categorias)
-        $('#nav_content li a').on('click', function () {
-            //Fa active on s'ha fet el click
-            var active = $(this).parent().parent().find('a.active');
-            active.removeClass('active');
-            $(this).addClass('active');
+        //Fa l'ajax de la categoria corresponent
+        var idCat = $(this).attr("data-idCat");
+        ferAjax(idCat);
 
-            //Netejar el carousel
-            esborrarCarouselItems('#fitxes_main');
-
-            //Fa l'ajax de la categoria corresponent
-            var idCat = $(this).attr("data-idCat");
-            ferAjax(idCat);
-
-        })
-    }
+    })
 
     //Vista de llegir llibre
     if (URLactual == baseURL + 'llibre/llegirLlibre') {

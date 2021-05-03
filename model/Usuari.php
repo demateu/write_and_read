@@ -455,6 +455,29 @@ class Usuari{
         return $usuari->fetch_object();
     }
 
+    /**
+     * @author Ronny
+     * Busca els llibres favorits del lector
+     * 
+     * @return Object $llibres : Llibres favorits del lector
+     */
+    public function buscarFavoritsUsuari(){
+        $llibres = $this->db->query("SELECT * FROM interactllibre i, llibre l WHERE id_lector = '{$this->getId()}' AND preferit = '1' AND l.id=i.id_llibre");
+        
+        return $llibres;
+    }
+
+    /**
+     * @author Ronny
+     * Get les imatges de perfil dels avatars.
+     * 
+     * @return Object $avatars : Imatges de perfil
+     */
+    public function getAllAvatars(){
+        $avatars= $this->db->query("SELECT * FROM avatar");
+
+        return $avatars;
+    }
 
 /**
  * SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, a.avatar_url_imagen
