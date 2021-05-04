@@ -279,13 +279,18 @@ class Llibre{
      */
 
     /**
-     * guardamos el objeto en la BBDD
+     * @author demateu
+     * Enregistra un nou llibre desde la pàgina de control de l'escriptor
      * 
-     * @return true si la consulta se hace correctamente
+     * INSERT INTO llibre VALUES
+     * (null, 2, "Donetes", "Es desenvolupa en un ambient de realisme en l'Amèrica de la Guerra de la Secessió",
+     * "A través de cada personatge pots anar coneixent les experiències i dificultats que han d'anar suportant per avançar en les seves vides i en la seva maduresa.", 
+     * 'llibre_prova', CURDATE(), null, 'faded-4696601_640',3, null, null);
+     * 
+     * @return true si es fa l'insert amb èxit
      */
     public function save(){
-        //preparo la query -> un insert
-        $sql = "INSERT INTO llibre VALUES(NULL, '{$this->getId_escriptor()}', '{$this->getTitol()}', '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', '{$this->getContingut_url()}', CURDATE(), '{$this->getCops_llegit()}', '{$this->getPortada_url()}', '{$this->getId_categoria()}', '{$this->getMitja_vots()}', '{$this->getCops_votat()}')";
+        $sql = "INSERT INTO llibre VALUES (NULL, {$this->getId_escriptor()}, '{$this->getTitol()}', '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', '{$this->getContingut_url()}', CURDATE(), NULL, '{$this->getPortada_url()}', {$this->getId_categoria()}, NULL, NULL)";
         $save = $this->db->query($sql);
 
         $result = false;

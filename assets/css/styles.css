@@ -470,6 +470,13 @@ centra el text e la bio*/
     border-color: #c37ea7;
 }
 
+#carrega_pdf,
+#carrega_img{
+    color: red;
+    border: 1px dotted rgb(68, 68, 68);
+    padding: 10px;
+}
+
   
   /* Perfil Content */
   .perfil-content {

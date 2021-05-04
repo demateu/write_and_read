@@ -135,10 +135,14 @@ class UsuariController
                 $_SESSION['usuari']->avatar_url_imagen = $avatarUrl->avatar_url_imagen; //li passo el valor nou
 
                 $_SESSION['completado'] = 'Canvis fets correctament';
-                echo 'Canvis fets correctament';
+                echo'<script type="text/javascript">
+                alert("Canvis fets correctament");
+                </script>';
             } else {
                 $_SESSION['errores']['general'] = 'Alguna cosa no ha anat bé amb la teva actualització';
-                echo 'Alguna cosa no ha anat bé amb la teva actualització';
+                echo'<script type="text/javascript">
+                alert("Alguna cosa no ha anat bé amb la teva actualització");
+                </script>';
             }
 
             //Validar les dades
@@ -289,24 +293,18 @@ class UsuariController
      * 
      * et deslogueja -> NO FUNCIONA
      */
-    public function logoutUser()
-    {
-
-        echo 'test';
-
+    public function logoutUser(){
         if (isset($_SESSION['usuari'])) {
             unset($_SESSION['usuari']);
             session_destroy();
-            echo 'usuari desloguejat';
         }
 
         if (isset($_SESSION['admin'])) {
             unset($_SESSION['admin']);
             session_destroy();
         }
-        //header('location:'.base_url);
-        //header ("Location: ".base_url);
-        //require_once 'index.php';
+        
+        //require_once 'view/main.php';//OJO NO ESTÁ CARGANDO BIEN LA PAGINA
         header('Location:' . base_url);
     }
 
