@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 /**
  * per veure els errors
  */
@@ -72,7 +72,7 @@ if (isset($_GET['controller'])) {
 
 require_once 'view/layout/footer.php';
 
-
+ob_end_flush();
 /**
  * NOTA:
  * tal qual está ahora, cuando carga el ErrorController, desconfigura los estilos
