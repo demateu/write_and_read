@@ -70,7 +70,7 @@ class UsuariController
                     }
 
                     //Renderitzar panel d'usuari
-                    $this->perfilUser();
+                    header('Location:'. base_url . '/usuari/perfilUser');
                 } else {
                     //Si algo falla, enviar una sesion con el fallo
                     $_SESSION['error_login'] = "Login incorrecto :-(";
