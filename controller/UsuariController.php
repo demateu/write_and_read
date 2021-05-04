@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
 
@@ -27,8 +27,10 @@ class UsuariController
      */
     public function login()
     {
-        //renderitza la vista
-        require_once 'view/registre/login.php';
+        if (!isset($_SESSION['usuari'])) {
+            //renderitza la vista del login
+            require_once 'view/registre/login.php';
+        }
     }
 
     /**
@@ -67,13 +69,8 @@ class UsuariController
                         session_unset();
                     }
 
-                    //Si el usuari es lector renderitza la vista lector
-                    if ($login->id_tipus_usuari == '1') {
-                        require_once 'view/panel_control/LectorPerfilView.php';
-                        //Sino renderitza la d'escriptor
-                    } else {
-                        require_once 'view/panel_control/EscriptorPerfilView.php';
-                    }
+                    //Renderitzar panel d'usuari
+                    $this->perfilUser();
                 } else {
                     //Si algo falla, enviar una sesion con el fallo
                     $_SESSION['error_login'] = "Login incorrecto :-(";
@@ -193,21 +190,9 @@ class UsuariController
             }//fi if
             */
 
-            //Si el usuari es lector renderitza la vista lector
-            if ($avatarUrl->id_tipus_usuari == '1') {
-                require_once 'view/panel_control/LectorPerfilView.php';
-                //Sino renderitza la d'escriptor
-            } else {
-                //l'id de l'escriptor
-                $id = $avatarUrl->id;
-
-
-                //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
-                $escriptorLlibres = new Usuari();
-                $escriptorLlibres->setId($id);
-                $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
-                require_once 'view/panel_control/EscriptorPerfilView.php';
-            }
+            //Renderitzar panel d'usuari
+            $this->perfilUser();
+            
         }
 
         //afegir a la vista un condicional amb missatge: dades actualizades correctament
@@ -318,8 +303,9 @@ class UsuariController
             unset($_SESSION['admin']);
             session_destroy();
         }
-
-        require_once 'view/main.php';//OJO NO ESTÁ CARGANDO BIEN LA PAGINA
+        
+        //require_once 'view/main.php';//OJO NO ESTÁ CARGANDO BIEN LA PAGINA
+        header('Location:' . base_url);
     }
 
 
@@ -364,26 +350,34 @@ class UsuariController
     }
 
     /**
-     * Dashboard usuari test
+     * @author Ronny
+     * 
+     * Renderitza i agafa les dades necessaries per mostar el panel de control de lector o escriptor.
      */
     public function perfilUser()
     {
         if (isset($_SESSION['usuari'])) {
-            $login = $_SESSION['usuari'];
-            require_once 'view/panel_control/LectorPerfilView.php';
+
+            //Es lector
+            if ($_SESSION['usuari']->id_tipus_usuari == '1') {
+                //Tab favorits 
+                $lector = new Usuari();
+                $lector->setId($_SESSION['usuari']->id);
+                $favoritsLlibres = $lector->buscarFavoritsUsuari();
+                $avatars = $lector->getAllAvatars();
+
+                require_once 'view/panel_control/LectorPerfilView.php';
+
+            } //Es escriptor
+            else {
+                //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
+                $escriptorLlibres = new Usuari();
+                $escriptorLlibres->setId($_SESSION['usuari']->id);
+                $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+
+                require_once 'view/panel_control/EscriptorPerfilView.php';
+            }
         }
     }
 
-
-    /**
-     * @author demateu
-     * Renderitza el panell de control de l'escriptor
-     * 
-     * @return void
-     */
-    public function escriptorControl()
-    {
-
-        require_once 'view/panel_control/EscriptorPerfilView.php';
-    }
 }

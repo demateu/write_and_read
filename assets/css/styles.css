@@ -595,7 +595,7 @@ centra el text e la bio*/
     border-radius: 0;
 }
 
-#avatar_escriptor_area .form-check{
+#avatar_escriptor_area .form-check, #avatar_lector_area .form-check{
     display: inline-block;
 }
 
