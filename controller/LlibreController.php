@@ -29,172 +29,122 @@ class LlibreController
      * @return void
      */
     public function save(){
-        echo 'save obra';//fins aqui ok
 
         if (isset($_POST)) {
             //instancio l'objecte llibre
             $llibre = new Llibre();
 
-            $nom_pdf = $_FILES['carrega_pdf']['name'];//Undefined index: carrega_pdf
-            var_dump($nom_pdf);
-            $formato_pdf = $_FILES['carrega_pdf']['type'];//?
-            $mida_pdf = $_FILES['carrega_pdf']['size'];//?
-
-            //si el pdf medeix màxim 20MB serà ok
-            if($mida_pdf <= 20000000){
-                echo 'es ok';
-            }else{
-                var_dump($mida_pdf);
-                echo "L'arxiu excedeix els 20MB";
-            }
-
-            echo 'test';
+            //REBEM LES DADES DE L'ARXIU SELECCIONAT PEL CONTINGUT DEL LLIBRE
+            //el nom de l'arxiu
+            $nom_pdf = $_FILES['carrega_pdf']['name'];
+            //el format de l'arixu
+            $formato_pdf = $_FILES['carrega_pdf']['type'];
+            //la mida de l'arxiu (en bites)
+            $mida_pdf = $_FILES['carrega_pdf']['size'];
             //Ruta de la carpeta destí del servidor on guardarà el pdf
             $directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
-            //Pasar l'arxiu de la carpeta temporal a la carpeta destí
-            move_uploaded_file($_FILES['carrega_pdf']['tmp_name'], $directori_desti_pdf.$nom_pdf);//?
 
-
-            /*
-            //GESTIO DEL PDF + LA IMATGE PUJATS DEL NOU LLIBRE
-            //directori pel contingut del llibre
-            $pdf_dir = "assets/img/llibres/";
-            //el path del llibre (incloent el nom de l'arxiu)
-                //The file input field in our HTML form above is named "fileToUpload".
-            $pdf_nom = $pdf_dir . basename($_FILES["carrega_pdf"]["name"]);
-            $uploadOk_pdf = 1;
-            //l'extensió de l'arxiu(in lower case)
-            $imageFileType = strtolower(pathinfo($pdf_nom,PATHINFO_EXTENSION));
-
-
-            // Comprobar que no està ja pujat el mateix arxiu
-            if (file_exists($pdf_nom)) {
-                echo "Ja hi ha un arxiu amb aquest nom";
-                $uploadOk_pdf = 0;
+            //VALIDACIONS DE L'ARXIU
+            if($mida_pdf > 20971520){
+                //echo "L'arxiu excedeix els 20MB.";
+                echo'<script type="text/javascript">
+                alert("Fa més de 20MB");
+                </script>';
+            }elseif($formato_pdf!="application/pdf"){
+                echo'<script type="text/javascript">
+                alert("El format no es PDF");
+                </script>';                
+            }else{
+                //Pasar l'arxiu de la carpeta temporal a la carpeta destí del servidor
+                $pdf_guardat = move_uploaded_file($_FILES['carrega_pdf']['tmp_name'], $directori_desti_pdf.$nom_pdf);
+                $url_pdf_guardat = $directori_desti_pdf.$nom_pdf;
             }
-
-            // Limita el pes màxim de l'arxiu
-                //The file input field in our HTML form above is named "fileToUpload".
-            if ($_FILES["carrega_pdf"]["size"] > 500000) {
-                echo "Aquest pdf pesa massa; redueix-lo i torna-ho a provar.";
-                $uploadOk_pdf = 0;
-            }
-
-            // Limita el tipus d'arxiu
-            if($imageFileType != "pdf") {
-            echo "Només és permès el format PDF.";
-            $uploadOk_pdf = 0;
-            }
-
-            //guarda el pdf a la carpeta
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk_pdf == 0) {
-                echo "L'arxiu no ha estat carregat.";
-            // if everything is ok, try to upload file
-            } else {
-                if (move_uploaded_file($_FILES["carrega_pdf"]["tmp_name"], $pdf_nom)) {
-                echo "L'arxiu ". htmlspecialchars( basename( $_FILES["carrega_pdf"]["name"])). " ha estat carregat.";
-                } else {
-                echo "L'arxiu no ha estat carregat per algun error.";
-                }
-            }            
 
             //.................
-            */
-            /*
+
+            //REBEM LES DADES DE LA IMATGE PEL COVER DEL LLIBRE
+            //el nom de l'arxiu
             $nom_img = $_FILES['carrega_img']['name'];
-            var_dump($nom_img);
+            //el format de l'arixu
             $formato_img = $_FILES['carrega_img']['type'];
+            //la mida de l'arxiu (en bites)
             $mida_img = $_FILES['carrega_img']['size'];
             //Ruta de la carpeta destí del servidor on guardarà el pdf
             $directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
-            //Pasar l'arxiu de la carpeta temporal a la carpeta destí
-            move_uploaded_file($_FILES['carrega_img']['tmp_name'], $directori_desti_img.$nom_img);
-            */
 
-            //màxim per imatges 1MB -> 1000000
-
-            /*
-            //PUJA EL COVER/IMG DEL NOU LLIBRE
-            //directori per la imatge de portada del llibre
-            $cover_dir = "assets/img/cover_books/";
-            //el path del llibre (incloent el nom de l'arxiu)
-            $cover_nom = $cover_dir . basename($_FILES["carrega_img"]["name"]);
-            $uploadOk_cover = 1;
-            //l'extensió de l'arxiu(in lower case)
-            $imageFileType = strtolower(pathinfo($cover_nom,PATHINFO_EXTENSION));
-
-            // Comprobar que no està ja pujat el mateix arxiu
-            if (file_exists($pdf_nom)) {
-                echo "Ja hi ha un arxiu amb aquest nom";
-                $uploadOk_cover = 0;
+            //VALIDACIONS DE LA COVER DEL LLLIBRE (IMG)
+            if($mida_img > 1048576){
+                //echo "L'arxiu excedeix els 20MB.";
+                echo'<script type="text/javascript">
+                alert("Excedeix 1MB");
+                </script>';
+            }elseif($formato_img!="image/png" && $formato_img!="image/jpeg" && $formato_img!="image/jpg"){
+                echo'<script type="text/javascript">
+                alert("El format no es JPG, JPEG ni PNG");
+                </script>';               
+            }else{
+                //Pasar l'arxiu de la carpeta temporal a la carpeta destí del servidor
+                $img_guardat = move_uploaded_file($_FILES['carrega_img']['tmp_name'], $directori_desti_img.$nom_img);
+                $url_img_guardat = $directori_desti_img.$nom_img;
+            }
+        
+            if(!$pdf_guardat || !$img_guardat){
+                echo'<script type="text/javascript">
+                alert("Et falta afegir un arxiu");
+                </script>';
             }
 
-            // Limita el pes màxim de l'arxiu
-                //The file input field in our HTML form above is named "fileToUpload".
-            if ($_FILES["cover_nom"]["size"] > 500000) {
-                echo "Aquesta imatge pesa massa; redueix-la i torna-ho a provar.";
-                $uploadOk_cover = 0;
-            }
+            //.................
 
-            // Limita el tipus d'arxiu
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
-            echo "Només és permès pujar arxius en format JPG, JPEG, PNG.";
-            $uploadOk_cover = 0;
-            }
-
-            //guarda la imatge a la carpeta
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk_cover == 0) {
-                echo "L'arxiu no ha estat carregat.";
-            // if everything is ok, try to upload file
-            } else {
-                if (move_uploaded_file($_FILES["cover_nom"]["tmp_name"], $pdf_nom)) {
-                echo "L'arxiu ". htmlspecialchars( basename( $_FILES["cover_nom"]["name"])). " ha estat carregat.";
-                } else {
-                echo "L'arxiu no ha estat carregat per algun error.";
-                }
-            } 
-
-
-
-
-            //DADES DE L'ESCRIPTOR LOGUEJAT (desde $_SESSION)
+            //REBEM LES DADES DE L'ESCRIPTOR LOGUEJAT (desde $_SESSION)
             $escriptorLoguejat = $_SESSION['usuari'];
-            var_dump($escriptorLoguejat);
-            echo $escriptorLoguejat->id;//treu l'id de l'usuari actual loguejat
+            //var_dump($escriptorLoguejat);
+            //echo $escriptorLoguejat->id;//treu l'id de l'usuari actual loguejat
 
             //DADES DEL NOU LLIBRE QUE ARRIBEN DESDE EL FORM
             $titol_llibre = isset($_POST['titol']) ? $_POST['titol'] : false;
             $descripcio_curta = isset($_POST['descripcio_curta']) ? $_POST['descripcio_curta'] : false;
             $sinopsis = isset($_POST['sinopsis']) ? $_POST['sinopsis'] : false;
-            $id_categoria = isset($_POST['id_categoria']) ? $_POST['id_categoria'] : false;
 
+            //recorrem l'array del select categories
+            $id_categoria = isset($_POST['id_categoria']) ? $_POST['id_categoria'] : false;//està buit
+            echo $id_categoria[0];
+            
+            //var_dump($id_categoria);//false
+            /**
+             * INSERT INTO llibre VALUES 
+             * (NULL, '{$this->getId_escriptor()}', '{$this->getTitol()}', 
+             * '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', 
+             * '{$this->getContingut_url()}', CURDATE(), NULL, '{$this->getPortada_url()}', 
+             * '{$this->getId_categoria()}', NULL, NULL)
+             */
             //setters para guardar los datos que llegan del form (registro/user)
             $llibre->setId_escriptor($escriptorLoguejat->id);
             $llibre->setTitol($titol_llibre);
             $llibre->setDescripcio_curta($descripcio_curta);
             $llibre->setSinopsis($sinopsis);
 
-            $llibre->setContingut_url($_POST['contingut_url']);
+            $llibre->setContingut_url($url_pdf_guardat);
             //pdf-> conseguir la url on s'ha penjat
            
-            $llibre->setPortada_url($_POST['portada_url']);
+            $llibre->setPortada_url($url_img_guardat);
             //imatge pujada, aconseguir la url on s'hagi penjat
 
-            $llibre->setId_categoria($id_categoria);
+            $llibre->setId_categoria($id_categoria[0]);//poso manual per veure si es aixo
             //sera com els avatars, amb un check
 
-
-            //guardo todos estos datos en llibre
+            //GUARDEM TOTES LES DADES A LA BBDD (NOU LLIBRE)
             $save = $llibre->save();
 
             if ($save) {
                 echo 'Enregistrat correctament';
             } else {
-                echo 'Alguna cosa no ha anat bé amb el teu registre';
-            }*/
+                echo 'Alguna cosa no ha anat bé amb el registre del teu llibre';
+            }
+            
         }//fi isset($_POST)
+        
+        require 'view/panel_control/EscriptorPerfilView.php';
     }
 
 
@@ -204,7 +154,6 @@ class LlibreController
      */
     public function fitxa()
     {
-
         //concretar si se recibe por GET
         //accedir-hi per aqui: http://localhost:8888/write_and_read/llibre/fitxa
         if (isset($_GET['id'])) {

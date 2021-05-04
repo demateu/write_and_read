@@ -2,8 +2,8 @@
 /**
  * per veure els errors
  */
-//error_reporting(E_ALL);
-error_reporting(E_ALL & ~E_NOTICE);//que no muestre los errores 'Notice'
+error_reporting(E_ALL);
+//error_reporting(E_ALL & ~E_NOTICE);//que no muestre los errores 'Notice'
 ini_set('display_errors', 1);
 
 //antes de todas las linias de codigo

@@ -15,9 +15,6 @@ if(!isset($_SESSION)) {
 <?php if( isset($_SESSION['usuari']) ): ?>
     <!--Si l'usuari està loguejat, veu aquesta part-->
     <div>
-        <h3>test d'usuari loguejat:
-            <?= $_SESSION['usuari']->nickname; ?>
-        </h3>
 
         <div class="container-fluid">
             <div class="row" id="hero_perfil">
@@ -341,8 +338,8 @@ if(!isset($_SESSION)) {
                                     </div>
 
                                     <div class="col-12 mb-3">
-                                        <label for="biografia" class="form-label">Descripció curta:</label>
-                                        <textarea maxlength="250" name="biografia" type="text" class="form-control" id="biografia"></textarea>
+                                        <label for="descripcio_curta" class="form-label">Descripció curta:</label>
+                                        <textarea maxlength="250" name="descripcio_curta" type="text" class="form-control" id="descripcio_curta"></textarea>
                                     </div>
                     
                                     <div class="col-12 mb-3">
@@ -350,17 +347,22 @@ if(!isset($_SESSION)) {
                                         <textarea maxlength="500" name="sinopsis" type="text" class="form-control" id="sinopsis"></textarea>
                                     </div>
 
-                                    <!--escull categoria-->                      
+                                    <!--escull categoria
+                                        <fieldset class="row mb-3" id="avatar_escriptor_area">
+                                        <div class="col-12">
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="avatarType[]" id="avatar1" value="1" checked>
+                                                -->                      
                                     <div class="form-group col-md-6">
-                                        <label for="categoria">A quina categoria pertany:</label>
-                                        <select id="categoria" name="categoria" form="carform">
-                                            <option value="volvo">Acció</option>
-                                            <option value="saab">Romanç</option>
-                                            <option value="opel">Fantasia</option>
-                                            <option value="audi">Sci-fi</option>
-                                            <option value="audi">Drama</option>
-                                            <option value="audi">Horror</option>
-                                            <option value="audi">Suspens</option>
+                                        <label for="id_categoria">A quina categoria pertany:</label>
+                                        <select id="id_categoria" name="id_categoria[]"><!-- form="carform"-->
+                                            <option value="1">Acció</option>
+                                            <option value="2">Romanç</option>
+                                            <option value="3">Fantasia</option>
+                                            <option value="4">Sci-fi</option>
+                                            <option value="5">Drama</option>
+                                            <option value="6">Horror</option>
+                                            <option value="7">Suspens</option>
                                         </select>
                                     </div>
 
