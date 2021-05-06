@@ -340,6 +340,19 @@ class Llibre{
         return $llibres;
     }
 
+    /**
+     * @author Ronny
+     * 
+     * Busca tots els llibres per categoria id
+     * 
+     * @return Object $llibresCat Llibres de una categoria especifica.
+     */
+    public function getLlibresPerCategoria(){
+        $llibresCat = $this->db->query("SELECT l.titol, l.portada_url, l.sinopsis, l.mitja_vots, l.contingut_url, c.nom_cat, c.descripcio_cat FROM llibre l JOIN categoria c ON l.id_categoria=c.id WHERE l.id_categoria={$this->getId_categoria()}");
+        
+        return $llibresCat;
+    }
+
     
 
 

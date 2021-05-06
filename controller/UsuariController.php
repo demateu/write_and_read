@@ -30,6 +30,9 @@ class UsuariController
         if (!isset($_SESSION['usuari'])) {
             //renderitza la vista del login
             require_once 'view/registre/login.php';
+        }else{
+            //Renderitza la view de panel de d'usuari si hi ha una sessio activa
+            $this->perfilUser();
         }
     }
 

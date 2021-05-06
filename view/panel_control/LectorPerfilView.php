@@ -4,8 +4,7 @@ if (!isset($_SESSION)) {
 }
 ?>
 
-<?php require_once 'view/layout/header.php';
-?>
+<?php require_once 'view/layout/header.php';?>
 <div class="row profile">
 
     <div class="col-md-3">

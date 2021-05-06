@@ -197,4 +197,27 @@ class LlibreController
             
         }
     }
+
+    /**
+     * @author Ronny
+     * 
+     * Mostra el llistat de llibres per categoria 
+     * 
+     */
+    public function categoria(){
+        if (isset($_GET['id'])){
+
+            $llibre = new Llibre();
+            $llibre->setId_categoria($_GET['id']);
+            $cat= $llibre->getLlibresPerCategoria();
+            $nomCat=$llibre->getLlibresperCategoria()->fetch_Object()->nom_cat;
+            $descripcioCat=$llibre->getLlibresperCategoria()->fetch_Object()->descripcio_cat;
+        
+
+            require_once 'view/panel_control/FitxesLlibres.php';
+        }else{
+            echo "No s'ha trobat aquesta categoria";
+        }
+        
+    }
 }
