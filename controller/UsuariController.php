@@ -336,7 +336,7 @@ class UsuariController
             //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
             $escriptorLlibres = new Usuari();
             $escriptorLlibres->setId($id);
-            $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+            $llibres = $escriptorLlibres->buscarUsuariLlibres();
         }
         require 'view/panel_control/EscriptorView.php';
     }
@@ -368,7 +368,7 @@ class UsuariController
                 //Tab favorits 
                 $lector = new Usuari();
                 $lector->setId($_SESSION['usuari']->id);
-                $favoritsLlibres = $lector->buscarFavoritsUsuari();
+                $llibres = $lector->buscarFavoritsUsuari();
                 $avatars = $lector->getAllAvatars();
 
                 require_once 'view/panel_control/LectorPerfilView.php';
@@ -378,7 +378,7 @@ class UsuariController
                 //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
                 $escriptorLlibres = new Usuari();
                 $escriptorLlibres->setId($_SESSION['usuari']->id);
-                $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+                $llibres = $escriptorLlibres->buscarUsuariLlibres();
 
                 require_once 'view/panel_control/EscriptorPerfilView.php';
             }

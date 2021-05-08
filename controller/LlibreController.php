@@ -209,12 +209,12 @@ class LlibreController
 
             $llibre = new Llibre();
             $llibre->setId_categoria($_GET['id']);
-            $cat= $llibre->getLlibresPerCategoria();
+            $llibres= $llibre->getLlibresPerCategoria();
             $nomCat=$llibre->getLlibresperCategoria()->fetch_Object()->nom_cat;
             $descripcioCat=$llibre->getLlibresperCategoria()->fetch_Object()->descripcio_cat;
         
 
-            require_once 'view/panel_control/FitxesLlibres.php';
+            require_once 'view/elements/FitxesBuscador.php';
         }else{
             echo "No s'ha trobat aquesta categoria";
         }

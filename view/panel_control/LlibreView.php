@@ -89,16 +89,10 @@ if(!isset($_SESSION)) {
 				<?php else : ?>
 					<p class="card-title">El llibre no existeix</p>
 				<?php endif; ?>
-				<?php if (isset($id)) : ?>
-					<form action="http://localhost:8888/write_and_read/llibre/llegirLlibre" method="POST">
-						<input type="hidden" name="titol" value="<?=$llibre->titol?>" />
-						<input type="hidden" name="contingut_url" value="<?=$llibre->contingut_url?>" />
-						<input type="submit" value="Llegir" class="btn boto_llegeix" />
-					</form>
-					
-				<?php else : ?>
-					<button type="button" class="btn boto_llegeix">Llegir</button>
-				<?php endif; ?>
+
+				<!-- view boto llegir -->
+				<?php require_once 'view/elements/botoLlegir.php'; ?>
+
 				<!--FI de FITXA -->
 			</div>
 		</div>
