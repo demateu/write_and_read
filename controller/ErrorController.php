@@ -6,10 +6,7 @@
 class ErrorController{
 
     public function index(){
-        echo "<h1>La página que buscas no existe</h1>";
-        //CAMBIAR EL ECHO POR UNA VISTA QUE LLEVE UNA FOTO CON EL 404
-        //(libro animado)
-
+        require_once 'view/static/error404.php';
     }
 
 }
