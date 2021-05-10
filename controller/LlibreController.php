@@ -185,7 +185,7 @@ class LlibreController
      */
     public function llegirLlibre()
     {
-        if (isset($_POST['titol']) && isset($_POST['contingut_url'])) {
+        if (isset($_POST['titol']) && isset($_POST['contingut_url']) && isset($_POST['id'])) {
             //LLegir pdf 
             require_once 'vendor/autoload.php';
             $parser = new \Smalot\PdfParser\Parser();
@@ -193,6 +193,7 @@ class LlibreController
 
             // Retrieve all pages from the pdf file.
             $pages  = $pdf->getPages();
+            
             require_once 'view/LlegirLlibre.php';
             
         }

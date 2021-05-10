@@ -34,6 +34,16 @@ class LlibreControllerApi{
      */
     private $valorats;
 
+    /**
+     * @var int $idLector: Id del lector a actualitzar
+     */
+    private $idLector;
+
+    /**
+     * @var int $idLlibre: Id del llibre a actualitzar
+     */
+    private $idLlibre;
+
      /**
      * @var LlibreGateway $llibreGateway: Objecte que interactua amb la BD
      */
@@ -47,14 +57,18 @@ class LlibreControllerApi{
      * @param int $catId
      * @param boolean $novetats
      * @param boolean $valorats
+     * @param int $idLector
+     * @param int $idLlibre
      */
-    public function __construct($db, $peticioMetode, $catId, $novetats, $valorats)
+    public function __construct($db, $peticioMetode, $catId, $novetats, $valorats, $idLector, $idLlibre)
     {
         $this->db = $db;
         $this->peticioMetode = $peticioMetode;
         $this->catId = $catId;
         $this->novetats = $novetats;
         $this->valorats = $valorats;
+        $this->idLector = $idLector;
+        $this->idLlibre = $idLlibre;
 
         $this->llibreGateway = new LlibreGateway($db);
     }
@@ -76,6 +90,9 @@ class LlibreControllerApi{
                    
                     $resposta = $this->getAllLlibres();
                 }
+                break;
+            case 'PATCH':
+                $resposta = $this->actualitzarLlegit($this->idLector, $this->idLlibre);
                 break;
             default:
                 $resposta = $this -> notFoundResponse();
@@ -115,6 +132,11 @@ class LlibreControllerApi{
         return $response;
     }
 
+    /**
+     * Dona la resposta per retornar llibres per novetats
+     * 
+     * @return json $response: Resposta de la peticio en format Json 
+     */
     private function getMesNous(){
         $result = $this->llibreGateway->getNovetats();
         $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
@@ -122,11 +144,41 @@ class LlibreControllerApi{
         return $resposta;
     }
 
+    /**
+     * Dona la resposta per retornar llibres per puntuacio mes alta
+     * 
+     * @return json $response: Resposta de la peticio en format Json 
+     */
     private function getMesPuntuats(){
         $result = $this->llibreGateway->getMesValorats();
         $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
         $resposta['body'] = json_encode($result);
         return $resposta;
+    }
+
+    /**
+     * Dona la resposta per retornar llibres per una categoria
+     * 
+     * @param int $idLector : Id del Lector
+     * @param int $idLlibre : Id del llibre
+     * @return json $resposta : Torna el header d'estatus 
+     */
+    private function actualitzarLlegit($idLector, $idLlibre){
+        $interaccio=$this->llibreGateway->getIdInteraccio($idLector, $idLlibre);
+        if($interaccio->llegit == '0'){
+            $this->llibreGateway->updateLlegit($idLector, $idLlibre);
+            $this->llibreGateway->updateCopsLlegit($idLlibre);
+            $resposta['status_code_header'] = 'HTTP/1.1 204 SUCCESS';
+            return $resposta;
+        }elseif ($interaccio == null){
+            $this->llibreGateway->crearInteractLllibre($idLector, $idLlibre);
+            $this->llibreGateway->updateCopsLlegit($idLlibre);
+            $resposta['status_code_header'] = 'HTTP/1.1 204 CREATED';
+            return $resposta;
+        }elseif ($interaccio->llegit == '1'){
+            $resposta['status_code_header'] = 'HTTP/1.1 204 NO UPDATED';
+            return $resposta;
+        }
     }
 
 

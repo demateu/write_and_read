@@ -5,6 +5,7 @@
     <form action="http://localhost:8888/write_and_read/llibre/llegirLlibre" method="POST">
         <input type="hidden" name="titol" value="<?= $llibre->titol ?>" />
         <input type="hidden" name="contingut_url" value="<?= $llibre->contingut_url ?>" />
+        <input type="hidden" name="id" value="<?= $llibre->id ?>" />
         <input type="submit" value="Llegir" class="btn boto_llegeix" />
     </form>
 <?php else : ?>
