@@ -1,10 +1,4 @@
 <?php
-
-if(!isset($_SESSION)) {
-    session_start();
-}
-
-
 require_once 'view/layout/header.php';
 
 
@@ -21,11 +15,19 @@ if (isset($pages)) : ?>
                 <ul class="nav nav-pills d-flex justify-content-center bg-light" id="llibreTab" role="tablist">
                     <?php for ($i = 1; $i < sizeof($pages); $i++) : ?>
 
-                        <li class="nav-item p-2" role="presentation">
-                            <button class="nav-link <?= ($i == 1 ? 'active' : '') ?>" id="nav<?= $i ?>" data-bs-toggle="tab" data-bs-target="#tab<?= $i ?>" type="button" role="tab" aria-controls="tab<?= $i ?>" aria-selected=<?= ($i == 1 ? "true" : "false"); ?>>
-                                <p><?= $i ?></p>
-                            </button>
-                        </li>
+                        <?php if ($i + 1 == sizeof($pages)) : ?>
+                            <li id="paginaFinal" class="nav-item p-2" role="presentation" data-idLector=<?=$_SESSION['usuari']->id?> data-idLlibre= <?=$_POST['id'] ?>>
+                                <button class="nav-link <?= ($i == 1 ? 'active' : '') ?>" id="nav<?= $i ?>" data-bs-toggle="tab" data-bs-target="#tab<?= $i ?>" type="button" role="tab" aria-controls="tab<?= $i ?>" aria-selected=<?= ($i == 1 ? "true" : "false"); ?> >
+                                    <p><?= $i ?></p>
+                                </button>
+                            </li>
+                        <?php else : ?>
+                            <li class="nav-item p-2" role="presentation">
+                                <button class="nav-link <?= ($i == 1 ? 'active' : '') ?>" id="nav<?= $i ?>" data-bs-toggle="tab" data-bs-target="#tab<?= $i ?>" type="button" role="tab" aria-controls="tab<?= $i ?>" aria-selected=<?= ($i == 1 ? "true" : "false"); ?>>
+                                    <p><?= $i ?></p>
+                                </button>
+                            </li>
+                        <?php endif; ?>
 
                     <?php endfor; ?>
                 </ul>

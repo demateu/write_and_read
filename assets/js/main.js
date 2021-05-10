@@ -236,6 +236,22 @@ $(document).ready(function () {
                 window.scrollTo(0, 160);
             });
         });
+
+        //Quan premi l'ultima pagina del llibre es tractara com llegit 
+        $('#paginaFinal').on('click', function () {
+            //Agafa les dades del li
+            var idLector = $(this).attr("data-idlector");
+            var idLlibre = $(this).attr("data-idllibre");
+            var url = "http://localhost:8888/write_and_read/api-rest/?idLector=" + idLector + "&idLlibre=" + idLlibre;
+            
+            //AJAX per Afegir llegit
+            var settings = {
+                "url": url,
+                "method": "PATCH",
+                "timeout": 0,
+              };
+            $.ajax(settings);
+        });
     }
 
 

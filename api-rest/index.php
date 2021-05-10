@@ -28,17 +28,17 @@ function mostrarNotFound(){
  * 
  * @param $cat: id de la categoria pot ser null per aconseguir tots els llibres
  */
-function ferPeticio($cat, $novetats, $valorats){
+function ferPeticio($cat, $novetats, $valorats, $idLector, $idLlibre){
     $db=Database::conectar();
     $peticioMetode = $_SERVER["REQUEST_METHOD"];
-    $controller = new LlibreControllerApi($db, $peticioMetode, $cat, $novetats, $valorats);
+    $controller = new LlibreControllerApi($db, $peticioMetode, $cat, $novetats, $valorats, $idLector, $idLlibre);
     $controller->processRequest();
 }
 
 //Declarem els headers de la peticio 
 header("Access-Control-Allow-Origin: *");//en * ponia localhost (demateu)
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET");
+header("Access-Control-Allow-Methods: OPTIONS,GET, PUT, PATCH");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
@@ -54,7 +54,7 @@ if(isset($_GET['categoria']) && count($uriFormatted) == 1){
     
     //Qualsevol peticio que no tingui la categoria valida [1-7] com parametre retornara un 404 Not found 
     if($cat > 0 && $cat < 8 ){
-        ferPeticio($cat, null, null);
+        ferPeticio($cat, null, null, null, null);
     }else{
         mostrarNotFound();
         exit();
@@ -64,7 +64,7 @@ if(isset($_GET['categoria']) && count($uriFormatted) == 1){
 }else if(isset($_GET['novetats']) && count($uriFormatted) == 1){
     $novetats = filter_var($_GET['novetats'], FILTER_VALIDATE_BOOLEAN);
     if($novetats){
-        ferPeticio(null,$novetats, null);
+        ferPeticio(null,$novetats, null, null, null);
     }else{
         mostrarNotFound();
         exit();
@@ -73,16 +73,20 @@ if(isset($_GET['categoria']) && count($uriFormatted) == 1){
 }else if (isset($_GET['valorats']) && count($uriFormatted) == 1){
     $valorats = filter_var($_GET['valorats'], FILTER_VALIDATE_BOOLEAN);
     if($valorats){
-        ferPeticio(null, null,$valorats);
+        ferPeticio(null, null,$valorats, null, null);
     }else{
         mostrarNotFound();
         exit();
     }
     
+//Si la peticio te els parametres per actualitzar
+}else if (isset($_GET['idLector']) && isset($_GET['idLlibre']) ) {
+    ferPeticio(null, null, null, $_GET['idLector'], $_GET['idLlibre']);
+
 //Si la peticio no te cap parametre retornarem tots els llibres
 }else if (empty($uri)) {
 
-    ferPeticio(null, null,null);
+    ferPeticio(null, null,null, null, null);
 
 //Si no cumpleix res d'abans sera not found 
 }else{
