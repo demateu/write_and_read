@@ -62,6 +62,7 @@ if(!isset($_SESSION)) {
 					<?php else : ?>
 						<p><strong> Cops votat:</strong> El llibre no existeix</p>
 					<?php endif; ?>
+					<p><strong>Cops llegit:</strong><?=$llibre->cops_llegit?></p>
 				</div>
 				<!--FI valoracions -->
 			</div>
