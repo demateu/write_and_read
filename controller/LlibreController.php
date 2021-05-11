@@ -187,7 +187,7 @@ class LlibreController
      */
     public function llegirLlibre()
     {
-        if (isset($_POST['titol']) && isset($_POST['contingut_url'])) {
+        if (isset($_POST['titol']) && isset($_POST['contingut_url']) && isset($_POST['id'])) {
             //LLegir pdf 
             require_once 'vendor/autoload.php';
             $parser = new \Smalot\PdfParser\Parser();
@@ -195,8 +195,32 @@ class LlibreController
 
             // Retrieve all pages from the pdf file.
             $pages  = $pdf->getPages();
+            
             require_once 'view/LlegirLlibre.php';
             
         }
+    }
+
+    /**
+     * @author Ronny
+     * 
+     * Mostra el llistat de llibres per categoria 
+     * 
+     */
+    public function categoria(){
+        if (isset($_GET['id'])){
+
+            $llibre = new Llibre();
+            $llibre->setId_categoria($_GET['id']);
+            $llibres= $llibre->getLlibresPerCategoria();
+            $nomCat=$llibre->getLlibresperCategoria()->fetch_Object()->nom_cat;
+            $descripcioCat=$llibre->getLlibresperCategoria()->fetch_Object()->descripcio_cat;
+        
+
+            require_once 'view/elements/FitxesBuscador.php';
+        }else{
+            echo "No s'ha trobat aquesta categoria";
+        }
+        
     }
 }

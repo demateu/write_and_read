@@ -325,7 +325,7 @@ class Llibre{
      * Busca llibre amb un id concret
      */
     public function buscarLlibrePerId(){
-        $llibre = $this->db->query("SELECT t1.titol, t1.portada_url, t1.mitja_vots, t1.cops_votat, t2.nom_i_cognoms, t1.data_alta, t3.nom_cat, t1.sinopsis, t1.contingut_url
+        $llibre = $this->db->query("SELECT t1.id, t1.titol, t1.portada_url, t1.mitja_vots, t1.cops_votat, t1.cops_llegit, t2.nom_i_cognoms, t1.data_alta, t3.nom_cat, t1.sinopsis, t1.contingut_url
 		FROM llibre t1 INNER JOIN usuari t2 ON t1.id_escriptor=t2.id INNER JOIN categoria t3 ON t1.id_categoria=t3.id WHERE t1.id={$this->getId()} ");
         return $llibre->fetch_object();
     }
@@ -338,6 +338,19 @@ class Llibre{
     public function getAll(){
         $llibres = $this->db->query("SELECT * FROM llibre");
         return $llibres;
+    }
+
+    /**
+     * @author Ronny
+     * 
+     * Busca tots els llibres per categoria id
+     * 
+     * @return Object $llibresCat Llibres de una categoria especifica.
+     */
+    public function getLlibresPerCategoria(){
+        $llibresCat = $this->db->query("SELECT l.id, l.titol, l.portada_url, l.sinopsis, l.mitja_vots, l.contingut_url, c.nom_cat, c.descripcio_cat FROM llibre l JOIN categoria c ON l.id_categoria=c.id WHERE l.id_categoria={$this->getId_categoria()}");
+        
+        return $llibresCat;
     }
 
     

@@ -104,13 +104,15 @@ if (!isset($_SESSION)) {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
                             <ul class="dropdown-menu" id="menu_drop_categories_home">
-                                <li><a class="dropdown-item" href="#">Acció</a></li>
-                                <li><a class="dropdown-item" href="#">Romanç</a></li>
-                                <li><a class="dropdown-item" href="#">Fantasia</a></li>
-                                <li><a class="dropdown-item" href="#">Sci-fi</a></li>
-                                <li><a class="dropdown-item" href="#">Drama</a></li>
-                                <li><a class="dropdown-item" href="#">Horror</a></li>
-                                <li><a class="dropdown-item" href="#">Suspens</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a>
+                                </li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

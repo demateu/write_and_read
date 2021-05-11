@@ -30,6 +30,9 @@ class UsuariController
         if (!isset($_SESSION['usuari'])) {
             //renderitza la vista del login
             require_once 'view/registre/login.php';
+        }else{
+            //Renderitza la view de panel de d'usuari si hi ha una sessio activa
+            $this->perfilUser();
         }
     }
 
@@ -64,13 +67,14 @@ class UsuariController
                     //creo la sessió i allà guardo l'objecte de l'usuari
                     $_SESSION['usuari'] = $login;
 
-                    //si el usuario existe hay que borrar si existe la sesion del error
-                    if (isset($_SESSION['error_login'])) {
-                        session_unset();
-                    }
+                    // //si el usuario existe hay que borrar si existe la sesion del error
+                    // if (isset($_SESSION['error_login'])) {
+                    //     session_unset();
+                    // }
 
                     //Renderitzar panel d'usuari
-                    header('Location:'. base_url . '/usuari/perfilUser');
+                    header('Location:'. base_url . 'usuari/perfilUser');
+                    
                 } else {
                     //Si algo falla, enviar una sesion con el fallo
                     $_SESSION['error_login'] = "Login incorrecto :-(";
@@ -332,7 +336,7 @@ class UsuariController
             //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
             $escriptorLlibres = new Usuari();
             $escriptorLlibres->setId($id);
-            $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+            $llibres = $escriptorLlibres->buscarUsuariLlibres();
         }
         require 'view/panel_control/EscriptorView.php';
     }
@@ -356,6 +360,7 @@ class UsuariController
      */
     public function perfilUser()
     {
+        
         if (isset($_SESSION['usuari'])) {
 
             //Es lector
@@ -363,7 +368,7 @@ class UsuariController
                 //Tab favorits 
                 $lector = new Usuari();
                 $lector->setId($_SESSION['usuari']->id);
-                $favoritsLlibres = $lector->buscarFavoritsUsuari();
+                $llibres = $lector->buscarFavoritsUsuari();
                 $avatars = $lector->getAllAvatars();
 
                 require_once 'view/panel_control/LectorPerfilView.php';
@@ -373,7 +378,7 @@ class UsuariController
                 //CONSEGUIR DADES LLIBRES PER ESCRIPTOR
                 $escriptorLlibres = new Usuari();
                 $escriptorLlibres->setId($_SESSION['usuari']->id);
-                $escriptorLlibres = $escriptorLlibres->buscarUsuariLlibres();
+                $llibres = $escriptorLlibres->buscarUsuariLlibres();
 
                 require_once 'view/panel_control/EscriptorPerfilView.php';
             }
