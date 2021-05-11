@@ -23,28 +23,28 @@ if(!isset($_SESSION)) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="nav_content" class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#navbarSupportedContent" >Totes</a><!--repassar-->
+                    <a class="nav-link active" aria-current="page" href="#nav_content">Totes</a><!--repassar-->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="1">Acció</a>
+                    <a class="nav-link" href="#nav_content" data-idCat="1">Acció</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="2">Romanç</a><!--no tengo claro si va asi roman&ccedil;-->
+                    <a class="nav-link" href="#nav_content" data-idCat="2">Romanç</a><!--no tengo claro si va asi roman&ccedil;-->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="3">Fantasia</a>
+                    <a class="nav-link" href="#nav_content" data-idCat="3">Fantasia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="4">Sci-fi</a>
+                    <a class="nav-link" href="#nav_content" data-idCat="4">Sci-fi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="5">Drama</a>
+                    <a class="nav-link" href="#nav_content" data-idCat="5">Drama</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="6">Horror</a>
+                    <a class="nav-link" href="#nav_content" data-idCat="6">Horror</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbarSupportedContent" data-idCat="7">Suspens</a>
+                    <a class="nav-link" href="#nav_content" data-idCat="7">Suspens</a>
                 </li>
             </ul>
         </div>

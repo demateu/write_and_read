@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '78055dcc74cd119e8060f69527c64a08227d40b4',
+    'reference' => 'a3100bc6680e5ae34f9125836a26c2409630e99c',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,16 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '78055dcc74cd119e8060f69527c64a08227d40b4',
+      'reference' => 'a3100bc6680e5ae34f9125836a26c2409630e99c',
     ),
     'smalot/pdfparser' => 
     array (
-      'pretty_version' => 'v0.19.0',
-      'version' => '0.19.0.0',
+      'pretty_version' => 'v1.0.0',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1895c17417aefa4508e35836c46da61988d61f26',
+      'reference' => 'd4148fd8160f2e9cfc03f0bbfa4efba8a4e15fa4',
     ),
     'symfony/polyfill-mbstring' => 
     array (

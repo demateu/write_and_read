@@ -10,7 +10,6 @@ if (!isset($_SESSION)) {
 <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Plataforma d'escriptors amateurs">
-    <meta name="keywords" content="escriptors, llibres">
     <meta name="author" content="demateu, ronny, apossai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write&amp;Read</title>
@@ -59,14 +58,14 @@ if (!isset($_SESSION)) {
 
             <div class="row primary" id="first_line">
                 <!--Logo i buscador de la web -->
-                <div class="col-10 p-2" id="logo_search">
+                <div class="col-sm-12 col-md-9 p-2" id="logo_search">
                     <a href="<?= base_url ?>index.php">
                         <img src="<?= base_url ?>assets/img/identity/wr_logo_250px.png" alt="logo" width="190" height="auto" class="ms-2" />
                     </a>
                 </div>
                 <!--Fi Logo-->
                 <!-- User icona-->
-                <div class="col-2" id="user_area">
+                <div class="col-sm-12 col-md-3 p-2" id="user_area">
                     <?php if (isset($_SESSION['usuari'])) : ?>
                         <!--Si l'usuari està loguejat, veu aquesta part-->
                         <span>Hola
@@ -76,7 +75,7 @@ if (!isset($_SESSION)) {
                         <a href="<?= base_url ?>usuari/logoutUser">Logout</a>
                         <div class="imatge-header">
                             <a href="<?= base_url ?>usuari/perfilUser">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_<?= $_SESSION['usuari']->avatar_id; ?>.jpg" alt="" />
+                                <img src="<?= base_url ?>assets/img/avatar/avatar_<?= $_SESSION['usuari']->avatar_id; ?>.jpg" alt="avatar de l'usuari" />
                             </a>
                         </div>
                     <?php else : ?>
@@ -89,59 +88,61 @@ if (!isset($_SESSION)) {
                         </button>
                     <?php endif; ?>
                 </div>
-                <!--Fi sUser icona-->
+                <!--Fi User icona-->
             </div>
 
-            <!--  MENU NAV  -->
-            <div class="row pt-3" id="menu-nav">
+            <!--MENU NAV-->
+            <nav class="navbar navbar-expand-lg navbar-light" id="menu-nav">
+                <div class="container-fluid">
 
-                <!--  MENU  -->
-                <nav id="menu_nav_all" class="col-7">
-                    <ul class="nav nav-pills">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="<?= base_url ?>index.php">INICI</a>
+                        <a class="nav-link active" aria-current="page" href="<?= base_url ?>index.php">INICI</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Com funciona</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
-                            <ul class="dropdown-menu" id="menu_drop_categories_home">
-                                <li>
-                                    <a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a>
-                                </li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">test</a></li>
-                            </ul>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
+                        </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            El meu compte
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">El meu panell</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Desloga'm</a></li>
+                        </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Com funciona</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url ?>usuari/registre">Registra't</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacta'ns</a>
+                        <a class="nav-link" href="#">Contacta'ns</a>
                         </li>
                     </ul>
-                </nav>
-                <!--Buscador-->
-                <div class="col-3" id="creca_titol">
-                    <div class="input-group">
-                        <div class="form-outline">
-                            <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
-                        </div>
-                        <button type="button" class="btn" id="btn_search">
-                            <i class="fas fa-search"></i>
-                        </button>
+                    <!--Buscador-->
+                    <form class="d-flex" id="navbar_buscador">
+                        <input class="form-control" type="search" placeholder="Cerca per titol" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Busca<i class="fas fa-search"></i></button>
+                    </form>
+                    <!--Fi Buscador-->
                     </div>
                 </div>
-            </div>
-            <!--  FI MENU NAV  -->
+            </nav>
+            <!-- FI MENU NAV -->
 
         </header>

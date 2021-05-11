@@ -108,9 +108,7 @@ class LlibreController
 
             //recorrem l'array del select categories
             $id_categoria = isset($_POST['id_categoria']) ? $_POST['id_categoria'] : false;//està buit
-            echo $id_categoria[0];
             
-            //var_dump($id_categoria);//false
             /**
              * INSERT INTO llibre VALUES 
              * (NULL, '{$this->getId_escriptor()}', '{$this->getTitol()}', 
@@ -137,9 +135,13 @@ class LlibreController
             $save = $llibre->save();
 
             if ($save) {
-                echo 'Enregistrat correctament';
+                echo'<script type="text/javascript">
+                alert("Enregistrat correctament");
+                </script>';
             } else {
-                echo 'Alguna cosa no ha anat bé amb el registre del teu llibre';
+                echo'<script type="text/javascript">
+                alert("Alguna cosa no ha anat bé amb el registre del teu llibre");
+                </script>';
             }
             
         }//fi isset($_POST)
@@ -195,7 +197,6 @@ class LlibreController
             $pages  = $pdf->getPages();
             
             require_once 'view/LlegirLlibre.php';
-            
         }
     }
 
