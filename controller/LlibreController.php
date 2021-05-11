@@ -197,7 +197,6 @@ class LlibreController
             $pages  = $pdf->getPages();
             
             require_once 'view/LlegirLlibre.php';
-            
         }
     }
 

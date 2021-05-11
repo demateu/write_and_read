@@ -9,7 +9,7 @@ if(!isset($_SESSION)) {
 <div class="container-fluid">
 
     <section class="row justify-content-center p-dark" id="usuari-section">
-        <div class="col-6">
+        <div class="col-md-12 col-lg-6">
             <div class="row justify-content-center">
                 <div class="col imatge-avatar" id="imatge-avatar">
                     <!--imatge de l'escriptor (avatar)-->

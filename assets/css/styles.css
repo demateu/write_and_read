@@ -108,7 +108,22 @@ a:hover{
     color: #62244c;
 }
 
-/*CAROUSEL BANNER */
+/*******************NAVBAR*******************************/
+#navbar_buscador i{
+    display: inline;
+    padding-left: 10px;
+}
+
+#navbar_buscador button{
+    color: whitesmoke;
+    background-color: #925279;
+    border-color: #925279;
+}
+
+
+
+/*******************CAROUSEL BANNER ***********************/
+
 .carousel-caption {
     bottom: 30%;
     left: 42%;
@@ -124,69 +139,6 @@ a:hover{
 }
 
 
-@media (max-width: 1078px) {
-    .carousel-caption h5{
-        font-size: 180%;
-    }
-}
-
-@media (max-width: 870px) {
-    .carousel-caption h5{
-        font-size: 150%;
-    }
-
-    .carousel-caption{
-        bottom: 20%;
-    }
-}
-
-@media (max-width: 750px) {
-    .carousel-caption h5{
-        font-size: 100%;
-    }
-
-    #btn_subcr{
-        margin-top: 0px !important;
-        font-size: 65%;
-    }
-}
-
-@media (max-width: 544px) {
-    .carousel-caption h5{
-        font-size: 70%;
-    }
-
-    .carousel-caption{
-        bottom: 5%;
-    }
-
-    #btn_subcr{
-        margin-top: 0px !important;
-        font-size: 60%;
-    }
-}
-
-@media (max-width: 428px) {
-    .carousel-caption h5{
-        font-size: 50%;
-        
-    }
-
-    .carousel-caption{
-        bottom: -5%;
-    }
-
-    #btn_subcr{
-        font-size: 42%;
-    }
-}
-  
-
-.carousel-indicators{
-    position: absolute;
-    bottom: -36px;
-}
-
 #llib_cat, #llib_votos, #llib_nous {
     margin-left: 50px;
     margin-right: 50px;
@@ -201,7 +153,7 @@ a:hover{
 }
 
 
-/*NAV CATEGORIES DESPRÉS L'SLIDE*/
+/***************CATEGORIES DESPRÉS L'SLIDE*****************/
 #menu_categories{
     padding: 0;
 }
@@ -239,9 +191,9 @@ a:hover{
 }
 
 #menu-nav{
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 0px!important;
+    /*display: flex;
+    justify-content: flex-end;*/
+    padding: 10px 20px!important;
     background-color:#c37ea7;
 }
 
@@ -250,6 +202,15 @@ a:hover{
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#menu-nav ul{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #menu-nav li a:hover{
@@ -307,7 +268,6 @@ a:hover{
 footer{
     background-color: #925279;
     color: whitesmoke;
-    margin-top: 3%;
 }
 
 footer p{
@@ -335,19 +295,12 @@ footer a{
     transform: scale(120%);
 }
 
-
-/*-- Mediaqueries --*/
-
 .container-fluid{
     padding: 0px;
 }
 
-.carousel-control-next, .carousel-control-prev{
-    width: 5%;
-}
 
-
-/*Fitxa Escriptor Especificacions*/
+/*************  .Fitxa Escriptor Especificacions.  ****************/
 
 .imatge-avatar img{
     width: 150px;
@@ -640,3 +593,52 @@ centra el text e la bio*/
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+
+/*  .PAGINA 404.  */
+#img_404 img{
+    display: block;
+
+    margin: 15vh auto;
+}
+
+
+/* ''''''''''' MEDIAQUERIES ''''''''''''' */
+
+/*
+DISPOSITIUS MENORS A 574PX
+mobiles fins a landscape mobiles
+*/
+@media (max-width: 575.98px) {
+    body{
+        background-color: red;
+    }
+
+    #logo_search img{
+        display: block;
+        margin: 15px auto !important;
+    }
+
+    #usuari-section{
+        min-width: 350px;
+    }
+}
+/*
+DISPOSITIUS A PARTIR DE 574PX
+Tablets
+*/
+@media (min-width: 575.98px) {
+    body{
+        background-color: yellow;
+    }
+}
+
+/*
+DISPOSITIUS A PARTIR DE 992PX
+a partir de desktops de 13"
+*/
+@media (min-width: 1200px) {
+    body{
+        background-color: cadetblue;
+    }
+}
+

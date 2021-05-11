@@ -5,7 +5,7 @@ if(!isset($_SESSION)) {
 ?>
 
 <!--Peu de la pagina -->
-<footer class="text-center text-lg-start mt-5 p-0">
+<footer class="text-center text-lg-start p-0">
     <div class="row mx-auto p-5">
         <!-- Grid colummn -->
         <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
