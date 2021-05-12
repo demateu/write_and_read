@@ -70,7 +70,7 @@ if(!isset($_SESSION)) {
                 <!--Form Registra Lector-->  
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                    
-					<form class="row g-3" action="http://localhost:8888/write_and_read/usuari/save" onsubmit="return Validate()" name="vform" method="post">
+					<form class="row g-3" action="http://localhost:8888/write_and_read/usuari/save" name="vform" method="post">
 
                         <div class="col-md-6">
                             <label class="form-label" for="nick_lector">Username</label>
@@ -136,7 +136,7 @@ if(!isset($_SESSION)) {
 
                 <!--Form Registra Escriptor-->
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                    <form class="row g-3" action="<?=base_url?>usuari/save" method="post">
+                    <form class="row g-3" action="http://localhost:8888/write_and_read/usuari/save" method="post">
 
 
                         <div class="col-md-6">
