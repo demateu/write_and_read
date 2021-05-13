@@ -105,14 +105,14 @@ if (!isset($_SESSION)) {
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
                             <ul class="dropdown-menu" id="menu_drop_categories_home">
                                 <li>
-                                    <a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a>
+                                    <a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=1">Acció</a>
                                 </li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
-                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=2">Romanç</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=3">Fantasia</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=4">Sci-fi</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=5">Drama</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=6">Horror</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=7">Suspens</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -131,7 +131,8 @@ if (!isset($_SESSION)) {
                     </ul>
                 </nav>
                 <!--Buscador-->
-                <div class="col-3" id="creca_titol">
+                <div class="col-3">
+                    <!-- 
                     <div class="input-group">
                         <div class="form-outline">
                             <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
@@ -140,6 +141,15 @@ if (!isset($_SESSION)) {
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
+                     -->
+                    <form autocomplete="off" action="#">
+                        <div class="autocomplete ">
+                            <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
+                        </div>
+                        <button type="submit" class="btn" id="btn_search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             <!--  FI MENU NAV  -->

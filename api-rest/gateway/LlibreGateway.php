@@ -185,4 +185,20 @@ class LlibreGateway
             exit($e->getMessage());
         }
     }
+
+    /**
+     * Aconsegueix les dades per el buscador per titol
+     * SELECT titol, id, portada_url FROM llibre
+     */
+    public function buscarPerTitol(){
+        $qry = "SELECT titol, id, portada_url FROM llibre";
+        try {
+            $qry = $this->db->query($qry);
+            $result = $qry->fetch_all(MYSQLI_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            exit($e->getMessage());
+        }
+
+    }
 }
