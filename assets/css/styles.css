@@ -594,6 +594,14 @@ centra el text e la bio*/
     border-radius: 50%;
 }
 
+/*Imatge fixta llibre*/
+.imatge-llibre img{
+    width: 400px;
+    height: auto;
+    margin: 20px;
+	padding-top: 20px;
+}
+
 /*  .PAGINA 404.  */
 #img_404 img{
     display: block;
