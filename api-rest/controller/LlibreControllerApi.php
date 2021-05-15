@@ -35,6 +35,11 @@ class LlibreControllerApi{
     private $valorats;
 
     /**
+     * @var boolean $buscador: Boolean per aconseguir els llibres per titol
+     */
+    private $buscador;
+
+    /**
      * @var int $idLector: Id del lector a actualitzar
      */
     private $idLector;
@@ -57,16 +62,18 @@ class LlibreControllerApi{
      * @param int $catId
      * @param boolean $novetats
      * @param boolean $valorats
+     * @param boolean $buscador
      * @param int $idLector
      * @param int $idLlibre
      */
-    public function __construct($db, $peticioMetode, $catId, $novetats, $valorats, $idLector, $idLlibre)
+    public function __construct($db, $peticioMetode, $catId, $novetats, $valorats, $buscador, $idLector, $idLlibre)
     {
         $this->db = $db;
         $this->peticioMetode = $peticioMetode;
         $this->catId = $catId;
         $this->novetats = $novetats;
         $this->valorats = $valorats;
+        $this->buscador = $buscador;
         $this->idLector = $idLector;
         $this->idLlibre = $idLlibre;
 
@@ -86,6 +93,8 @@ class LlibreControllerApi{
                     $resposta = $this->getMesNous();
                 }else if($this->valorats){
                     $resposta = $this->getMesPuntuats();
+                }else if($this->buscador){
+                    $resposta = $this->getPerTitol();
                 }else{
                    
                     $resposta = $this->getAllLlibres();
@@ -151,6 +160,16 @@ class LlibreControllerApi{
      */
     private function getMesPuntuats(){
         $result = $this->llibreGateway->getMesValorats();
+        $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
+        $resposta['body'] = json_encode($result);
+        return $resposta;
+    }
+
+    /**
+     * Dona la respota per retornar llibres per titol
+     */
+    private function getPerTitol(){
+        $result = $this->llibreGateway->buscarPerTitol();
         $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
         $resposta['body'] = json_encode($result);
         return $resposta;

@@ -602,6 +602,14 @@ centra el text e la bio*/
     border-radius: 50%;
 }
 
+/*Imatge fixta llibre*/
+.imatge-llibre img{
+    width: 400px;
+    height: auto;
+    margin: 20px;
+	padding-top: 20px;
+}
+
 /*  .PAGINA 404.  */
 #img_404 img{
     display: block;
@@ -670,3 +678,58 @@ a partir de desktops de 13"
     }
 }
 
+/*BUSCADOR */
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+  }
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+ 
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+
+  .autocomplete-items img{
+    width: 30%;
+    height: auto;
+    
+  }
+
+  .autocomplete-items a {
+      display: inline-block;
+      width: 65%;
+  }
+
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: #c37ea7 !important;
+    color: #ffffff;
+  }
