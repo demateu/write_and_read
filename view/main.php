@@ -15,7 +15,7 @@ if(!isset($_SESSION)) {
     <h2 class="text-center mt-5 font_subtitle">Fes click a la categoria que busques</h2>
     <!-- Menu categorias -->
     <!-- canviar class active a cada li s'ha de fer amb jquery -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light mt-5 row mx-auto" id="menu_categories">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 row mx-auto" id="menu_categories">
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -120,6 +120,14 @@ a:hover{
     border-color: #925279;
 }
 
+#desplegable_categoria,
+#desplegable_compte{
+    background-color: #c37ea7;
+}
+
+.dropdown-menu a:hover{
+    background-color: #c37ea7;
+}
 
 
 /*******************CAROUSEL BANNER ***********************/
@@ -609,6 +617,10 @@ DISPOSITIUS MENORS A 574PX
 mobiles fins a landscape mobiles
 */
 @media (max-width: 575.98px) {
+    .container-fluid{
+        min-width: 350px;
+    }
+
     body{
         background-color: red;
     }
@@ -621,6 +633,10 @@ mobiles fins a landscape mobiles
     #usuari-section{
         min-width: 350px;
     }
+
+    #banner{
+        display: none;
+    }
 }
 /*
 DISPOSITIUS A PARTIR DE 574PX
@@ -630,8 +646,20 @@ Tablets
     body{
         background-color: yellow;
     }
-}
 
+    #banner{
+        display: none;
+    }
+
+}
+/*DISPOSITIUS A PARTIR DE 768PX
+Tablets landscape
+*/
+@media (min-width: 768px) {
+    #banner{
+        display: block;
+    }
+}
 /*
 DISPOSITIUS A PARTIR DE 992PX
 a partir de desktops de 13"
