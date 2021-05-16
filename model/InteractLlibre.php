@@ -293,9 +293,15 @@ class InteractLlibre{
      */
     public function comenta(){
         //preparo la query -> un insert
-        $sql = "INSERT INTO interactllibre VALUES('{$this->getId_lector()}', '{$this->getId_llibre()}', NULL, 0, NULL, '{$this->getCritica()}', NULL)";
-        $save = $this->db->query($sql);
-
+		$sql="SELECT * from interactllibre where id_lector='{$this->getId_lector()}' and id_llibre='{$this->getId_llibre()}'";
+			$resultat=$this->db->query($sql);
+			if(mysqli_num_rows($resultat) > 0){
+				$sql = "UPDATE interactllibre SET critica='{$this->getCritica()}' where id_lector='{$this->getId_lector()}' and id_llibre='{$this->getId_llibre()}'";
+				$save = $this->db->query($sql);
+			}else{
+				$sql = "INSERT INTO interactllibre VALUES('{$this->getId_lector()}', '{$this->getId_llibre()}', NULL, 0, NULL, '{$this->getCritica()}', NULL)";
+				$save = $this->db->query($sql);
+			}
         $result = false;
         if($save){
             $result = true;
@@ -303,12 +309,21 @@ class InteractLlibre{
         return $result;
     }
 
+/**
+     * 
+     * Busca llibre amb un id concret
+     */
+    public function buscarComentariPerId(){
+        $interactLlibres = $this->db->query("SELECT inter.id_lector, inter.critica, usur.nickname, usur.avatar_id FROM interactllibre inter INNER JOIN usuari usur on usur.id=inter.id_lector WHERE inter.id_llibre='{$this->getId()}'");
+        return $interactLlibres;
+    }
+
     /**
      * test
      */
-    public function getAll(){
-        $llibres = $this->db->query("SELECT * FROM interactllibre");
-        return $llibres;
+    public function getAllComentaris(){
+        $interactLlibres = $this->db->query("SELECT * FROM interactllibre");
+        return $interactLlibres;
     }
 
 

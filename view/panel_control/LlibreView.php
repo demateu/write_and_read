@@ -78,15 +78,27 @@ if(!isset($_SESSION)) {
 				<!--COMENTARIS-->
 				<h4>Comentaris</h4>
 				
-				<form class="row g-3" action="http://localhost:8888/write_and_read/interactllibre/comenta" name="vform" method="post">
-					<input id="id_llibre" type="hidden" name="id_llibre" value="<?= $llibre->id ?>">
-					<textarea maxlength="250" type="text" class="form-control" name="critica" id="critica" placeholder="Si has llegit el llibre escriu que t'ha semblat" required></textarea>
-					<button type="submit" class="btn boto_llegeix">Enviar comentari</button>
-				</form>
+				<!--llistat de comentaris-->
+                <?php require_once 'view/elements/comentarisLlistat.php'; ?>
+                <!--Fi llistat de comentaris-->
+				<div style="margin:30px">
+				<?php if (isset($_SESSION['usuari'])) : ?>
+                        <!--Si l'usuari està loguejat, veu aquesta part-->
+					<form class="row g-3" action="http://localhost:8888/write_and_read/interactllibre/comenta" name="vform" method="post">
+						<input id="id_llibre" type="hidden" name="id_llibre" value="<?= $llibre->id ?>">
+						<textarea maxlength="250" type="text" class="form-control" name="critica" id="critica" placeholder="Si has llegit el llibre escriu que t'ha semblat" required></textarea>
+						<button type="submit" class="btn boto_llegeix">Enviar comentari</button>
+					</form>
+                <?php else : ?>
+					<span>Per comentar fes 
+                        <a href="<?= base_url ?>usuari/login">login </a>
+                    o 
+                        <a href="<?= base_url ?>usuari/registre"> registra't</a>
+					.</span>	
+                <?php endif; ?>
+				</div>
 				<!--FI de COMENTARIS-->
-				
-				
-				
+		
 			</div>
 		</div>
 	</div>
