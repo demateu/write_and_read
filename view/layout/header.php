@@ -99,6 +99,7 @@ if (!isset($_SESSION)) {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="<?= base_url ?>index.php">INICI</a>
@@ -149,6 +150,7 @@ if (!isset($_SESSION)) {
                         </button>
                     </div>
                      -->
+                  <!--
                     <form autocomplete="off" action="#">
                         <div class="autocomplete ">
                             <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
@@ -156,10 +158,10 @@ if (!isset($_SESSION)) {
                             <i class="fas fa-search"></i>
                         </button>
                         </div>
-
                     </form>
-<!--
-                    <form autocomplete="off" action="<?= base_url ?>llibre/buscador" method="POST">
+                   -->
+                  
+                             <form autocomplete="off" action="<?= base_url ?>llibre/buscador" method="POST">
                                 <div class="input-group">
                                     <div class="autocomplete form-outline">
                                         <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
@@ -168,9 +170,10 @@ if (!isset($_SESSION)) {
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
-                            </form>-->
-
+                            </form>
+               
                 </div>
+
             </nav>
             <!-- FI MENU NAV -->
 
