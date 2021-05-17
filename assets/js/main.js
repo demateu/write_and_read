@@ -103,10 +103,12 @@ $(document).ready(function () {
             //Fer la fitxa
             var fitxa = (`
                 <!-- Fitxa de llibre -->
-                <div class="col-sm-6 col-lg-3" id="fitxa_llibres">
-                    <div class="card">
+                <div class="col-sm-12 col-md-6 col-lg-3 my-2 card_categories" id="fitxa_llibres">
+                    
                         <a href="${baseURL}llibre/fitxa&id=${id_llibre}" class="cover_book">
-                            <img src="${imgUrl + portada_url + '.jpeg'}" alt="${altFitxa}" class="card-img-top" />
+                            <div class="contenedor_img_fitxa">
+                                <img src="${imgUrl + portada_url + '.jpeg'}" alt="${altFitxa}" class="card-img-top" />
+                            </div>
                         </a>
                         <div class="card-body">
             `);
@@ -123,7 +125,7 @@ $(document).ready(function () {
                                 <i class="far fa-heart"></i>
                             </button>
                         </div>
-                    </div>
+                    
                 </div>
                 <!-- fi fitxa -->
             `);
@@ -165,14 +167,14 @@ $(document).ready(function () {
         if (active !== undefined) {
             carouselItem = (`
                 <div class="carousel-item active" >
-                    <div class="row">
+                    <div class="row my-5">
                     </div>                
                 </div>
             `);
         } else {
             carouselItem = (`
                 <div class="carousel-item" >
-                    <div class="row">
+                    <div class="row my-5">
                     </div>                
                 </div>
             `);
