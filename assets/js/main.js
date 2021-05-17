@@ -60,7 +60,6 @@ $(document).ready(function () {
                     for(i=0; i<resp.length; i++){
                         titols[i] = [resp[i].titol, resp[i].id, resp[i].portada_url];
                     }
-                    console.log(titols);
                 }
             }); 
         }else {
@@ -225,102 +224,123 @@ $(document).ready(function () {
 
     /**
      * BUSCADOR 
+     * 
+     * @param objecte inp : L'element input del search bar
+     * @param array arr : L'array de les dades dels llibres (titol, id, imgUrl)
     */
     function autocomplete(inp, arr) {
-        /*the autocomplete function takes two arguments,
-        the text field element and an array of possible autocompleted values:*/
+        
         var currentFocus;
-        /*execute a function when someone writes in the text field:*/
-        inp.addEventListener("input", function (e) {
+
+        //Executa aquesta funcion quan s'escriu al search bar:
+        inp.on("input", function (e) {
             var a, b, i, val = this.value;
-            /*close any already open lists of autocompleted values*/
+            /*Si havia llistes de busquedas anteriors les tanca*/
             closeAllLists();
             if (!val) { return false; }
             currentFocus = -1;
-            /*create a DIV element that will contain the items (values):*/
+
+            //Crea un div que tindra tots l'elements (values):
             a = document.createElement("DIV");
             a.setAttribute("id", this.id + "autocomplete-list");
             a.setAttribute("class", "autocomplete-items");
-            /*append the DIV element as a child of the autocomplete container:*/
-            this.parentNode.appendChild(a);
-            /*for each item in the array...*/
-            for (i = 0; i < arr.length; i++) {
-                /*check if the item starts with the same letters as the text field value:*/
-                if (arr[i][0].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                    /*create a DIV element for each matching element:*/
-                    div = document.createElement("div");
-                    b = document.createElement("a");
-                    img = document.createElement("img");
 
-                    var urlImg = `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
-                    img.src= urlImg;
-                    /**Afegir enllaç */
+            //Afegeix el DIV element com fill del contenidor
+            this.parentNode.append(a);
+
+            //for per cada element dels llibres
+            for (i = 0; i < arr.length; i++) {
+                //Revisa si l'element comença amb les mateixes lletres que el valor del input
+                if (arr[i][0].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            
+                    //Crea un element d'enllaç per cada element que coincideix
+                    b = document.createElement("a");
+                    div = document.createElement("div");
+                    p = document.createElement("p");
+
+                    //Crea l'element imatge 
+                    img = document.createElement("img");
+                    img.src= `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
+                    
+
+                    //Afegir enllaç
                     var url = `${baseURL}llibre/fitxa&id=${arr[i][1]}`;
                     b.href = url;
-                    /*make the matching letters bold:*/
-                    b.innerHTML = "<strong>" + arr[i][0].substr(0, val.length) + "</strong>";
-                    b.innerHTML += arr[i][0].substr(val.length);
-                    /*insert a input field that will hold the current array item's value:*/
-                    b.innerHTML += "<input type='hidden' value='" + arr[i][0] + "'>";
-                    /*execute a function when someone clicks on the item value (DIV element):*/
-                    //b.addEventListener("click", function (e) {
-                        /*insert the value for the autocomplete text field:*/
-                       // inp.value = this.getElementsByTagName("input")[0].value;
-                        /*close the list of autocompleted values,
-                        (or any other open lists of autocompleted values:*/
-                        //closeAllLists();
-                    //});
-                    
-                    div.appendChild(b);
-                    div.appendChild(img);
-                    a.appendChild(div);
+
+                    //Les lletres que coincideixen amb el valor del input es posen en strong
+                    p.innerHTML = "<strong>" + arr[i][0].substr(0, val.length) + "</strong>";
+                    p.innerHTML += arr[i][0].substr(val.length);
+
+                    //Afegir els elements al html 
+                    div.append(p); //Dins al div va lo que escriu l'usuari
+                    div.append(img)//Dins al div va l'imatge
+                    b.append(div);// dins l'etiqueta a va al div 
+                    a.append(b);//Dins al div de la llista va l'enllaç
                 }
             }
         });
-        /*execute a function presses a key on the keyboard:*/
-        inp.addEventListener("keydown", function (e) {
-            var x = document.getElementById(this.id + "autocomplete-list");
-            if (x) x = x.getElementsByTagName("div");
+
+        //Executa aquesta funcion quan es premi un dels botons de direccio del teclat
+        inp.on("keydown", function (e) {
+            var x = $('#' + this.id + "autocomplete-list")[0];
+            if (x) x = x.getElementsByTagName("a");
             if (e.keyCode == 40) {
-                /*If the arrow DOWN key is pressed,
-                increase the currentFocus variable:*/
+                /*Si es prem la tecla DOWN,
+                increment la variable currentFocus que es on estem:*/
                 currentFocus++;
-                /*and and make the current item more visible:*/
+                //i posa l'element actual com active:
                 addActive(x);
             } else if (e.keyCode == 38) { //up
-                /*If the arrow UP key is pressed,
-                decrease the currentFocus variable:*/
+                /*Si es prem la tecla UP,
+                baixa la variable currentFocus :*/
                 currentFocus--;
-                /*and and make the current item more visible:*/
+                /*i fa l'element actual com active:*/
                 addActive(x);
             } else if (e.keyCode == 13) {
-                /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                /*Si es pre ENTER prevé que faci submit al form,*/
                 e.preventDefault();
                 if (currentFocus > -1) {
-                    /*and simulate a click on the "active" item:*/
+                    /*i simula un click al element actiu:*/
                     if (x) x[currentFocus].click();
                 }
             }
         });
+
+        /**
+         * Fa que un element tingui la classe active
+         * 
+         * @param {*} x : Element que deixara de tenir la classe active
+         * 
+         */
         function addActive(x) {
-            /*a function to classify an item as "active":*/
+            
             if (!x) return false;
-            /*start by removing the "active" class on all items:*/
+            //Treu la classe active de tots els que la tinguin
             removeActive(x);
             if (currentFocus >= x.length) currentFocus = 0;
             if (currentFocus < 0) currentFocus = (x.length - 1);
-            /*add class "autocomplete-active":*/
+
             x[currentFocus].classList.add("autocomplete-active");
         }
+
+        /**
+         * Treu la classe active de l'element passat per parametre
+         * 
+         * @param {*} x : Element que deixara de tenir la classe active
+         */
         function removeActive(x) {
             /*a function to remove the "active" class from all autocomplete items:*/
             for (var i = 0; i < x.length; i++) {
                 x[i].classList.remove("autocomplete-active");
             }
         }
+
+        /**
+         * Tanca totes les llistes del document excepte del passat per parametre
+         * @param {*} elmnt : Element que romandra a la llista
+         */
         function closeAllLists(elmnt) {
-            /*close all autocomplete lists in the document,
-            except the one passed as an argument:*/
+            
             var x = document.getElementsByClassName("autocomplete-items");
             for (var i = 0; i < x.length; i++) {
                 if (elmnt != x[i] && elmnt != inp) {
@@ -328,10 +348,7 @@ $(document).ready(function () {
                 }
             }
         }
-        /*execute a function when someone clicks in the document:*/
-        document.addEventListener("click", function (e) {
-            closeAllLists(e.target);
-        });
+        
     }
 
     //Pagina index: 
@@ -340,7 +357,7 @@ $(document).ready(function () {
     ferAjax(undefined, false, true); //Ajax valorats
     ferAjax(undefined, false, false, true); //Ajax Buscador 
 
-    autocomplete(document.getElementById("cercaTitol"), titols); //Autocomplete buscador
+    autocomplete($("#cercaTitol"), titols); //Autocomplete buscador
 
     //Afegir listeners nav content (contingut principal nav per categorias)
     $('#nav_content li a').on('click', function () {
