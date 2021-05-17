@@ -1,11 +1,11 @@
 
 <!-- Mostrara les fitxes segon la categoria -->
 <div class="container-fluid">
-    <section class="row justify-content-center p-dark" id="usuari-section">
+    <section id="cat-section" class="row justify-content-center p-dark">
         <div class="col-6">
 
             <div class="row justify-content-center">
-                <div class="col" id="nom-complert-avatar">
+                <div class="col">
 
                     <h1 class="text-center pt-2 font_handwriting"><?= $nomCat ?></h1>
 
@@ -13,7 +13,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col text-justify" id="biografia_avatar">
+                <div class="col text-justify">
                     <p class="card-text text-center"><?= $descripcioCat ?></p>
                 </div>
             </div>

@@ -218,8 +218,28 @@ class LlibreController
 
             require_once 'view/elements/FitxesBuscador.php';
         }else{
-            echo "No s'ha trobat aquesta categoria";
+            header('Location:'.base_url.'error/');
         }
         
+    }
+
+    /**
+     * @author Ronny
+     * 
+     * Mostra els llibres que coincideixen amb les paraules del search bar
+     * 
+     */
+    public function buscador(){
+        if (isset ($_POST['cercar'])){
+            $llibres = new Llibre();
+            $llibres = $llibres->getLlibresPerString($_POST['cercar']);
+            if($llibres->num_rows > 0){
+                require_once 'view/elements/FitxesSearchBar.php';
+            }else{
+                header('Location:'.base_url.'error/');
+            }
+
+            
+        }
     }
 }

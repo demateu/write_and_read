@@ -3,7 +3,8 @@
 /**
  * model de Llibre
  */
-class Llibre{
+class Llibre
+{
 
     private $id;
     private $id_escriptor;
@@ -17,7 +18,7 @@ class Llibre{
     private $id_categoria;
     private $mitja_vots;
     private $cops_votat;
-    
+
     private $db;
 
 
@@ -34,7 +35,7 @@ class Llibre{
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         //return $this->id;
@@ -45,7 +46,7 @@ class Llibre{
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -55,7 +56,7 @@ class Llibre{
 
     /**
      * Get the value of id_escriptor
-     */ 
+     */
     public function getId_escriptor()
     {
         return $this->id_escriptor;
@@ -65,7 +66,7 @@ class Llibre{
      * Set the value of id_escriptor
      *
      * @return  self
-     */ 
+     */
     public function setId_escriptor($id_escriptor)
     {
         $this->id_escriptor = $this->db->real_escape_string($id_escriptor);
@@ -75,7 +76,7 @@ class Llibre{
 
     /**
      * Get the value of titol
-     */ 
+     */
     public function getTitol()
     {
         return $this->titol;
@@ -85,7 +86,7 @@ class Llibre{
      * Set the value of titol
      *
      * @return  self
-     */ 
+     */
     public function setTitol($titol)
     {
         $this->titol = $this->db->real_escape_string($titol);
@@ -95,7 +96,7 @@ class Llibre{
 
     /**
      * Get the value of descripcio_curta
-     */ 
+     */
     public function getDescripcio_curta()
     {
         return $this->descripcio_curta;
@@ -105,7 +106,7 @@ class Llibre{
      * Set the value of descripcio_curta
      *
      * @return  self
-     */ 
+     */
     public function setDescripcio_curta($descripcio_curta)
     {
         $this->descripcio_curta = $this->db->real_escape_string($descripcio_curta);
@@ -115,7 +116,7 @@ class Llibre{
 
     /**
      * Get the value of sinopsis
-     */ 
+     */
     public function getSinopsis()
     {
         return $this->sinopsis;
@@ -125,7 +126,7 @@ class Llibre{
      * Set the value of sinopsis
      *
      * @return  self
-     */ 
+     */
     public function setSinopsis($sinopsis)
     {
         $this->sinopsis = $this->db->real_escape_string($sinopsis);
@@ -135,7 +136,7 @@ class Llibre{
 
     /**
      * Get the value of contingut_url
-     */ 
+     */
     public function getContingut_url()
     {
         return $this->contingut_url;
@@ -145,7 +146,7 @@ class Llibre{
      * Set the value of contingut_url
      *
      * @return  self
-     */ 
+     */
     public function setContingut_url($contingut_url)
     {
         $this->contingut_url = $this->db->real_escape_string($contingut_url);
@@ -155,7 +156,7 @@ class Llibre{
 
     /**
      * Get the value of data_alta
-     */ 
+     */
     public function getData_alta()
     {
         return $this->data_alta;
@@ -165,7 +166,7 @@ class Llibre{
      * Set the value of data_alta
      *
      * @return  self
-     */ 
+     */
     public function setData_alta($data_alta)
     {
         $this->data_alta = $this->db->real_escape_string($data_alta);
@@ -175,7 +176,7 @@ class Llibre{
 
     /**
      * Get the value of cops_llegit
-     */ 
+     */
     public function getCops_llegit()
     {
         return $this->cops_llegit;
@@ -185,7 +186,7 @@ class Llibre{
      * Set the value of cops_llegit
      *
      * @return  self
-     */ 
+     */
     public function setCops_llegit($cops_llegit)
     {
         $this->cops_llegit = $this->db->real_escape_string($cops_llegit);
@@ -195,7 +196,7 @@ class Llibre{
 
     /**
      * Get the value of portada_url
-     */ 
+     */
     public function getPortada_url()
     {
         return $this->portada_url;
@@ -205,7 +206,7 @@ class Llibre{
      * Set the value of portada_url
      *
      * @return  self
-     */ 
+     */
     public function setPortada_url($portada_url)
     {
         $this->portada_url = $this->db->real_escape_string($portada_url);
@@ -215,7 +216,7 @@ class Llibre{
 
     /**
      * Get the value of id_categoria
-     */ 
+     */
     public function getId_categoria()
     {
         return $this->id_categoria;
@@ -225,7 +226,7 @@ class Llibre{
      * Set the value of id_categoria
      *
      * @return  self
-     */ 
+     */
     public function setId_categoria($id_categoria)
     {
         $this->id_categoria = $this->db->real_escape_string($id_categoria);
@@ -235,7 +236,7 @@ class Llibre{
 
     /**
      * Get the value of mitja_vots
-     */ 
+     */
     public function getMitja_vots()
     {
         return $this->mitja_vots;
@@ -245,7 +246,7 @@ class Llibre{
      * Set the value of mitja_vots
      *
      * @return  self
-     */ 
+     */
     public function setMitja_vots($mitja_vots)
     {
         $this->mitja_vots = $this->db->real_escape_string($mitja_vots);
@@ -255,7 +256,7 @@ class Llibre{
 
     /**
      * Get the value of cops_votat
-     */ 
+     */
     public function getCops_votat()
     {
         return $this->cops_votat;
@@ -265,14 +266,14 @@ class Llibre{
      * Set the value of Cops_votat
      *
      * @return  self
-     */ 
+     */
     public function setCops_votat($cops_votat)
     {
         $this->cops_votat = $this->db->real_escape_string($cops_votat);
 
         return $this;
     }
-  
+
 
     /**
      ******************************************* METODOS
@@ -289,53 +290,59 @@ class Llibre{
      * 
      * @return true si es fa l'insert amb èxit
      */
-    public function save(){
+    public function save()
+    {
         $sql = "INSERT INTO llibre VALUES (NULL, {$this->getId_escriptor()}, '{$this->getTitol()}', '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', '{$this->getContingut_url()}', CURDATE(), NULL, '{$this->getPortada_url()}', {$this->getId_categoria()}, NULL, NULL)";
         $save = $this->db->query($sql);
 
         $result = false;
-        if($save){
+        if ($save) {
             $result = true;
         }
         return $result;
     }
 
-/**
+    /**
      * buscarà a la BBDD la informacio necessaria per mostrar la fitxa de llibre
      * 
      * @param id de llibre
      * 
      * @return object llibre o false
      */
-    public function buscarPorId($id){
+    public function buscarPorId($id)
+    {
         $result = false;
 
         $sql = "SELECT * FROM llibre WHERE id = '$id' ";
         $llibre = $this->db->query($sql);
 
-        if($llibre && $llibre->num_rows === 1){
+        if ($llibre && $llibre->num_rows === 1) {
             $result = $llibre;
         }
-        
+
         return $result;
     }
-	
-	/**
+
+    /**
      * 
-     * Busca llibre amb un id concret
+     * Busca un llibre pel seu id
+     * 
+     * @return object llibre o false
      */
-    public function buscarLlibrePerId(){
+    public function buscarLlibrePerId()
+    {
         $llibre = $this->db->query("SELECT t1.id, t1.titol, t1.portada_url, t1.mitja_vots, t1.cops_votat, t1.cops_llegit, t2.nom_i_cognoms, t1.data_alta, t3.nom_cat, t1.sinopsis, t1.contingut_url
 		FROM llibre t1 INNER JOIN usuari t2 ON t1.id_escriptor=t2.id INNER JOIN categoria t3 ON t1.id_categoria=t3.id WHERE t1.id={$this->getId()} ");
         return $llibre->fetch_object();
     }
-	
-	
+
+
 
     /**
      * test
      */
-    public function getAll(){
+    public function getAll()
+    {
         $llibres = $this->db->query("SELECT * FROM llibre");
         return $llibres;
     }
@@ -347,20 +354,23 @@ class Llibre{
      * 
      * @return Object $llibresCat Llibres de una categoria especifica.
      */
-    public function getLlibresPerCategoria(){
+    public function getLlibresPerCategoria()
+    {
         $llibresCat = $this->db->query("SELECT l.id, l.titol, l.portada_url, l.sinopsis, l.mitja_vots, l.contingut_url, c.nom_cat, c.descripcio_cat FROM llibre l JOIN categoria c ON l.id_categoria=c.id WHERE l.id_categoria={$this->getId_categoria()}");
-        
+
         return $llibresCat;
     }
 
-    
-
-
-
-
-
-
-
+    /**
+     * Filtra els llibre que coincideixen amb la cadena ingresada pel usuari.
+     */
+    public function getLlibresPerString($string)
+    {
+        $llibreString = "SELECT * FROM llibre WHERE titol LIKE CONCAT('%', '$string', '%')";     
+        $llibreString = $this->db->query($llibreString);
+        
+        return $llibreString;
+    }
 }
 
 /*
