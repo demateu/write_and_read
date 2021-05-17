@@ -9,27 +9,29 @@ if(!isset($_SESSION)) {
 }
 ?>
 
+
 <div id="main_title" class="container-fluid">
 
     <h3 class="text-center mt-5 font_title">Llibres per categoria</h3>
     <h2 class="text-center mt-5 font_subtitle">Fes click a la categoria que busques</h2>
-    <!-- Menu categorias -->
-    <!-- canviar class active a cada li s'ha de fer amb jquery -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 row mx-auto" id="menu_categories">
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Menu categorias
+        canviar class active a cada li s'ha de fer amb jquery -->
+    <nav class="navbar navbar-expand-lg navbar-light mt-5 row mx-auto" id="menu_categories">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
             <ul id="nav_content" class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#nav_content">Totes</a><!--repassar-->
+                    <a class="nav-link active" aria-current="page" href="#nav_content">Totes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#nav_content" data-idCat="1">Acció</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#nav_content" data-idCat="2">Romanç</a><!--no tengo claro si va asi roman&ccedil;-->
+                    <a class="nav-link" href="#nav_content" data-idCat="2">Roman&ccedil;</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#nav_content" data-idCat="3">Fantasia</a>
@@ -76,14 +78,14 @@ if(!isset($_SESSION)) {
 
 
     <!--Title llibres Top Valorats -->
-    <section class="row justify-content-center mx-auto" id="top_principal_section">
+    <section class="row justify-content-center mx-auto" id="top_valorats_section">
         <div class="col-12">
             <h3 class="text-center mt-5 font_title">Top valorats</h3>
             <h2 class="text-center mt-5 font_subtitle">Llegeix el que més agrada a tothom</h2>
         </div>
     </section>
     <!--Grid 4x1 Carousel | llibres Top Valorats -->
-    <section class="row justify-content-center mx-auto mt-5" id="top_valorats_section">
+    <section class="row justify-content-center mx-auto mt-5">
         <div id="llib_votos" class="col-12 carousel carousel-dark slide" data-ride="carousel">
             <!--<div class="carousel-indicators"></div>-->
             <div id="fitxes_valorats" class="carousel-inner">
@@ -102,32 +104,29 @@ if(!isset($_SESSION)) {
     </section>
     <!--Fi Grid 4x1 Carousel llibres per votos-->
 
-    <!--Grid 4x1 Carousel llibres per novetat -->
+    
+    <!--Title El més nou -->
     <section class="row justify-content-center mx-auto" id="novetat_section">
         <div class="col-12">
-
             <h3 class="text-center mt-5 font_title">Novetats</h3>
             <h2 class="text-center mt-5 font_subtitle">Llegeix el més nou</h2>
-
-            <div class="row mt-5">
-                <div class="col-12">
-
-                    <div id="llib_nous" class="carousel carousel-dark slide" data-ride="carousel">
-                        <!--<div class="carousel-indicators"></div>-->
-                        <div id="fitxes_nous" class="carousel-inner"></div>
-                        <a class="carousel-control-prev" href="#llib_nous" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#llib_nous" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
+        </div>
+    </section>
+    <!--Grid 4x1 Carousel llibres per novetat -->
+    <section class="row justify-content-center mx-auto mt-5">
+        <div id="llib_nous" class="col-12 carousel carousel-dark slide" data-ride="carousel">
+            <!--<div class="carousel-indicators"></div>-->
+            <div id="fitxes_nous" class="carousel-inner"></div>
+                <a class="carousel-control-prev" href="#llib_nous" role="button" data-bs-slide="prev">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                    <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#llib_nous" role="button" data-bs-slide="next">
+                    <i class="fas fa-arrow-alt-circle-right"></i>
+                    <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                    <span class="sr-only">Next</span>
+                </a>
         </div>
     </section>
     <!--Fi Grid 4x1 Carousel llibres per novetat -->    

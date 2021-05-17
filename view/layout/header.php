@@ -55,7 +55,6 @@ if (!isset($_SESSION)) {
 
         <!-- Capçalera de la web -->
         <header id="capçalera">
-
             <div class="row primary" id="first_line">
                 <!--Logo i buscador de la web -->
                 <div class="col-sm-12 col-md-9 p-2" id="logo_search">
@@ -93,12 +92,11 @@ if (!isset($_SESSION)) {
 
             <!--MENU NAV-->
             <nav class="navbar navbar-expand-lg navbar-light" id="menu-nav">
-                <div class="container-fluid">
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -106,74 +104,73 @@ if (!isset($_SESSION)) {
                         </li>
 
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Com funciona</a>
+                            <a class="nav-link" href="#">Com funciona</a>
                         </li>
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_categoria">
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a></li>
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
-                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
-                        </ul>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_categoria">
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             El meu compte
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_compte">
-                            <!--posar un if de si es lector o escriptor-->
-                            <li><a class="dropdown-item" href="#">El meu panell</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Desloga'm</a></li>
-                        </ul>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_compte">
+                                <!--posar un if de si es lector o escriptor-->
+                                <li><a class="dropdown-item" href="#">El meu panell</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Desloga'm</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Contacta'ns</a>
+                            <a class="nav-link" href="#">Contacta'ns</a>
                         </li>
                     </ul>
             
-                <!--Buscador-->
-                <div class="col-3">
-                    <!-- 
-                    <div class="input-group">
-                        <div class="form-outline">
-                            <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
+                    <!--Buscador-->
+                
+                        <!-- 
+                        <div class="input-group">
+                            <div class="form-outline">
+                                <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
+                            </div>
+                            <button type="button" class="btn" id="btn_search">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
-                        <button type="button" class="btn" id="btn_search">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                     -->
-                  <!--
-                    <form autocomplete="off" action="#">
-                        <div class="autocomplete ">
-                            <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
+                        -->
+
+                    <!--
+                        <form autocomplete="off" action="#">
+                            <div class="autocomplete ">
+                                <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
+                                <button type="submit" class="btn" id="btn_search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </div>
+                        </form>
+                    -->
+                    <form autocomplete="off" action="<?= base_url ?>llibre/buscador" method="POST">
+                        <div class="input-group">
+                            <div class="autocomplete form-outline">
+                                <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
+                            </div>
                             <button type="submit" class="btn" id="btn_search">
-                            <i class="fas fa-search"></i>
-                        </button>
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
                     </form>
-                   -->
-                  
-                             <form autocomplete="off" action="<?= base_url ?>llibre/buscador" method="POST">
-                                <div class="input-group">
-                                    <div class="autocomplete form-outline">
-                                        <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
-                                    </div>
-                                    <button type="submit" class="btn" id="btn_search">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </form>
-               
+                    <!--Fi Buscador-->
                 </div>
-
             </nav>
             <!-- FI MENU NAV -->
 

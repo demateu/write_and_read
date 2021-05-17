@@ -6,9 +6,9 @@ if(!isset($_SESSION)) {
 
 <!--Peu de la pagina -->
 <footer class="text-center text-lg-start p-0">
-    <div class="row mx-auto p-5">
+    <div class="row mx-auto p-5 justify-content-md-around">
         <!-- Grid colummn -->
-        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+        <div class="col-md-12 col-lg-4 mb-4 mb-md-0">
             <!-- Logo -->
             <a href="index.php">
                 <img src="<?=base_url?>assets/img/identity/wr_logo_250px.png" alt="logo" width="250" height="auto"/>
@@ -20,7 +20,7 @@ if(!isset($_SESSION)) {
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+        <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
             <h5>Informació</h5>
 
             <ul class="list-unstyled mb-0">
@@ -38,7 +38,7 @@ if(!isset($_SESSION)) {
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+        <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
             <h5>Compte</h5>
 
             <ul class="list-unstyled">
@@ -53,7 +53,7 @@ if(!isset($_SESSION)) {
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+        <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
             <h5>Segueix-nos</h5>
             <div id="social">
                 <i class="fab fa-facebook-square"></i>

@@ -133,6 +133,14 @@ a:hover{
     background-color: #c37ea7;
 }
 
+#navbarSupportedContent a{
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 
 /*******************CAROUSEL BANNER ***********************/
 
@@ -157,36 +165,38 @@ a:hover{
 }
   
 /*base de la fletxa esquerra*/
-#top_principal_section .carousel-control-prev {
+.carousel-control-prev {
     margin-left: 0%;
     position: absolute;
     max-width: 30px;
 }
 
 /*base de la fletxa dreta*/ 
-#top_principal_section .carousel-control-next {
+.carousel-control-next {
     margin-right: 0%;
     max-width: 30px;
     position: absolute;
 }
 
 /*fletxa esquerra*/
-#top_principal_section .carousel-control-prev-icon{
+.carousel-control-prev-icon{
     position: absolute;
     top: 50%;
     left: 5%;
 }
 
-#top_principal_section .carousel-control-next-icon{
+/*fletxa dreta*/
+.carousel-control-next-icon{
     position: absolute;
     top: 50%;
     left: -70%;
 }
 
-#top_principal_section .fa-arrow-alt-circle-left,
-#top_principal_section .fa-arrow-alt-circle-right{
+/*icones dreta + esquerra*/
+.fa-arrow-alt-circle-left,
+.fa-arrow-alt-circle-right{
     font-size: 30px;
-    color: black !important;
+    color: green !important;
     z-index: 3;
     opacity: 100% !important;
 }
@@ -302,7 +312,7 @@ a:hover{
 
 
 .contenedor_img_fitxa{
-    height: 380px;
+    height: 450px;
     position: relative;
     text-align: center;
     color: white;
@@ -342,17 +352,19 @@ footer a{
 #copyright{
     background-color:#62244c;
 }
-
+/*
 #social i{
     font-size: 120%;
     cursor: pointer;
     width: 11%;
 }
-
+*/
+/*
 #social i:hover{
     transition: all 400ms;
     transform: scale(120%);
 }
+*/
 
 .container-fluid{
     padding: 0px;
@@ -611,6 +623,8 @@ centra el text e la bio*/
     display: inline-block;
 }
 
+
+
 /*      Pagina login     */
 
 #login_body{
@@ -664,13 +678,43 @@ centra el text e la bio*/
 /*  .PAGINA 404.  */
 #img_404 img{
     display: block;
-
     margin: 15vh auto;
 }
 
 
-/* ''''''''''' MEDIAQUERIES ''''''''''''' */
+/*********************            Footer         *************************/
+footer img{
+    width: 65%;
+    padding: 5px;
+}
 
+footer h5{
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+#social .fab{
+    font-size: 30px;
+    padding: 2px;
+}
+
+
+/* ''''''''''' MEDIAQUERIES ''''''''''''' */
+.navbar-toggler{
+    width: 100%;
+}
+
+#menu_categories{
+    padding: 10px 20px!important;
+}
+
+#navbarSupportedContent li{
+    margin-left: auto;
+    margin-right: auto;
+}
 /*
 DISPOSITIUS MENORS A 574PX
 mobiles fins a landscape mobiles
@@ -679,11 +723,11 @@ mobiles fins a landscape mobiles
     .container-fluid{
         min-width: 350px;
     }
-
+/*
     body{
         background-color: red;
     }
-
+*/
     #logo_search img{
         display: block;
         margin: 15px auto !important;
@@ -709,16 +753,38 @@ mobiles fins a landscape mobiles
     #fitxa_llibres .fa-heart{
         font-size: 40px;
     }
+
+    #navbarSupportedContent form{
+        display: none;
+    }
+
+    #nav_content li{
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+    }
+
+    footer img, footer p{
+        display: none;
+    }
+
+    #social .fab{
+        font-size: 40px;
+        padding: 5px;
+    }
+
 }
+
+
 
 /*
 DISPOSITIUS A PARTIR DE 574PX
 Tablets
 */
 @media (min-width: 575.98px) {
-    body{
+    /*body{
         background-color: yellow;
-    }
+    }*/
 
     #banner{
         display: none;
@@ -750,6 +816,25 @@ Tablets
         font-size: 40px;
     }
 
+    #navbarSupportedContent form{
+        display: none;
+    }
+
+    #nav_content li{
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+    }
+
+    footer img, footer p{
+        display: none;
+    }
+
+    #social .fab{
+        font-size: 40px;
+        padding: 5px;
+    }
+
 }
 
 /*   aqui canvi de text altra cop   */
@@ -758,12 +843,16 @@ Tablets
 Tablets landscape
 */
 @media (min-width: 768px) {
+    /*body{
+        background-color: grey;
+    }*/
+
     #banner{
         display: block;
     }
 
     .contenedor_img_fitxa{
-        height: 300px;
+        height: 370px;
     }
 
     #fitxa_llibres h4{
@@ -777,12 +866,21 @@ Tablets landscape
     #fitxa_llibres .lookIcon{
         width: 40px;
         height: auto;
-
     }
 
     #fitxa_llibres .fa-heart{
         font-size: 30px;
     }
+
+    #navbarSupportedContent form{
+        display: none;
+    }
+
+
+    footer img, footer p{
+        display: none;
+    }
+
 
 }
 /*
@@ -790,12 +888,12 @@ DISPOSITIUS A PARTIR DE 992PX
 a partir de desktops de 13"
 */
 @media (min-width: 1200px) {
-    body{
+    /*body{
         background-color: cadetblue;
-    }
+    }*/
 
     .contenedor_img_fitxa{
-        height: 300px;
+        height: 440px;
     }
 
     #fitxa_llibres p{
@@ -810,7 +908,19 @@ a partir de desktops de 13"
     #fitxa_llibres .fa-heart{
         font-size: 30px;
     }
+
+    #navbarSupportedContent form{
+        display: inherit;
+    }
     
+    footer img, footer p{
+        display: inherit;
+    }
+
+    #social .fab{
+        font-size: 30px;
+        padding: 2px;
+    }
 }
 
 /*BUSCADOR */
