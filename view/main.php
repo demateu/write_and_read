@@ -15,7 +15,7 @@ if(!isset($_SESSION)) {
     <h2 class="text-center mt-5 font_subtitle">Fes click a la categoria que busques</h2>
     <!-- Menu categorias -->
     <!-- canviar class active a cada li s'ha de fer amb jquery -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light mt-5 row mx-auto" id="menu_categories">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 row mx-auto" id="menu_categories">
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,52 +55,49 @@ if(!isset($_SESSION)) {
 <main class="container">
 
     <!--Contingut principal | Tots els llibres per categories -->
+    <!--Grid 4x2 Carousel llibres per categoria -->
     <section class="row justify-content-center mx-auto mt-5" id="top_principal_section">
-        <div class="col-12">
-
-            <!--Grid 4x2 Carousel llibres per categoria -->
-            <div id="llib_cat" class="carousel carousel-dark slide" data-ride="carousel">
-                <div id="fitxes_main" class="carousel-inner"></div>
-                <a class="carousel-control-prev" href="#llib_cat" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#llib_cat" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+            <div id="llib_cat" class="col-12 carousel carousel-dark slide" data-ride="carousel">
+                <div id="fitxes_main" class="carousel-inner">
+                    <a class="carousel-control-prev" href="#llib_cat" role="button" data-bs-slide="prev">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                        <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#llib_cat" role="button" data-bs-slide="next">
+                    <i class="fas fa-arrow-alt-circle-right"></i>
+                        <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-
-        </div>
     </section>
     <!--Fi Contingut principal | Tots els llibres per categories-->
 
 
-    <!--Grid 4x1 Carousel llibres per votos -->
-    <section class="row justify-content-center mx-auto" id="top_valorats_section">
+    <!--Title llibres Top Valorats -->
+    <section class="row justify-content-center mx-auto" id="top_principal_section">
         <div class="col-12">
-
             <h3 class="text-center mt-5 font_title">Top valorats</h3>
             <h2 class="text-center mt-5 font_subtitle">Llegeix el que més agrada a tothom</h2>
-
-            <div class="row mt-5">
-                <div class="col-12">
-
-                    <div id="llib_votos" class="carousel carousel-dark slide" data-ride="carousel">
-                        <!--<div class="carousel-indicators"></div>-->
-                        <div id="fitxes_valorats" class="carousel-inner"></div>
-                        <a class="carousel-control-prev" href="#llib_votos" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#llib_votos" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
+        </div>
+    </section>
+    <!--Grid 4x1 Carousel | llibres Top Valorats -->
+    <section class="row justify-content-center mx-auto mt-5" id="top_valorats_section">
+        <div id="llib_votos" class="col-12 carousel carousel-dark slide" data-ride="carousel">
+            <!--<div class="carousel-indicators"></div>-->
+            <div id="fitxes_valorats" class="carousel-inner">
+                <a class="carousel-control-prev" href="#llib_votos" role="button" data-bs-slide="prev">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                    <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#llib_votos" role="button" data-bs-slide="next">
+                <i class="fas fa-arrow-alt-circle-right"></i>
+                    <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-
         </div>
     </section>
     <!--Fi Grid 4x1 Carousel llibres per votos-->

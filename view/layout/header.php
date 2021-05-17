@@ -99,66 +99,69 @@ if (!isset($_SESSION)) {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="<?= base_url ?>index.php">INICI</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
-                                <ul class="dropdown-menu" id="menu_drop_categories_home">
-                                    <li>
-                                        <a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=1">Acció</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=2">Romanç</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=3">Fantasia</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=4">Sci-fi</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=5">Drama</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=6">Horror</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=7">Suspens</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">test</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Com funciona</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=1">Acció</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=2">Romanç</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=3">Fantasia</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=4">Sci-fi</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=5">Drama</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=6">Horror</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>llibre/categoria&id=7">Suspens</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    El meu compte
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">El meu panell</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Desloga'm</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contacta'ns</a>
-                            </li>
-                        </ul>
 
-                        <!--Buscador-->
-                        <div class="col-3">
-                            
-                            <form autocomplete="off" action="<?= base_url ?>llibre/buscador" method="POST">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="<?= base_url ?>index.php">INICI</a>
+                        </li>
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Com funciona</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_categoria">
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=1">Acció</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=2">Romanç</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=3">Fantasia</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=4">Sci-fi</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=5">Drama</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=6">Horror</a></li>
+                            <li><a class="dropdown-item" href="<?=base_url?>llibre/categoria&id=7">Suspens</a></li>
+                        </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            El meu compte
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_compte">
+                            <!--posar un if de si es lector o escriptor-->
+                            <li><a class="dropdown-item" href="#">El meu panell</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Desloga'm</a></li>
+                        </ul>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Contacta'ns</a>
+                        </li>
+                    </ul>
+            
+                <!--Buscador-->
+                <div class="col-3">
+                    <!-- 
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" id="form1" class="form-control" placeholder="Cerca per titol" />
+                        </div>
+                        <button type="button" class="btn" id="btn_search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                     -->
+                  <!--
+                    <form autocomplete="off" action="#">
+                        <div class="autocomplete ">
+                            <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
+                            <button type="submit" class="btn" id="btn_search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        </div>
+                    </form>
+                   -->
+                  
+                             <form autocomplete="off" action="<?= base_url ?>llibre/buscador" method="POST">
                                 <div class="input-group">
                                     <div class="autocomplete form-outline">
                                         <input id="cercaTitol" type="search" name="cercar" placeholder="Cerca per titol">
@@ -168,7 +171,9 @@ if (!isset($_SESSION)) {
                                     </button>
                                 </div>
                             </form>
-                        </div>
+               
+                </div>
+
             </nav>
             <!-- FI MENU NAV -->
 
