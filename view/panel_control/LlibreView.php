@@ -57,7 +57,6 @@ if(!isset($_SESSION)) {
 									echo $star;
 								}
 							}
-
 							if (($llibre->mitja_vots) == NULL) {
 								echo "<p><strong> Puntuació:</strong> encara no puntuat</p>";
 							} else {
@@ -65,7 +64,6 @@ if(!isset($_SESSION)) {
 								echo $llibre->mitja_vots;
 								echo "/5</p>";
 							}	
-							
 							if (($llibre->cops_votat) == NULL) {
 								echo "<p><strong> Cops votat:</strong> 0</p>";
 							} else {
