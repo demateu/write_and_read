@@ -72,7 +72,7 @@ if(!isset($_SESSION)) {
 								echo "</p>";
 							}	
 						?>
-						
+		
 						<p><strong>Cops llegit: </strong><?=$llibre->cops_llegit?></p>
 					</div>
 				</div>
