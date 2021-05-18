@@ -27,9 +27,9 @@ if(!isset($_SESSION)) {
 			</div>	
 		</div>
 		<!--Fi Portada de Llibre-->
-		<div class="col-7 p-3">
+		<div class="col-7 p-3 mt-4" id="dades_autor">
 			<div class="row dades_autor_llibre">
-				<div class="col">
+				<div class="col author_data">
 				<p>Autor: <span><?= $llibre->nom_i_cognoms ?></span></p>
 				<p>Gènere: <span><?= $llibre->nom_cat ?></span></p>
 				<p>Data de Publicació: <span>
@@ -37,47 +37,64 @@ if(!isset($_SESSION)) {
 						echo date_format($date,"d/m/Y"); ?></span></p>
 				</div>
 			</div>
-			<hr>
-			<div class="row dades_autor_llibre">
+			
+			<div class="row dades_autor_llibre mt-3">
 				<div class="col">
-					<p>Sinopsis: <span id="sinopsis"><?= $llibre->sinopsis ?></span></p>
+					<p class="card-header">Sinopsis:</p>
+					<p id="sinopsis"><?= $llibre->sinopsis ?></p>
 				</div>
 			</div>
 
-			<!-- valoracions -->
-			<div class="rows" id="valoracions_llibre">
+			
+			<div class="row" id="valoracions_llibre">
 				<div class="col">
-					<div class="valoracions">
-						<?php $star = "<span class='fa fa-star'></span>";
-							$starChecked = "<span class='fa fa-star checked'></span>";
-							for ($i = 1; $i <= 5; $i++) {
-								if ($i <= ($llibre->mitja_vots)) {
-									echo $starChecked;
-								} else {
-									echo $star;
-								}
+					<!-- Estrelles -->
+					<?php $star = "<span class='fa fa-star'></span>";
+						$starChecked = "<span class='fa fa-star checked'></span>";
+						for ($i = 1; $i <= 5; $i++) {
+							if ($i <= ($llibre->mitja_vots)) {
+								echo $starChecked;
+							} else {
+								echo $star;
 							}
-							if (($llibre->mitja_vots) == NULL) {
-								echo "<p><strong> Puntuació:</strong> encara no puntuat</p>";
-							} else {
-								echo "<p><strong> Puntuació:</strong> ";
-								echo $llibre->mitja_vots;
-								echo "/5</p>";
-							}	
-							if (($llibre->cops_votat) == NULL) {
-								echo "<p><strong> Cops votat:</strong> 0</p>";
-							} else {
-								echo "<p><strong> Cops votat:</strong> ";
-								echo $llibre->cops_votat;
-								echo "</p>";
-							}	
-						?>
-		
-						<p><strong>Cops llegit: </strong><?=$llibre->cops_llegit?></p>
-					</div>
+						}
+					?>
+					<!-- Fi Estrelles -->
+					<!--punts-->
+					<?php
+					if (($llibre->mitja_vots) == NULL) {
+						echo "<p>Punts: 0/5</p>";
+					} else {
+						echo "<p>Punts:";
+						echo $llibre->mitja_vots;
+						echo "/5</p>";
+					}
+					?>
+					<!--Fi punts-->
 				</div>
 			</div>
-			<!--FI valoracions -->	
+
+			<div class="row">
+				<div class="col-2">
+					<!--Lectures-->
+					<p><i class="far fa-eye"></i>  Lectures: <?=$llibre->cops_llegit?></p>
+					<!--Fi Lectures-->
+				</div>
+				<div class="col-2">
+					<!--Vots-->
+					<?php	
+					if (($llibre->cops_votat) == NULL) {
+						echo "<p> <i class='far fa-star'></i>  Vots:0</p>";
+					} else {
+						echo "<p><i class='far fa-star'></i>  Vots:";
+						echo $llibre->cops_votat;
+						echo "</p>";
+					}	
+					?>
+					<!--Fi Vots-->
+				</div>
+			</div>
+			
 
 			<!-- view boto llegir -->
 			<div class="row">
@@ -88,26 +105,31 @@ if(!isset($_SESSION)) {
 			<!-- Fi view boto llegir -->
 
 		</div>
+		
 	</div>
-	<div class="row justify-content-md-center mt-5">
+
+
+	<div class="row justify-content-md-center mt-5" id="comentaris_area">
 		<!--POSAR EL TITOL BACKGROUND LILA !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-		<div class="col-10">
+		<div class="col-11">
+		<hr>
 			<!--COMENTARIS-->
-			<h4>Comentaris</h4>
+			<h4 class="card-header">Comentaris</h4>
 			<!--llistat de comentaris-->
 			<?php require_once 'view/elements/comentarisLlistat.php'; ?>
 			<!--Fi llistat de comentaris-->
-			<div style="margin:30px">
+			<div class="py-4">
 				<?php if (isset($_SESSION['usuari'])) : ?>
-						<!--Si l'usuari està loguejat, veu aquesta part-->
+					<!--Si l'usuari està loguejat, veu aquesta part-->
 					<form class="row g-3" action="http://localhost:8888/write_and_read/interactllibre/comenta" name="vform" method="post">
 						<input id="id_llibre" type="hidden" name="id_llibre" value="<?= $llibre->id ?>">
 						<textarea maxlength="250" type="text" class="form-control" name="critica" id="critica" placeholder="Si has llegit el llibre escriu que t'ha semblat" required></textarea>
 						<button type="submit" class="btn boto_llegeix">Enviar comentari</button>
 					</form>
+				<!--Si l'usuari NO està loguejat, veu aquesta part-->
 				<?php else : ?>
-					<span>Per comentar fes 
-						<a href="<?= base_url ?>usuari/login">login </a>
+					<span>Per deixar un comentari en aquest llibre 
+						<a href="<?= base_url ?>usuari/login">logueja't </a>
 					o 
 						<a href="<?= base_url ?>usuari/registre"> registra't</a>
 					.</span>	

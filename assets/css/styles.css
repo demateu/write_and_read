@@ -374,23 +374,27 @@ footer a{
     object-fit: cover;
 }
 
-.dades_autor_llibre p{
+#sinopsis{
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: darkslategrey;
+    font-size: 16px;
+    font-weight: 400;
+    color: grey;
 }
 
-.dades_autor_llibre span{
-    color: grey;
-    font-weight: 400;
-    font-size: 17px;
-}
 
 .dades_autor_llibre #sinopsis{
     display: block;
     padding: 10px;
 }
+
+#valoracions_llibre .fa-star{
+    font-size: 25px;
+}
+
+.author_data span{
+    color: grey;
+}
+
 
 
 
