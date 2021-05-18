@@ -203,6 +203,7 @@ a:hover{
 
 
 /***************CATEGORIES DESPRÉS L'SLIDE*****************/
+
 #menu_categories{
     padding: 0;
 }
@@ -273,11 +274,6 @@ a:hover{
     height: 425px;
     margin: auto;
     margin-top: 10%;
-}
-
-.card-title{
-    min-height: 50px;
-    font-size: 120%;
 }
 
 .cover_book{
@@ -369,6 +365,33 @@ footer a{
 .container-fluid{
     padding: 0px;
 }
+
+/*************  .Fitxa Llibre Especificacions.  ****************/
+
+
+#info_llibre_area img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.dades_autor_llibre p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: darkslategrey;
+}
+
+.dades_autor_llibre span{
+    color: grey;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.dades_autor_llibre #sinopsis{
+    display: block;
+    padding: 10px;
+}
+
 
 
 /*************  .Fitxa Escriptor Especificacions.  ****************/
@@ -667,13 +690,6 @@ centra el text e la bio*/
     border-radius: 50%;
 }
 
-/*Imatge fixta llibre*/
-.imatge-llibre img{
-    width: 400px;
-    height: auto;
-    margin: 20px;
-	padding-top: 20px;
-}
 
 /*  .PAGINA 404.  */
 #img_404 img{
@@ -773,6 +789,29 @@ mobiles fins a landscape mobiles
         padding: 5px;
     }
 
+    #llistat_categories_section .card-text,
+    #llistat_categories_section .valoracions{
+        text-align: center;
+    }
+
+
+    #llistat_categories_section #cor_favcorits{
+        font-size: 40px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .boto_llegeix{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #llistat_categories_section .fa-star{
+        font-size: 30px;
+    }
+
 }
 
 
@@ -835,6 +874,29 @@ Tablets
         padding: 5px;
     }
 
+    #llistat_categories_section .card-text,
+    #llistat_categories_section .valoracions{
+        text-align: center;
+    }
+
+
+    #llistat_categories_section #cor_favcorits{
+        font-size: 40px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .boto_llegeix{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #llistat_categories_section .fa-star{
+        font-size: 30px;
+    }
+
 }
 
 /*   aqui canvi de text altra cop   */
@@ -881,6 +943,33 @@ Tablets landscape
         display: none;
     }
 
+    #llistat_categories_section .card-text,
+    #llistat_categories_section .valoracions{
+        text-align: initial;
+    }
+
+
+    #llistat_categories_section #cor_favcorits{
+        font-size: 40px;
+        display: inline-block;
+
+    }
+
+    .boto_llegeix{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #llistat_categories_section .fa-star{
+        font-size: 25px;
+    }
+
+    #llistat_categories_section img{
+        min-height: 100%;
+        object-fit: cover;
+    }
+
 
 }
 /*
@@ -921,6 +1010,12 @@ a partir de desktops de 13"
         font-size: 30px;
         padding: 2px;
     }
+
+    .boto_llegeix{
+        display: initial;
+        padding: 10px 30px;
+    }
+
 }
 
 /*BUSCADOR */

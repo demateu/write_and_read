@@ -1,11 +1,11 @@
 <!--View que mostra els llibres des de la BD en format de fitxa -->
 <?php while ($llibre = $llibres->fetch_object()) : ?>
-    <div class="row mt-5">
-        <div class="col-3">
+    <div class="row mt-5" id="llistat_categories_section">
+        <div class="col-md-3 col-sm-12">
             <img src="<?= base_url ?>assets/img/cover_books/<?= $llibre->portada_url ?>.jpeg" alt="Imatge del llibre" width="100%" height="auto">
         </div>
-        <div class="col-9">
-            <h3 class="card-header"><?= $llibre->titol ?></h3>
+        <div class="col-md-9 col-sm-12">
+            <h2 class="card-header"><?= $llibre->titol ?></h2>
             <div class="card-body">
                 <p class="card-text"><?= $llibre->sinopsis ?></p>
 
@@ -31,14 +31,14 @@
                 </div>
                 <!--FI valoracions -->
 
-                <!-- Boto llegir -->
-                <?php require 'view/elements/botoLlegir.php'; ?>
-
                 <!--cor per guardar a favorits-->
-                <button type="button" class="btn">
+                <button type="button" class="btn" id="cor_favcorits">
                     <i class="far fa-heart"></i>
                 </button>
                 <!--Fi cor per guardar a favorits-->
+
+                <!-- Boto llegir -->
+                <?php require 'view/elements/botoLlegir.php'; ?>
 
             </div>
         </div>
