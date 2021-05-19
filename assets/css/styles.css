@@ -816,6 +816,10 @@ mobiles fins a landscape mobiles
         font-size: 30px;
     }
 
+    #login_body{
+        background-image: none;
+    }
+
 }
 
 
@@ -901,6 +905,10 @@ Tablets
         font-size: 30px;
     }
 
+    #login_body{
+        background-image: none;
+    }
+
 }
 
 /*   aqui canvi de text altra cop   */
@@ -972,6 +980,14 @@ Tablets landscape
     #llistat_categories_section img{
         min-height: 100%;
         object-fit: cover;
+    }
+
+    #login_body{
+        background-image: url("../img/pages/6263.jpg");
+        min-height: 600px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
     }
 
 

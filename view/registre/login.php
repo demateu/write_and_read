@@ -17,7 +17,7 @@ if(!isset($_SESSION)) {
 
 <div class="container-fluid" id="login_body">
     <div class="row">
-        <div class="col-5 mx-auto p-5">
+        <div class="col-sm-12 col-md-5 mx-auto p-5">
             <h1>Inicia Sessió</h1>
             <form action="<?=base_url?>usuari/loginUser" method="POST">
                 <div class="mb-3">
