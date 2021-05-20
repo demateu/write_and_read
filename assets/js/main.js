@@ -14,64 +14,53 @@ $(document).ready(function () {
     * 
     * @param int idCat : Nombre de la categoria que s'ha de buscar
     * @param boolean novetats : Indica si s'ha de buscar els llibres mes nous
+    * @param boolean valorats : Indica si s'ha de buscar per novetats
+    * @param boolean busccador : Indica si s'han d'obtenir resultats per search bar
     */
     function ferAjax(idCat, novetats, valorats, buscador) {
+        var url = baseURL + '/api-rest/';
+        var settings = {
+            "url": url,
+            "type": "GET",
+            "data": {},
+            "dataType" : 'json'
+        };
         if (idCat !== undefined) {
             //AJAX per categoria
-            $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
-                type: 'GET',
-                data: { 'categoria': idCat }, //ponia esto: {'categoria': idCat} -> demateu
-                dataType: 'json',
-                success: function (resp) {
-                    ferFitxes(resp, 8, '#llib_cat', '#fitxes_main');
-                }
-            });
+           
+            settings.data = {"categoria" : idCat};
+            settings.success = function(resp) {ferFitxes(resp, 8, '#llib_cat', '#fitxes_main')} ;
+            
         } else if (novetats) {
             //AJAX mes nous
-            $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
-                type: 'GET',
-                data: { 'novetats': true },
-                dataType: 'json',
-                success: function (resp) {
-                    ferFitxes(resp, 4, '#llib_nous', '#fitxes_nous');
-                }
-            });
+            
+            settings.data = {"novetats" : true};
+            settings.success = function(resp) {ferFitxes(resp, 4, '#llib_nous', '#fitxes_nous')} ;
+
+            
         } else if (valorats) {
             //AJAX mes valorats
-            $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
-                type: 'GET',
-                data: { 'valorats': true },
-                dataType: 'json',
-                success: function (resp) {
-                    ferFitxes(resp, 4, '#llib_votos', '#fitxes_valorats');
-                }
-            });
+            settings.data = {"valorats" : true};
+            settings.success = function(resp) {ferFitxes(resp, 4, '#llib_votos', '#fitxes_valorats')} ;
+
         } else if (buscador) {
             //AJAX buscador 
-            $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',  //http://127.0.0.1:8888/write_and_read/api-rest/   //https://cors-anywhere.herokuapp.com/ 
-                type: 'GET',
-                data: { 'buscador': true },
-                dataType: 'json',
-                success: function (resp) {
-                    for(i=0; i<resp.length; i++){
-                        titols[i] = [resp[i].titol, resp[i].id, resp[i].portada_url];
-                    }
+
+            settings.data = {"buscador" : true};
+            settings.success = function(resp) {
+                for (i = 0; i < resp.length; i++) {
+                    titols[i] = [resp[i].titol, resp[i].id, resp[i].portada_url];
                 }
-            }); 
-        }else {
+            } ;
+            
+        } else {
             //AJAX a totes les categories
-            $.ajax({
-                url: 'http://localhost:8888/write_and_read/api-rest/',
-                type: 'GET',
-                dataType: 'json',
-                success: function (resp) {
-                    ferFitxes(resp, 8, '#llib_cat', '#fitxes_main');
-                }
-            });
+            settings.success = function(resp) {ferFitxes(resp, 8, '#llib_cat', '#fitxes_main')} ;
+        }
+
+        //Fa l'ajax amb les parametres indicats pels ifs segon la necessitat
+        if(settings){
+            $.ajax(settings);
         }
 
     }
@@ -229,7 +218,7 @@ $(document).ready(function () {
      * @param array arr : L'array de les dades dels llibres (titol, id, imgUrl)
     */
     function autocomplete(inp, arr) {
-        
+
         var currentFocus;
 
         //Executa aquesta funcion quan s'escriu al search bar:
@@ -252,7 +241,7 @@ $(document).ready(function () {
             for (i = 0; i < arr.length; i++) {
                 //Revisa si l'element comença amb les mateixes lletres que el valor del input
                 if (arr[i][0].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-            
+
                     //Crea un element d'enllaç per cada element que coincideix
                     b = document.createElement("a");
                     div = document.createElement("div");
@@ -260,8 +249,8 @@ $(document).ready(function () {
 
                     //Crea l'element imatge 
                     img = document.createElement("img");
-                    img.src= `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
-                    
+                    img.src = `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
+
 
                     //Afegir enllaç
                     var url = `${baseURL}llibre/fitxa&id=${arr[i][1]}`;
@@ -313,7 +302,7 @@ $(document).ready(function () {
          * 
          */
         function addActive(x) {
-            
+
             if (!x) return false;
             //Treu la classe active de tots els que la tinguin
             removeActive(x);
@@ -340,7 +329,7 @@ $(document).ready(function () {
          * @param {*} elmnt : Element que romandra a la llista
          */
         function closeAllLists(elmnt) {
-            
+
             var x = document.getElementsByClassName("autocomplete-items");
             for (var i = 0; i < x.length; i++) {
                 if (elmnt != x[i] && elmnt != inp) {
@@ -348,7 +337,7 @@ $(document).ready(function () {
                 }
             }
         }
-        
+
     }
 
     //Pagina index: 
