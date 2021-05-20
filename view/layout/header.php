@@ -57,14 +57,14 @@ if (!isset($_SESSION)) {
         <header id="capçalera">
             <div class="row primary" id="first_line">
                 <!--Logo i buscador de la web -->
-                <div class="col-sm-12 col-md-9 p-2" id="logo_search">
+                <div class="col-sm-12 col-md-8 p-2" id="logo_search">
                     <a href="<?= base_url ?>index.php">
                         <img src="<?= base_url ?>assets/img/identity/wr_logo_250px.png" alt="logo" width="190" height="auto" class="ms-2" />
                     </a>
                 </div>
                 <!--Fi Logo-->
                 <!-- User icona-->
-                <div class="col-sm-12 col-md-3 p-2" id="user_area">
+                <div class="col-sm-12 col-md-4 p-2" id="user_area">
                     <?php if (isset($_SESSION['usuari'])) : ?>
                         <!--Si l'usuari està loguejat, veu aquesta part-->
                         <span>Hola
