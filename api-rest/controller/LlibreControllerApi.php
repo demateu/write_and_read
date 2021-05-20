@@ -114,15 +114,29 @@ class LlibreControllerApi{
     }
 
     /**
+     * Crea Resposta json i headers
+     * 
+     * @param string $statusHeader : Codi d'estat de la peticio
+     * @param objecte $body : Resultat de una consulta a la BD
+     */
+    public function crearResposta($statusHeader, $body){
+        $resposta['status_code_header'] = 'HTTP/1.1 ' . $statusHeader;
+        if(isset($body)){
+            $resposta['body'] = json_encode($body);
+        }
+
+        return $resposta;
+    }
+
+    /**
      * Dona la resposta per retornar tots els llibres de la BD
      * 
      * @return json $resposta: Resposta de la peticio en format Json
      */
     private function getAllLlibres(){
         $result = $this->llibreGateway->getAll();
-        $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
-        $resposta['body'] = json_encode($result);
-        return $resposta;
+
+        return $this->crearResposta('200 OK', $result);
     }
 
     /**
@@ -136,9 +150,8 @@ class LlibreControllerApi{
         if(! $result){
             return $this->notFoundResponse();
         }
-        $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = json_encode($result);
-        return $response;
+        
+        return $this->crearResposta('200 OK', $result);
     }
 
     /**
@@ -148,9 +161,8 @@ class LlibreControllerApi{
      */
     private function getMesNous(){
         $result = $this->llibreGateway->getNovetats();
-        $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
-        $resposta['body'] = json_encode($result);
-        return $resposta;
+        
+        return $this->crearResposta('200 OK', $result);
     }
 
     /**
@@ -160,9 +172,8 @@ class LlibreControllerApi{
      */
     private function getMesPuntuats(){
         $result = $this->llibreGateway->getMesValorats();
-        $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
-        $resposta['body'] = json_encode($result);
-        return $resposta;
+        
+        return $this->crearResposta('200 OK', $result);
     }
 
     /**
@@ -170,9 +181,8 @@ class LlibreControllerApi{
      */
     private function getPerTitol(){
         $result = $this->llibreGateway->buscarPerTitol();
-        $resposta['status_code_header'] = 'HTTP/1.1 200 OK';
-        $resposta['body'] = json_encode($result);
-        return $resposta;
+        
+        return $this->crearResposta('200 OK', $result);
     }
 
     /**
@@ -184,19 +194,18 @@ class LlibreControllerApi{
      */
     private function actualitzarLlegit($idLector, $idLlibre){
         $interaccio=$this->llibreGateway->getIdInteraccio($idLector, $idLlibre);
+        
         if($interaccio->llegit == '0'){
             $this->llibreGateway->updateLlegit($idLector, $idLlibre);
             $this->llibreGateway->updateCopsLlegit($idLlibre);
-            $resposta['status_code_header'] = 'HTTP/1.1 204 SUCCESS';
-            return $resposta;
+            return $this->crearResposta('204 SUCCESS', null);
         }elseif ($interaccio == null){
             $this->llibreGateway->crearInteractLllibre($idLector, $idLlibre);
             $this->llibreGateway->updateCopsLlegit($idLlibre);
-            $resposta['status_code_header'] = 'HTTP/1.1 204 CREATED';
-            return $resposta;
+            
+            return $this->crearResposta('200 CREATED', null);
         }elseif ($interaccio->llegit == '1'){
-            $resposta['status_code_header'] = 'HTTP/1.1 204 NO UPDATED';
-            return $resposta;
+            return $this->crearResposta('204 NO UPDATED', null);
         }
     }
 
@@ -210,5 +219,7 @@ class LlibreControllerApi{
         $resposta['body'] = null;
         return $resposta;
     }
+
+    
 
 }
