@@ -19,7 +19,7 @@ if(!isset($_SESSION)) {
         <div class="container-fluid">
             <div class="row" id="hero_perfil">
                 <div class="col-10 mx-auto">
-                    <h1 class="text_title_hero">El meu panell de control d'escriptor</h1>
+                    <h1 class="text_title_hero mx-auto">El meu panell de control d'escriptor</h1>
                 </div>
             </div>    
         </div>
@@ -29,7 +29,7 @@ if(!isset($_SESSION)) {
 
             <div class="row">
                 <!--columna izquierda-->
-                <section class="col-3" id="side_menu">
+                <section class="col-xs-12 col-sm-3" id="side_menu">
                     <div class="row">
                         <div class="col mx-auto">
                             <img src="<?= $_SESSION['usuari']->avatar_url_imagen; ?>" alt="Imatge de l'escriptor" width="100%" height="auto"/>
@@ -110,7 +110,7 @@ if(!isset($_SESSION)) {
                 <!--Fi columna izquierda-->
 
                 <!--Columna dreta-->
-                <section class="col-8 px-0" id="content_profile">
+                <section class="col-xs-12 col-sm-8 px-0" id="content_profile">
 
                     <div class="row" id="title_area_dades_personals">
                         <div class="col">

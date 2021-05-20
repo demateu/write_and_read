@@ -721,6 +721,18 @@ footer h5{
     padding: 2px;
 }
 
+/*
+#side_menu,
+#content_profile{
+    border: 1px solid rgb(235, 233, 233);
+    margin: 0 10px;
+}*/
+
+/*buscador
+hasta 991 está colapsado
+992 - 1199 no está (debería aparecer)
+1200 aparece
+*/
 
 /* ''''''''''' MEDIAQUERIES ''''''''''''' */
 .navbar-toggler{
@@ -820,6 +832,18 @@ mobiles fins a landscape mobiles
         background-image: none;
     }
 
+    .text_title_hero{
+        font-family: 'Oswald', sans-serif!important;
+        font-size: 30px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #side_menu img{
+        padding: 5px;
+    }
+
 }
 
 
@@ -828,7 +852,7 @@ mobiles fins a landscape mobiles
 DISPOSITIUS A PARTIR DE 574PX
 Tablets
 */
-@media (min-width: 575.98px) {
+@media (min-width: 576px) {
     /*body{
         background-color: yellow;
     }*/
@@ -909,6 +933,14 @@ Tablets
         background-image: none;
     }
 
+    .text_title_hero{
+        font-family: 'Oswald', sans-serif!important;
+        font-size: 30px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 /*   aqui canvi de text altra cop   */
@@ -916,7 +948,8 @@ Tablets
 /*DISPOSITIUS A PARTIR DE 768PX
 Tablets landscape
 */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
+/*@media (min-width: 768px) {*/
     /*body{
         background-color: grey;
     }*/
@@ -947,12 +980,13 @@ Tablets landscape
     }
 
     #navbarSupportedContent form{
-        display: none;
+        display: inherit;
     }
 
 
     footer img, footer p{
-        display: none;
+        display: initial;
+        display: block;
     }
 
     #llistat_categories_section .card-text,
@@ -990,6 +1024,12 @@ Tablets landscape
         background-size: contain;
     }
 
+
+    .text_title_hero{
+        font-family: 'Oswald', sans-serif!important;
+        font-size: 36px;
+        text-align: center;
+    }
 
 }
 /*
