@@ -72,7 +72,7 @@ if(!isset($_SESSION)) {
 			</div>	
 		</div>
 		<!--Fi Portada de Llibre-->
-		<div class="col-7 p-3 mt-4" id="dades_autor">
+		<div class="col-7 p-3" id="dades_autor">
 			<div class="row dades_autor_llibre">
 				<div class="col author_data">
 				<p>Autor: <span><?= $llibre->nom_i_cognoms ?></span></p>
@@ -140,7 +140,7 @@ if(!isset($_SESSION)) {
 			<div class="row">
 				<div class="col-2">
 					<!--Lectures-->
-					<p><i class="far fa-eye"></i>  Lectures: <?=$llibre->cops_llegit?></p>
+					<p><i class="far fa-eye"></i>  Lectures:<?=$llibre->cops_llegit?></p>
 					<!--Fi Lectures-->
 				</div>
 				<div class="col-2">

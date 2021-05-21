@@ -72,7 +72,7 @@ if(!isset($_SESSION)) {
                             
                                 <div class="row px-3 py-2 nav-link links_menu_escriptor text-center" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                                     <!--<span class="col-3 text_cent_vert">-->
-                                        <i class="col-3 text_cent_vert fas fa-plus"></i>
+                                        <i class="col-12 text_cent_vert fas fa-plus"></i>
                                     <!--</span>-->
                                     <!--<span class="col-9 text_cent_vert text-center">-->
                                         <span class="col-12 text_cent_vert text-center">Crear Obra</span>
@@ -250,7 +250,7 @@ if(!isset($_SESSION)) {
                             <!--LLIBRES PUBLICATS-->
                             <div class="container">
                                 <section class="row" id="llibres_publicats">
-                                    <div class="col-10 mx-auto">
+                                    <div class="col-12 mx-auto">
                                         <div class="row">
                                             <div class="col">
                                                 <h2 class="text-center mt-5 font_title">Llibres Publicats</h2>
@@ -260,7 +260,6 @@ if(!isset($_SESSION)) {
 
                                         <!--card llibre-->
                                         <?php require_once 'view/elements/FitxesLlibres.php'; ?>
-
                                         
                                     </div>
                                 </section>
