@@ -5,7 +5,8 @@
     $interactLlibre->setId($llibre->id);
     $interactLlibres = $interactLlibre->buscarComentariPerId();
  
- while ($interactLlibre = $interactLlibres->fetch_object()) : ?>
+ while ($interactLlibre = $interactLlibres->fetch_object()) :
+	if ($interactLlibre->critica!=NULL) :?>
     <div class="row mt-5">
         <div class="col-9">
             <h3 class="card-header"><div class="imatge-header">
@@ -18,5 +19,5 @@
         </div>
     </div>
 
-<?php endwhile; ?>
+<?php endif; endwhile; ?>
 <!--Fi card llibre-->

@@ -7,6 +7,51 @@ if(!isset($_SESSION)) {
 <?php require_once 'view/layout/header.php'; ?>
 
 
+<style type="text/css">
+  #form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  input[type="submit"] {
+  display: none;
+  }
+  label {
+  color: grey;
+  }
+  .clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: center;
+  font-size: 60px;
+  }
+  label:hover,
+  label:hover ~ label {
+  color: orange;
+  }
+  </style>
+  <?php $estrelles="";
+			$y=5;
+			for ($i = 1; $i <= 5; $i++) {
+				$star = '<span>★</span>';
+				$starChecked = "<span style='color:orange'>★</span>";			
+				if ($y <= ($llibre->mitja_vots)) {
+					$estrelles=$estrelles.$starChecked;
+				} else {
+					$estrelles=$estrelles.$star;
+				}
+				$y--;
+			}
+			
+		$puntuar="";		
+			$y=5;
+			for ($i = 1; $i <= 5; $i++) {
+				$star = "<input id='radio$i' type='submit' name='puntuacio' value='$y'><label for='radio$i' type='submit'>★</label>";
+				$puntuar=$puntuar.$star;
+				$y--;
+			}	
+	?>
+
 <!--Contingut principal -->
 <main class="container-fluid" id="llibre_view">
 	<!--Titol del llibre-->
@@ -49,7 +94,25 @@ if(!isset($_SESSION)) {
 			<div class="row" id="valoracions_llibre">
 				<div class="col">
 					<!-- Estrelles -->
-					<?php $star = "<span class='fa fa-star'></span>";
+                    <?php if (isset($_SESSION['usuari'])) : ?>
+                        <!--Si l'usuari està loguejat, veu aquesta part-->
+						<form action='http://localhost:8888/write_and_read/interactllibre/puntua' name='vform' method='post'>
+							<input id='id_llibre' type='hidden' name='id_llibre' value='<?= $llibre->id ?>'>
+							<p class='clasificacion'>
+							<?php echo $puntuar ?>
+							</p>
+						</form>
+			
+					<?php else : ?>
+					<!--Si no veu aquesta part-->
+						<form action='' method='post'>
+							<p class='clasificacion'>
+								<?php echo $estrelles ?>
+							</p>
+						</form>	
+					<?php endif; ?>
+                    
+					<?php /*$star = "<span class='fa fa-star'></span>";
 						$starChecked = "<span class='fa fa-star checked'></span>";
 						for ($i = 1; $i <= 5; $i++) {
 							if ($i <= ($llibre->mitja_vots)) {
@@ -57,8 +120,8 @@ if(!isset($_SESSION)) {
 							} else {
 								echo $star;
 							}
-						}
-					?>
+						}*/
+					?> 
 					<!-- Fi Estrelles -->
 					<!--punts-->
 					<?php
