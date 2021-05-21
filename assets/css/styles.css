@@ -381,7 +381,6 @@ footer a{
     color: grey;
 }
 
-
 .dades_autor_llibre #sinopsis{
     display: block;
     padding: 10px;
@@ -395,6 +394,38 @@ footer a{
     color: grey;
 }
 
+#dades_autor{
+    border: 1px solid rgb(235, 233, 233);
+}
+/*Victor*/
+
+  #form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+
+  input[type="submit"] {
+  display: none;
+  }
+
+  label {
+  color: grey;
+  }
+
+  .clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: center;
+  font-size: 60px;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+  color: orange;
+  }
+  
+/*fi Victor*/
 
 
 
