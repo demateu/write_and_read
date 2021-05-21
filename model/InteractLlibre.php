@@ -302,13 +302,46 @@ class InteractLlibre{
 				$sql = "INSERT INTO interactllibre VALUES('{$this->getId_lector()}', '{$this->getId_llibre()}', NULL, 0, NULL, '{$this->getCritica()}', NULL)";
 				$save = $this->db->query($sql);
 			}
+			
         $result = false;
         if($save){
             $result = true;
         }
         return $result;
     }
-
+	
+	/**
+     * guardem puntuació a la BBDD
+     * 
+     * @return true si la consulta se hace correctamente
+     */
+    public function puntua(){
+        //preparo la query -> un insert
+		$sql="SELECT * from interactllibre where id_lector='{$this->getId_lector()}' and id_llibre='{$this->getId_llibre()}'";
+			$resultat=$this->db->query($sql);
+			if(mysqli_num_rows($resultat) > 0){
+				$sql = "UPDATE interactllibre SET puntuacio='{$this->getPuntuacio()}' where id_lector='{$this->getId_lector()}' and id_llibre='{$this->getId_llibre()}'";
+				$save = $this->db->query($sql);
+			}else{
+				$sql = "INSERT INTO interactllibre VALUES('{$this->getId_lector()}', '{$this->getId_llibre()}', NULL, 0, '{$this->getPuntuacio()}', NULL, NULL)";
+				$save = $this->db->query($sql);
+			}
+			$sql="SELECT sum(puntuacio) as puntuacio_total, count(puntuacio) as cops_puntuat from interactllibre where id_llibre='{$this->getId_llibre()}'";
+			$resultat=$this->db->query($sql);
+			$row= $resultat->fetch_array(MYSQLI_BOTH); 
+			$puntuacio=round(($row["puntuacio_total"])/($row["cops_puntuat"]));
+			$sql = "UPDATE llibre SET mitja_vots='{$puntuacio}',cops_votat='{$row["cops_puntuat"]}' where id='{$this->getId_llibre()}'";
+			$save = $this->db->query($sql);	
+			
+        $result = false;
+        if($save){
+            $result = true;
+        }
+        return $row;
+    }
+	
+	
+	
 /**
      * 
      * Busca llibre amb un id concret
