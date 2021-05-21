@@ -7,29 +7,6 @@ if(!isset($_SESSION)) {
 <?php require_once 'view/layout/header.php'; ?>
 
 
-<style type="text/css">
-  #form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
-  input[type="submit"] {
-  display: none;
-  }
-  label {
-  color: grey;
-  }
-  .clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-  text-align: center;
-  font-size: 60px;
-  }
-  label:hover,
-  label:hover ~ label {
-  color: orange;
-  }
-  </style>
   <?php $estrelles="";
 			$y=5;
 			for ($i = 1; $i <= 5; $i++) {
