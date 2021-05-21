@@ -51,51 +51,49 @@ if(!isset($_SESSION)) {
                             <aside id="menu_options_escriptor v-pills-tab" class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                                 <!--cada row llevará un background hover-->
                                 
-                                <div class="row px-3 py-2 nav-link active links_menu_escriptor" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                    <span class="col-3 text_cent_vert">
-                                        <i class="fas fa-user-edit"></i>
-                                    </span>
-                                    <span class="col-9 text_cent_vert text-center">
-                                        <span>Edita perfil</span>
-                                    </span>
+                                <div class="row px-3 py-2 nav-link active links_menu_escriptor text-center" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                    <!--<span class="col-3 text_cent_vert">-->
+                                        <i class="col-12 text-center text_cent_vert fas fa-user-edit"></i>
+                                    <!--</span>-->
+                                    <!--<span class="col-9 text_cent_vert text-center">-->
+                                        <span class="col-12 text_cent_vert text-center">Edita perfil</span>
+                                    <!--</span>-->
                                 </div>
                                 
                             
-                                <div class="row px-3 py-2 nav-link links_menu_escriptor" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                                    <span class="col-3 text_cent_vert">
-                                        <i class="fas fa-book"></i>
-                                    </span>
-                                    <span class="col-9 text_cent_vert text-center">
-                                        <span>Els meus llibres</span>
-                                    </span>
+                                <div class="row px-3 py-2 nav-link links_menu_escriptor text-center" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                    <!--<span class="col-3 text_cent_vert">-->
+                                        <i class="col-12 text_cent_vert fas fa-book"></i>
+                                    <!--</span>-->
+                                    <!--<span class="col-12 text_cent_vert text-center">-->
+                                        <span class="col-12 text_cent_vert text-center">Els meus llibres</span>
+                                    <!--</span>-->
                                 </div>
                             
-                                <div class="row px-3 py-2 nav-link links_menu_escriptor" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                    <span class="col-3 text_cent_vert">
-                                        <i class="fas fa-plus"></i>
-                                    </span>
-                                    <span class="col-9 text_cent_vert text-center">
-                                        <span>Crear Obra</span>
-                                    </span>
+                                <div class="row px-3 py-2 nav-link links_menu_escriptor text-center" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                    <!--<span class="col-3 text_cent_vert">-->
+                                        <i class="col-3 text_cent_vert fas fa-plus"></i>
+                                    <!--</span>-->
+                                    <!--<span class="col-9 text_cent_vert text-center">-->
+                                        <span class="col-12 text_cent_vert text-center">Crear Obra</span>
+                                    <!--</span>-->
                                 </div>
 
-                                <div class="row px-3 py-2 nav-link links_menu_escriptor" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"  role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                    <span class="col-3 text_cent_vert">
-                                        <i class="fas fa-bookmark"></i>
-                                    </span>
-                                    <span class="col-9 text_cent_vert text-center">
-                                        <span>Subscripció</span>
-                                    </span>
+                                <div class="row px-3 py-2 nav-link links_menu_escriptor text-center" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"  role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                    <!--<span class="col-3 text_cent_vert">-->
+                                        <i class="col-12 text_cent_vert fas fa-bookmark"></i>
+                                    <!--</span>-->
+                                    <!--<span class="col-9 text_cent_vert text-center">-->
+                                    <span class="col-12 text_cent_vert text-center">Subscripció</span>
+                                    <!--</span>-->
                                 </div>                        
                                 <!--boton logout-->
                                 <a href="<?=base_url?>usuari/logoutUser">
-                                    <div class="row px-3 py-2 nav-link links_menu_escriptor">
-                                        <span class="col-3 text_cent_vert">
-                                            <i class="fas fa-user-edit"></i>
-                                        </span>
-                                        <span class="col-9 text_cent_vert text-center">
-                                            Logout
-                                        </span>
+                                    <div class="row px-3 py-2 nav-link links_menu_escriptor text-center">
+                                        <!--<span class="col-3 text_cent_vert">-->
+                                            <i class="fas fa-user-edit text-center col-12 text_cent_vert"></i>
+                                        <!--</span>-->
+                                        <span class="col-12 text_cent_vert text-center">Logout</span>
                                     </div>
                                 </a>
                                 <!--Fi boton logout-->
@@ -114,7 +112,7 @@ if(!isset($_SESSION)) {
 
                     <div class="row" id="title_area_dades_personals">
                         <div class="col">
-                            <h3 class="card-header">Edita aquí les teves dades personals</h3>
+                            <h2 class="card-header">Edita aquí les teves dades personals</h2>
                         </div>
                     </div>        
                     <!-- Tab panes -->

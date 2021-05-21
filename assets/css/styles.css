@@ -414,6 +414,10 @@ footer a{
     padding-bottom: 20px;
 }
 
+.links_menu_escriptor{
+    color: #212529;
+}
+
 
 /*estilos generales basicos guia de estilos*/
 .primary{
@@ -728,12 +732,6 @@ footer h5{
     margin: 0 10px;
 }*/
 
-/*buscador
-hasta 991 está colapsado
-992 - 1199 no está (debería aparecer)
-1200 aparece
-*/
-
 /* ''''''''''' MEDIAQUERIES ''''''''''''' */
 .navbar-toggler{
     width: 100%;
@@ -844,6 +842,12 @@ mobiles fins a landscape mobiles
         padding: 5px;
     }
 
+    #side_menu,
+    #content_profile{
+    margin: 0px;
+    }
+
+
 }
 
 
@@ -941,6 +945,24 @@ Tablets
         margin-right: auto;
     }
 
+    #noms_escriptor h2{
+        font-size: 20px;
+    }
+
+    .text_nickname{
+        font-size: 16px;
+    }
+
+    .links_menu_escriptor{
+        font-size: 15px;
+    }
+
+    .links_menu_escriptor i{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 /*   aqui canvi de text altra cop   */
@@ -1031,6 +1053,14 @@ Tablets landscape
         text-align: center;
     }
 
+    #noms_escriptor h2{
+        font-size: 28px;
+    }
+    
+    .text_nickname{
+        font-size: 18px;
+    }
+
 }
 /*
 DISPOSITIUS A PARTIR DE 992PX
@@ -1075,6 +1105,7 @@ a partir de desktops de 13"
         display: initial;
         padding: 10px 30px;
     }
+
 
 }
 
