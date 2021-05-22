@@ -10,10 +10,10 @@ if(!isset($_SESSION)) {
 <?php $estrelles="";
 	$y=5;
 	for ($i = 1; $i <= 5; $i++) {
-		//$star = '<span>★</span>';
-		$star =  '<span class="fa fa-star" aria-hidden="true"></span>';
-		//$starChecked = "<span style='color:orange'>★</span>";	
-		$starChecked = "<span class='fa fa-star' aria-hidden='true' style='color:orange'>★</span>";
+		$star = '<span>★</span>';
+		//$star =  '<span class="fa fa-star" aria-hidden="true"></span>';
+		$starChecked = "<span style='color:orange'>★</span>";	
+		//$starChecked = "<span class='fa fa-star' aria-hidden='true' style='color:orange'>★</span>";
 		if ($y <= ($llibre->mitja_vots)) {
 			$estrelles=$estrelles.$starChecked;
 		} else {
