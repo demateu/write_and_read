@@ -102,10 +102,6 @@ if (!isset($_SESSION)) {
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="<?= base_url ?>index.php">INICI</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Com funciona</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
