@@ -6,30 +6,34 @@ if(!isset($_SESSION)) {
 
 <?php require_once 'view/layout/header.php'; ?>
 
+ </style>
+  <?php $estrelles="";
+			$y=5;
+			for ($i = 1; $i <= 5; $i++) {
+				$star = '<span>★</span>';
+				$starChecked = "<span style='color:orange'>★</span>";			
+				if ($y <= ($llibre->mitja_vots)) {
+					$estrelles=$estrelles.$starChecked;
+				} else {
+					$estrelles=$estrelles.$star;
+				}
+				$y--;
+			}
+			
+		$puntuar="";		
+			$y=5;
+			for ($i = 1; $i <= 5; $i++) {
+				$star = "<input id='radio$i' type='radio' name='puntuacio' value='$y'><label for='radio$i' type='submit'>★</label>";
+				$starChecked = "<input id='radio$i' type='radio' name='puntuacio' value='$y' checked><label for='radio$i' type='submit'>★</label>";			
+				if ($y == ($llibre->mitja_vots)) {
+					$puntuar=$puntuar.$starChecked;
+				} else {
+					$puntuar=$puntuar.$star;
+				}
+				$y--;
+			}	
+	?>
 
-<?php $estrelles="";
-	$y=5;
-	for ($i = 1; $i <= 5; $i++) {
-		//$star = '<span>★</span>';
-		$star =  '<span class="fa fa-star" aria-hidden="true"></span>';
-		//$starChecked = "<span style='color:orange'>★</span>";	
-		$starChecked = "<span class='fa fa-star' aria-hidden='true' style='color:orange'>★</span>";
-		if ($y <= ($llibre->mitja_vots)) {
-			$estrelles=$estrelles.$starChecked;
-		} else {
-			$estrelles=$estrelles.$star;
-		}
-		$y--;
-	}
-	
-	$puntuar="";		
-		$y=5;
-		for ($i = 1; $i <= 5; $i++) {
-			$star = "<input id='radio$i' type='submit' name='puntuacio' value='$y'><label for='radio$i' type='submit'>★</label>";
-			$puntuar=$puntuar.$star;
-		$y--;
-	}	
-?>
 
 <!--Contingut principal -->
 <main class="container-fluid" id="llibre_view">
@@ -51,7 +55,7 @@ if(!isset($_SESSION)) {
 			</div>	
 		</div>
 		<!--Fi Portada de Llibre-->
-		<div class="col-7 p-3" id="dades_autor">
+		<div class="col-7 p-3 mt-4" id="dades_autor">
 			<div class="row dades_autor_llibre">
 				<div class="col author_data">
 				<p>Autor: <span><?= $llibre->nom_i_cognoms ?></span></p>
@@ -73,14 +77,16 @@ if(!isset($_SESSION)) {
 			<div class="row" id="valoracions_llibre">
 				<div class="col">
 					<!-- Estrelles -->
-                    <?php if (isset($_SESSION['usuari'])) : ?>
+					 <?php if (isset($_SESSION['usuari'])) : ?>
                         <!--Si l'usuari està loguejat, veu aquesta part-->
 						<form action='http://localhost:8888/write_and_read/interactllibre/puntua' name='vform' method='post'>
 							<input id='id_llibre' type='hidden' name='id_llibre' value='<?= $llibre->id ?>'>
 							<p class='clasificacion'>
 							<?php echo $puntuar ?>
 							</p>
+							<button type="submit" class="btn boto_llegeix" style="center;margin-bottom=20px">Enviar puntuació</button>
 						</form>
+						
 			
 					<?php else : ?>
 					<!--Si no veu aquesta part-->
@@ -89,18 +95,7 @@ if(!isset($_SESSION)) {
 								<?php echo $estrelles ?>
 							</p>
 						</form>	
-					<?php endif; ?>
-                    
-					<?php /*$star = "<span class='fa fa-star'></span>";
-						$starChecked = "<span class='fa fa-star checked'></span>";
-						for ($i = 1; $i <= 5; $i++) {
-							if ($i <= ($llibre->mitja_vots)) {
-								echo $starChecked;
-							} else {
-								echo $star;
-							}
-						}*/
-					?> 
+					<?php endif; ?>		
 					<!-- Fi Estrelles -->
 					<!--punts-->
 					<?php
@@ -119,7 +114,7 @@ if(!isset($_SESSION)) {
 			<div class="row">
 				<div class="col-2">
 					<!--Lectures-->
-					<p><i class="far fa-eye"></i>  Lectures:<?=$llibre->cops_llegit?></p>
+					<p><i class="far fa-eye"></i>  Lectures: <?=$llibre->cops_llegit?></p>
 					<!--Fi Lectures-->
 				</div>
 				<div class="col-2">
@@ -187,5 +182,9 @@ if(!isset($_SESSION)) {
 	?>
 
 </main>
+
+<script language="JavaScript">
+
+</script>
 
 <?php require_once 'view/layout/footer.php'; ?>

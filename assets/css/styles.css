@@ -1212,4 +1212,26 @@ a partir de desktops de 13"
   #cat-section h1{
       margin-top: 10%;
   }
+  
+  /*ESTRELLES FITXA LLIBRE*/
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: left;
+  font-size: 60px;
+  color: grey;
+  }
+  .clasificacion  > label {
+  color: grey;
+  }
+  .clasificacion  >  input {
+  display: none;
+  }
+  .clasificacion  > label[type="radio"]:hover,
+  .clasificacion  > label[type="radio"]:hover ~ label {
+  color: orange;
+  }
+  .clasificacion  > input[type="radio"]:checked ~ label {
+  color: orange;
+}
 
