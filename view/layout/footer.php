@@ -45,9 +45,6 @@ if(!isset($_SESSION)) {
                 <li>
                     <a href="<?=base_url?>usuari/perfilUser">El meu compte</a>
                 </li>
-                <li>
-                    <a href="#!">Els meus preferits</a>
-                </li>
             </ul>
         </div>
         <!--Grid column-->
