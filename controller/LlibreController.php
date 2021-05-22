@@ -69,8 +69,11 @@ class LlibreController
             $formato_img = $_FILES['carrega_img']['type'];
             //la mida de l'arxiu (en bites)
             $mida_img = $_FILES['carrega_img']['size'];
+            //la portada ha de tenir el següent format:
+                // /write_and_read/assets/img/cover_books/nom_cover.jpeg
             //Ruta de la carpeta destí del servidor on guardarà el pdf
-            $directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
+            //$directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
+            $directori_desti_img = '/write_and_read/assets/img/cover_books/';
 
             //VALIDACIONS DE LA COVER DEL LLLIBRE (IMG)
             if($mida_img > 1048576){

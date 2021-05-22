@@ -2,7 +2,7 @@
 <?php while ($llibre = $llibres->fetch_object()) : ?>
     <div class="row mt-5" id="llistat_categories_section">
         <div class="col-md-3 col-sm-12">
-            <img src="<?= base_url ?>assets/img/cover_books/<?= $llibre->portada_url ?>.jpeg" alt="Imatge del llibre" width="100%" height="auto">
+            <img src="<?= $llibre->portada_url ?>" alt="Imatge del llibre" width="100%" height="auto">
         </div>
         <div class="col-md-9 col-sm-12">
             <h2 class="card-header"><?= $llibre->titol ?></h2>

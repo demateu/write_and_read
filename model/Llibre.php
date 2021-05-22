@@ -292,6 +292,11 @@ class Llibre
      */
     public function save()
     {
+        /**
+         * s'ha de canviar que guardi aquest format:
+         * /write_and_read/assets/img/cover_books/bible-530340_640.jpeg
+         * enviarho aixi desde el controller
+         */
         $sql = "INSERT INTO llibre VALUES (NULL, {$this->getId_escriptor()}, '{$this->getTitol()}', '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', '{$this->getContingut_url()}', CURDATE(), NULL, '{$this->getPortada_url()}', {$this->getId_categoria()}, NULL, NULL)";
         $save = $this->db->query($sql);
 
@@ -372,25 +377,3 @@ class Llibre
         return $llibreString;
     }
 }
-
-/*
-CREATE TABLE llibre(
-id int AUTO_INCREMENT,
-id_escriptor int NOT NULL,
-titol varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-descripcio_curta varchar(250) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-sinopsis text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-contingut_url varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-data_alta date,
-cops_llegit int,
-portada_url varchar(250) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-id_categoria tinyint NOT NULL,
-mitja_vots tinyint,
-cops_votat int,
-PRIMARY KEY (id),
-CONSTRAINT FK_Escriptor
-  FOREIGN KEY (id_escriptor) REFERENCES usuari(id),
-CONSTRAINT FK_Categoria
-  FOREIGN KEY (id_categoria) REFERENCES categoria(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-*/

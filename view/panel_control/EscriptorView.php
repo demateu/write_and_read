@@ -61,7 +61,7 @@ if(!isset($_SESSION)) {
     <!--LLIBRES PUBLICATS-->
     <div class="container">
         <section class="row" id="llibres_publicats">
-            <div class="col-10 mx-auto">
+            <div class="col-10 mx-auto mb-5">
                 <div class="row">
                     <div class="col">
                         <h2 class="text-center mt-5 font_title">Llibres Publicats</h2>
