@@ -78,15 +78,12 @@ if(!isset($_SESSION)) {
                                         <span class="col-12 text_cent_vert text-center">Crear Obra</span>
                                     <!--</span>-->
                                 </div>
-
+                                <!--
                                 <div class="row px-3 py-2 nav-link links_menu_escriptor text-center" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"  role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                    <!--<span class="col-3 text_cent_vert">-->
                                         <i class="col-12 text_cent_vert fas fa-bookmark"></i>
-                                    <!--</span>-->
-                                    <!--<span class="col-9 text_cent_vert text-center">-->
                                     <span class="col-12 text_cent_vert text-center">Subscripció</span>
-                                    <!--</span>-->
-                                </div>                        
+                                </div> 
+                                -->                       
                                 <!--boton logout-->
                                 <a href="<?=base_url?>usuari/logoutUser">
                                     <div class="row px-3 py-2 nav-link links_menu_escriptor text-center">
@@ -271,20 +268,18 @@ if(!isset($_SESSION)) {
 
                         <!--Form CREAR NOVA OBRA-->
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                        
 
-                            <div class="row">
+                            <div class="row" id="titol_pujar_obra">
                                 <div class="col">
                                     <h3>Puja aquí la teva propera obra mestra...</h3>
                                 </div>
                             </div>
-
                             
                             <!--Form Edita Perfil-->  
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <form class="row g-3" action="<?=base_url?>llibre/save" method="POST" enctype="multipart/form-data">
                             
-                                    <div class="col-md-6">
+                                    <div class="col-12" id="titol_obra">
                                         <label class="form-label" for="titol">Títol de l'obra:</label>
                                         <input type="text" maxlength="50" name="titol" class="form-control" id="titol" >
                                     </div>
@@ -364,7 +359,7 @@ if(!isset($_SESSION)) {
                         </div>
                         <!--Fi Form CREAR NOVA OBRA-->
 
-                        <!--de retén por si falta algo más-->
+                        <!--de retén por si falta algo más
                         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
 
                             <h5 class="card-title">Canvia la teva subscripció</h5>
@@ -411,7 +406,7 @@ if(!isset($_SESSION)) {
                                 </div>
                             </div>                
                         </div>
-                        <!--Fi de retén por si falta algo más-->
+                        Fi de retén por si falta algo más-->
 
                     </div>
                     <!-- Fi Tab panes -->            

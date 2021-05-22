@@ -367,7 +367,35 @@ footer a{
 }
 
 /*************  .Fitxa Llibre Especificacions.  ****************/
+/*Victor*/
 
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+
+  input[type="submit"] {
+  display: none;
+  }
+
+  label {
+  color: grey;
+  }
+
+  .clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: center;
+  font-size: 60px;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+  color: orange;
+  }
+  
+/*fi Victor*/
 
 #info_llibre_area img{
     width: 100%;
@@ -397,35 +425,7 @@ footer a{
 #dades_autor{
     border: 1px solid rgb(235, 233, 233);
 }
-/*Victor*/
 
-  #form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
-
-  input[type="submit"] {
-  display: none;
-  }
-
-  label {
-  color: grey;
-  }
-
-  .clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-  text-align: center;
-  font-size: 60px;
-  }
-  
-  label:hover,
-  label:hover ~ label {
-  color: orange;
-  }
-  
-/*fi Victor*/
 
 
 
@@ -878,6 +878,9 @@ mobiles fins a landscape mobiles
     margin: 0px;
     }
 
+    #titol_pujar_obra h3{
+        text-align: center;
+    }
 
 }
 
@@ -993,6 +996,7 @@ Tablets
         margin-left: auto;
         margin-right: auto;
     }
+
 
 }
 

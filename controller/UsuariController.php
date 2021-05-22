@@ -385,4 +385,32 @@ class UsuariController
         }
     }
 
+    /**
+     * renederitza la pàgina d'avis_legal'
+     * <=?base?>usuari/avis
+     */
+    public function avis(){
+        //cargamos la vista
+        require_once 'view/static/avis_legal.php';
+    }
+
+    /**
+     * renederitza la pàgina d'avis_legal'
+     * <=?base?>usuari/avis
+     */
+    public function cookies(){
+        //cargamos la vista
+        require_once 'view/static/cookies.php';
+    }
+
+    /**
+     * renederitza la pàgina d'avis_legal'
+     * <=?base?>usuari/avis
+     */
+    public function privacitat(){
+        //cargamos la vista
+        require_once 'view/static/privacitat.php';
+    }
+
+
 }
