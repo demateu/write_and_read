@@ -25,13 +25,13 @@ if(!isset($_SESSION)) {
 
             <ul class="list-unstyled mb-0">
                 <li>
-                    <a href="<?=base_url?>view/static/avis_legal.php">Avis legal</a>
+                    <a href="<?=base_url?>usuari/avis">Avis legal</a>
                 </li>
                 <li>
-                    <a href="#!">Politica de cookies</a>
+                    <a href="<?=base_url?>usuari/cookies">Politica de cookies</a>
                 </li>
                 <li>
-                    <a href="#!">Politica de privacitat</a>
+                    <a href="<?=base_url?>usuari/privacitat">Politica de privacitat</a>
                 </li>
             </ul>
         </div>
@@ -43,7 +43,7 @@ if(!isset($_SESSION)) {
 
             <ul class="list-unstyled">
                 <li>
-                    <a href="#!">El meu compte</a>
+                    <a href="<?=base_url?>usuari/perfilUser">El meu compte</a>
                 </li>
                 <li>
                     <a href="#!">Els meus preferits</a>

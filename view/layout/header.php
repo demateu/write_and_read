@@ -126,13 +126,13 @@ if (!isset($_SESSION)) {
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="desplegable_compte">
                                 <!--posar un if de si es lector o escriptor-->
-                                <li><a class="dropdown-item" href="#">El meu panell</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>usuari/perfilUser">El meu panell</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Desloga'm</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url?>usuari/logoutUser">Desloga'm</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacta'ns</a>
+                            <a class="nav-link" href="mailto:info@writeread.cat">Contacta'ns</a>
                         </li>
                     </ul>
             
