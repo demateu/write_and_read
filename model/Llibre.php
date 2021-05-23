@@ -297,7 +297,7 @@ class Llibre
          * /write_and_read/assets/img/cover_books/bible-530340_640.jpeg
          * enviarho aixi desde el controller
          */
-        $sql = "INSERT INTO llibre VALUES (NULL, {$this->getId_escriptor()}, '{$this->getTitol()}', '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', '{$this->getContingut_url()}', CURDATE(), NULL, '{$this->getPortada_url()}', {$this->getId_categoria()}, NULL, NULL)";
+        $sql = "INSERT INTO llibre VALUES (NULL, {$this->getId_escriptor()}, '{$this->getTitol()}', '{$this->getDescripcio_curta()}', '{$this->getSinopsis()}', '{$this->getContingut_url()}', CURDATE(), 0, '{$this->getPortada_url()}', {$this->getId_categoria()}, NULL, NULL)";
         $save = $this->db->query($sql);
 
         $result = false;

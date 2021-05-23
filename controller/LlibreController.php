@@ -42,7 +42,8 @@ class LlibreController
             //la mida de l'arxiu (en bites)
             $mida_pdf = $_FILES['carrega_pdf']['size'];
             //Ruta de la carpeta destí del servidor on guardarà el pdf
-            $directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
+            //$directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
+            $directori_desti_pdf = '/write_and_read/assets/img/llibres/';
 
             //VALIDACIONS DE L'ARXIU
             if($mida_pdf > 20971520){
@@ -91,9 +92,9 @@ class LlibreController
                 $url_img_guardat = $directori_desti_img.$nom_img;
             }
         
-            if(!$pdf_guardat || !$img_guardat){
+            if(!$pdf_guardat && !$img_guardat){
                 echo'<script type="text/javascript">
-                alert("Et falta afegir un arxiu");
+                alert("Hi ha hagut un problema");
                 </script>';
             }
 

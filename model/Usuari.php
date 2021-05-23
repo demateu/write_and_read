@@ -28,8 +28,6 @@ class Usuari{
     private $id_tipus_usuari; //FK
     private $biografia;//nomes per escriptors
 
-    //s'ha d'afegir una propietat: llista de llibres publicats
-    private $llibres_publicats; //array?
     //fotos dels avatars
     private $avatar_id;//FK
     private $avatar_url_imagen;//dada de la taula avatar
@@ -41,11 +39,10 @@ class Usuari{
         $this->db = DataBase::conectar();
     }
 
-    /**
-     * Cambiaremos los getters
-     * Añadiremos un escape para todos los datos que nos lleguen del formulario:
-     * $this->db->real_escape_string(...)
-     */
+/**
+ * Añadiremos un escape a los getters para todos los datos que nos lleguen del formulario:
+ * $this->db->real_escape_string(...)
+ */
 
     /**
      * Get the value of id
