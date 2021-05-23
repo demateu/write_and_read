@@ -830,12 +830,7 @@ footer h5{
     padding: 2px;
 }
 
-/*
-#side_menu,
-#content_profile{
-    border: 1px solid rgb(235, 233, 233);
-    margin: 0 10px;
-}*/
+
 
 /* ''''''''''' MEDIAQUERIES ''''''''''''' */
 .navbar-toggler{
@@ -858,11 +853,7 @@ mobiles fins a landscape mobiles
     .container-fluid{
         min-width: 350px;
     }
-/*
-    body{
-        background-color: red;
-    }
-*/
+
     #logo_search img{
         display: block;
         margin: 15px auto !important;
@@ -955,6 +946,12 @@ mobiles fins a landscape mobiles
     #titol_pujar_obra h3{
         text-align: center;
     }
+
+    .llibre_punts{
+        font-size: 20px;
+    }
+
+
 
 }
 
@@ -1074,7 +1071,6 @@ Tablets
 
 }
 
-/*   aqui canvi de text altra cop   */
 
 /*DISPOSITIUS A PARTIR DE 768PX
 Tablets landscape

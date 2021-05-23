@@ -35,14 +35,14 @@ class LlibreController
             $llibre = new Llibre();
 
             //REBEM LES DADES DE L'ARXIU SELECCIONAT PEL CONTINGUT DEL LLIBRE
-            //el nom de l'arxiu
+            //el nom de l'arxiu (ja conté l'etenxió de l'arixu)
             $nom_pdf = $_FILES['carrega_pdf']['name'];
             //el format de l'arixu
             $formato_pdf = $_FILES['carrega_pdf']['type'];
             //la mida de l'arxiu (en bites)
             $mida_pdf = $_FILES['carrega_pdf']['size'];
             //Ruta de la carpeta destí del servidor on guardarà el pdf
-            //$directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
+            $directori_desti_servidor = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
             $directori_desti_pdf = '/write_and_read/assets/img/llibres/';
 
             //VALIDACIONS DE L'ARXIU
@@ -57,7 +57,8 @@ class LlibreController
                 </script>';                
             }else{
                 //Pasar l'arxiu de la carpeta temporal a la carpeta destí del servidor
-                $pdf_guardat = move_uploaded_file($_FILES['carrega_pdf']['tmp_name'], $directori_desti_pdf.$nom_pdf);
+                $pdf_guardat = move_uploaded_file($_FILES['carrega_pdf']['tmp_name'], $directori_desti_servidor.$nom_pdf);
+                //ruta que es passara a la BBDD
                 $url_pdf_guardat = $directori_desti_pdf.$nom_pdf;
             }
 
@@ -73,7 +74,7 @@ class LlibreController
             //la portada ha de tenir el següent format:
                 // /write_and_read/assets/img/cover_books/nom_cover.jpeg
             //Ruta de la carpeta destí del servidor on guardarà el pdf
-            //$directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
+            $directori_desti_img_servidor = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
             $directori_desti_img = '/write_and_read/assets/img/cover_books/';
 
             //VALIDACIONS DE LA COVER DEL LLLIBRE (IMG)
@@ -88,7 +89,8 @@ class LlibreController
                 </script>';               
             }else{
                 //Pasar l'arxiu de la carpeta temporal a la carpeta destí del servidor
-                $img_guardat = move_uploaded_file($_FILES['carrega_img']['tmp_name'], $directori_desti_img.$nom_img);
+                $img_guardat = move_uploaded_file($_FILES['carrega_img']['tmp_name'], $directori_desti_img_servidor.$nom_img);
+                //Ruta de la imatge que es guardara a la BBDD
                 $url_img_guardat = $directori_desti_img.$nom_img;
             }
         
@@ -195,7 +197,7 @@ class LlibreController
             //LLegir pdf 
             require_once 'vendor/autoload.php';
             $parser = new \Smalot\PdfParser\Parser();
-            $pdf = $parser->parseFile(base_url . 'assets/img/llibres/' . $_POST['contingut_url']);
+            $pdf = $parser->parseFile('http://localhost:8888' . $_POST['contingut_url']);
 
             // Retrieve all pages from the pdf file.
             $pages  = $pdf->getPages();
