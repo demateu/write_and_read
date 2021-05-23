@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":324:{a:2:{s:7:"defects";a:4:{s:24:"UsuariTest::testInstacia";i:4;s:7:"Warning";i:6;s:34:"UsuariTest::testComprovarConexioBD";i:4;s:20:"UsuariTest::testSave";i:3;}s:5:"times";a:4:{s:24:"UsuariTest::testInstacia";d:0.053;s:7:"Warning";d:0.015;s:34:"UsuariTest::testComprovarConexioBD";d:0.004;s:20:"UsuariTest::testSave";d:0.019;}}}
