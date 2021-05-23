@@ -367,36 +367,26 @@ footer a{
 }
 
 /*************  .Fitxa Llibre Especificacions.  ****************/
-/*Victor*/
 
-#form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
-/*
-  input[type="submit"] {
-  display: none;
-  }*/
-
-  label {
-  color: grey;
-  }
-
-  .clasificacion {
+ /*ESTRELLES VICTOR*/
+.clasificacion {
   direction: rtl;
   unicode-bidi: bidi-override;
-  text-align: center;
+  text-align: left;
   font-size: 60px;
+  color: grey;
   }
-  
-  label:hover,
-  label:hover ~ label {
+  .clasificacion  > label {
+  color: grey;
+  }
+  .clasificacion  >  input {
+  display: none;
+  }
+  .clasificacion  > label[type="radio"]:hover,
+  .clasificacion  > label[type="radio"]:hover ~ label {
   color: orange;
   }
-
-
-input[type="submit"]:checked ~ label {
+  .clasificacion  > input[type="radio"]:checked ~ label {
   color: orange;
 }
   
@@ -1291,25 +1281,5 @@ a partir de desktops de 13"
       margin-top: 10%;
   }
   
-  /*ESTRELLES FITXA LLIBRE*/
-.clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-  text-align: left;
-  font-size: 60px;
-  color: grey;
-  }
-  .clasificacion  > label {
-  color: grey;
-  }
-  .clasificacion  >  input {
-  display: none;
-  }
-  .clasificacion  > label[type="radio"]:hover,
-  .clasificacion  > label[type="radio"]:hover ~ label {
-  color: orange;
-  }
-  .clasificacion  > input[type="radio"]:checked ~ label {
-  color: orange;
-}
+ 
 
