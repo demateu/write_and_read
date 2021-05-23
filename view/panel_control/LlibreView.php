@@ -84,7 +84,7 @@ if(!isset($_SESSION)) {
 							<p class='clasificacion'>
 							<?php echo $puntuar ?>
 							</p>
-							<button type="submit" class="btn boto_llegeix" style="center;margin-bottom=20px">Enviar puntuació</button>
+							<button type="submit" class="btn boto_llegeix mb-1 mx-auto">Enviar puntuació</button>
 							<div id="error"></div>
 						</form>
 						
