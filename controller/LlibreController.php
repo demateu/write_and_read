@@ -195,7 +195,7 @@ class LlibreController
             //LLegir pdf 
             require_once 'vendor/autoload.php';
             $parser = new \Smalot\PdfParser\Parser();
-            $pdf = $parser->parseFile($_POST['contingut_url']);
+            $pdf = $parser->parseFile('http://localhost:8888' . $_POST['contingut_url']);
 
             // Retrieve all pages from the pdf file.
             $pages  = $pdf->getPages();
