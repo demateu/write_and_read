@@ -35,9 +35,9 @@ if (isset($pages)) : ?>
             </div>
 
 
-            <div class="row">
+            <div class="row bg-light">
                 <!-- Tabs contingut -->
-                <div class="tab-content mt-3">
+                <div class="tab-content col-xs-12 col-lg-7 mx-auto" id="background_col">
                     <?php for ($i = 1; $i < sizeof($pages); $i++) : ?>
                         <div class="tab-pane <?= ($i == 1 ? 'active' : '') ?>" id="tab<?= $i ?>" role="tabpanel" aria-labelledby="nav<?= $i ?>">
                             <pre><?= $pages[$i]->getText() ?></pre>
@@ -46,7 +46,8 @@ if (isset($pages)) : ?>
                 </div>
             </div>
         </div>
-        <div class="col bg-light text-center">
+        <!--BOTÓ Descarregar-->
+        <div class="col text-center p-5 bg-light">
             <a href="<?= base_url ?>assets/img/llibres/<?= $_POST['contingut_url'] ?>" class="btn boto_llegeix m-2" role="button" download>Descarregar</a>
         </div>
     </div>

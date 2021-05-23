@@ -2,11 +2,6 @@ $(document).ready(function () {
     var URLactual = window.location;
 
     //Constants
-    //const imgUrl = "assets/img/cover_books/";
-    //RUTA:
-    ///Applications/MAMP/htdocs/write_and_read/assets/img/cover_books/base_foto.jpeg
-    //que la portada sigui:
-    // /write_and_read/assets/img/cover_books/nom_cover.jpeg
     const altFitxa = "Imatge del llibre";
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
@@ -77,14 +72,15 @@ $(document).ready(function () {
     * @param String idCarousel Nom del carousel on s'han de posar els buttons
     * @param String idCarouselInner Nom del carousel inner on s'han de posar les fitxes
     */
-    function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
+    //function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
+    function ferFitxes(fitxeDades, fitxaperRow, idCarouselInner) {
         var count = 0;
         var numSlide = 0;
         //Iteracio del array
         fitxeDades.forEach(element => {
             //Agafar les dades 
             var autor = element.autor;
-            var cops_votat = element.cops_votat;
+            //var cops_votat = element.cops_votat;
             var id_llibre = element.id;
             var id_escriptor = element.id_escriptor;
             var mitja_vots = element.mitja_vots;
@@ -252,9 +248,6 @@ $(document).ready(function () {
                     p = document.createElement("p");
 
                     //Crea l'element imatge 
-                    /**
-                     * OJO ARREGLAR IMATGE !!! (demateu)
-                     */
                     img = document.createElement("img");
                     //img.src = `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
                     ///Applications/MAMP/htdocs/write_and_read/assets/img/cover_books/base_foto.jpeg

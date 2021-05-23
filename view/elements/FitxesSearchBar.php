@@ -7,8 +7,7 @@
 
 
     <section class="row">
-        <div class="col-10 mx-auto">
-
+        <div class="col-10 mx-auto mb-5">
             <!-- Fitxes dels llibres -->
             <?php require_once 'view/elements/FitxesLlibres.php'; ?>
         </div>
