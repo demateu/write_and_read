@@ -3,14 +3,26 @@ use PHPUnit\Framework\TestCase;
 
 use function PHPUnit\Framework\assertTrue;
 
+/**
+ * Class test del model Usuari
+ * @author Ronny
+ * @version 1.0
+ */
+
 final class UsuariTest extends TestCase{
 
+    /**
+     * Metode de prova de la llibreria per instanciar l'objecte Usuari
+     */
     public function testInstacia() : void{
         $usuari = new Usuari();
 
         $this->assertIsObject($usuari, "S'ha instanciat l'objecte i la conexio amb la bd es correcte");
     }
 
+    /**
+     * Prova si es pot guardar un usuari a la BD
+     */
     public function testSave() : void {
         $usuari = new Usuari();
         $usuari->setNickname('Barney');
@@ -32,6 +44,10 @@ final class UsuariTest extends TestCase{
 
     }
 
+
+    /**
+     * Prova si es pot actualitza l'informacio d'un usuari
+     */
     public function testUpdateUser() : void{
         $usuari = new Usuari();
         $usuari->setNickname('Kenny');
@@ -47,6 +63,9 @@ final class UsuariTest extends TestCase{
         assertTrue($resultat, "No s'ha actualitzat l'usuari");
     }
 
+    /**
+     * Prova si es pot aconseguir tots l'usuaris de la BD
+     */
     public function testGetAll() : void{
         $usuari = new Usuari();
         $resultat = $usuari->getAll();
@@ -54,6 +73,9 @@ final class UsuariTest extends TestCase{
         $this->assertNotNull($resultat);
     }
 
+    /**
+     * Prova si es pot aconseguir tots els escriptors de la BD
+     */
     public function testGetAllEscriptors() : void {
         $usuari = new Usuari();
         $resultat = $usuari->getAllEscriptors();
@@ -63,6 +85,9 @@ final class UsuariTest extends TestCase{
         $this->assertGreaterThan(0, $resultat, "No s'han trobat resultats o n'hi ha");//Que retorni rows de resultats
     }
 
+    /**
+     * Prova si es pot aconseguir tots els lectors de la BD
+     */
     public function testGetAllLectors() : void {
         $usuari = new Usuari();
         $resultat = $usuari->getAllLectors();
@@ -72,6 +97,9 @@ final class UsuariTest extends TestCase{
         $this->assertGreaterThan(0, $resultat, "No s'han trobat resultats o n'hi ha");//Que retorni rows de resultats
     }
 
+    /**
+     * Busca un usuari per ID
+     */
     public function testBuscarUsuari() : void{
         $usuari = new Usuari();
         $usuari->setId('7');
@@ -79,6 +107,9 @@ final class UsuariTest extends TestCase{
         $this->assertEquals('eren@gmail.com' , $resultat->email);
     }
 
+    /**
+     * Prova si es pot aconseguir tots els llibres d'un escriptor
+     */
     public function testBuscarUsuariLlibres() : void {
         $usuari = new Usuari();
         $usuari->setId('7');
@@ -88,6 +119,9 @@ final class UsuariTest extends TestCase{
         $this->assertNotNull($resultat->id);
     }
 
+    /**
+     * Prova si es pot aconseguir un usuari per el seu Email
+     */
     public function testBuscarUsuariPerEmail() : void{
         $usuari = new Usuari();
         $usuari->setEmail('eren@gmail.com');
@@ -96,6 +130,9 @@ final class UsuariTest extends TestCase{
         $this->assertEquals($usuari->getEmail(), $resultat->email);
     }
 
+    /**
+     * Prova aconseguir tots els llibres favorits d'un usuari
+     */
     public function testBuscarFavoritsUsuari(){
         $usuari = new Usuari();
         $usuari->setId('1');
@@ -105,6 +142,9 @@ final class UsuariTest extends TestCase{
 
     }
 
+    /**
+     * Prova si es pot aconseguir totes les imatges d'avatar
+     */
     public function testGetAllAvatars(){
         $usuari = new Usuari();
 

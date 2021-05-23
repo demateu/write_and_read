@@ -307,26 +307,7 @@ class Llibre
         return $result;
     }
 
-    /**
-     * buscarà a la BBDD la informacio necessaria per mostrar la fitxa de llibre
-     * 
-     * @param id de llibre
-     * 
-     * @return object llibre o false
-     */
-    public function buscarPorId($id)
-    {
-        $result = false;
-
-        $sql = "SELECT * FROM llibre WHERE id = '$id' ";
-        $llibre = $this->db->query($sql);
-
-        if ($llibre && $llibre->num_rows === 1) {
-            $result = $llibre;
-        }
-
-        return $result;
-    }
+    
 
     /**
      * 
