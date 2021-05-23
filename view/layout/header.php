@@ -74,7 +74,7 @@ if (!isset($_SESSION)) {
                         <a href="<?= base_url ?>usuari/logoutUser">Logout</a>
                         <div class="imatge-header">
                             <a href="<?= base_url ?>usuari/perfilUser">
-                                <img src="<?= base_url ?>assets/img/avatar/avatar_<?= $_SESSION['usuari']->avatar_id; ?>.jpg" alt="avatar de l'usuari" />
+                                <img src="<?= $_SESSION['usuari']->avatar_url_imagen; ?>" alt="avatar de l'usuari" />
                             </a>
                         </div>
                     <?php else : ?>

@@ -2,7 +2,6 @@ $(document).ready(function () {
     var URLactual = window.location;
 
     //Constants
-    const imgUrl = "assets/img/cover_books/";
     const altFitxa = "Imatge del llibre";
     const altVeureMes = "Icona de veure mes";
     const urlLookIcon = "assets/img/icons/look_icon.png";
@@ -73,19 +72,20 @@ $(document).ready(function () {
     * @param String idCarousel Nom del carousel on s'han de posar els buttons
     * @param String idCarouselInner Nom del carousel inner on s'han de posar les fitxes
     */
-    function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
+    //function ferFitxes(fitxeDades, fitxaperRow, idCarousel, idCarouselInner) {
+    function ferFitxes(fitxeDades, fitxaperRow, idCarouselInner) {
         var count = 0;
         var numSlide = 0;
         //Iteracio del array
         fitxeDades.forEach(element => {
             //Agafar les dades 
             var autor = element.autor;
-            var cops_votat = element.cops_votat;
+            //var cops_votat = element.cops_votat;
             var id_llibre = element.id;
             var id_escriptor = element.id_escriptor;
             var mitja_vots = element.mitja_vots;
             var portada_url = element.portada_url;
-
+            
             var titol = element.titol;
 
             //Fer la fitxa
@@ -95,7 +95,7 @@ $(document).ready(function () {
                     
                         <a href="${baseURL}llibre/fitxa&id=${id_llibre}" class="cover_book">
                             <div class="contenedor_img_fitxa">
-                                <img src="${imgUrl + portada_url + '.jpeg'}" alt="${altFitxa}" class="card-img-top" />
+                                <img src="${portada_url}" alt="${altFitxa}" class="card-img-top" />
                             </div>
                         </a>
                         <div class="card-body">
@@ -249,7 +249,9 @@ $(document).ready(function () {
 
                     //Crea l'element imatge 
                     img = document.createElement("img");
-                    img.src = `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
+                    //img.src = `${baseURL}/assets/img/cover_books/${arr[i][2]}`;
+                    ///Applications/MAMP/htdocs/write_and_read/assets/img/cover_books/base_foto.jpeg
+                    img.src = `${arr[i][2]}`;
 
 
                     //Afegir enllaç

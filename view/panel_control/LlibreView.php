@@ -51,7 +51,7 @@ if(!isset($_SESSION)) {
 		<!--Portadada de Llibre-->
 		<div class="col-4">
 			<div class="imatge-llibre">
-				<img src="/write_and_read/assets/img/cover_books/<?= $llibre->portada_url ?>.jpeg" alt="Imatge del llibre" />
+				<img src="<?= $llibre->portada_url ?>" alt="Imatge del llibre" />
 			</div>	
 		</div>
 		<!--Fi Portada de Llibre-->
@@ -84,7 +84,9 @@ if(!isset($_SESSION)) {
 							<p class='clasificacion'>
 							<?php echo $puntuar ?>
 							</p>
-							<button type="submit" class="btn boto_llegeix" style="center;margin-bottom=20px">Enviar puntuació</button>
+
+							<button type="submit" class="btn boto_llegeix mb-1 mx-auto">Enviar puntuació</button>
+
 							<div id="error"></div>
 						</form>
 						

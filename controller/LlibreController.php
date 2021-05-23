@@ -42,7 +42,8 @@ class LlibreController
             //la mida de l'arxiu (en bites)
             $mida_pdf = $_FILES['carrega_pdf']['size'];
             //Ruta de la carpeta destí del servidor on guardarà el pdf
-            $directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
+            //$directori_desti_pdf = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/llibres/';
+            $directori_desti_pdf = '/write_and_read/assets/img/llibres/';
 
             //VALIDACIONS DE L'ARXIU
             if($mida_pdf > 20971520){
@@ -69,8 +70,11 @@ class LlibreController
             $formato_img = $_FILES['carrega_img']['type'];
             //la mida de l'arxiu (en bites)
             $mida_img = $_FILES['carrega_img']['size'];
+            //la portada ha de tenir el següent format:
+                // /write_and_read/assets/img/cover_books/nom_cover.jpeg
             //Ruta de la carpeta destí del servidor on guardarà el pdf
-            $directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
+            //$directori_desti_img = $_SERVER['DOCUMENT_ROOT'].'/write_and_read/assets/img/cover_books/';
+            $directori_desti_img = '/write_and_read/assets/img/cover_books/';
 
             //VALIDACIONS DE LA COVER DEL LLLIBRE (IMG)
             if($mida_img > 1048576){
@@ -88,9 +92,9 @@ class LlibreController
                 $url_img_guardat = $directori_desti_img.$nom_img;
             }
         
-            if(!$pdf_guardat || !$img_guardat){
+            if(!$pdf_guardat && !$img_guardat){
                 echo'<script type="text/javascript">
-                alert("Et falta afegir un arxiu");
+                alert("Hi ha hagut un problema");
                 </script>';
             }
 
@@ -191,7 +195,7 @@ class LlibreController
             //LLegir pdf 
             require_once 'vendor/autoload.php';
             $parser = new \Smalot\PdfParser\Parser();
-            $pdf = $parser->parseFile(base_url . 'assets/img/llibres/' . $_POST['contingut_url']);
+            $pdf = $parser->parseFile('http://localhost:8888' . $_POST['contingut_url']);
 
             // Retrieve all pages from the pdf file.
             $pages  = $pdf->getPages();
