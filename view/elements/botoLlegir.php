@@ -2,7 +2,7 @@
     o bè porta al usuari a la pagina del login.
  -->
 <?php if(isset($_SESSION['usuari'])) : ?>
-    <form action="http://localhost:8888/write_and_read/llibre/llegirLlibre" method="POST">
+    <form action="http://localhost:8888/write_and_read/llibre/llegirLlibre" method="POST" id="boto_llegir_llibre">
         <input type="hidden" name="titol" value="<?= $llibre->titol ?>" />
         <input type="hidden" name="contingut_url" value="<?= $llibre->contingut_url ?>" />
         <input type="hidden" name="id" value="<?= $llibre->id ?>" />
