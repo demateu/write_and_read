@@ -476,38 +476,4 @@ class Usuari{
         return $avatars;
     }
 
-/**
- * SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, a.avatar_url_imagen
- * FROM usuari u, avatar a WHERE u.email = 'monicamateu80@hotmail.com' AND u.avatar_id = a.id";
- */
-
-	
- 
-	/**
-     * @author Victor
-     * Buscar si algun camp del form es repeteix a la base de dades
-     * 
-     * @return 1 si es afirmatiu
-	 * @return 0 si es negatiu
-     */
-
-	public function buscaRepetit($camp,$row){
-			$sql="SELECT * from usuari 
-				where '$row'='$camp'";
-			$result=$this->db->query($sql);
-
-			if(mysqli_num_rows($result) > 0){
-				return 1;
-			}else{
-				return 0;
-			}
-	}
-
-
-
-
-    
-
-
-
 }
