@@ -952,7 +952,14 @@ mobiles fins a landscape mobiles
         font-size: 20px;
     }
 
+    .clasificacion{
+        display: flex !important;
+        justify-content: center !important;
+    }
 
+    #boto_llegir_llibre .boto_llegeix{
+        width: 100%;
+    } 
 
 }
 
@@ -1069,6 +1076,17 @@ Tablets
         margin-right: auto;
     }
 
+    .llibre_punts{
+        font-size: 20px;
+    }
+
+    #boto_llegir_llibre .boto_llegeix{
+        width: 100%;
+    } 
+
+    .clasificacion span{
+        font-size: 50px;
+    }
 
 }
 
@@ -1165,6 +1183,10 @@ Tablets landscape
     
     .text_nickname{
         font-size: 18px;
+    }
+
+    .clasificacion span{
+        font-size: 50px;
     }
 
 }

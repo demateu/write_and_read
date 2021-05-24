@@ -417,3 +417,4 @@ null, 'temple-4933682_640',3, null, null);
 
 /*PER PODER FER COPS_LLEGIT ++ */
 UPDATE llibre SET cops_llegit = 0;
+
