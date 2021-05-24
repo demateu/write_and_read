@@ -162,64 +162,8 @@ if(!isset($_SESSION)) {
                                     <textarea maxlength="250" name="biografia" type="text" class="form-control" id="biografia"><?= $_SESSION['usuari']->biografia; ?></textarea>
                                 </div>
                             
-                                <div class="row">
-                                    <div class="col mb-3">
-                                        <label>Canvia el teu avatar:</label>
-                                    </div>
-                                </div>
-
-                                <fieldset class="row mb-3" id="avatar_escriptor_area">
-                                        <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar1" value="1" checked>
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_1.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar2" value="2">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_2.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar3" value="3">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_3.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar4" value="4">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_4.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar5" value="5">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_5.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar6" value="6">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_6.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar7" value="7">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_7.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar8" value="8">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_8.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar9" value="9">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_9.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar10" value="10">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_10.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar11" value="11">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_11.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="avatarType[]" id="avatar12" value="12">
-                                                <img src="<?=base_url?>assets/img/avatar/avatar_12.jpg" alt="Imatge de l'escriptor" width="40px" height="auto"/>
-                                            </div>
-                                        </div>
-                                </fieldset>
+                                <!-- Avatar imatges -->
+                                <?php require_once 'view/elements/seleccionarAvatar.php' ?>
 
 
                                 <div class="col-12">

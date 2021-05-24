@@ -379,6 +379,7 @@ class UsuariController
                 $escriptorLlibres = new Usuari();
                 $escriptorLlibres->setId($_SESSION['usuari']->id);
                 $llibres = $escriptorLlibres->buscarUsuariLlibres();
+                $avatars = $escriptorLlibres->getAllAvatars();
 
                 require_once 'view/panel_control/EscriptorPerfilView.php';
             }
