@@ -55,7 +55,7 @@ if(!isset($_SESSION)) {
 			</div>	
 		</div>
 		<!--Fi Portada de Llibre-->
-		<div class="col-xs-12 col-md-7 p-3 mt-4" id="dades_autor">
+		<div class="col-xs-12 col-md-7 p-3" id="dades_autor">
 			<div class="row dades_autor_llibre">
 				<div class="col author_data">
 				<p>Autor: <span><?= $llibre->nom_i_cognoms ?></span></p>
@@ -81,7 +81,7 @@ if(!isset($_SESSION)) {
                         <!--Si l'usuari està loguejat, veu aquesta part-->
 						<form action='http://localhost:8888/write_and_read/interactllibre/puntua' onsubmit="return Validate()" name='vform' method='post'>
 							<input id='id_llibre' type='hidden' name='id_llibre' value='<?= $llibre->id ?>'>
-							<p class='clasificacion d-flex justify-content-center'>
+							<p class='clasificacion d-flex justify-content-center estrellas_centradas'>
 							<?php echo $puntuar ?>
 							</p>
 							<button type="submit" class="btn boto_llegeix mb-1 mx-auto">Enviar puntuació</button>
@@ -113,12 +113,12 @@ if(!isset($_SESSION)) {
 			</div>
 
 			<div class="row llibre_punts">
-				<div class="col-xs-12 col-md-2 lectures_icono">
+				<div class="col-xs-12 col-md-5 lectures_icono">
 					<!--Lectures-->
-					<p><i class="far fa-eye"></i>  Lectures:<?=$llibre->cops_llegit?></p>
+					<p><i class="far fa-eye"></i> Lectures:<?=$llibre->cops_llegit?></p>
 					<!--Fi Lectures-->
 				</div>
-				<div class="col-xs-12 col-md-2 vots_icono">
+				<div class="col-xs-12 col-md-5 vots_icono">
 					<!--Vots-->
 					<?php	
 					if (($llibre->cops_votat) == NULL) {
