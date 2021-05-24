@@ -182,8 +182,5 @@ if(!isset($_SESSION)) {
 
 </main>
 
-<script language="JavaScript">
-
-</script>
 
 <?php require_once 'view/layout/footer.php'; ?>
