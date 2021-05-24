@@ -6,34 +6,7 @@ if(!isset($_SESSION)) {
 
 <?php require_once 'view/layout/header.php'; ?>
 
- </style>
-  <?php $estrelles="";
-			$y=5;
-			for ($i = 1; $i <= 5; $i++) {
-				$star = '<span>★</span>';
-				$starChecked = "<span style='color:orange'>★</span>";			
-				if ($y <= ($llibre->mitja_vots)) {
-					$estrelles=$estrelles.$starChecked;
-				} else {
-					$estrelles=$estrelles.$star;
-				}
-				$y--;
-			}
-			
-		$puntuar="";		
-			$y=5;
-			for ($i = 1; $i <= 5; $i++) {
-				$star = "<input id='radio$i' type='radio' name='puntuacio' value='$y'><label for='radio$i' type='submit'>★</label>";
-				$starChecked = "<input id='radio$i' type='radio' name='puntuacio' value='$y' checked><label for='radio$i' type='submit'>★</label>";			
-				if ($y == ($llibre->mitja_vots)) {
-					$puntuar=$puntuar.$starChecked;
-				} else {
-					$puntuar=$puntuar.$star;
-				}
-				$y--;
-			}	
-	?>
-
+<script src="<?= base_url ?>assets/js/validacioEstrelles.js" type="text/javascript"></script>
 
 <!--Contingut principal -->
 <main class="container-fluid" id="llibre_view">
@@ -77,23 +50,48 @@ if(!isset($_SESSION)) {
 			<div class="row" id="valoracions_llibre">
 				<div class="col">
 					<!-- Estrelles -->
+	<?php $estrelles="";
+			$y=5;
+			for ($i = 1; $i <= 5; $i++) {
+				$star = '<span>★</span>';
+				$starChecked = "<span style='color:orange'>★</span>";			
+				if ($y <= ($llibre->mitja_vots)) {
+					$estrelles=$estrelles.$starChecked;
+				} else {
+					$estrelles=$estrelles.$star;
+				}
+				$y--;
+			}
+			
+		$puntuar="";		
+			$y=5;
+			for ($i = 1; $i <= 5; $i++) {
+				$star = "<input id='radio$i' type='radio' name='puntuacio' value='$y'><label for='radio$i' type='submit'>★</label>";
+				$starChecked = "<input id='radio$i' type='radio' name='puntuacio' value='$y' checked><label for='radio$i' type='submit'>★</label>";			
+				if ($y == ($llibre->mitja_vots)) {
+					$puntuar=$puntuar.$starChecked;
+				} else {
+					$puntuar=$puntuar.$star;
+				}
+				$y--;
+			}	
+	?>
 					 <?php if (isset($_SESSION['usuari']) and ($_SESSION['usuari']->id_tipus_usuari)==1) : ?>
                         <!--Si l'usuari està loguejat, veu aquesta part-->
 						<form action='http://localhost:8888/write_and_read/interactllibre/puntua' onsubmit="return Validate()" name='vform' method='post'>
 							<input id='id_llibre' type='hidden' name='id_llibre' value='<?= $llibre->id ?>'>
 							<p class='clasificacion d-flex justify-content-center estrellas_centradas'>
-							<?php echo $puntuar ?>
+							<?= $puntuar ?>
 							</p>
 							<button type="submit" class="btn boto_llegeix mb-1 mx-auto">Enviar puntuació</button>
 							<div id="error"></div>
 						</form>
-						
 			
 					<?php else : ?>
 					<!--Si no veu aquesta part-->
 						<form action='' method='post'>
 							<p class='clasificacion'>
-								<?php echo $estrelles ?>
+								<?= $estrelles ?>
 							</p>
 						</form>	
 					<?php endif; ?>		
@@ -183,15 +181,5 @@ if(!isset($_SESSION)) {
 
 </main>
 
-<script language="JavaScript">
-var puntuacio = document.forms['vform']['puntuacio'];
-function Validate() {
-  // validar radio
-  if (puntuacio.value == 0 || puntuacio.value == NULL) {
-    document.getElementById('error').innerHTML = "<p style='color:red;'>Has de fer click a alguna estrella</p>";
-    return false;
-  }
- }
-</script>
 
 <?php require_once 'view/layout/footer.php'; ?>

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * model de interactLlibre
+ * Aquesta classe InteractLlibre s'encarrega de conectar amb la BBDD per tot
+ * el que té a veure amb les interaccions entre els llibres i els usuaris
  */
 class InteractLlibre{
 

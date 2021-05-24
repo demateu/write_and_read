@@ -1,18 +1,8 @@
 <?php
 
 /**
- * veure després si creem una superclasse
- * per tenir en classes separades: escritor i lector
- * de moment ho poso tot junt
- * 
- * seran propiedades privadas porque solo podremos acceder a ellos mediante metodos
- * 
- * se usará para crear objetos
- * 
- * * tiene los getters y setters de cada propiedad
- * tiene metodos para interactuar con la BBDD en relacion a cada una de sus proiedades
- * 
- * @author demateu
+ * Aquesta classe Usuari s'encarrega de conectar amb la BBDD per tot
+ * el que té a veure amb l'usuari de tipus lector y/o escriptor
  */
 class Usuari{
 
@@ -475,39 +465,5 @@ class Usuari{
 
         return $avatars;
     }
-
-/**
- * SELECT u.nickname, u.nom_i_cognoms, u.dni, u.email, u.data_alta, u.password, u.subscrit, u.data_naixement, u.biografia, u.avatar_id, a.avatar_url_imagen
- * FROM usuari u, avatar a WHERE u.email = 'monicamateu80@hotmail.com' AND u.avatar_id = a.id";
- */
-
-	
- 
-	/**
-     * @author Victor
-     * Buscar si algun camp del form es repeteix a la base de dades
-     * 
-     * @return 1 si es afirmatiu
-	 * @return 0 si es negatiu
-     */
-
-	public function buscaRepetit($camp,$row){
-			$sql="SELECT * from usuari 
-				where '$row'='$camp'";
-			$result=$this->db->query($sql);
-
-			if(mysqli_num_rows($result) > 0){
-				return 1;
-			}else{
-				return 0;
-			}
-	}
-
-
-
-
-    
-
-
 
 }
